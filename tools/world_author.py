@@ -24,15 +24,17 @@ import uuid
 
 try:
     from .validate_content import ContentValidator, read_json
+    from .world_revision_guards import enforce_revision_guards
 except ImportError:
     from validate_content import ContentValidator, read_json
+    from world_revision_guards import enforce_revision_guards
 
 ROOT = Path(__file__).resolve().parents[1]
 MAX_TREE_BYTES = 16 * 1024 * 1024
 MAX_TRANSACTIONS = 10
 DEFAULT_POLICY = {
     "autonomy": "within_bounds", "allowed_tools": ["world_author"],
-    "allowed_operations": ["add_object", "move_object", "modify_object", "add_zone", "modify_zone", "add_station", "modify_station", "add_asset", "modify_asset", "replace_character", "edit_routine_presentation", "decorate", "edit_brief"],
+    "allowed_operations": ["add_object", "move_object", "modify_object", "add_zone", "modify_zone", "add_transition", "add_level", "add_station", "modify_station", "add_asset", "modify_asset", "replace_character", "edit_routine_presentation", "decorate", "edit_brief"],
     "destructive_actions": "require_owner_review", "max_objects": 1000,
     "max_zones": 100, "max_stations": 1000, "max_assets": 5000,
     "max_primitive_parts": 100000, "max_content_bytes": MAX_TREE_BYTES,
@@ -137,9 +139,9 @@ def operation_diff(before: dict | None, after: dict) -> set[str]:
     if before is None:
         return {"create_world"}
     operations = set()
-    for plural, singular in [("objects", "object"), ("zones", "zone"), ("stations", "station")]:
-        old = {item["id"]: item for item in before["world"][plural]}
-        new = {item["id"]: item for item in after["world"][plural]}
+    for plural, singular in [("objects", "object"), ("zones", "zone"), ("stations", "station"), ("transitions", "transition"), ("levels", "level")]:
+        old = {item["id"]: item for item in before["world"].get(plural, [])}
+        new = {item["id"]: item for item in after["world"].get(plural, [])}
         if new.keys() - old.keys():
             operations.add("add_" + singular)
         if old.keys() - new.keys():
@@ -159,8 +161,14 @@ def operation_diff(before: dict | None, after: dict) -> set[str]:
     for name, operation in [("character", "replace_character"), ("routine", "edit_routine_presentation"), ("brief", "edit_brief")]:
         if before[name] != after[name]:
             operations.add(operation)
-    ignored = {"objects", "zones", "stations", "asset_manifest_paths", "character_path", "routine_path", "brief_path"}
+    ignored = {"objects", "zones", "stations", "transitions", "levels", "asset_manifest_paths", "character_path", "routine_path", "brief_path", "metadata"}
     if any(before["world"].get(key) != after["world"].get(key) for key in before["world"] if key not in ignored):
+        operations.add("decorate")
+    # Revision receipts describe a change; they do not add a decoration scope
+    # requirement to an otherwise authorized move/add operation.
+    old_metadata = {key: value for key, value in before["world"].get("metadata", {}).items() if key not in {"revision_state", "structure_revision"}}
+    new_metadata = {key: value for key, value in after["world"].get("metadata", {}).items() if key not in {"revision_state", "structure_revision"}}
+    if old_metadata != new_metadata:
         operations.add("decorate")
     return operations
 
@@ -304,6 +312,12 @@ def prepare_candidate(root: Path, request: dict, stage: Path) -> dict:
             raise AuthoringError("routine timing/project meaning changed: preserve existing epoch with presentation-only edits, or create a separate world/routine identity and fresh timeline; active saves are never migrated here")
     elif any(after["routine"]["id"] == bundle(source, world_id)["routine"]["id"] for world_id in existing):
         raise AuthoringError("new worlds need a distinct routine identity for their own timeline")
+    # The guard applies here, including legacy complete-document requests, so a
+    # caller cannot bypass narrow-edit protection by using the lower-level API.
+    try:
+        enforce_revision_guards(before, after)
+    except ValueError as issue:
+        raise AuthoringError(str(issue)) from issue
     if any(entry["id"] == request["id"] for entry in after["brief"]["expansion_history"]):
         raise AuthoringError("request id already appears in world history")
     operations = operation_diff(before, after)
