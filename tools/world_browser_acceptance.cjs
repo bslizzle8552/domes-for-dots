@@ -56,6 +56,11 @@ const distance = (a, b) => Math.hypot(...a.map((v, i) => v - b[i]));
         check(world.id + ': real clip at ' + station.id, state.visual.playing && state.visual.clip.length > 0 && state.resident.phase === 'engaged');
       }
       await page.screenshot({ path: path.join(out, world.id + '.png') });
+      await command('resume');
+      await command('pause_autonomy', 'false');
+      await page.waitForFunction(ids => { const s = window.domesSnapshot; return s.source === 'SIMULATED' && s.resident.phase === 'engaged' && ids.includes(s.resident.current_location.station_id); }, world.stations.map(station => station.id), { timeout: 45000 });
+      check(world.id + ': simulated routine reaches a real station', (await snap()).source === 'SIMULATED');
+      await command('pause_autonomy', 'true');
       if ((world.transitions || []).length) {
         const transition = world.transitions[0];
         const lower = world.stations.find(station => Math.abs(station.interaction[1] - transition.entry[1]) < 0.1);
