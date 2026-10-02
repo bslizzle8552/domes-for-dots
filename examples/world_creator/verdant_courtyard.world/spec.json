@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "compiler": "semantic_grid_v1",
+  "compiler_version": "1.0.0",
+  "world_id": "verdant_courtyard",
+  "intent_sha256": "6565acf59628cdf3a45df67edf72586c240eeb65cfd660cd537a76dae3665f38",
+  "character_profile": {
+    "character_id": "fern_synthetic",
+    "display_name": "Fern",
+    "radius": 0.27562,
+    "height": 1.39125,
+    "forward_axis": "-Z",
+    "movement": "ground_walk",
+    "actions": [
+      "garden",
+      "inspect",
+      "observe",
+      "read",
+      "tinker",
+      "work"
+    ],
+    "contact": "not_declared",
+    "reach": "unknown"
+  },
+  "topology": "courtyard",
+  "zones": [
+    {
+      "id": "zone_0",
+      "label": "Garden court",
+      "purpose": "Garden court supports garden"
+    },
+    {
+      "id": "zone_1",
+      "label": "Painting pavilion",
+      "purpose": "Painting pavilion supports tinker"
+    },
+    {
+      "id": "zone_2",
+      "label": "Seed library",
+      "purpose": "Seed library supports read"
+    }
+  ],
+  "objects": [
+    {
+      "id": "activity_0",
+      "zone_id": "zone_0",
+      "recipe": "planter",
+      "label": "Garden court - garden",
+      "action": "garden",
+      "reason": "I want a dedicated place to garden.",
+      "chosen_by": "dot",
+      "protected": false
+    },
+    {
+      "id": "activity_1",
+      "zone_id": "zone_1",
+      "recipe": "workbench",
+      "label": "Painting pavilion - tinker",
+      "action": "tinker",
+      "reason": "I want a dedicated place to tinker.",
+      "chosen_by": "dot",
+      "protected": false
+    },
+    {
+      "id": "activity_2",
+      "zone_id": "zone_2",
+      "recipe": "shelf",
+      "label": "Seed library - read",
+      "action": "read",
+      "reason": "I want a dedicated place to read.",
+      "chosen_by": "dot",
+      "protected": false
+    },
+    {
+      "id": "keepsake",
+      "label": "Fern original signal sculpture",
+      "zone_id": "zone_0",
+      "recipe": "sculpture",
+      "protected": true,
+      "chosen_by": "dot",
+      "reason": "A stable personal marker that survives later expansions.",
+      "action": "inspect"
+    }
+  ],
+  "palette": {
+    "floor": "#9eac7b",
+    "secondary": "#c2b89a",
+    "accent": "#e8a772",
+    "background": "#293b35",
+    "material": "#85644e"
+  },
+  "owner_constraints": {
+    "privacy": "private",
+    "max_zones": 6,
+    "max_objects": 24,
+    "max_span": 60,
+    "must_haves": [
+      "No paid generation; preserve the meaningful object."
+    ],
+    "veto_tags": [],
+    "accessibility": [
+      "desktop_keyboard"
+    ],
+    "protected_objects": [
+      "keepsake"
+    ]
+  },
+  "title": "Fern's Verdant Courtyard",
+  "description": "An open garden, outdoor making and seed library surrounding a shared bend.",
+  "provenance": {
+    "setting": {
+      "value": "Fern's Verdant Courtyard",
+      "chosen_by": "dot",
+      "reason": "Independent synthetic Dot choice for this specimen."
+    },
+    "mood": {
+      "value": "An open garden, outdoor making and seed library surrounding a shared bend.",
+      "chosen_by": "dot",
+      "reason": "Activities determine the physical plan."
+    },
+    "topology": {
+      "value": "courtyard",
+      "chosen_by": "dot",
+      "reason": "Separate chosen activities through a distinct usable spatial relationship."
+    },
+    "shared_decisions": [
+      {
+        "value": "Use supported animation poses and keep the first world private.",
+        "chosen_by": "collaborative",
+        "reason": "Honest capabilities and owner privacy belong in this synthetic brief."
+      }
+    ],
+    "expansion_ideas": [
+      "A connected display room using the same bounded grammar."
+    ],
+    "unsupported_wishes": [
+      "Physical hand contact and a general organic character rig are not implemented."
+    ]
+  }
+}

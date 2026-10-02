@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "compiler": "semantic_grid_v1",
+  "compiler_version": "1.0.0",
+  "world_id": "lumen_observatory",
+  "intent_sha256": "4121526e620b646589eb52d540d2f841dfa82dadb5e89fa0a994315a68a67875",
+  "character_profile": {
+    "character_id": "lumen_synthetic",
+    "display_name": "Lumen",
+    "radius": 0.29531,
+    "height": 1.49062,
+    "forward_axis": "-Z",
+    "movement": "ground_walk",
+    "actions": [
+      "garden",
+      "inspect",
+      "observe",
+      "read",
+      "tinker",
+      "work"
+    ],
+    "contact": "not_declared",
+    "reach": "unknown"
+  },
+  "topology": "two_level",
+  "zones": [
+    {
+      "id": "zone_0",
+      "label": "Quiet archive",
+      "purpose": "Quiet archive supports read"
+    },
+    {
+      "id": "zone_1",
+      "label": "Instrument deck",
+      "purpose": "Instrument deck supports observe"
+    }
+  ],
+  "objects": [
+    {
+      "id": "activity_0",
+      "zone_id": "zone_0",
+      "recipe": "reading_desk",
+      "label": "Quiet archive - read",
+      "action": "read",
+      "reason": "I want a dedicated place to read.",
+      "chosen_by": "dot",
+      "protected": false
+    },
+    {
+      "id": "activity_1",
+      "zone_id": "zone_1",
+      "recipe": "telescope",
+      "label": "Instrument deck - observe",
+      "action": "observe",
+      "reason": "I want a dedicated place to observe.",
+      "chosen_by": "dot",
+      "protected": false
+    },
+    {
+      "id": "keepsake",
+      "label": "Lumen original signal sculpture",
+      "zone_id": "zone_0",
+      "recipe": "sculpture",
+      "protected": true,
+      "chosen_by": "dot",
+      "reason": "A stable personal marker that survives later expansions.",
+      "action": "inspect"
+    }
+  ],
+  "palette": {
+    "floor": "#606d98",
+    "secondary": "#a9b7bf",
+    "accent": "#e5c675",
+    "background": "#151d34",
+    "material": "#3d465f"
+  },
+  "owner_constraints": {
+    "privacy": "private",
+    "max_zones": 6,
+    "max_objects": 24,
+    "max_span": 60,
+    "must_haves": [
+      "No paid generation; preserve the meaningful object."
+    ],
+    "veto_tags": [],
+    "accessibility": [
+      "desktop_keyboard"
+    ],
+    "protected_objects": [
+      "keepsake"
+    ]
+  },
+  "title": "Lumen's Lumen Observatory",
+  "description": "Quiet low archive and elevated open-sky instrument deck.",
+  "provenance": {
+    "setting": {
+      "value": "Lumen's Lumen Observatory",
+      "chosen_by": "dot",
+      "reason": "Independent synthetic Dot choice for this specimen."
+    },
+    "mood": {
+      "value": "Quiet low archive and elevated open-sky instrument deck.",
+      "chosen_by": "dot",
+      "reason": "Activities determine the physical plan."
+    },
+    "topology": {
+      "value": "two_level",
+      "chosen_by": "dot",
+      "reason": "Separate chosen activities through a distinct usable spatial relationship."
+    },
+    "shared_decisions": [
+      {
+        "value": "Use supported animation poses and keep the first world private.",
+        "chosen_by": "collaborative",
+        "reason": "Honest capabilities and owner privacy belong in this synthetic brief."
+      }
+    ],
+    "expansion_ideas": [
+      "A connected display room using the same bounded grammar."
+    ],
+    "unsupported_wishes": [
+      "Physical hand contact and a general organic character rig are not implemented."
+    ]
+  }
+}

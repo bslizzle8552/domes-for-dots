@@ -1,0 +1,435 @@
+{
+  "schema_version": 1,
+  "id": "lumen_observatory_assets",
+  "assets": [
+    {
+      "id": "wc_reading_desk",
+      "display_name": "Reading Desk",
+      "category": "reading_desk",
+      "tags": [
+        "reading_desk"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": true,
+        "size": [
+          1.8,
+          1.1,
+          1
+        ],
+        "offset": [
+          0,
+          0.55,
+          0
+        ]
+      },
+      "footprint": [
+        1.8,
+        1
+      ],
+      "anchors": {
+        "front_approach": {
+          "position": [
+            0,
+            0,
+            1.245
+          ],
+          "facing": 0
+        },
+        "interaction": {
+          "position": [
+            0,
+            0,
+            1.245
+          ],
+          "facing": 0
+        }
+      },
+      "parts": [
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.85,
+            0
+          ],
+          "size": [
+            1.8,
+            0.18,
+            1
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#3d465f",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -0.78,
+            0.4,
+            -0.38
+          ],
+          "size": [
+            0.15,
+            0.8,
+            0.15
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#e5c675",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -0.78,
+            0.4,
+            0.38
+          ],
+          "size": [
+            0.15,
+            0.8,
+            0.15
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#e5c675",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.78,
+            0.4,
+            -0.38
+          ],
+          "size": [
+            0.15,
+            0.8,
+            0.15
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#e5c675",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.78,
+            0.4,
+            0.38
+          ],
+          "size": [
+            0.15,
+            0.8,
+            0.15
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#e5c675",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.985,
+            0
+          ],
+          "size": [
+            0.6,
+            0.09,
+            0.45
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#a9b7bf",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {
+        "contact": "not_implemented",
+        "anchor_space": "local"
+      },
+      "provenance": {
+        "creator": "Domes for Dots semantic compiler",
+        "source": "Original reviewed primitive recipe",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "wc_sculpture",
+      "display_name": "Sculpture",
+      "category": "sculpture",
+      "tags": [
+        "sculpture"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": true,
+        "size": [
+          1.1,
+          1.6,
+          1.1
+        ],
+        "offset": [
+          0,
+          0.8,
+          0
+        ]
+      },
+      "footprint": [
+        1.1,
+        1.1
+      ],
+      "anchors": {
+        "front_approach": {
+          "position": [
+            0,
+            0,
+            1.295
+          ],
+          "facing": 0
+        },
+        "interaction": {
+          "position": [
+            0,
+            0,
+            1.295
+          ],
+          "facing": 0
+        }
+      },
+      "parts": [
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.25,
+            0
+          ],
+          "size": [
+            1.1,
+            0.5,
+            1.1
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#3d465f",
+          "emission": 0
+        },
+        {
+          "shape": "sphere",
+          "position": [
+            0,
+            1,
+            0
+          ],
+          "size": [
+            0.8,
+            1.1,
+            0.8
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#e5c675",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            1.4,
+            0
+          ],
+          "size": [
+            0.75,
+            0.1,
+            0.75
+          ],
+          "rotation": [
+            0,
+            35,
+            0
+          ],
+          "color": "#a9b7bf",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {
+        "contact": "not_implemented",
+        "anchor_space": "local"
+      },
+      "provenance": {
+        "creator": "Domes for Dots semantic compiler",
+        "source": "Original reviewed primitive recipe",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "wc_telescope",
+      "display_name": "Telescope",
+      "category": "telescope",
+      "tags": [
+        "telescope"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": true,
+        "size": [
+          1.2,
+          1.9,
+          1.2
+        ],
+        "offset": [
+          0,
+          0.95,
+          0
+        ]
+      },
+      "footprint": [
+        1.2,
+        1.2
+      ],
+      "anchors": {
+        "front_approach": {
+          "position": [
+            0,
+            0,
+            1.345
+          ],
+          "facing": 0
+        },
+        "interaction": {
+          "position": [
+            0,
+            0,
+            1.345
+          ],
+          "facing": 0
+        }
+      },
+      "parts": [
+        {
+          "shape": "cylinder",
+          "position": [
+            0,
+            0.5,
+            0
+          ],
+          "size": [
+            0.16,
+            1,
+            0.16
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#3d465f",
+          "emission": 0
+        },
+        {
+          "shape": "cylinder",
+          "position": [
+            0,
+            0.08,
+            0
+          ],
+          "size": [
+            1.1,
+            0.16,
+            1.1
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#3d465f",
+          "emission": 0
+        },
+        {
+          "shape": "cylinder",
+          "position": [
+            0,
+            1.35,
+            0
+          ],
+          "size": [
+            0.48,
+            1,
+            0.48
+          ],
+          "rotation": [
+            65,
+            0,
+            0
+          ],
+          "color": "#e5c675",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {
+        "contact": "not_implemented",
+        "anchor_space": "local"
+      },
+      "provenance": {
+        "creator": "Domes for Dots semantic compiler",
+        "source": "Original reviewed primitive recipe",
+        "license": "MIT"
+      }
+    }
+  ]
+}

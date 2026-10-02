@@ -1,0 +1,47 @@
+{
+  "schema_version": 2,
+  "package_kind": "domes_character",
+  "character_id": "ember_synthetic",
+  "backend": "procedural_rigid_skin_v1",
+  "runtime_manifest": "character.json",
+  "spec_path": "spec.json",
+  "assets": {
+    "character.glb": "res://assets/generated/ember_synthetic/character.glb"
+  },
+  "files": {
+    "character.glb": "343a520c735b2ab24418026b98516f1affe6ae9c033dd85f79656636a3426071",
+    "character.json": "123c0e8f392fe18d5dcf57f7a6ea33ef03ce7c0fa1b0dc1f54c3aeb076608921",
+    "spec.json": "50c854e28ed138198735de7a869b20a739c9baefb6a6b65391cb9940c277c958"
+  },
+  "validation": {
+    "validator": "procedural_rigid_skin_v1",
+    "report": "validation.json"
+  },
+  "provenance": {
+    "geometry": "Original procedural segmented robot generated from approved structured choices",
+    "animation": "Original fixed-rig skeletal clips authored in factory_glb.py; no third-party animation or retargeting",
+    "reference_handling": "Only upload digests, approved descriptions and source/license declarations; no uploaded image pixels are copied into the package",
+    "license": "MIT for generated geometry and clips; input reference rights remain with their owners"
+  },
+  "capabilities": [
+    "idle",
+    "walk",
+    "interact",
+    "sit",
+    "work",
+    "read",
+    "build",
+    "inspect",
+    "garden",
+    "sleep",
+    "talk",
+    "phone"
+  ],
+  "limitations": [
+    "Procedural stylized prototype, not image-to-3D reconstruction",
+    "Rigid skin weights; not organic deformation",
+    "Sleep is a seated doze, not bed placement",
+    "Phone uses an empty hand; no handset or live call",
+    "No prop grip, seat alignment, inverse kinematics, arbitrary-rig retargeting or visual likeness guarantee"
+  ]
+}

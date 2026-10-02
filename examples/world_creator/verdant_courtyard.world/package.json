@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "package_kind": "domes_world",
+  "world_id": "verdant_courtyard",
+  "compiler": "semantic_grid_v1",
+  "compiler_version": "1.0.0",
+  "runtime_manifest": "world.json",
+  "spec_path": "spec.json",
+  "intent_path": "intent.json",
+  "character_manifest": "character.json",
+  "files": {
+    "assets.json": "9d24cb8eaa9a6c4d80e10c9591458255f8ce8806edd84f7af3a47aeba8c91f1e",
+    "brief.json": "3066f21a948bfcd985de399867d4d371bda69dc8557cd8b5d1b888f2942b7759",
+    "character.json": "196535d9f572d9b0ac3532c7dbb58e592bbd5db330cc6bd9754d7c46b8eccb80",
+    "compile.json": "0dd836748fd9f801c5f4fda5b7e51638427f7811c20b22a2c49dd2dbac5ec94e",
+    "intent.json": "1d2ac4b813c2671a0d3ebcbd03d5fff334933d8b3fc26786c76fb74c6d3d1e5b",
+    "routine.json": "77b09c33aa4dbf9feb0f55dc115a067a763c5bca1f58d0df5ef0192b352960b4",
+    "spec.json": "140e3ce3f481f6e6ce1d2c76fe1afbf5784c488a1f073bd8e196d8dcdada8833",
+    "world.json": "98b55d4568a96cf02d381dd83cba02390ce9dc6fff5892c03c19ff4eb86357c4"
+  },
+  "documents": {
+    "assets": "assets.json",
+    "routine": "routine.json",
+    "brief": "brief.json",
+    "receipt": "compile.json"
+  },
+  "requirements": {
+    "character_id": "fern_synthetic",
+    "display_name": "Fern",
+    "radius": 0.27562,
+    "height": 1.39125,
+    "forward_axis": "-Z",
+    "movement": "ground_walk",
+    "actions": [
+      "garden",
+      "inspect",
+      "observe",
+      "read",
+      "tinker",
+      "work"
+    ],
+    "contact": "not_declared",
+    "reach": "unknown"
+  },
+  "provenance": {
+    "character_package_sha256": "b083662e292d22d6e145733a18406a30dd6b8f98dc34989762071461f44541f1",
+    "intent_sha256": "6565acf59628cdf3a45df67edf72586c240eeb65cfd660cd537a76dae3665f38",
+    "source": "Structured Dot and owner intent; original procedural assets"
+  },
+  "limitations": [
+    "Open pavilion grammar; no arbitrary buildings or enclosed door solver.",
+    "Activity poses are simulated; no IK, physical hand contact, seat fit or actual work is claimed.",
+    "Owner must_haves and unsupported wishes are retained prose, not automatically proven requirements.",
+    "Private is a deployment requirement, not access control implemented by world JSON.",
+    "Engine, browser, accessibility and hosting acceptance are separate from static compilation."
+  ],
+  "validation": {
+    "validator": "semantic_grid_validator_v1",
+    "report": "validation.json"
+  }
+}

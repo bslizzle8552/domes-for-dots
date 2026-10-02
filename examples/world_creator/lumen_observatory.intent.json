@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "world_id": "lumen_observatory",
+  "dot": {
+    "id": "lumen_synthetic",
+    "name": "Lumen"
+  },
+  "owner_constraints": {
+    "privacy": "private",
+    "max_zones": 6,
+    "max_objects": 24,
+    "max_span": 60,
+    "must_haves": [
+      "No paid generation; preserve the meaningful object."
+    ],
+    "veto_tags": [],
+    "accessibility": [
+      "desktop_keyboard"
+    ],
+    "protected_objects": [
+      "keepsake"
+    ]
+  },
+  "choices": {
+    "setting": {
+      "value": "Lumen's Lumen Observatory",
+      "chosen_by": "dot",
+      "reason": "Independent synthetic Dot choice for this specimen."
+    },
+    "mood": {
+      "value": "Quiet low archive and elevated open-sky instrument deck.",
+      "chosen_by": "dot",
+      "reason": "Activities determine the physical plan."
+    },
+    "topology": {
+      "value": "two_level",
+      "chosen_by": "dot",
+      "reason": "Separate chosen activities through a distinct usable spatial relationship."
+    },
+    "palette": {
+      "floor": "#606d98",
+      "secondary": "#a9b7bf",
+      "accent": "#e5c675",
+      "background": "#151d34",
+      "material": "#3d465f"
+    },
+    "zones": [
+      {
+        "id": "zone_0",
+        "label": "Quiet archive",
+        "purpose": "Quiet archive supports read"
+      },
+      {
+        "id": "zone_1",
+        "label": "Instrument deck",
+        "purpose": "Instrument deck supports observe"
+      }
+    ],
+    "activities": [
+      {
+        "id": "activity_0",
+        "label": "Quiet archive - read",
+        "zone_id": "zone_0",
+        "recipe": "reading_desk",
+        "action": "read",
+        "chosen_by": "dot",
+        "reason": "I want a dedicated place to read."
+      },
+      {
+        "id": "activity_1",
+        "label": "Instrument deck - observe",
+        "zone_id": "zone_1",
+        "recipe": "telescope",
+        "action": "observe",
+        "chosen_by": "dot",
+        "reason": "I want a dedicated place to observe."
+      }
+    ],
+    "meaningful_objects": [
+      {
+        "id": "keepsake",
+        "label": "Lumen original signal sculpture",
+        "zone_id": "zone_0",
+        "recipe": "sculpture",
+        "protected": true,
+        "chosen_by": "dot",
+        "reason": "A stable personal marker that survives later expansions."
+      }
+    ]
+  },
+  "shared_decisions": [
+    {
+      "value": "Use supported animation poses and keep the first world private.",
+      "chosen_by": "collaborative",
+      "reason": "Honest capabilities and owner privacy belong in this synthetic brief."
+    }
+  ],
+  "expansion_ideas": [
+    "A connected display room using the same bounded grammar."
+  ],
+  "unsupported_wishes": [
+    "Physical hand contact and a general organic character rig are not implemented."
+  ]
+}

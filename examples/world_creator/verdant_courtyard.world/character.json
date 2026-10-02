@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "id": "fern_synthetic",
+  "display_name": "Fern",
+  "scene_path": "res://assets/generated/fern_synthetic/character.glb",
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "forward_axis": "-Z",
+  "collision": {
+    "radius": 0.27125,
+    "height": 1.39125
+  },
+  "navigation": {
+    "radius": 0.27562,
+    "speed": 2.4
+  },
+  "rig": {
+    "skeleton_path": "Character/Skeleton3D",
+    "animation_player_path": "AnimationPlayer",
+    "notes": "18-joint glTF skin, rigid weights for segmented geometry. Twelve original in-place skeletal clips. No arbitrary retargeting or station IK; sit and sleep use a seated pose, phone an empty-hand gesture."
+  },
+  "animations": {
+    "idle": "idle",
+    "walk": "walk",
+    "interact": "interact",
+    "sit": "sit",
+    "work": "work",
+    "read": "read",
+    "build": "build",
+    "inspect": "inspect",
+    "garden": "garden",
+    "sleep": "sleep",
+    "talk": "talk",
+    "phone": "phone"
+  },
+  "fallbacks": {
+    "rest": "sleep",
+    "observe": "inspect",
+    "music": "talk"
+  },
+  "appearance": {
+    "color": "#9eac7b",
+    "accent": "#e8a772"
+  },
+  "metadata": {
+    "creator": "Domes character factory",
+    "license": "MIT",
+    "backend": "procedural_rigid_skin_v1",
+    "spec_sha256": "64600d1f1f4cff223c251db61cf05fbf453162dc2054a0d9217a54cac23b56e7",
+    "source": "Original procedural geometry and authored skeletal clips; not image reconstruction"
+  }
+}

@@ -1,0 +1,496 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://domes-for-dots.example/schemas/semantic-grid-world-spec.schema.json",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "compiler": {
+      "const": "semantic_grid_v1"
+    },
+    "compiler_version": {
+      "const": "1.0.0"
+    },
+    "world_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,39}$"
+    },
+    "intent_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "character_profile": {
+      "type": "object",
+      "properties": {
+        "character_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{0,39}$"
+        },
+        "display_name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "radius": {
+          "type": "number",
+          "minimum": 0.05,
+          "maximum": 0.7
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0.1,
+          "maximum": 2.6
+        },
+        "forward_axis": {
+          "const": "-Z"
+        },
+        "movement": {
+          "const": "ground_walk"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "inspect",
+              "work",
+              "read",
+              "garden",
+              "observe",
+              "tinker"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 6
+        },
+        "contact": {
+          "const": "not_declared"
+        },
+        "reach": {
+          "const": "unknown"
+        }
+      },
+      "required": [
+        "character_id",
+        "display_name",
+        "radius",
+        "height",
+        "forward_axis",
+        "movement",
+        "actions",
+        "contact",
+        "reach"
+      ],
+      "additionalProperties": false
+    },
+    "topology": {
+      "enum": [
+        "single_room",
+        "linear",
+        "courtyard",
+        "two_level"
+      ]
+    },
+    "zones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,39}$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "purpose"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 6
+    },
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,39}$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "zone_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,39}$"
+          },
+          "recipe": {
+            "enum": [
+              "workbench",
+              "reading_desk",
+              "shelf",
+              "planter",
+              "telescope",
+              "sculpture",
+              "lamp"
+            ]
+          },
+          "protected": {
+            "type": "boolean"
+          },
+          "chosen_by": {
+            "enum": [
+              "dot",
+              "human",
+              "collaborative",
+              "compiler"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "action": {
+            "enum": [
+              "inspect",
+              "work",
+              "read",
+              "garden",
+              "observe",
+              "tinker"
+            ]
+          },
+          "position_hint": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": -100,
+              "maximum": 100
+            },
+            "minItems": 3,
+            "maxItems": 3
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "zone_id",
+          "recipe",
+          "protected",
+          "chosen_by",
+          "reason",
+          "action"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 48
+    },
+    "palette": {
+      "type": "object",
+      "properties": {
+        "floor": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "secondary": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "accent": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "background": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "material": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        }
+      },
+      "required": [
+        "floor",
+        "secondary",
+        "accent",
+        "background",
+        "material"
+      ],
+      "additionalProperties": false
+    },
+    "owner_constraints": {
+      "type": "object",
+      "properties": {
+        "privacy": {
+          "const": "private"
+        },
+        "max_zones": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6
+        },
+        "max_objects": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 48
+        },
+        "max_span": {
+          "type": "number",
+          "minimum": 8,
+          "maximum": 100
+        },
+        "must_haves": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "minItems": 0,
+          "maxItems": 32
+        },
+        "veto_tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,39}$"
+          },
+          "minItems": 0,
+          "maxItems": 32
+        },
+        "accessibility": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "single_level_only",
+              "reduced_motion",
+              "desktop_keyboard",
+              "touch_requested"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 32
+        },
+        "protected_objects": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,39}$"
+          },
+          "minItems": 0,
+          "maxItems": 32
+        }
+      },
+      "required": [
+        "privacy",
+        "max_zones",
+        "max_objects",
+        "max_span",
+        "must_haves",
+        "veto_tags",
+        "accessibility",
+        "protected_objects"
+      ],
+      "additionalProperties": false
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "setting": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "chosen_by": {
+              "enum": [
+                "dot",
+                "human",
+                "collaborative",
+                "compiler"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            }
+          },
+          "required": [
+            "value",
+            "chosen_by",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "mood": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "chosen_by": {
+              "enum": [
+                "dot",
+                "human",
+                "collaborative",
+                "compiler"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            }
+          },
+          "required": [
+            "value",
+            "chosen_by",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "topology": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "chosen_by": {
+              "enum": [
+                "dot",
+                "human",
+                "collaborative",
+                "compiler"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            }
+          },
+          "required": [
+            "value",
+            "chosen_by",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "shared_decisions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "chosen_by": {
+                "enum": [
+                  "dot",
+                  "human",
+                  "collaborative",
+                  "compiler"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              }
+            },
+            "required": [
+              "value",
+              "chosen_by",
+              "reason"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 32
+        },
+        "expansion_ideas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "minItems": 0,
+          "maxItems": 32
+        },
+        "unsupported_wishes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "minItems": 0,
+          "maxItems": 32
+        }
+      },
+      "required": [
+        "setting",
+        "mood",
+        "topology",
+        "shared_decisions",
+        "expansion_ideas",
+        "unsupported_wishes"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "compiler",
+    "compiler_version",
+    "world_id",
+    "intent_sha256",
+    "character_profile",
+    "topology",
+    "zones",
+    "objects",
+    "palette",
+    "owner_constraints",
+    "title",
+    "description",
+    "provenance"
+  ],
+  "additionalProperties": false
+}

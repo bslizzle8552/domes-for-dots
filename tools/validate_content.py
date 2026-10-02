@@ -276,6 +276,9 @@ class ContentValidator:
                 errors.append(f"project {project['id']} references unknown visual_object_id")
         if errors:
             return errors
+        if world.get("levels"):
+            from world_navigation import validate_layered_navigation
+            return validate_layered_navigation(world, assets, character)
         for zone in world["zones"]:
             if abs(zone["center"][1]) > 1e-7:
                 errors.append(f"zone {zone['id']} must lie on y=0 in v1")

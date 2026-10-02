@@ -1,0 +1,555 @@
+{
+  "schema_version": 1,
+  "id": "ember_foundry_assets",
+  "assets": [
+    {
+      "id": "wc_sculpture",
+      "display_name": "Sculpture",
+      "category": "sculpture",
+      "tags": [
+        "sculpture"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": true,
+        "size": [
+          1.1,
+          1.6,
+          1.1
+        ],
+        "offset": [
+          0,
+          0.8,
+          0
+        ]
+      },
+      "footprint": [
+        1.1,
+        1.1
+      ],
+      "anchors": {
+        "front_approach": {
+          "position": [
+            0,
+            0,
+            1.256
+          ],
+          "facing": 0
+        },
+        "interaction": {
+          "position": [
+            0,
+            0,
+            1.256
+          ],
+          "facing": 0
+        }
+      },
+      "parts": [
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.25,
+            0
+          ],
+          "size": [
+            1.1,
+            0.5,
+            1.1
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#606973",
+          "emission": 0
+        },
+        {
+          "shape": "sphere",
+          "position": [
+            0,
+            1,
+            0
+          ],
+          "size": [
+            0.8,
+            1.1,
+            0.8
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#ffa154",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            1.4,
+            0
+          ],
+          "size": [
+            0.75,
+            0.1,
+            0.75
+          ],
+          "rotation": [
+            0,
+            35,
+            0
+          ],
+          "color": "#80715c",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {
+        "contact": "not_implemented",
+        "anchor_space": "local"
+      },
+      "provenance": {
+        "creator": "Domes for Dots semantic compiler",
+        "source": "Original reviewed primitive recipe",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "wc_shelf",
+      "display_name": "Shelf",
+      "category": "shelf",
+      "tags": [
+        "shelf"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": true,
+        "size": [
+          1.8,
+          2,
+          0.65
+        ],
+        "offset": [
+          0,
+          1.0,
+          0
+        ]
+      },
+      "footprint": [
+        1.8,
+        0.65
+      ],
+      "anchors": {
+        "front_approach": {
+          "position": [
+            0,
+            0,
+            1.031
+          ],
+          "facing": 0
+        },
+        "interaction": {
+          "position": [
+            0,
+            0,
+            1.031
+          ],
+          "facing": 0
+        }
+      },
+      "parts": [
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.12,
+            0
+          ],
+          "size": [
+            1.8,
+            0.1,
+            0.65
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#606973",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.75,
+            0
+          ],
+          "size": [
+            1.8,
+            0.1,
+            0.65
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#606973",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            1.4,
+            0
+          ],
+          "size": [
+            1.8,
+            0.1,
+            0.65
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#606973",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            1.95,
+            0
+          ],
+          "size": [
+            1.8,
+            0.1,
+            0.65
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#606973",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -0.85,
+            1,
+            0
+          ],
+          "size": [
+            0.1,
+            2,
+            0.65
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#ffa154",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.85,
+            1,
+            0
+          ],
+          "size": [
+            0.1,
+            2,
+            0.65
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#ffa154",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -0.5,
+            1.0,
+            0
+          ],
+          "size": [
+            0.25,
+            0.4,
+            0.45
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#80715c",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            1.0,
+            0
+          ],
+          "size": [
+            0.25,
+            0.4,
+            0.45
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#80715c",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.5,
+            1.0,
+            0
+          ],
+          "size": [
+            0.25,
+            0.4,
+            0.45
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#80715c",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {
+        "contact": "not_implemented",
+        "anchor_space": "local"
+      },
+      "provenance": {
+        "creator": "Domes for Dots semantic compiler",
+        "source": "Original reviewed primitive recipe",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "wc_workbench",
+      "display_name": "Workbench",
+      "category": "workbench",
+      "tags": [
+        "workbench"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": true,
+        "size": [
+          2,
+          1.1,
+          1
+        ],
+        "offset": [
+          0,
+          0.55,
+          0
+        ]
+      },
+      "footprint": [
+        2,
+        1
+      ],
+      "anchors": {
+        "front_approach": {
+          "position": [
+            0,
+            0,
+            1.206
+          ],
+          "facing": 0
+        },
+        "interaction": {
+          "position": [
+            0,
+            0,
+            1.206
+          ],
+          "facing": 0
+        }
+      },
+      "parts": [
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.85,
+            0
+          ],
+          "size": [
+            2,
+            0.18,
+            1
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#606973",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -0.88,
+            0.4,
+            -0.38
+          ],
+          "size": [
+            0.15,
+            0.8,
+            0.15
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#ffa154",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -0.88,
+            0.4,
+            0.38
+          ],
+          "size": [
+            0.15,
+            0.8,
+            0.15
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#ffa154",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.88,
+            0.4,
+            -0.38
+          ],
+          "size": [
+            0.15,
+            0.8,
+            0.15
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#ffa154",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.88,
+            0.4,
+            0.38
+          ],
+          "size": [
+            0.15,
+            0.8,
+            0.15
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#ffa154",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.985,
+            0
+          ],
+          "size": [
+            0.6,
+            0.09,
+            0.45
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#80715c",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {
+        "contact": "not_implemented",
+        "anchor_space": "local"
+      },
+      "provenance": {
+        "creator": "Domes for Dots semantic compiler",
+        "source": "Original reviewed primitive recipe",
+        "license": "MIT"
+      }
+    }
+  ]
+}

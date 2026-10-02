@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://domes-for-dots.example/schemas/world-package.schema.json",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "package_kind": {
+      "const": "domes_world"
+    },
+    "world_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,39}$"
+    },
+    "compiler": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,39}$"
+    },
+    "compiler_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "runtime_manifest": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_][a-zA-Z0-9_./-]{0,199}$"
+    },
+    "spec_path": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_][a-zA-Z0-9_./-]{0,199}$"
+    },
+    "intent_path": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_][a-zA-Z0-9_./-]{0,199}$"
+    },
+    "character_manifest": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_][a-zA-Z0-9_./-]{0,199}$"
+    },
+    "files": {
+      "type": "object",
+      "minProperties": 6,
+      "maxProperties": 100,
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "documents": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9_][a-zA-Z0-9_./-]{0,199}$"
+      }
+    },
+    "requirements": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000
+      },
+      "minItems": 0,
+      "maxItems": 32
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "validator": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{0,39}$"
+        },
+        "report": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_][a-zA-Z0-9_./-]{0,199}$"
+        }
+      },
+      "required": [
+        "validator",
+        "report"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "package_kind",
+    "world_id",
+    "compiler",
+    "compiler_version",
+    "runtime_manifest",
+    "spec_path",
+    "intent_path",
+    "character_manifest",
+    "files",
+    "documents",
+    "requirements",
+    "provenance",
+    "limitations",
+    "validation"
+  ],
+  "additionalProperties": false
+}
