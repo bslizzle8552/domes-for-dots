@@ -92,3 +92,25 @@ static func obstacle(asset: Dictionary, object: Dictionary) -> Rect2:
 		high = high.max(corner)
 	var center := Vector2(object.position[0], object.position[2])
 	return Rect2(center+low,high-low)
+
+static func support_box(size: Vector3, at: Vector3, color: String) -> StaticBody3D:
+	var body := StaticBody3D.new()
+	body.position = at
+	var shape := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = size
+	shape.shape = box
+	body.add_child(shape)
+	body.add_child(part({"shape":"box", "size":[size.x,size.y,size.z], "color":color}))
+	return body
+
+static func ramp(transition: Dictionary) -> StaticBody3D:
+	var entry := vector(transition.entry)
+	var exit := vector(transition.exit)
+	var tangent := (exit-entry).normalized()
+	var across := Vector3(tangent.x,0,tangent.z).normalized().cross(Vector3.UP)
+	var normal := across.cross(tangent).normalized()
+	var body := support_box(Vector3(entry.distance_to(exit),0.2,float(transition.width)), (entry+exit)*0.5-normal*0.1, transition.get("color","#8b9ea8"))
+	body.basis = Basis(tangent,normal,across)
+	body.name = "Ramp_"+str(transition.id)
+	return body
