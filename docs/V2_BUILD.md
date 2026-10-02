@@ -31,7 +31,7 @@ Existing simulation and event handling were substantive, not placeholders: deter
 
 ## Final verification · 2026-10-02
 
-**PASS for the scope below.** The final 0.2.0 Web export is `dist/web/`, served locally at [127.0.0.1:8060](http://127.0.0.1:8060). No V2 release was published and no public hosting was created. The source changes are in this working checkout; the manifest deliberately records `source_dirty: true` and the SHA-256 of every runtime source file. Historical v0.1 evidence remains unchanged.
+**PASS for the scope below.** The 0.2.0 Web export is `dist/web/`, served locally at [127.0.0.1:8060](http://127.0.0.1:8060). Release validation was rerun from clean source commit `a2786137c82d75fb04ff120dc8d46b8e3d088a53`; the manifest records `source_dirty: false` and the SHA-256 of all 59 runtime source files. The release tag and package receipt identify the subsequent documentation/evidence commit, whose runtime hashes are unchanged. No V2 release was published and no public hosting was created. Historical v0.1 evidence remains unchanged.
 
 | Check | Final result |
 | --- | --- |
@@ -47,7 +47,7 @@ Existing simulation and event handling were substantive, not placeholders: deter
 | Startup regression | Fixed an intermittent query before the navigation map's first synchronization. Final build plus three additional 200-check runtime runs pass without engine errors. |
 | Source/handoff | Local Markdown links resolve; whitespace and source hygiene checks pass. Prototype files remain unchanged. Creation/expansion preserved every preexisting content file byte-for-byte. |
 
-Evidence: [build manifest](validation/v2-build-manifest.json), [browser checks](validation/v2-browser-acceptance.json), [character inventory](validation/v2-character-audit.json), and [actual authoring receipts](validation/v2-authoring-receipts.json). Local build logs are under `artifacts/build/20261002T140419Z-bd63a5de/`; startup repetitions are `artifacts/runtime-startup-repeat-*.log`.
+Evidence: [build manifest](validation/v2-build-manifest.json), [browser checks](validation/v2-browser-acceptance.json), [character inventory](validation/v2-character-audit.json), and [actual authoring receipts](validation/v2-authoring-receipts.json). Clean release build logs are under `artifacts/build/20261002T142722Z-33eaca69/`; earlier startup repetitions are `artifacts/runtime-startup-repeat-*.log`.
 
 The creation and telescope requests were applied through the public CLI. Visual polish was a third compatible asset-only request, recorded in Lumen's brief. The starter proposals now contain the corrected geometry so a new creator starts from the validated result. The creation pilot is fictional; an independent owner/Dot usability trial remains unperformed.
 
@@ -56,6 +56,12 @@ The creation and telescope requests were applied through the public CLI. Visual 
 | ![Lantern Archive with visible books and telescope](images/v2-lantern-archive.png) | ![Nova in the Tidal Observatory](images/v2-tidal-observatory.png) |
 
 Additional pose captures: [work](images/v2-nova-work.png), [standing rest](images/v2-nova-rest.png), [visual phone response](images/v2-nova-phone.png).
+
+## Release preparation
+
+All intended V2 source, schemas, examples, Godot UID sidecars, documentation, screenshots and sanitized evidence are tracked. The release hygiene scan covers 146 files. Existing ignore rules correctly exclude caches, toolchains, generated exports, local state and credentials; no unintended nonignored artifacts required deletion. Working text was normalized to the existing LF policy before the clean build, so packaged source bytes match Git. The supplied prototype remains unchanged.
+
+The clean packaging command is `python tools/package_release.py`. Its four upload assets are under `dist/release/`; the package receipt identifies the source commit and `SHA256SUMS` identifies both ZIPs. Final archive verification and the source-archive rebuild are local release gates before tagging. Follow the [publication handoff](RELEASE_PREPARATION.md) for the remaining manual push, GitHub CI, release creation and anonymous download verification; use the [prepared release body](releases/v0.2.0.md). No additional product changes are part of this release preparation.
 
 ## Reproduce and use
 
