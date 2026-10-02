@@ -6,7 +6,7 @@ packages the existing Domes character manifest, and installs it into an isolated
 copy of a world. The cloud worker imports that copy into Godot, audits the actual
 rig and clips, tests animation behavior, and exports browser files.
 
-This is backend infrastructure. Owners contribute references and preferences,
+This is **operator-run backend infrastructure**, proven with a public synthetic Aster example. General self-service creation, automatic private Site provisioning and private uploads are not deployed. Owners contribute references and preferences,
 approve the proposed character, and visit a hosted URL. None of the commands below
 are owner onboarding steps. Python, GitHub, Godot and export tooling belong to the
 operator/CI environment.
@@ -60,13 +60,14 @@ The data boundaries are explicit:
 
 | Contract | Purpose |
 | --- | --- |
-| [`character-interview.schema.json`](../schemas/character-interview.schema.json) | Approved reference declarations and Dot/human choices |
-| [`character-spec.schema.json`](../schemas/character-spec.schema.json) | Normalized choices, image digests, creative intent and implementation limits |
-| [`character-package.schema.json`](../schemas/character-package.schema.json) | Data-only backend package, provenance, capabilities and file hashes |
+| [`character-interview.schema.json`](../schemas/character-interview.schema.json) | Current procedural producer's strict approved interview; not a universal interview for every producer |
+| [`character-spec.schema.json`](../schemas/character-spec.schema.json) | Generic identity/backend/reference/intent envelope; appearance and decision payloads require backend validation |
+| [`procedural-rigid-skin-spec.schema.json`](../schemas/procedural-rigid-skin-spec.schema.json) | Strict procedural parameters, approval/veto vocabulary and supported activity choices |
+| [`character-package.schema.json`](../schemas/character-package.schema.json) | Generic v2 package envelope, explicit manifest/spec paths, asset mappings, provenance, capabilities, file hashes and validator metadata; legacy v1 remains strictly validated |
 | [`character.schema.json`](../schemas/character.schema.json) | Existing producer-independent runtime character contract |
 | [`character-job.schema.json`](../schemas/character-job.schema.json) | Cloud worker progress, validation and build receipt |
 
-Each generated package contains:
+Each package from the current procedural producer contains:
 
 ```text
 character.glb   # self-contained geometry, materials, skin and clips
@@ -170,6 +171,10 @@ unpacks it into a fresh upload directory, and supports authenticated operator
 dispatch. Workflow input is data, never interpolated shell code. This small-input
 prototype still needs private object storage for typical larger references.
 
+The current request adapter validates the procedural interview contract. It is
+not a universal upload/job service; future producers need a reviewed input adapter
+alongside their strict specification, asset and engine acceptance contracts.
+
 The immutable worker receipt separates build success from deployment: it records
 `deployment.status = not_deployed`. An external publisher establishes a URL in a
 separate publication receipt; browser acceptance is another explicit check.
@@ -191,6 +196,18 @@ See [cloud architecture](CLOUD_ARCHITECTURE.md) for orchestration, hosting and
 persistence boundaries. A public multi-user request UI, production authentication,
 private upload storage, per-owner hosting and cross-device world persistence are
 separate work; this factory does not claim they already exist.
+
+## Generic envelope plus strict registered producer
+
+`character_factory.py` performs package orchestration and isolated test-template installation. `character_package.py` checks bounded regular files, declared SHA-256 inventory, identity/backend agreement, runtime manifest schema and asset mappings confined to the character namespace. The generic schema accepts producer identifiers and parameters without requiring a robot or eighteen bones. Schema acceptance alone is insufficient to approve a package.
+
+`character_backends.py` is an explicit trusted-code registry. Unknown backends fail closed. Every package then runs its registered strict specification and asset validator. The uploaded backend/validator label cannot select an arbitrary module, bypass validation or supply an executable acceptance script. The stored `validation.json` is evidence only; validation is always recomputed.
+
+`procedural_character.py` owns the current producer's segmented body, fixed proportions/colors/vest/accessories, eighteen joints, rigid single-joint weights, twelve exact clip semantics, approved-spec manifest equivalence, self-contained GLB rules and engine motion-test contract. `factory_glb.py` retains the unchanged geometry/animation emitter. The cloud worker selects acceptance from trusted backend code rather than hardcoding the procedural test suite in reusable orchestration.
+
+New generation writes envelope version 2; its `runtime_manifest`, `spec_path`, `assets` and `validation` fields make composition explicit. Existing version 1 proof packages use their documented default paths and still run the same strict registered producer checks. The Aster GLB/spec/runtime manifest retain their existing format. Another producer needs a reviewed registration, strict parameter/asset validation and engine acceptance; merely writing a new identifier does not make it available.
+
+The factory's durable output is a **character package**. Cedar Atelier insertion is a test-template adapter, not final world design. Future orchestration may compose CharacterFactory and WorldFactory outputs, validate the composed world and publish through an appropriate host. WorldIntent/WorldSpec compilation and complete-world auth/storage belong to the next project, not this cleanup.
 
 ## Verification and limits
 

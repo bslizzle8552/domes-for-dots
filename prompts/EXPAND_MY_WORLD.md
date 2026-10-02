@@ -1,6 +1,6 @@
 # Expand my Dot's world
 
-Copy the prompt below into an existing world-building conversation, or identify your existing world link. The build service retrieves its source and brief; owners do not manage project files.
+Copy the prompt below into an existing world-building conversation, or identify your existing world link. An authorized operator or future service retrieves its source and brief; general self-service expansion is not deployed. This is a target/operator-assisted workflow, and owners do not manage project files.
 
 ---
 

@@ -2,6 +2,9 @@
 
 ## Unreleased — cloud character factory
 
+- Hardened the generic package/spec envelope and trusted producer boundary; preserved strict procedural checks and legacy proof packages.
+- Corrected owner documentation to separate verified visits, operator-run creation and future self-service/private Sites. Autonomous World Creator is next; auth/storage is deferred.
+
 - Added approved reference/interview transport, deterministic skinned GLB production, semantic package validation and isolated world installation.
 - Added a real GitHub Actions worker for pinned engine setup, motion acceptance and Web export; kept build, publication and browser evidence separate.
 - Replaced owner-facing installation/command flows with conversation and browser delivery; preserved contributor tooling.

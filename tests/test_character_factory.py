@@ -138,8 +138,12 @@ class CharacterFactoryTests(unittest.TestCase):
     def test_manifest_cannot_redirect_install_to_arbitrary_scene(self):
         folder = self.package()
         manifest = factory.read_json(folder / "character.json")
-        manifest["scene_path"] = "res://scenes/characters/placeholder.tscn"
+        manifest["scene_path"] = "res://assets/generated/aster/redirect.glb"
         factory.write_json(folder / "character.json", manifest)
+        package = factory.read_json(folder / "package.json")
+        package["files"]["character.json"] = factory.digest(folder / "character.json")
+        package["assets"]["character.glb"] = manifest["scene_path"]
+        factory.write_json(folder / "package.json", package)
         report = factory.validate_package(folder)
         self.assertFalse(report["ok"])
         self.assertIn("backend contract", report["errors"][0])

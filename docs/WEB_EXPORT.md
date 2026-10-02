@@ -32,7 +32,7 @@ Upload the complete Web export to a static host that serves `.wasm` as `applicat
 
 Static hosting exposes the packed authored world and its assets to visitors. A private personal world needs appropriate host access controls. Keeping an API private while publicly serving sensitive content would not protect that content. No credentials should be baked into an export.
 
-Browser saves remain local to the browser profile and origin. A host does not turn local storage into a server database. Cross-device persistence needs a separate authenticated adapter. The [cloud architecture](CLOUD_ARCHITECTURE.md) covers GitHub Actions as a worker and Vercel as a delivery/control API option. GitHub Pages can deliver a public, non-sensitive static proof; it does not supply a private account system. ChatGPT Sites is optional and requires separately verified access.
+Browser saves remain local to the browser profile and origin. A host does not turn local storage into a server database. Cross-device persistence needs a separate authenticated adapter. The [cloud architecture](CLOUD_ARCHITECTURE.md) covers GitHub Actions as a worker and Vercel as a delivery/control API option. GitHub Pages can deliver a public, non-sensitive static proof; it does not supply a private account system. ChatGPT Sites is the preferred first native target for upcoming private-world experiments based on the owner's separate Rocky research; generalized provisioning and this branch's remote state adapter remain unproven. Hosting remains portable.
 
 ## Browser limitations
 

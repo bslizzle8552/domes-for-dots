@@ -2,6 +2,12 @@
 
 Implementation and evidence from 2 October 2026. This is a post-V2 development increment; the published v0.2.0 release and Rocky's existing world remain unchanged.
 
+## Bounded pre-merge cleanup
+
+The [cleanup record](CHARACTER_FACTORY_CLEANUP.md) lists the exact files, generic/strict contract split and rerun acceptance. Owner text now distinguishes the verified visit, operator-run jobs/publication and future self-service/private-Site product. Package envelope v2 makes composition explicit while legacy v1 proof packages remain strictly validated. Character assets and runtime source are unchanged; the hosted proof was checked again without republication.
+
+The next major project is the separate Autonomous World Creator after PR #1 is merged. Auth/storage is intentionally deferred until the complete durable world unit is defined; no world compiler, account service or Site provisioning experiment was implemented by this cleanup.
+
 ## What works
 
 [Visit the generated Aster world](https://bslizzle8552.github.io/domes-for-dots/) in a capable browser with nothing to install. The live world passed all nine hosted browser checks and all 16 anonymously downloaded files matched the cloud build's hashes. [Publication and browser evidence](validation/factory-hosted-acceptance.json) records the exact deployed revision.
@@ -28,7 +34,7 @@ The generator consumes explicit palette, proportions, clothing and accessory cho
 | Future owner documentation | [Getting started](GETTING_STARTED.md), [onboarding](DOT_ONBOARDING.md), creation/expansion prompts. No owner toolchain setup. |
 | Tests | Python factory/transport/worker suites plus original V2 suites; Godot skeleton/motion and regression tests; exported-browser navigation/clip/persistence checks. |
 | Exact remaining blockers | Below; each is tied to tested boundaries or an absent service, not assumed account capability. |
-| Recommended next task | Authenticated submission/status service and durable owner/world/state storage, with two-device acceptance. |
+| Recommended next task | Separate Autonomous World Creator after this PR is merged; auth/storage follows the complete durable world unit. |
 
 ## Verified stages
 
@@ -60,4 +66,8 @@ The initial cloud export exposed a real bootstrap error: threaded templates had 
 
 ## Next implementation task
 
-Build the authenticated request/status service around the proven worker and add a durable, revisioned world-state adapter. Acceptance should show two separately signed-in browser sessions visiting the same authorized world, preserving its epoch/progress, rejecting conflicting writes and blocking unauthorized asset/state access. The owner supplies creative input and receives a working URL throughout; no development software is installed on their device.
+After this draft PR is merged, begin the separate Autonomous World Creator: Dot intent → WorldIntent → WorldSpec → deterministic semantic compiler → validated world package → composition with a validated character package → private ChatGPT Site where supported. No world compiler or autonomous generator is implemented by this cleanup.
+
+ChatGPT Sites is the preferred first native target based on the owner's independent Rocky research: his private Site supplies binary/browser delivery, backend code, native database persistence and authorized repeatable updates without keeping the owner's PC online or requiring Vercel. General provisioning for arbitrary owners remains unproven; retain other host adapters.
+
+Defer auth/storage implementation until the complete durable unit is established: owner/Dot identity, character/world packages, assets, routines, creative brief, expansion history, runtime state, revisions and job records. The current operator interfaces can be wrapped later. Browser-local saves and missing generalized private submission remain explicit limits.

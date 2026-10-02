@@ -1,10 +1,12 @@
 # Create or adapt a character
 
+**Availability:** the current procedural Character Factory is operator-run and has a verified public synthetic example. This prompt is a supported-service check and handoff, not a generalized private upload/self-service endpoint. Broader body types require another registered strict producer.
+
 ---
 
 Create or adapt a character for the current Domes for Dots world. My reference or appearance preference is: [optional]. First read our brief to determine which appearance decisions are OWNER LOCKED, DOT CHOICE or SHARED DECISION. Let the Dot choose where that freedom is delegated.
 
-Use the remote character factory/build service. I should only supply or approve a reference, discuss preferences and review a hosted preview; never ask me to install or manually operate Blender, Godot, Python, rigging software or command-line tools. The technical operations below belong to the worker. If the worker is unavailable, return the completed specification/package and name the missing service stage.
+Use a verified authorized remote character factory/build route if available. I should only supply or approve a reference, discuss preferences and review a hosted preview; never ask me to install or manually operate Blender, Godot, Python, rigging software or command-line tools. The technical operations below belong to the worker. If the worker is unavailable, return the completed specification/package and name the missing service stage.
 
 Ask the Dot how it sees itself: clothing, palette, proportions, accessories, personality cues, realism/stylization, identifying features and activities it wants to perform. Preserve its own reasons alongside my preferences and vetoes. Resolve any material conflict before generating. Use the interview/specification schema and factory backend when available. Keep approved reference provenance separate from public package assets; hashing or recording a reference is not evidence that its geometry was reconstructed.
 

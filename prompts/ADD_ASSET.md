@@ -1,5 +1,7 @@
 # Add an asset or station
 
+This is a target/operator-assisted workflow. General self-service asset creation, private uploads and autonomous world expansion are not deployed; execution depends on an authorized operator and verified services.
+
 ---
 
 Add this content to the current Domes for Dots world: [describe the prop, structure, decoration or station; leave creative details to the Dot if preferred].

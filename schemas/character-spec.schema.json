@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://domes-for-dots.example/schemas/character-spec.schema.json",
-  "title": "Domes character-spec v1",
+  "title": "Domes character specification envelope v1 (requires registered backend validation)",
   "type": "object",
   "properties": {
     "schema_version": {
@@ -17,80 +17,12 @@
       "maxLength": 2000
     },
     "backend": {
-      "const": "procedural_rigid_skin_v1"
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,63}$"
     },
     "appearance": {
       "type": "object",
-      "properties": {
-        "body": {
-          "const": "segmented_robot"
-        },
-        "height_m": {
-          "type": "number",
-          "minimum": 1.2,
-          "maximum": 1.6
-        },
-        "head_scale": {
-          "type": "number",
-          "minimum": 0.85,
-          "maximum": 1.1
-        },
-        "colors": {
-          "type": "object",
-          "properties": {
-            "primary": {
-              "type": "string",
-              "pattern": "^#[0-9a-fA-F]{6}$"
-            },
-            "secondary": {
-              "type": "string",
-              "pattern": "^#[0-9a-fA-F]{6}$"
-            },
-            "accent": {
-              "type": "string",
-              "pattern": "^#[0-9a-fA-F]{6}$"
-            },
-            "visor": {
-              "type": "string",
-              "pattern": "^#[0-9a-fA-F]{6}$"
-            }
-          },
-          "required": [
-            "primary",
-            "secondary",
-            "accent",
-            "visor"
-          ],
-          "additionalProperties": false
-        },
-        "clothing": {
-          "enum": [
-            "none",
-            "vest"
-          ]
-        },
-        "accessories": {
-          "type": "array",
-          "items": {
-            "enum": [
-              "antenna",
-              "chest_badge",
-              "backpack"
-            ]
-          },
-          "maxItems": 3,
-          "uniqueItems": true
-        }
-      },
-      "required": [
-        "body",
-        "height_m",
-        "head_scale",
-        "colors",
-        "clothing",
-        "accessories"
-      ],
-      "additionalProperties": false
+      "description": "Producer parameters; validated by the backend-specific contract, never treated as arbitrary production permission."
     },
     "references": {
       "type": "array",
@@ -143,7 +75,7 @@
         ],
         "additionalProperties": false
       },
-      "minItems": 1,
+      "minItems": 0,
       "maxItems": 5
     },
     "creative_intent": {
@@ -177,22 +109,10 @@
         "activities": {
           "type": "array",
           "items": {
-            "enum": [
-              "idle",
-              "walk",
-              "interact",
-              "sit",
-              "work",
-              "read",
-              "build",
-              "inspect",
-              "garden",
-              "sleep",
-              "talk",
-              "phone"
-            ]
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,63}$"
           },
-          "maxItems": 12,
+          "maxItems": 32,
           "uniqueItems": true
         }
       },
@@ -206,50 +126,7 @@
     },
     "decisions": {
       "type": "object",
-      "properties": {
-        "human_approved": {
-          "const": true
-        },
-        "veto_accessories": {
-          "type": "array",
-          "items": {
-            "enum": [
-              "antenna",
-              "chest_badge",
-              "backpack"
-            ]
-          },
-          "maxItems": 3,
-          "uniqueItems": true
-        },
-        "human_notes": {
-          "type": "string",
-          "maxLength": 2000
-        },
-        "implementation_scope": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 2000
-        },
-        "unimplemented_intent": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 2000
-          },
-          "maxItems": 32,
-          "uniqueItems": true
-        }
-      },
-      "required": [
-        "human_approved",
-        "veto_accessories",
-        "human_notes",
-        "implementation_scope",
-        "unimplemented_intent"
-      ],
-      "additionalProperties": false
+      "description": "Producer approval/decision payload; validated by the backend-specific contract."
     },
     "input_sha256": {
       "type": "string",

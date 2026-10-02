@@ -1,8 +1,10 @@
 # Owner and Dot onboarding
 
+**Status:** this is the target onboarding and operator-assisted handoff. The current branch verifies a bounded operator-run Character Factory and hosted synthetic Aster example. Arbitrary self-service creation, private Site provisioning, private uploads and autonomous world generation are not generally deployed.
+
 The owner sets the boundaries; the Dot should make meaningful creative choices. Begin with a short exchange and a small build, not a survey asking the owner to design every object.
 
-Use [CREATE_MY_WORLD.md](../prompts/CREATE_MY_WORLD.md) directly, or begin with “Make yourself a world.” The owner supplies preferences or approved imagery and receives a hosted URL. No repository, local creative software, terminal or developer account is required from the owner. The Dot checks available connected services and delegates generation, build, validation and deployment to a cloud worker. A missing worker is a service blocker, never an owner installation task. Capability reports distinguish confirmed, unavailable and untested tools.
+Use [CREATE_MY_WORLD.md](../prompts/CREATE_MY_WORLD.md) directly, or begin with “Make yourself a world.” In the target flow, the owner supplies preferences or approved imagery and receives a hosted URL after a verified build. Today an authorized operator must provide the supported generation/build/publication route. No repository, local creative software, terminal or developer account is required from the owner. The Dot checks available connected services. If an authorized worker is available, the operator can run supported generation, build, validation and deployment; otherwise retain a clear service handoff. A missing worker is a service blocker, never an owner installation task. Capability reports distinguish confirmed, unavailable and untested tools.
 
 Character participation starts with how the Dot sees itself: silhouette/proportions, clothing, colors, accessories, personality cues, realism/stylization, important identifying features and expected activities. Human preferences and vetoes remain explicit. Preserve both voices in the specification, including conflicts that still need resolution. An approved reference does not itself establish automated image-to-mesh capability or redistribution permission.
 
@@ -54,11 +56,11 @@ The build agent saves a JSON brief under `godot/content/briefs/` and references 
 
 Use the actual brief schema for accepted value shapes. Replace examples with the owner's statements and the Dot's concrete choices. Capability entries should include tool/version/test evidence when available, not just enthusiasm for a tool.
 
-## First build
+## Operator-assisted first build / future product workflow
 
 Confirm the Dot name, owner boundaries, realism/fantasy preference, appearance delegation and privacy expectations only as needed. Inspect service availability directly; do not make the owner inventory development tools. The Dot should choose at least two meaningful elements of its home. A new setting and hobby matter more than a new paint color.
 
-Build one small environment with reachable stations suited to that Dot, a compatible character and one finite imagined project. Rest/work/call visual tags can use any suitable prop; a conventional desk phone is not mandatory. Prove browser loading early, then movement, activity expiry and save/reload.
+When an authorized authoring/build route exists, build one small environment with reachable stations suited to that Dot, a compatible character and one finite imagined project. Rest/work/call visual tags can use any suitable prop; a conventional desk phone is not mandatory. Prove browser loading early, then movement, activity expiry and save/reload.
 
 V2 makes source authoring executable: the build agent uses the [world authoring CLI](WORLD_AUTHORING.md) to turn the Dot's complete proposal into a validated plan and recoverable source change. The [Lantern Archive pilot](../examples/authoring/lantern_archive/README.md) contains the actual proposal rather than a theme questionnaire. A concept, room layout, objects, routine and representation must be authored; the tool does not choose them from answers. This CLI is internal backend tooling, not an owner-facing step or a deployed multi-user API.
 
@@ -66,7 +68,7 @@ An optional `owner_locked.authoring_policy` records measurable limits and allowe
 
 Deliver a hosted URL with the brief and a short PASS/FAIL/UNAVAILABLE/NOT TESTED record; the operator retains packages, source and recovery receipts. Name a deployment blocker explicitly if no URL exists. State where progress is saved: current browser-local saves do not become cross-device persistence merely because the world is hosted. Leave native event reporting unavailable unless a real authenticated path was tested for that owner.
 
-## Expansion without losing the brief
+## Operator-assisted expansion without losing the brief
 
 Use [EXPAND_MY_WORLD.md](../prompts/EXPAND_MY_WORLD.md). Read the current brief and state before proposing changes. Keep IDs and the simulation epoch stable for compatible content-only additions. A changed routine or project meaning needs an explicit state transition; it must not silently reinterpret existing progress.
 

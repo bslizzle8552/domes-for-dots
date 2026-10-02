@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-10-02T23:11:16.290344+00:00",
+  "baseline_source": "7492ccca1ba337edee32d112ad06f00e06e2c35b",
+  "scope": "Bounded pre-merge Character Factory hardening; no world compiler, account service, new Site or release change.",
+  "python": {
+    "discovered": 152,
+    "passed": 150,
+    "skipped": 2,
+    "skip_reason": "Windows symlink creation privilege (request and publisher tests)",
+    "factory_tests": 19,
+    "package_boundary_tests": 12,
+    "cloud_worker_and_bootstrap_tests": 18
+  },
+  "content": {
+    "status": "PASS",
+    "worlds": 3
+  },
+  "godot": {
+    "core": 92,
+    "runtime": 200,
+    "character": 43,
+    "factory_character": 59,
+    "total_passed": 394,
+    "physical_obstacle_samples": 21534,
+    "source_audit": "PASS",
+    "generated_audit": "PASS"
+  },
+  "web_exports": {
+    "source": "PASS",
+    "generated_aster": "PASS"
+  },
+  "browser": {
+    "existing_worlds": {
+      "status": "PASS",
+      "checks": 37
+    },
+    "rebuilt_aster": {
+      "status": "PASS",
+      "url": "http://127.0.0.1:8084/",
+      "browser": "154.0.8037.97",
+      "checks": [
+        "world page delivered successfully",
+        "generated skinned GLB loaded in original Domes runtime",
+        "walking changes both world position and actual skeleton pose",
+        "station arrival plays imported work clip",
+        "mock call routes to actual phone clip",
+        "daybed station plays its authored sit clip",
+        "same-browser reload preserves timeline",
+        "native integrations remain explicitly unavailable",
+        "no browser or Godot runtime errors"
+      ],
+      "errors": [],
+      "character_id": "aster",
+      "limitations": [
+        "Desktop Chromium only; no physical-device mobile/Safari acceptance",
+        "Procedural specimen, not Rocky or image reconstruction",
+        "Same-browser storage only, no cloud saves",
+        "Motion checked, no automatic prop grip, seat fit or likeness guarantee"
+      ]
+    },
+    "existing_hosted_aster": {
+      "status": "PASS",
+      "url": "https://bslizzle8552.github.io/domes-for-dots/",
+      "browser": "154.0.8037.97",
+      "checks": [
+        "world page delivered successfully",
+        "generated skinned GLB loaded in original Domes runtime",
+        "walking changes both world position and actual skeleton pose",
+        "station arrival plays imported work clip",
+        "mock call routes to actual phone clip",
+        "daybed station plays its authored sit clip",
+        "same-browser reload preserves timeline",
+        "native integrations remain explicitly unavailable",
+        "no browser or Godot runtime errors"
+      ],
+      "errors": [],
+      "character_id": "aster",
+      "limitations": [
+        "Desktop Chromium only; no physical-device mobile/Safari acceptance",
+        "Procedural specimen, not Rocky or image reconstruction",
+        "Same-browser storage only, no cloud saves",
+        "Motion checked, no automatic prop grip, seat fit or likeness guarantee"
+      ]
+    }
+  },
+  "runtime_comparison": {
+    "baseline_source": "7492ccca1ba337edee32d112ad06f00e06e2c35b",
+    "runtime_assets_identical": true,
+    "runtime_sha256": {
+      "character.glb": {
+        "before": "a912606120c8acba978111142a9059dbe7b4e0d31aab59add9919e9ab4494a82",
+        "after": "a912606120c8acba978111142a9059dbe7b4e0d31aab59add9919e9ab4494a82"
+      },
+      "character.json": {
+        "before": "1893c4a5b1c150ba0645495f85f6e8b869453775b12c301ff16ed04266f79178",
+        "after": "1893c4a5b1c150ba0645495f85f6e8b869453775b12c301ff16ed04266f79178"
+      },
+      "spec.json": {
+        "before": "49e98f489c8bbe8b58468740bbbbc46f1177b388c4370538d678d35d4ce379b2",
+        "after": "49e98f489c8bbe8b58468740bbbbc46f1177b388c4370538d678d35d4ce379b2"
+      }
+    },
+    "envelope_before": 1,
+    "envelope_after": 2,
+    "metadata_only_change": true,
+    "hosted_republication_required": false,
+    "scope": "Same exact approved spec and same local runtime. Cross-platform export byte identity is not asserted; public hosted hashes are checked separately."
+  },
+  "hosted": {
+    "url": "https://bslizzle8552.github.io/domes-for-dots/",
+    "publication_commit": "a40d43059ad08ef1448d4979331500ea7a1ae8a4",
+    "anonymous_assets_verified": 16,
+    "all_hashes_match": true,
+    "republished": false
+  },
+  "protected_paths_unchanged": true,
+  "historical_release": {
+    "version": "0.2.0",
+    "tag_object": "7f470cd484ea2c49ded31c48b4edc99ca365d8e3",
+    "release_id": 401899516,
+    "four_asset_sizes_and_server_digests_match_prior_receipt": true,
+    "new_release_downloads_performed": false
+  },
+  "sites_research": {
+    "source": "Owner-provided independent Rocky research",
+    "new_site_provisioning_test": false,
+    "general_provisioning_proven": false
+  },
+  "next_project": "Autonomous World Creator after PR merge; auth/storage deferred until complete durable world unit."
+}

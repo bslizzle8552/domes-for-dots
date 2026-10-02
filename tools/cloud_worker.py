@@ -32,7 +32,7 @@ def execute(interview_path: Path, reference_root: Path, job_dir: Path,
             world_id: str = 'cedar_atelier', godot_bin: str | None = None,
             export_web: bool = True) -> dict:
     # Never treat an existing output as a new job or overwrite an earlier proof.
-    from character_factory import derive_spec, generate_package, validate_package, install_package
+    from character_factory import derive_spec, generate_package, validate_package, install_package, engine_acceptance
     job_dir = job_dir.resolve()
     job_dir.mkdir(parents=True, exist_ok=False)
     logs = job_dir / 'logs'
@@ -85,10 +85,11 @@ def execute(interview_path: Path, reference_root: Path, job_dir: Path,
             raise ValueError('Engine audit must pass and include the generated character')
         receipt['engine_audit'] = audit
         phase('animation_acceptance')
-        motion = run([*base, '--script', 'res://tests/test_factory_character.gd', '--',
+        acceptance = engine_acceptance(package)
+        motion = run([*base, '--script', acceptance['script'], '--',
                       '--character', f'res://content/characters/{generated_id}.json'],
                      'animation_tests', ROOT, logs)
-        if not re.search(r'FACTORY CHARACTER TESTS:\s*\d+ passed,\s*0 failed', motion):
+        if not re.search(acceptance['success_pattern'], motion):
             raise ValueError('Generated animation tests did not report success')
         receipt['animation_tests'] = 'passed'
         if export_web:

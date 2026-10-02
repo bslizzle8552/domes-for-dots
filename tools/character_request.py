@@ -5,6 +5,7 @@ pack(interview_path, reference_root) -> JSON-ready request (at most 48 KiB).
 unpack(request, fresh_output_dir) -> approved interview.json in that directory.
 dispatch(request, repository=..., ref=..., workflow=...) -> submission receipt.
 
+This adapter validates the current procedural producer's approved interview.
 Only the operator/CI environment needs Python or GITHUB_TOKEN. This is not a
 public upload service. Requests cannot select a repository, workflow, or code.
 The GitHub input name is request_json; bind it to DOMES_CHARACTER_REQUEST

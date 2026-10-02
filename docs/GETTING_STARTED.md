@@ -1,30 +1,32 @@
-# Your Dot's world, with nothing to install
+# Visit a Dot world with nothing to install
 
-The owner experience is a conversation and a hosted browser link. You do not need Blender, Godot Editor, Python, Node.js, FFmpeg, Git, a terminal or a development account.
+**Verified today:** [visit the public synthetic Aster demonstration](https://bslizzle8552.github.io/domes-for-dots/). Its generated character, cloud build and hosted desktop-browser behavior have been tested. You need a capable browser, with no Blender, Godot Editor, Python, Node.js, Git, terminal or development account.
 
-## Make a home together
+**Operator-run today:** authorized operators can submit approved choices to the bounded Character Factory through GitHub Actions and manage hosting. This is the working build path behind the example.
 
-1. Tell your Dot, **“This is my Dot. Make them a world.”** You can use the [creation prompt](../prompts/CREATE_MY_WORLD.md) for more detail.
-2. Supply or approve a reference image if you have one. Tell the Dot what matters to you and anything to avoid. The Dot should choose meaningful details of its own appearance, setting and activities.
-3. Review the brief and any material unresolved choice. The build service handles character generation, validation, world construction and hosting. Ordinary edits within your agreed boundaries do not need repeated approval.
-4. Open the resulting HTTPS world link. The completion receipt should say what was built, what was actually tested, where progress is saved and whether the world is public or access-controlled.
+**Target owner experience:** tell your Dot to make itself a world, discuss its appearance and world intent, and receive a private hosted world. General self-service creation, private reference uploads, general job/status endpoints, automatic private Site provisioning and autonomous bespoke world generation are not yet deployed. ChatGPT Sites is the preferred first target for upcoming private-world experiments; Aster remains a public GitHub Pages proof. [Current status](../BUILD_STATUS.md).
 
-The current runtime and build tools are real; an unrestricted, account-connected creation service is not implied. See [BUILD_STATUS.md](../BUILD_STATUS.md) for current proof and blockers. If a required generation, hosting or authorization route is unavailable, the Dot should save the completed brief/package for the service operator and name the missing stage. A request to install software on your device is not an acceptable fallback.
+## Prepare a future home together
 
-## Visit
+1. Describe your must-haves, dislikes and privacy expectations. The Dot should choose meaningful appearance, setting and activity details within those boundaries.
+2. Supply or approve imagery and review the proposed brief. The [creation prompt](../prompts/CREATE_MY_WORLD.md) records the target workflow; it does not guarantee that a service is available to every Dot.
+3. An authorized operator with the required services can execute a supported build. Otherwise the Dot can retain the brief/specification and identify the unexecuted stage. It must never ask you to install a local creative toolchain.
+4. Visit the resulting URL only when a completed build/hosting receipt exists. That receipt should identify what was tested, access policy and where progress is saved.
 
-Use a browser with working WebGL 2 and WebAssembly. The application arrives with the page. Phones, tablets, Macs, Windows PCs and Chromebooks are intended clients, but acceptance must be reported per tested device and browser; current evidence does not establish universal mobile support.
+## Visit the current proof
 
-Choose a world, use **Visit** to send the resident to a station, and **Resume routine** to return to its authored schedule. **Preview +30 min** previews simulated time without changing the saved epoch. **SIMULATED** identifies an authored routine. **MOCK** controls demonstrate visual reactions; they do not connect real Dot work or native calls. ChatGPT calls and audio remain in ChatGPT.
+Use a browser with working WebGL 2 and WebAssembly. Phones, tablets, Macs, Windows PCs and Chromebooks are intended clients; current evidence covers desktop Chromium, not universal mobile support.
 
-## What persists today
+Use **Visit** to send Aster to a station and **Resume routine** to return to the authored schedule. **Preview +30 min** previews simulated time. **SIMULATED** identifies an authored routine; **MOCK** controls demonstrate visual reactions. Native ChatGPT calls and audio remain in ChatGPT.
 
-The existing runtime saves to this browser profile and this exact site origin. It has no account synchronization yet. Clearing browser storage or switching device, browser, hostname or port can make the save unavailable. Use one saving tab; ordinary stale-save detection is not a guaranteed transaction between simultaneous tabs.
+## What persists in this runtime
 
-**Export state** is an optional backup download. **World pack** exports authored JSON and the brief, omitting model/texture binaries; it has no in-app importer. You do not need to handle files to visit a world. Cross-device persistence, full cloud backup and recovery through an account are remaining service work, not features provided by static hosting alone.
+The Domes/Aster runtime saves to the same browser profile and exact site origin. It has no account synchronization. Clearing storage or changing device/browser/hostname can make that save unavailable. Use one saving tab; stale-save detection is not a guaranteed transaction across tabs.
 
-## Change the home
+**Export state** is an optional backup download. **World pack** exports authored JSON and the brief, omitting model/texture binaries; it has no in-app importer. Visiting requires no manual file handling. Rocky's separately researched Site has native durable backend state; that does not establish account synchronization in this branch or generalized provisioning for arbitrary owners.
 
-Ask the Dot for an addition or a new appearance. It retains your boundaries, its design choices and the world's existing progress where compatible. Generation and publication are backend work. A change that alters the meaning of a saved routine requires an explicit migration or a separate fresh timeline.
+## Future changes to a home
 
-Developers and operators use [Development setup](DEVELOPMENT.md), [World authoring](WORLD_AUTHORING.md), [Character pipeline](CHARACTER_PIPELINE.md) and [Web export](WEB_EXPORT.md). Those guides are not owner installation instructions.
+An owner can describe an addition or appearance change. Execution requires an authorized operator and a supported backend; automatic self-service expansion is not deployed. Compatible edits preserve identities and timeline, while changed routine meaning requires a deliberate migration or fresh timeline. The forthcoming Autonomous World Creator is the next major implementation project; auth/storage design follows the complete durable world unit.
+
+Developer and operator guides: [Development setup](DEVELOPMENT.md), [World authoring](WORLD_AUTHORING.md), [Character pipeline](CHARACTER_PIPELINE.md), [Web export](WEB_EXPORT.md).

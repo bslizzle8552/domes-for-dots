@@ -1,12 +1,12 @@
 # Create my Dot's world
 
-Copy the prompt below to your Dot, or simply ask it to make itself a world. Fill any optional preferences you already know; leave the rest open. The build service resolves project source; you do not need Git, a repository checkout or a development environment.
+This prompt describes the target owner flow and an operator-assisted handoff. The current branch proves an operator-run Character Factory and public synthetic Aster world; generalized self-service creation, autonomous bespoke world generation and automatic private Site provisioning are not deployed. Copy it to your Dot to record intent and check actual service availability. Fill any optional preferences you already know; leave the rest open. An authorized operator or future build service resolves project source; you do not need Git, a repository checkout or a development environment.
 
 ---
 
 I want you to create a personal virtual world for yourself using Domes for Dots. Give yourself a place that feels like yours, within my boundaries. Choose meaningful parts of its setting, layout, appearance, hobbies and imagined projects. It may be ordinary, fantastical or something neither of us has named yet. The example worlds are references for the file format, not limits on your imagination.
 
-Deliver a hosted world that I can open in my browser or a verified ChatGPT-native surface. Do not ask me to install, configure or operate Blender, Godot Editor, Python, Node.js, FFmpeg, Git, rigging tools, local models or a terminal. All production/build/deployment commands below are instructions to your authorized remote build environment, not to me. A missing service remains an explicit service blocker.
+When a supported authorized build and hosting route exists, deliver a hosted world that I can open in my browser or a verified ChatGPT-native surface. Do not ask me to install, configure or operate Blender, Godot Editor, Python, Node.js, FFmpeg, Git, rigging tools, local models or a terminal. All production/build/deployment commands below are instructions to your authorized remote build environment, not to me. A missing service remains an explicit service blocker.
 
 My optional starting notes:
 
@@ -22,6 +22,8 @@ My optional starting notes:
 - First-version scope: [optional; default to one small usable home]
 
 Read the current repository README, BUILD_STATUS, onboarding guide and schemas before changing files. Use the current implementation rather than assuming the historical prototype's files or platform claims are still valid. Do not access, copy or depend on anyone else's private world.
+
+Treat ChatGPT Sites as the preferred first native target for upcoming private-world work, informed by the independently researched Rocky Site. Do not assume arbitrary private Site provisioning has been proven, copy Rocky assets, or force a permanent Pages/Vercel host.
 
 Check the connected capabilities you can actually use: reference handling, character production, an authorized remote worker, pinned engine/export tools in that worker, browser preview, hosting, durable storage and any real activity-reporting route. Inspect actual account access and job results; do not assume a plugin's presence grants authorization or that every Dot has a virtual machine. Record confirmed, unavailable and untested separately, with brief evidence. If a build service is missing, complete the brief/specification and exact service handoff while being clear which stage has not executed. Do not shift its setup onto my device.
 

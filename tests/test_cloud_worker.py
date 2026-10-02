@@ -47,6 +47,7 @@ class CloudWorkerTests(unittest.TestCase):
         self.factory.generate_package = self.generate
         self.factory.validate_package = lambda package: copy.deepcopy(self.package_validation)
         self.factory.install_package = self.install
+        self.factory.engine_acceptance = lambda package: {"script": "res://tests/test_factory_character.gd", "success_pattern": r"FACTORY CHARACTER TESTS:\s*\d+ passed,\s*0 failed"}
         self.addCleanup(mock.patch.stopall)
         mock.patch.dict(sys.modules, {"character_factory": self.factory}).start()
         mock.patch.object(worker, "ROOT", self.source).start()
@@ -134,6 +135,16 @@ class CloudWorkerTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.execute()
         self.assert_failed()
+
+    def test_worker_uses_trusted_backend_motion_contract(self):
+        self.factory.engine_acceptance = lambda package: {"script": "res://tests/alternate_contract.gd", "success_pattern": r"ALTERNATE TESTS: 4 passed, 0 failed"}
+        original = self.engine
+        def alternate(command, *args, **kwargs):
+            if "res://tests/alternate_contract.gd" in command:
+                return "ALTERNATE TESTS: 4 passed, 0 failed"
+            return original(command, *args, **kwargs)
+        self.run_mock.side_effect = alternate
+        self.assertEqual("succeeded", self.execute()["status"])
 
     def test_empty_engine_audit_cannot_succeed(self):
         self.audit["characters"] = []

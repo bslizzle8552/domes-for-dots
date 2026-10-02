@@ -1,8 +1,8 @@
 # Dot character interview
 
-Use this conversation before submitting a character job. The human visits through
+Use this conversation for an authorized operator-assisted character job or service handoff. General self-service submission/private uploads are not deployed. The human visits through
 ChatGPT or a browser; they do not install tools or manipulate project files.
-The integrating assistant/service turns approved answers into
+The integrating operator/assistant turns supported approved answers into the current procedural producer's strict
 `schemas/character-interview.schema.json`.
 
 1. Ask the Dot: "How do you see yourself when someone visits your world? What

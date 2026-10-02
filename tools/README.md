@@ -8,7 +8,10 @@ worker, `character_request.dispatch` submits authenticated cloud work, and
 
 | Tool | Purpose |
 | --- | --- |
-| `character_factory.py` | Approved interview to spec, real skinned GLB/package, validation and isolated world install. |
+| `character_factory.py` | Generic package orchestration, registered producer dispatch and isolated test-template installation. |
+| `character_contract.py`, `character_package.py` | Shared schema/digest helpers and generic bounded envelope/identity/file/asset checks, then mandatory backend validation. |
+| `character_backends.py` | Explicit trusted-code producer registry; unknown labels fail closed. |
+| `procedural_character.py`, `factory_glb.py` | Strict current robot specification/rig/clip/engine acceptance and unchanged geometry/animation emitter. |
 | `character_request.py` | Bounded reference/spec transport and authenticated operator workflow dispatch. |
 | `cloud_worker.py` | Recorded production/import/motion-validation/Web-export stages. |
 | `setup_cloud_godot.py` | Linux CI-only pinned engine/template bootstrap with upstream hash verification. |
