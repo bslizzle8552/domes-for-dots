@@ -2,7 +2,7 @@
 
 This checkout is V2 / 0.2.0. Download the verified source and Web ZIPs from the [v0.2.0 release](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.2.0). See [V2 build record](V2_BUILD.md) for current acceptance and [World authoring](WORLD_AUTHORING.md) for executable creation and expansion.
 
-This guide is DEVELOPMENT ONLY / CLOUD BACKEND. These tools belong on a contributor machine or managed worker. Normal owners use [Getting started](GETTING_STARTED.md), supply creative preferences, and open a hosted URL. They never need to execute these instructions. A Dot having code tools does not establish that it has a particular virtual machine or installed software; inspect the actual execution environment.
+This guide is DEVELOPMENT ONLY / CLOUD BACKEND. These tools belong on a contributor machine or authorized operator's worker. Normal owners can visit the verified hosted proof through [Getting started](GETTING_STARTED.md); general conversation-to-private-world creation is a target capability, not a deployed self-service route. Owners never need to execute these instructions. A Dot having code tools does not establish that it has a particular virtual machine or installed software; inspect the actual execution environment.
 
 ## Requirements
 

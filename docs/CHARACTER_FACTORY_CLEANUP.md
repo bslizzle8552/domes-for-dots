@@ -55,20 +55,24 @@ There is no cleanup blocker. Future work must define WorldIntent/WorldSpec and s
 
 ## Exact files changed
 
-The list below is relative to the repository root and records only this cleanup, not the whole PR.
+The 37 paths below are relative to the repository root and record only this cleanup, not the whole PR.
 
 - [BUILD_STATUS.md](../BUILD_STATUS.md)
 - [CHANGELOG.md](../CHANGELOG.md)
 - [README.md](../README.md)
+- [docs/ARCHITECTURE.md](ARCHITECTURE.md)
 - [docs/AUTOMATIC_CHARACTER_COMPLETION.md](AUTOMATIC_CHARACTER_COMPLETION.md)
 - [docs/CAPABILITY_INVENTORY.md](CAPABILITY_INVENTORY.md)
 - [docs/CHARACTER_FACTORY.md](CHARACTER_FACTORY.md)
 - [docs/CHARACTER_FACTORY_CLEANUP.md](CHARACTER_FACTORY_CLEANUP.md)
+- [docs/CHARACTER_PIPELINE.md](CHARACTER_PIPELINE.md)
 - [docs/CLOUD_ARCHITECTURE.md](CLOUD_ARCHITECTURE.md)
+- [docs/DEVELOPMENT.md](DEVELOPMENT.md)
 - [docs/DOT_ONBOARDING.md](DOT_ONBOARDING.md)
 - [docs/GETTING_STARTED.md](GETTING_STARTED.md)
 - [docs/VIRTUAL_ONLY_AUDIT.md](VIRTUAL_ONLY_AUDIT.md)
 - [docs/WEB_EXPORT.md](WEB_EXPORT.md)
+- [docs/WORLD_AUTHORING.md](WORLD_AUTHORING.md)
 - [docs/validation/factory-cleanup-acceptance.json](validation/factory-cleanup-acceptance.json)
 - [prompts/ADD_ASSET.md](../prompts/ADD_ASSET.md)
 - [prompts/CREATE_CHARACTER.md](../prompts/CREATE_CHARACTER.md)

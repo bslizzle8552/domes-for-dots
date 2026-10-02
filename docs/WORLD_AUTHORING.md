@@ -1,6 +1,6 @@
 # Dot-led authoring and recoverable expansion
 
-**CLOUD BACKEND / DEVELOPMENT ONLY.** The commands and filesystem operations in this guide run inside a managed worker or contributor environment. Owners express preferences in ChatGPT and open hosted URLs; they do not install Python, manipulate JSON files, clone repositories or run Godot. The [owner guide](GETTING_STARTED.md) is the user entry point. The [cloud architecture](CLOUD_ARCHITECTURE.md) explains the service boundary and remaining authentication/persistence work.
+**CLOUD BACKEND / DEVELOPMENT ONLY.** The commands and filesystem operations in this guide run inside an authorized operator's worker or contributor environment. These are executable source-authoring tools, not a deployed general self-service or autonomous world-creation service. Target owner flow: express preferences in ChatGPT and open a hosted URL, with no Python, manual JSON, repository clone or Godot installation. See the [owner guide](GETTING_STARTED.md) and [cloud architecture](CLOUD_ARCHITECTURE.md). Autonomous World Creator is the next major project; auth/storage is deferred until the complete world unit is defined.
 
 V2 adds an executable path from a Dot's complete authored proposal to validated source content. The existing Godot world, character, asset, routine and brief formats remain the source of truth. There is no fixed menu of world templates and no model inference inside the authoring tool.
 

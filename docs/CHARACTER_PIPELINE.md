@@ -1,6 +1,6 @@
 # Character pipeline
 
-**CLOUD BACKEND / DEVELOPMENT ONLY.** Character modeling, generation, rigging, import and validation run in the managed build service or contributor environment. Owners supply or approve references, discuss how the Dot sees itself, and review the hosted result. They never install Blender, Godot, Python or rigging software. See [cloud architecture](CLOUD_ARCHITECTURE.md) and [owner onboarding](DOT_ONBOARDING.md).
+**CLOUD BACKEND / DEVELOPMENT ONLY.** Character modeling, generation, rigging, import and validation run in an authorized operator's worker or contributor environment. The current Character Factory is operator-run; general self-service creation/private upload is not deployed. In the target owner flow, owners supply or approve references, discuss how the Dot sees itself and review the hosted result. They never install Blender, Godot, Python or rigging software. See [cloud architecture](CLOUD_ARCHITECTURE.md) and [owner onboarding](DOT_ONBOARDING.md).
 
 The controller moves a character body; the character definition supplies the replaceable visual and animation vocabulary. Changing who lives in a world should not require rewriting the navigation, station or routine engine.
 
