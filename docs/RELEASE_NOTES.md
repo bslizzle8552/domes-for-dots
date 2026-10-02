@@ -1,10 +1,10 @@
 # Domes for Dots release notes
 
-## V2 / 0.2.0 local release preparation
+## V2 / 0.2.0 — published 2026-10-02
 
 This checkout adds validated Dot-authored creation and expansion requests, owner-policy checks, source hashes and recovery journals; explicit resident activity/location state; optional station preferences and tagged mock activities; an owner pause control; an original articulated character and scene audit; and the Lantern Archive creation/telescope pilot. The existing Godot runtime, local state schema and simulation remain in place.
 
-See [V2 build record](V2_BUILD.md) for current verification, limitations and reproduction. The [prepared v0.2.0 release body](releases/v0.2.0.md) describes the four local assets: `domes-for-dots-v0.2.0-source.zip`, `domes-for-dots-v0.2.0-web.zip`, `SHA256SUMS` and `release_manifest.json`. They are prepared under `dist/release/`; [the publication handoff](RELEASE_PREPARATION.md) records the remaining owner steps. No V2 public release or hosted deployment has been created. The download links and release receipt below belong to v0.1.0.
+[v0.2.0 is publicly released](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.2.0). All four prepared assets—`domes-for-dots-v0.2.0-source.zip`, `domes-for-dots-v0.2.0-web.zip`, `SHA256SUMS` and `release_manifest.json`—were downloaded anonymously and matched by SHA-256. See the [release body](releases/v0.2.0.md), [publication evidence](validation/v0.2.0-publication.json) and [V2 build record](V2_BUILD.md). No public world hosting was deployed. The release receipt below is historical v0.1.0 evidence.
 
 ## Domes for Dots v0.1.0
 

@@ -1,6 +1,8 @@
-# v0.2.0 publication handoff
+# v0.2.0 publication handoff — completed
 
-V2 is prepared locally. No remote push, GitHub release creation, asset upload or public deployment was performed during this preparation. The existing workflow validates content and Python tests with read-only repository permission; it does not publish releases. The v0.1 publication authorization recorded in the historical build status applied to that release.
+**Completed on 2026-10-02 with explicit owner authorization.** [Domes for Dots v0.2.0](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.2.0) is publicly released and independently download-verified. Both release-commit CI runs passed; all four anonymous public downloads matched the prepared SHA-256 hashes. See [BUILD_STATUS.md](../BUILD_STATUS.md) and the [publication receipt](validation/v0.2.0-publication.json). No public world hosting was deployed.
+
+The procedure below is retained as the executed handoff, not pending work. Its clean-HEAD checks describe the prepared release checkout at `9e00fea63e45e1a3ed5a91290d63ce0a04300ff4`; `main` subsequently records publication evidence. Do not rerun publication or move the published tag. The existing CI workflow validates content and Python tests with read-only repository permission; publication was performed separately under the owner's explicit authorization.
 
 The local `v0.2.0` tag identifies the prepared source commit. The four upload assets are in `dist/release/`: `domes-for-dots-v0.2.0-source.zip`, `domes-for-dots-v0.2.0-web.zip`, `SHA256SUMS` and `release_manifest.json`. The [V2 build record](V2_BUILD.md) records local acceptance. The [prepared release body](releases/v0.2.0.md) is ready to paste into GitHub.
 
@@ -54,7 +56,7 @@ Open the repository's [Releases page](https://github.com/bslizzle8552/domes-for-
 4. Attach the four files from `dist/release/` listed above. GitHub's automatically generated source archives are separate from the verified source ZIP.
 5. Publish the release after reviewing the tag, description and four attachments.
 
-The expected release address is [v0.2.0](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.2.0). It will not exist publicly until this step succeeds. A GitHub release does not deploy the Web world to a public host.
+The expected release address is [v0.2.0](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.2.0). It is now publicly reachable. A GitHub release does not deploy the Web world to a public host.
 
 ## 5. Verify the public downloads
 
@@ -74,4 +76,4 @@ foreach ($assetName in $releaseAssetNames) {
 }
 ```
 
-Record the release URL, successful CI run URL and download verification result in a subsequent documentation-only commit on `main`. Keep the published tag fixed. Publication and public-download verification are pending until the owner completes these steps; no additional product changes are required for this handoff.
+Record the release URL, successful CI run URL and download verification result in a subsequent documentation-only commit on `main`. Keep the published tag fixed. Publication and public-download verification have completed successfully; no owner publication steps or product changes remain pending.

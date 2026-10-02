@@ -31,7 +31,7 @@ Existing simulation and event handling were substantive, not placeholders: deter
 
 ## Final verification · 2026-10-02
 
-**PASS for the scope below.** The 0.2.0 Web export is `dist/web/`, served locally at [127.0.0.1:8060](http://127.0.0.1:8060). Release validation was rerun from clean source commit `a2786137c82d75fb04ff120dc8d46b8e3d088a53`; the manifest records `source_dirty: false` and the SHA-256 of all 59 runtime source files. The release tag and package receipt identify the subsequent documentation/evidence commit, whose runtime hashes are unchanged. No V2 release was published and no public hosting was created. Historical v0.1 evidence remains unchanged.
+**PASS for the scope below.** The 0.2.0 Web export is `dist/web/`, served locally at [127.0.0.1:8060](http://127.0.0.1:8060). Release validation was rerun from clean source commit `a2786137c82d75fb04ff120dc8d46b8e3d088a53`; the manifest records `source_dirty: false` and the SHA-256 of all 59 runtime source files. The release tag and package receipt identify the subsequent documentation/evidence commit, whose runtime hashes are unchanged. The prepared release was subsequently [published on 2026-10-02](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.2.0); all four assets were independently downloaded without authentication and matched by SHA-256. See the [publication receipt](validation/v0.2.0-publication.json). No public world hosting was created. Historical v0.1 evidence remains unchanged.
 
 | Check | Final result |
 | --- | --- |
@@ -61,7 +61,7 @@ Additional pose captures: [work](images/v2-nova-work.png), [standing rest](image
 
 All intended V2 source, schemas, examples, Godot UID sidecars, documentation, screenshots and sanitized evidence are tracked. The release hygiene scan covers 146 files. Existing ignore rules correctly exclude caches, toolchains, generated exports, local state and credentials; no unintended nonignored artifacts required deletion. Working text was normalized to the existing LF policy before the clean build, so packaged source bytes match Git. The supplied prototype remains unchanged.
 
-The clean packaging command is `python tools/package_release.py`. Its four upload assets are under `dist/release/`; the package receipt identifies the source commit and `SHA256SUMS` identifies both ZIPs. Final archive verification and the source-archive rebuild are local release gates before tagging. Follow the [publication handoff](RELEASE_PREPARATION.md) for the remaining manual push, GitHub CI, release creation and anonymous download verification; use the [prepared release body](releases/v0.2.0.md). No additional product changes are part of this release preparation.
+The clean packaging command is `python tools/package_release.py`. Its four upload assets are under `dist/release/`; the package receipt identifies the source commit and `SHA256SUMS` identifies both ZIPs. Final archive verification and the source-archive rebuild passed before tagging. The [publication handoff](RELEASE_PREPARATION.md) was completed: the prepared history/tag were pushed, both GitHub CI runs passed, the [prepared release body](releases/v0.2.0.md) was published with exactly four assets, and anonymous download verification passed. No additional product changes are part of this release preparation.
 
 ## Reproduce and use
 

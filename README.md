@@ -4,9 +4,9 @@
 
 The runtime loads separate world, character, asset and routine definitions. A workshop, orbital habitat or future world can use the same engine. Local elapsed-time simulation makes the world feel inhabited between visits without continuous model inference.
 
-## V2 · 0.2.0 release preparation
+## V2 · 0.2.0 released
 
-V2 keeps the working Godot foundation and adds a repeatable [world authoring workflow](docs/WORLD_AUTHORING.md), inspectable resident activity state, and an [audited animated character pipeline](docs/CHARACTER_PIPELINE.md). The [V2 build record](docs/V2_BUILD.md) describes the baseline, changes, acceptance and limits. V2 is prepared locally for release; publication remains a separate owner action. See the [release body](docs/releases/v0.2.0.md) and [publication handoff](docs/RELEASE_PREPARATION.md). The published v0.1.0 download remains the earlier release.
+V2 keeps the working Godot foundation and adds a repeatable [world authoring workflow](docs/WORLD_AUTHORING.md), inspectable resident activity state, and an [audited animated character pipeline](docs/CHARACTER_PIPELINE.md). The [V2 build record](docs/V2_BUILD.md) describes the baseline, changes, acceptance and limits. [v0.2.0 is publicly released](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.2.0) and independently download-verified as of 2026-10-02. See the [release notes](docs/releases/v0.2.0.md) and [publication receipt](docs/validation/v0.2.0-publication.json).
 
 | Status | What it means here |
 | --- | --- |
@@ -20,7 +20,7 @@ Read [V2 acceptance](docs/V2_BUILD.md), [historical v0.1 verification](docs/VERI
 
 ## Quick start
 
-For V2, use this source checkout and the commands below, or the locally prepared `dist/release/domes-for-dots-v0.2.0-web.zip`. Extract the Web ZIP, run `python -m http.server 8060 --bind 127.0.0.1` in the extracted folder, and open [localhost:8060](http://127.0.0.1:8060). It runs without Godot installed. The [published v0.1.0 release](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.1.0) is the earlier baseline; V2 has not been published or hosted publicly.
+Download the source or prebuilt Web ZIP from the [v0.2.0 release](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.2.0), or build this source checkout with the commands below. Extract the Web ZIP, run `python -m http.server 8060 --bind 127.0.0.1` in the extracted folder, and open [localhost:8060](http://127.0.0.1:8060). It runs without Godot installed. The release provides downloadable files; no public world hosting was deployed.
 
 ```powershell
 python -m venv .venv

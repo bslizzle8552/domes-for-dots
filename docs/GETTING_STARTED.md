@@ -1,6 +1,6 @@
 # Getting started
 
-This checkout is V2 / 0.2.0. The published 0.1.0 ZIP is the earlier release. See [V2 build record](V2_BUILD.md) for current acceptance and [World authoring](WORLD_AUTHORING.md) for executable creation and expansion.
+This checkout is V2 / 0.2.0. Download the verified source and Web ZIPs from the [v0.2.0 release](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.2.0). See [V2 build record](V2_BUILD.md) for current acceptance and [World authoring](WORLD_AUTHORING.md) for executable creation and expansion.
 
 Start with the shipped examples. When building on your Dot's virtual machine, use its installed Godot and Blender and check versions/templates. For a hosted or already-served prebuilt world, the owner's computer only needs a browser. The requirements below apply to the environment doing the build.
 

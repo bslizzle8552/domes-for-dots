@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.0 — 2026-10-02 (local release preparation)
+## 0.2.0 — 2026-10-02
 
 - Added a JSON proposal/plan/apply/recovery workflow, immutable existing owner locks, optional resource/operation policy, stale-base rejection and durable expansion history.
 - Added explicit resident activity state, target versus physical location, previous activity, timestamps and movement phase; retained separate save and simulation semantics.

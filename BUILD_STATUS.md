@@ -1,8 +1,20 @@
 # Domes for Dots — build status
 
-Current target: **V2 / 0.2.0 local release preparation**. Updated: 2026-10-02.
+Current release: **V2 / 0.2.0 publicly released and independently download-verified**. Updated: 2026-10-02.
 
-The V2 implementation continues the existing repository. **PASS:** 70 Python tests, 92 core assertions, 200 runtime assertions, 43 character assertions, three character audits and 37 browser checks. Current changes and evidence are recorded in [docs/V2_BUILD.md](docs/V2_BUILD.md): recoverable world authoring with owner boundaries, explicit resident activity state, generalized mock activity routing, an articulated character and a third-world creation/expansion pilot. The local Web build is `dist/web/`; release packages and their provenance/checksums are under `dist/release/`. The local `v0.2.0` tag identifies the prepared release source; `release_manifest.json` identifies the packaged source commit. Follow [the publication handoff](docs/RELEASE_PREPARATION.md) and use the [prepared release body](docs/releases/v0.2.0.md) when publishing. V2 has not been pushed, published or deployed during this preparation. The section below is the historical v0.1.0 release receipt and does not describe V2's publication status.
+The accepted V2 runtime is unchanged. **PASS:** 70 Python tests, 92 core assertions, 200 runtime assertions, 43 character assertions, three character audits and 37 browser checks. The clean build, source-archive rebuild and release preparation are recorded in [docs/V2_BUILD.md](docs/V2_BUILD.md). No public world hosting was deployed.
+
+## v0.2.0 publication receipt
+
+- Published: **2026-10-02T14:42:06Z**, following explicit owner authorization for this release.
+- Public release: [Domes for Dots v0.2.0](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.2.0).
+- Published source and unchanged annotated tag commit: `9e00fea63e45e1a3ed5a91290d63ce0a04300ff4`.
+- Clean runtime build commit: `a2786137c82d75fb04ff120dc8d46b8e3d088a53`; the release commit changes documentation/evidence only.
+- GitHub validation: **PASS** for [main run 37021479228](https://github.com/bslizzle8552/domes-for-dots/actions/runs/37021479228) and [tag run 37021479256](https://github.com/bslizzle8552/domes-for-dots/actions/runs/37021479256) on the released commit.
+- Exactly four prepared assets published: source ZIP, Web ZIP, `SHA256SUMS` and `release_manifest.json`.
+- Public verification: **PASS**. The release page is anonymously reachable with the correct tag/title and rendered description. All four assets were downloaded without authentication and matched the prepared local copies by SHA-256.
+- [Machine-readable publication evidence and all four hashes](docs/validation/v0.2.0-publication.json).
+- This post-publication receipt is recorded on `main`; the published `v0.2.0` tag and packaged source remain fixed. No publication steps remain pending.
 
 ## Historical v0.1.0 milestone
 
