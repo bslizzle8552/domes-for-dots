@@ -1,0 +1,29 @@
+# v0.1 implementation coordination contract
+
+Internal architecture reference, maintained as public technical documentation. All JSON uses snake_case and schema_version: 1. Files are under `godot/content/`; paths in manifests use `res://content/...`. No external URLs or credentials in visual content.
+
+## Content
+
+`catalog.json`: {schema_version, worlds: [{id, title, path}]}. This is the only world selection index. World files are `res://content/worlds/<id>.json`.
+
+World: {schema_version, id, version, title, description, brief_path, character_path, routine_path, asset_manifest_paths: [path], environment: {background, ambient, light_color, light_energy}, camera: {position:[x,y,z], target:[x,y,z], size:number}, navigation: {cell_size:0.5, character_radius:0.3}, spawn:[x,0,z], zones:[{id,label,center:[x,0,z],size:[x,depth],color}], objects:[{id,asset_id,position:[x,y,z],rotation_y:degrees,scale:[x,y,z]}], stations:[{id,label,object_id,activity_tags:[string],approach:[x,0,z],interaction:[x,0,z],facing:degrees,animation:string,fallback_animation:string,behavior:string,metadata:{}}], metadata:{}}.
+
+All example walkable floors are at y=0. Zones are axis-aligned rectangles forming connected floor area; floors have no ceiling/front walls. A station's approach and interaction are world coordinates and must stay outside inflated obstacle footprints. Behavior is an optional registered identifier, empty string means no extra effect. No station-type enum.
+
+Asset manifest: {schema_version,id,assets:[{id,display_name,category,tags,scene_path:string,scale:[x,y,z],rotation_y:degrees,collision:{enabled:bool,size:[x,y,z],offset:[x,y,z]},footprint:[x,depth],anchors:{},parts:[{shape:"box"|"cylinder"|"sphere",position:[x,y,z],size:[x,y,z],rotation:[x,y,z] degrees,color:"#rrggbb",emission:number}],animation:string,behavior:string,metadata:{},provenance:{creator,source,license}}]}. Primitive vocabulary is geometry, not object types. scene_path empty uses parts; res:// PackedScene/GLB paths supported. Object scale and yaw apply to visual and footprint. Asset IDs globally unique across a world's manifests.
+
+Character: {schema_version,id,display_name,scene_path,scale:[x,y,z],forward_axis:"-Z"|"+Z"|"+X"|"-X",collision:{radius,height},navigation:{radius,speed},rig:{skeleton_path,animation_player_path,notes},animations:{semantic:clip},fallbacks:{semantic:semantic},appearance:{color,accent},metadata:{}}. Main controller owns CharacterBody3D; scene_path instantiates visual child. Placeholder scene exposes `set_action(action: String)`; optional AnimationPlayer drives imported rig. No engine dependency on a named character. Character visual origin at ground; forward -Z by default.
+
+Routine: {schema_version,id,cycle_seconds,steps:[{id,label,activity_tag,animation,duration_seconds}],projects:[{id,title,activity_tag,required_seconds,stages:[string],visual_object_id:string}],metadata:{}}. Durations must sum to cycle_seconds. Simulation integrates matching activity durations over complete cycles + one remainder, clamps finite projects. Same timestamp/state => same answer.
+
+Brief: {schema_version,world_id,dot_name,concept,owner_locked:{},dot_choice:{},shared_decision:{},capabilities:{},initial_scope:[string],expansion_history:[]}. Store authored locked decisions in content and reference them from runtime, never mutate implicitly.
+
+## Pure service API (GDScript RefCounted)
+
+- `scripts/core/simulation.gd`: static `evaluate(routine:Dictionary, epoch:float, now:float) -> Dictionary` returns {step:Dictionary, projects:[{id,title,progress:float,stage:string}], elapsed:float}. No incremental counters or storage writes.
+- `scripts/core/activity_store.gd`: `configure(world_id:String,character_id:String)`, `apply(event:Dictionary,now:float,trusted_source:String="mock") -> Dictionary` returns {accepted:bool,reason:string}, `active(now:float) -> Dictionary` returns empty or active event with kind, source, expires_at. Events {schema_version,event_id,activity_id,source,sequence,kind:"work"|"call",operation:"start"|"renew"|"end",timestamp:unix seconds,ttl_seconds,world_id,character_id}. Timestamp-based expiry, max 60s, reject stale/newly expired starts, future skew >5s, tombstones and per-source/kind sequence high-water protection. Call priority; end resumes valid work; real sources never trusted by browser config.
+- `scripts/core/state_store.gd`: local native FileAccess and browser localStorage adapter via JavaScriptBridge. `load_state(world_id:String) -> Dictionary` returns {ok,found,state,error}; `save_state(world_id:String,state:Dictionary,expected_revision:int) -> Dictionary` returns {ok,state,error}; `initial_state(world:Dictionary,character:Dictionary,routine:Dictionary,now:float) -> Dictionary`. State {schema_version,world_id,world_version,character_id,routine_id,routine_epoch,revision,project_ids:[string],preferences:{}}. Keep last known good backup, report failed/conflict/corrupt writes; no silent reset. Browser synchronous localStorage revision read/write is atomic within same event-loop task; multi-tab Web Locks may be used if needed, document limits. Hosted adapters future interface. Tests must use isolated keys/paths.
+
+## Main runtime
+
+Root owns content loader, asset builder, navigation surface, character motor, UI and mocked bridge. Public browser event bridge accepts MOCK only; authenticated real adapters require separate code and verified authority. UI shows SIMULATED / MOCK, local persistence status, separate unavailable connections, station selection for manual visits, world switch, preview time advance (never saved), state save and state export. Runtime reads catalog; no named-world switch. Headless integration tests run on the same runtime.

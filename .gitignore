@@ -1,0 +1,26 @@
+# Generated caches and toolchains
+.godot/
+.tools/
+.venv/
+__pycache__/
+*.py[cod]
+node_modules/
+.pytest_cache/
+dist/
+artifacts/
+.DS_Store
+Thumbs.db
+# Local state and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.log
+*.tmp
+*.bak
+*.save.json
+.export_credentials
+export_credentials.cfg
+.agent-browser/
+

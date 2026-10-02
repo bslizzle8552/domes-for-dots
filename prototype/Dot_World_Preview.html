@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dot World Lab</title><meta name="description" content="Local prototype for personal Dot worlds. All activity events are simulated or clearly marked mock."><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23131824'/%3E%3Ccircle cx='20' cy='20' r='10' fill='%23c9f586'/%3E%3C/svg%3E"><style>*{box-sizing:border-box}body{margin:0;background:#0b1018;color:#edf2f7;font:14px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}header,main,footer{max-width:1530px;margin:auto;padding:26px 32px}header{display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid #293343}h1{font-size:29px;letter-spacing:-.9px;margin:6px 0 0;font-weight:650}h2{font-size:20px;margin:0 0 4px;font-weight:600}h3{font-size:17px;margin:9px 0}p{margin:10px 0}.eyebrow{font-size:10px;letter-spacing:1.5px;color:#a9b7c9;font-weight:650}.badge{font-size:10px;letter-spacing:.7px;border:1px solid #435365;color:#c3d3e7;border-radius:30px;padding:7px 12px;white-space:nowrap}.badge.mock{border-color:#c29342;color:#ffd692}main{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:24px;padding-top:22px}.world-tabs{display:flex;gap:10px;margin-bottom:16px}button,select,input{font:inherit}button{cursor:pointer;border:1px solid #3c495b;background:#202b3a;color:#eaf0f8;padding:9px 12px;border-radius:7px;font-weight:550;min-height:38px}button:hover{background:#303f52}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid #c7ed92;outline-offset:3px}.chosen,.primary{background:#c8ec98;color:#152311;border-color:#c8ec98}.chosen:hover,.primary:hover{background:#d6f4b1}.card,.scene-card{border:1px solid #303c4c;border-radius:13px;background:#131c28}.card{padding:20px}.scene-card{overflow:hidden}.scene-head{padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}.scene-head span:not(.badge){font-size:12px;color:#a0b1c5}canvas{width:100%;height:auto;display:block}.scene-foot{padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid #303c4c}.scene-foot label{margin:0;font-size:12px}.scene-foot input{width:auto;display:inline}.lower-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}.muted{font-size:12px;color:#b0bed0}.button-row{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}.subtle{background:transparent;font-size:12px}.danger{color:#ebb9b9;margin-top:5px}.settings{align-self:start}.settings h2{margin:5px 0 19px}label{display:block;color:#cbd5e2;font-size:12px;margin:10px 0}input,select{display:block;width:100%;border:1px solid #405066;background:#0e1723;border-radius:6px;color:#eef4ff;padding:9px 10px;margin-top:5px;min-width:0}input[type=color]{height:39px;padding:3px}input[type=checkbox]{accent-color:#c8ec98}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.primary{width:100%;margin-top:8px}#save-status{font-size:12px;color:#c8ec98;min-height:18px}#save-status.error{color:#ffb5a6}progress{width:100%;height:9px;accent-color:#b7e880;border:0;border-radius:4px}progress::-webkit-progress-bar{background:#304055;border-radius:4px}progress::-webkit-progress-value{background:#b7e880;border-radius:4px}.connection{display:flex;gap:24px;align-items:center;margin-top:16px}.connection>div{min-width:245px}.connection strong{font-size:12px;font-weight:500}.connection span:not(.eyebrow){color:#75849a;margin:0 8px}details{margin-top:14px}summary{cursor:pointer;color:#9fb0c6;font-size:12px}footer{font-size:12px;color:#8797ac;padding-top:0}@media(max-width:1050px){main{grid-template-columns:1fr}.settings{width:100%}.connection{flex-wrap:wrap}}@media(max-width:630px){header,main,footer{padding-left:15px;padding-right:15px}header{display:block}.badge{display:inline-block;margin-top:12px}h1{font-size:25px}.lower-grid{grid-template-columns:1fr}.scene-head{align-items:start}.scene-foot{flex-wrap:wrap}.scene-head h2{font-size:17px}.scene-head .badge{margin:0}.card{padding:17px}}
+</style></head>
+<body>
+<header><div><span class="eyebrow">PERSONAL WORLDS / STARTER LAB</span><h1>A place of their own.</h1></div><div class="badge">LOCAL PROTOTYPE · NO DOT CONNECTED</div></header>
+<main><section class="world-column">
+<div class="world-tabs" role="group" aria-label="Example worlds"><button id="garden" class="chosen">Garden studio</button><button id="orbital">Orbital workshop</button></div>
+<div class="scene-card"><div class="scene-head"><div><h2 id="world-title"></h2><span id="world-subtitle"></span></div><span id="source-badge" class="badge">SIMULATED</span></div><canvas id="scene" width="1040" height="600" role="img" aria-label="Top-down world layout, furniture, route and character"></canvas><div class="scene-foot"><span id="activity" aria-live="polite"></span><label><input id="paths" type="checkbox" checked> Show routes</label></div></div>
+<div class="lower-grid"><section class="card"><span class="eyebrow">IMAGINED PROJECT</span><h3 id="project-title"></h3><progress id="progress" max="1"></progress><p id="project-status"></p><p class="muted">Progress is calculated from elapsed time. No AI is working on this project.</p><button id="advance">Preview +30 minutes</button><button id="clock-reset" class="subtle">Return to real time</button><p id="clock-note" class="muted"></p></section>
+<section class="card"><span class="eyebrow">ACTIVITY TEST BENCH</span><h3>Test the visual response</h3><p class="muted">These buttons create local mock events. They do not call your dot or start work.</p><div class="button-row"><button id="mock-work">Mock work · 45s</button><button id="mock-call">Mock call · 20s</button></div><div class="button-row"><button id="renew" class="subtle">Renew selected mock</button><button id="end" class="subtle">End selected mock</button></div><label>Selected mock <select id="event-select"><option value="">No mock started</option></select></label><p id="event-log" class="muted" aria-live="polite">Start one, end it, or wait for it to expire.</p></section></div>
+<section class="connection card"><div><span class="eyebrow">REAL CONNECTIONS</span><p><strong>Work: unavailable</strong> <span>·</span> <strong>Native call: unavailable</strong></p></div><p class="muted">No activity feed is connected here. Visual settings cannot enable access. A phone is a prop; the native call remains in ChatGPT.</p></section>
+</section><aside class="card settings"><span class="eyebrow">MAKE IT YOURS</span><h2>World settings</h2><form id="settings">
+<label>World name<input id="title" maxlength="48" required></label><label>Dot name<input id="dotName" maxlength="24" required></label>
+<div class="two"><label>Building<select id="layout"><option value="garden">Studio + upstairs</option><option value="orbital">Orbital deck</option></select></label><label>Lighting<select id="lighting"><option value="day">Day</option><option value="night">Night</option></select></label></div>
+<div class="two"><label>Accent<input id="accent" type="color"></label><label>Character color<input id="color" type="color"></label></div>
+<div class="two"><label>Character<select id="character"><option value="orb">Little orb</option><option value="robot">Little robot</option></select></label><label>Decoration<select id="decoration"><option value="plants">Plants</option><option value="instruments">Instruments</option></select></label></div>
+<div class="two"><label>Computer<select id="computer"><option value="monitor">Monitor</option><option value="hologram">Hologram</option></select></label><label>Desk location<select id="desk"><option value="west">West socket</option><option value="east">East socket</option></select></label></div>
+<div class="two"><label>Phone<select id="phone"><option value="handset">Handset</option><option value="orb">Floating orb</option></select></label><label>Phone location<select id="phonePlace"><option value="desk">At computer</option><option value="side">Side table</option></select></label></div>
+<label>Simulated hobby<select id="hobby"><option value="garden">Growing a small garden</option><option value="build">Building a model</option><option value="read">Filling a reading journal</option></select></label>
+<div class="two"><label>Routine cycle (minutes)<input id="cycle" type="number" min="2" max="60" required></label><label>Hobby time to finish (minutes)<input id="duration" type="number" min="1" max="1440" required></label></div>
+<p class="muted">Short cycles make this demo easy to inspect. A finished world can use an ordinary daily schedule.</p>
+<button id="save" type="submit" class="primary">Save settings</button><p id="save-status" role="status"></p>
+</form><div class="button-row"><button id="export" class="subtle">Export config</button><button id="import" class="subtle">Import config</button><input id="file" type="file" accept="application/json,.json" hidden></div><button id="reset" class="subtle danger">Reset this world</button><p class="muted">Imports are validated before replacing settings. Access fields are rejected. Reset starts this example over; exports contain settings only. Changing a routine starts a fresh simulated project after confirmation.</p><details><summary>Prototype boundaries</summary><p class="muted">This is a 2D configuration and event prototype, not a Godot export. Upstairs movement uses a logical stair link. There is no tested 3D stair physics or character rig. The downloaded HTML saves in this browser only; the optional local server saves to SQLite. Neither is a hosted private Site.</p></details></aside></main>
+<footer>One runtime. Two example personalities. Your dot chooses what comes next.</footer>
+<script>const WORLD_SCHEMA={"$schema": "https://json-schema.org/draft/2020-12/schema", "$id": "urn:dot-world-lab:config:v1", "type": "object", "additionalProperties": false, "required": ["schemaVersion", "id", "title", "dotName", "layout", "palette", "lighting", "decoration", "character", "furnishings", "routine"], "properties": {"schemaVersion": {"type": "integer", "enum": [1]}, "id": {"type": "string", "enum": ["garden", "orbital"]}, "title": {"type": "string", "minLength": 1, "maxLength": 48}, "dotName": {"type": "string", "minLength": 1, "maxLength": 24}, "layout": {"type": "string", "enum": ["garden", "orbital"]}, "palette": {"type": "object", "additionalProperties": false, "required": ["floor", "wall", "accent"], "properties": {"floor": {"type": "string", "pattern": "^#[0-9a-fA-F]{6}$"}, "wall": {"type": "string", "pattern": "^#[0-9a-fA-F]{6}$"}, "accent": {"type": "string", "pattern": "^#[0-9a-fA-F]{6}$"}}}, "lighting": {"type": "string", "enum": ["day", "night"]}, "decoration": {"type": "string", "enum": ["plants", "instruments"]}, "character": {"type": "object", "additionalProperties": false, "required": ["color", "style"], "properties": {"color": {"type": "string", "pattern": "^#[0-9a-fA-F]{6}$"}, "style": {"type": "string", "enum": ["orb", "robot"]}}}, "furnishings": {"type": "object", "additionalProperties": false, "required": ["deskSocket", "phoneSocket", "computerStyle", "phoneStyle"], "properties": {"deskSocket": {"type": "string", "enum": ["west", "east"]}, "phoneSocket": {"type": "string", "enum": ["desk", "side"]}, "computerStyle": {"type": "string", "enum": ["monitor", "hologram"]}, "phoneStyle": {"type": "string", "enum": ["handset", "orb"]}}}, "routine": {"type": "object", "additionalProperties": false, "required": ["cycleMinutes", "hobby", "projectMinutes"], "properties": {"cycleMinutes": {"type": "integer", "minimum": 2, "maximum": 60}, "hobby": {"type": "string", "enum": ["garden", "build", "read"]}, "projectMinutes": {"type": "integer", "minimum": 1, "maximum": 1440}}}}};const WORLD_PRESETS={"garden": {"schemaVersion": 1, "id": "garden", "title": "The Garden Studio", "dotName": "Moss", "layout": "garden", "palette": {"floor": "#d3b47c", "wall": "#5f754c", "accent": "#dfff8c"}, "lighting": "day", "decoration": "plants", "character": {"color": "#ffbe65", "style": "orb"}, "furnishings": {"deskSocket": "west", "phoneSocket": "desk", "computerStyle": "monitor", "phoneStyle": "handset"}, "routine": {"cycleMinutes": 4, "hobby": "garden", "projectMinutes": 30}}, "orbital": {"schemaVersion": 1, "id": "orbital", "title": "The Orbital Workshop", "dotName": "Nova", "layout": "orbital", "palette": {"floor": "#243b51", "wall": "#3a718a", "accent": "#71e6fa"}, "lighting": "night", "decoration": "instruments", "character": {"color": "#d9a1ff", "style": "robot"}, "furnishings": {"deskSocket": "east", "phoneSocket": "side", "computerStyle": "hologram", "phoneStyle": "orb"}, "routine": {"cycleMinutes": 4, "hobby": "build", "projectMinutes": 45}}};</script><script>/* Dot World Lab v1. Local simulation and MOCK event logic only. No Dot API. */
+(function(root, factory) {
+  const api = factory(); if (typeof module === 'object') module.exports = api;
+  else root.WorldCore = api;
+})(globalThis, function() {
+  'use strict';
+  const copy = x => JSON.parse(JSON.stringify(x));
+  function validate(c, schema) {
+    const errors = [];
+    function visit(v, s, p) {
+      const type = Array.isArray(v) ? 'array' : v === null ? 'null' : typeof v;
+      if (s.type === 'integer' ? !Number.isSafeInteger(v) : type !== s.type) { errors.push(p + ': wrong type'); return; }
+      if (s.enum && !s.enum.includes(v)) errors.push(p + ': unsupported value');
+      if (type === 'object') {
+        for (const k of s.required || []) if (!Object.hasOwn(v, k)) errors.push(p + '.' + k + ': missing');
+        for (const k of Object.keys(v)) {
+          if (!Object.hasOwn(s.properties || {}, k)) errors.push(p + '.' + k + ': unknown field (permissions and connections cannot be imported)');
+          else visit(v[k], s.properties[k], p + '.' + k);
+        }
+      }
+      if (type === 'string') {
+        if (s.minLength && v.trim().length < s.minLength || s.maxLength && v.length > s.maxLength) errors.push(p + ': invalid length');
+        if (s.pattern && !new RegExp(s.pattern).test(v)) errors.push(p + ': invalid format');
+      }
+      if (type === 'number' && (!Number.isFinite(v) || v < s.minimum || v > s.maximum)) errors.push(p + ': out of range');
+    }
+    visit(c, schema, 'world');
+    if (!errors.length) {
+      const g = geometry(c);
+      for (const [name, node] of Object.entries(g.anchors)) if (!path(g, g.spawn, node).length) errors.push('Unreachable ' + name);
+    }
+    return errors;
+  }
+  const key = (f,x,y) => `${f}:${x}:${y}`;
+  const point = k => k.split(':').map(Number);
+  function geometry(c) {
+    const garden = c.layout === 'garden';
+    const floors = garden ? [{name:'Studio and garden',w:10,h:8},{name:'Upstairs retreat',w:5,h:5}] : [{name:'Orbital workshop',w:12,h:8}];
+    const cells = new Set();
+    floors.forEach((f,i) => {
+      for(let y=1;y<f.h-1;y++) for(let x=1;x<f.w-1;x++) {
+        if(!garden && ((x===1||x===10) && (y===1||y===6))) continue;
+        if(i===0 && x===5 && [1,2,4].includes(y)) continue;
+        cells.add(key(i,x,y));
+      }
+    });
+    const gx = c.furnishings.deskSocket === 'west' ? (garden?1:2) : (garden?7:8);
+    const gy = garden?1:2;
+    const objects = [
+      {kind:'computer',node:key(0,gx,gy),anchor:key(0,gx,gy+1),label:'Computer'},
+      {kind:'garden',node:key(0,garden?8:3,garden?2:5),anchor:key(0,garden?8:3,garden?3:4),label:'Garden'},
+      {kind:'build',node:key(0,garden?4:8,5),anchor:key(0,garden?4:8,garden?6:4),label:'Workbench'},
+      {kind:'read',node:key(0,1,garden?5:4),anchor:key(0,1,garden?6:3),label:'Reading'},
+      {kind:'rest',node:garden?key(1,3,1):key(0,9,5),anchor:garden?key(1,3,2):key(0,9,4),label:'Rest'}
+    ];
+    const computer=objects[0];
+    objects.push(c.furnishings.phoneSocket==='desk' ? {kind:'phone',node:computer.node,anchor:computer.anchor,label:'Phone'} : {kind:'phone',node:key(0,garden?2:7,5),anchor:key(0,garden?2:7,garden?6:4),label:'Phone'});
+    const anchors = Object.fromEntries(objects.map(o=>[o.kind,o.anchor]));
+    objects.forEach(o=>cells.delete(o.node));
+    const links = garden ? [[key(0,8,6),key(1,1,3)]] : [];
+    return {floors,cells,objects,anchors,links,spawn:key(0,4,3)};
+  }
+  function neighbors(g,n) {
+    const [f,x,y]=point(n);
+    const a=[[x-1,y],[x+1,y],[x,y-1],[x,y+1]].map(([xx,yy])=>key(f,xx,yy)).filter(v=>g.cells.has(v));
+    for(const [s,t] of g.links) {if(n===s)a.push(t); if(n===t)a.push(s);}
+    return a;
+  }
+  function path(g,from,to) {
+    if(!g.cells.has(from)||!g.cells.has(to))return [];
+    const q=[from],prev=new Map([[from,null]]);
+    for(let i=0;i<q.length;i++) {
+      const n=q[i]; if(n===to) {const result=[]; for(let p=n;p!==null;p=prev.get(p))result.unshift(p); return result;}
+      for(const v of neighbors(g,n)) if(!prev.has(v)){prev.set(v,n);q.push(v);}
+    }
+    return [];
+  }
+  function simulation(c,epoch,now) {
+    // Pure elapsed-time calculation. Opening a second viewer never advances a counter.
+    const elapsed=Math.max(0,now-epoch), period=c.routine.cycleMinutes*60000;
+    const steps=['rest','read',c.routine.hobby,'computer'];
+    const index=Math.floor((elapsed%period)/(period/steps.length));
+    // One quarter of the repeating cycle is hobby time. Aggregate without replaying frames.
+    const full=Math.floor(elapsed/period), remainder=elapsed%period;
+    const hobbyMs=full*period/4+Math.max(0,Math.min(period/4,remainder-period/2));
+    const progress=Math.min(1,hobbyMs/(c.routine.projectMinutes*60000));
+    return {kind:steps[index],source:'simulation',label:'Simulated routine',progress,
+      stage:progress>=1?'Finished':progress>=.66?'Taking shape':progress>=.33?'In progress':'Getting started'};
+  }
+  class MockActivity {
+    constructor(worldId){this.worldId=worldId;this.records=new Map();this.seen=new Set();}
+    apply(e,now) {
+      if(e.source!=='mock'||e.worldId!==this.worldId||!['call','work'].includes(e.kind)||!['start','renew','end'].includes(e.op)||!Number.isSafeInteger(e.seq)||e.seq<1||typeof e.activityId!=='string'||!e.activityId||typeof e.eventId!=='string'||!e.eventId||!Number.isFinite(now)) return {accepted:false,reason:'invalid or non-mock event'};
+      if(this.seen.has(e.eventId)) return {accepted:false,reason:'duplicate event'};
+      const old=this.records.get(e.activityId);
+      if(old && (old.kind!==e.kind || e.seq<=old.seq))return {accepted:false,reason:'stale or mismatched event'};
+      if(e.op==='start' && old)return {accepted:false,reason:'activity IDs cannot restart'};
+      if(e.op==='renew' && (!old||old.ended||old.expiresAt<=now))return {accepted:false,reason:'lease ended or expired; use a new activity ID'};
+      if(e.op!=='end' && (!Number.isFinite(e.ttlMs)||e.ttlMs<1000||e.ttlMs>60000))return {accepted:false,reason:'lease must be 1–60 seconds'};
+      this.seen.add(e.eventId);
+      this.records.set(e.activityId,{...e,receivedAt:now,expiresAt:e.op==='end'?now:now+e.ttlMs,ended:e.op==='end'});
+      return {accepted:true,reason:e.op};
+    }
+    active(now) {
+      return [...this.records.values()].filter(r=>!r.ended&&r.expiresAt>now).sort((a,b)=>(b.kind==='call')-(a.kind==='call')||b.receivedAt-a.receivedAt)[0]||null;
+    }
+    display(c,epoch,now) {
+      const s=simulation(c,epoch,now),a=this.active(now);
+      return a?{...s,kind:a.kind==='call'?'phone':'computer',source:'mock',label:`MOCK ${a.kind} · ${Math.ceil((a.expiresAt-now)/1000)}s left`,event:a}:s;
+    }
+  }
+  return {copy,validate,key,point,geometry,path,neighbors,simulation,MockActivity};
+});
+</script><script>/* Functional top-down scene preview: same renderer for both configs. */
+(function(root,factory){if(typeof module==='object')module.exports=factory(require('./world-core.js'));else root.WorldRender=factory(root.WorldCore);})(globalThis,function(C){
+  function draw(ctx,w,h,c,activity,position,route,showPaths){
+    const g=C.geometry(c),orb=c.layout==='orbital';
+    ctx.clearRect(0,0,w,h);ctx.fillStyle=orb?(c.lighting==='day'?'#1b2d44':'#0c1626'):(c.lighting==='day'?'#152720':'#0d1917');ctx.fillRect(0,0,w,h);
+    const scale=Math.min((w-56)/(orb?12:16.5),(h-100)/8);
+    const origins=orb?[[w/2-6*scale,45]]:[[25,45],[25+11*scale,45+1.5*scale]];
+    const xy=n=>{const[f,x,y]=C.point(n);return [origins[f][0]+(x+.5)*scale,origins[f][1]+(y+.5)*scale];};
+    function rect(x,y,ww,hh,color){ctx.fillStyle=color;ctx.fillRect(x,y,ww,hh);}
+    function text(t,x,y,size=12,color='#eff6e9'){ctx.font=`${size}px sans-serif`;ctx.fillStyle=color;ctx.fillText(t,x,y);}
+    if(orb) for(let i=0;i<75;i++){ctx.fillStyle=i%3?'#3c5b78':'#a3cde6';ctx.fillRect((i*137+41)%w,(i*79+21)%h,i%3?1:2,i%3?1:2);}
+    g.floors.forEach((f,fi)=>{
+      const [ox,oy]=origins[fi];
+      text(f.name.toUpperCase(),ox,oy-15,11,c.palette.accent);
+      for(let y=0;y<f.h;y++)for(let x=0;x<f.w;x++){
+        const n=C.key(fi,x,y),isFloor=g.cells.has(n)||g.objects.some(o=>o.node===n),px=ox+x*scale,py=oy+y*scale;
+        if(!isFloor && orb && ((x<2||x>9)&&(y<2||y>5)))continue;
+        rect(px,py,scale-1,scale-1,isFloor?c.palette.floor:c.palette.wall);
+        if(isFloor){ctx.fillStyle=orb?'#ffffff08':'#331a0010';ctx.fillRect(px,py,scale-1,1);}
+      }
+      ctx.strokeStyle=c.palette.accent+'60';ctx.lineWidth=1;ctx.strokeRect(ox-2,oy-2,f.w*scale+2,f.h*scale+2);
+    });
+    // Station footprints and interaction anchors are distinct. Walking never crosses footprints.
+    g.objects.forEach(o=>{
+      if(o.kind==='phone'&&c.furnishings.phoneSocket==='desk')return;
+      const [x,y]=xy(o.node),s=scale*.65;
+      ctx.shadowColor='#00000070';ctx.shadowBlur=8;ctx.shadowOffsetY=4;
+      rect(x-s/2,y-s/2,s,s,orb?'#142432':'#66523c');ctx.shadowBlur=0;ctx.shadowOffsetY=0;
+      if(o.kind==='computer'){
+        rect(x-s*.38,y-s*.32,s*.76,s*.42,c.furnishings.computerStyle==='hologram'?'#72f3fc9c':'#98c6ba');
+        rect(x-s*.25,y+s*.19,s*.5,s*.1,'#cfe3dd');
+        if(c.furnishings.phoneSocket==='desk'){ctx.fillStyle=c.palette.accent;if(c.furnishings.phoneStyle==='orb'){ctx.beginPath();ctx.arc(x+s*.36,y+s*.28,s*.10,0,Math.PI*2);ctx.fill();}else{rect(x+s*.2,y+s*.22,s*.28,s*.10,c.palette.accent);}}
+      }else if(o.kind==='phone'){
+        ctx.strokeStyle=c.palette.accent;ctx.lineWidth=scale*.1;ctx.beginPath();
+        if(c.furnishings.phoneStyle==='orb')ctx.arc(x,y,s*.27,0,Math.PI*2);else {ctx.moveTo(x-s*.25,y-s*.15);ctx.lineTo(x-s*.25,y+s*.15);ctx.lineTo(x+s*.25,y+s*.15);ctx.lineTo(x+s*.25,y-s*.15);}ctx.stroke();
+      }else if(o.kind==='garden'){
+        const growth=c.routine.hobby==='garden'?activity.progress:0.5;
+        for(let n=0;n<1+Math.floor(growth*3);n++){ctx.fillStyle='#99ce6c';ctx.beginPath();ctx.arc(x+(n-1.5)*s*.20,y,s*(.10+.09*growth),0,Math.PI*2);ctx.fill();}
+      }else if(o.kind==='rest'){
+        rect(x-s*.35,y-s*.37,s*.7,s*.74,'#bcbce0');rect(x-s*.30,y-s*.34,s*.60,s*.21,'#e1e4eb');
+      }else if(o.kind==='read'){
+        rect(x-s*.35,y-s*.25,s*.3,s*.5,'#f2dcaa');rect(x+s*.03,y-s*.25,s*.3,s*.5,'#e8ba70');
+      }else{
+        const growth=c.routine.hobby==='build'?activity.progress:0.5;
+        rect(x-s*.3,y-s*.25,s*.6,s*.5,'#b0c4d1');rect(x-s*.15,y-s*.12,s*.3,s*(.08+.3*growth),c.palette.accent);
+      }
+      text(o.label,x-s*.5,y+s*.75,Math.max(8,scale*.2),orb?'#e1f0ff':'#fff8e6');
+    });
+    if(c.decoration==='plants'){
+      for(let i=0;i<4;i++){ctx.fillStyle='#649e66';ctx.beginPath();ctx.arc(34+i*17,h-30,6,0,Math.PI*2);ctx.fill();}
+    }else{
+      for(let i=0;i<4;i++)rect(28+i*20,h-36,12,8,'#80cce0');
+    }
+    for(const [a,b] of g.links){
+      for(const n of [a,b]){const[x,y]=xy(n);for(let i=0;i<4;i++)rect(x-scale*.36,y-scale*.32+i*scale*.17,scale*.72,scale*.1,'#fff2b3');}
+      const[x1,y1]=xy(a),[x2,y2]=xy(b);ctx.strokeStyle='#ffe9ab99';ctx.setLineDash([4,5]);ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();ctx.setLineDash([]);
+      text('Stair link',x1-28,y1+scale*.7,10,'#fff2b3');
+    }
+    if(showPaths){
+      ctx.lineWidth=1;
+      Object.values(g.anchors).forEach(n=>{const[x,y]=xy(n);ctx.strokeStyle='#ffffff88';ctx.beginPath();ctx.arc(x,y,scale*.22,0,Math.PI*2);ctx.stroke();});
+      if(route&&route.length){ctx.strokeStyle=c.palette.accent;ctx.lineWidth=2;ctx.setLineDash([4,4]);ctx.beginPath();route.forEach((n,i)=>{const[x,y]=xy(n);i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.stroke();ctx.setLineDash([]);}
+    }
+    const node=position||g.spawn,[x,y]=xy(node),s=scale*.23;
+    ctx.fillStyle='#00000040';ctx.beginPath();ctx.ellipse(x,y+s*.85,s*1.3,s*.5,0,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle=c.character.color;
+    if(c.character.style==='robot')ctx.fillRect(x-s,y-s,s*2,s*2);else{ctx.beginPath();ctx.arc(x,y,s,0,Math.PI*2);ctx.fill();}
+    ctx.fillStyle='#182233';ctx.beginPath();ctx.arc(x-s*.32,y-s*.1,s*.13,0,Math.PI*2);ctx.arc(x+s*.32,y-s*.1,s*.13,0,Math.PI*2);ctx.fill();
+    text(c.dotName,x-s,y-s*1.5,11);
+    const target=g.anchors[activity.kind];
+    if(activity.source==='mock'&&node===target){text(activity.kind==='phone'?'MOCK CALL':'MOCK WORK',x-s*2.5,y+s*2.5,10,'#ffc979');}
+    text('2D movement and settings preview',orb?w-237:25,h-12,11,'#a6bab5');
+  }
+  return {draw};
+});
+</script><script>(function(){
+  'use strict';
+  const C=WorldCore,$=id=>document.getElementById(id),states={},key='dot-world-lab-v1';
+  let selected='garden',c,g,events,position,route=[],lastStep=0,offset=0,server=false,serverClock=0,clockAnchor=performance.now(),ready=false,busy=false;
+  let observed=Date.now();
+  const now=()=>serverClock?serverClock+(performance.now()-clockAnchor):observed+(performance.now()-clockAnchor);
+  const status=(s,error=false)=>{$('save-status').textContent=s;$('save-status').classList.toggle('error',error);};
+  const baseState=id=>({config:C.copy(WORLD_PRESETS[id]),epoch:Date.now(),revision:0});
+  function goodState(s){return s&&C.validate(s.config,WORLD_SCHEMA).length===0&&Number.isSafeInteger(s.epoch)&&s.epoch>=0&&Number.isSafeInteger(s.revision)&&s.revision>=0;}
+  function browserSave(){try{localStorage.setItem(key,JSON.stringify({version:1,worlds:states}));return true;}catch(e){status('Browser storage unavailable. Export your config to keep it.',true);return false;}}
+  function fill(){
+    const map={title:c.title,dotName:c.dotName,layout:c.layout,lighting:c.lighting,accent:c.palette.accent,color:c.character.color,character:c.character.style,decoration:c.decoration,computer:c.furnishings.computerStyle,desk:c.furnishings.deskSocket,phone:c.furnishings.phoneStyle,phonePlace:c.furnishings.phoneSocket,hobby:c.routine.hobby,cycle:c.routine.cycleMinutes,duration:c.routine.projectMinutes};
+    for(const [id,value]of Object.entries(map))$(id).value=value;
+    $('world-title').textContent=c.title;$('world-subtitle').textContent=`${c.dotName}’s world · same reusable runtime`;
+    $('garden').classList.toggle('chosen',selected==='garden');$('orbital').classList.toggle('chosen',selected==='orbital');
+  }
+  function select(id){
+    selected=id;c=C.copy(states[id].config);g=C.geometry(c);events=new C.MockActivity(id);position=g.spawn;route=[];offset=0;
+    $('event-select').replaceChildren(new Option('No mock started',''));$('event-log').textContent='Mock events are temporary and are cleared when switching worlds.';
+    fill();status(server?'Local SQLite · saved revision '+states[id].revision:'This browser only · export a backup');
+  }
+  async function save(next,{reset=false,imported=false}={}){
+    if(busy)return;
+    const errors=C.validate(next,WORLD_SCHEMA);
+    if(errors.length){status('Not applied: '+errors.join('; '),true);return;}
+    if(next.id!==selected){status('This config belongs to the other example. Select that world first.',true);return;}
+    const routineChanged=JSON.stringify(next.routine)!==JSON.stringify(states[selected].config.routine);
+    if(routineChanged&&!reset&&!confirm('This changes the simulated routine and starts a fresh imagined project. Continue?'))return;
+    busy=true;$('save').disabled=true;
+    const previous=states[selected],nextState={config:next,epoch:reset||routineChanged?Math.round(now()):previous.epoch,revision:previous.revision};
+    try{
+      if(server){
+        const res=await fetch('/api/state/'+selected,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(nextState)});
+        if(!res.ok)throw new Error(res.status===409?'Another tab saved a newer version. Export your draft, then reload before saving.':'Database unavailable. Draft kept; export it before leaving.');
+        const data=await res.json();states[selected]=data.state;
+      }else{
+        states[selected]={...nextState,revision:previous.revision+1};
+        if(!browserSave()){states[selected]=previous;return;}
+      }
+      c=C.copy(states[selected].config);g=C.geometry(c);position=g.spawn;route=[];offset=0;events=new C.MockActivity(selected);
+      $('event-select').replaceChildren(new Option('No mock started',''));fill();
+      status((imported?'Imported and saved. ':'Saved. ')+(server?'Local SQLite':'This browser only')+' · revision '+states[selected].revision);
+    }catch(e){status(e.message,true);}finally{busy=false;$('save').disabled=false;}
+  }
+  function draft(){
+    const next=C.copy(c);next.title=$('title').value.trim();next.dotName=$('dotName').value.trim();next.layout=$('layout').value;next.lighting=$('lighting').value;next.palette.accent=$('accent').value;next.character={style:$('character').value,color:$('color').value};next.decoration=$('decoration').value;
+    next.furnishings={computerStyle:$('computer').value,deskSocket:$('desk').value,phoneStyle:$('phone').value,phoneSocket:$('phonePlace').value};
+    next.routine={hobby:$('hobby').value,cycleMinutes:Number($('cycle').value),projectMinutes:Number($('duration').value)};return next;
+  }
+  $('settings').addEventListener('submit',e=>{e.preventDefault();if(ready)save(draft());});
+  for(const id of ['garden','orbital'])$(id).onclick=()=>{if(!ready||busy)return;if(JSON.stringify(draft())!==JSON.stringify(c)&&!confirm('Switch worlds and discard unsaved settings?'))return;select(id);};
+  $('reset').onclick=()=>{if(ready&&confirm('Reset this example’s settings and simulated timeline? Export anything you want to keep first.'))save(C.copy(WORLD_PRESETS[selected]),{reset:true});};
+  $('export').onclick=()=>{if(!ready)return;const d=draft(),e=C.validate(d,WORLD_SCHEMA);if(e.length){status('Fix the draft before exporting: '+e.join('; '),true);return;}const url=URL.createObjectURL(new Blob([JSON.stringify(d,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=selected+'.world.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+  $('import').onclick=()=>{if(ready)$('file').click();};
+  $('file').onchange=async()=>{const f=$('file').files[0];if(!f)return;try{if(f.size>20000)throw new Error('Configuration is too large (20 KB maximum).');const next=JSON.parse(await f.text());const errors=C.validate(next,WORLD_SCHEMA);if(errors.length)throw new Error(errors.join('; '));if(next.id!==selected)throw new Error('Select the '+next.id+' example before importing this config.');if(confirm('Replace this example’s settings with this configuration?'))await save(next,{imported:true});}catch(e){status('Import rejected: '+e.message,true);}finally{$('file').value='';}};
+  $('advance').onclick=()=>{offset+=30*60000;};$('clock-reset').onclick=()=>{offset=0;};
+  function emit(kind,op,id){
+    if(!ready)return;
+    const prior=id?events.records.get(id):null;
+    const activityId=id||('mock-'+kind+'-'+Math.random().toString(36).slice(2));
+    const e={worldId:selected,source:'mock',kind,op,activityId,eventId:'event-'+Math.random().toString(36).slice(2),seq:(prior?.seq||0)+1,ttlMs:kind==='call'?20000:45000};
+    const result=events.apply(e,now());$('event-log').textContent=(result.accepted?'MOCK '+kind+' '+op+'. ': 'Not applied: ')+result.reason+'.';
+    if(result.accepted&&op==='start'){if($('event-select').options[0]?.value==='')$('event-select').replaceChildren();$('event-select').add(new Option('MOCK '+kind+' '+events.records.size,activityId));$('event-select').value=activityId;}
+  }
+  $('mock-call').onclick=()=>emit('call','start');$('mock-work').onclick=()=>emit('work','start');
+  $('renew').onclick=()=>{if(!ready)return;const id=$('event-select').value,e=events.records.get(id);if(e)emit(e.kind,'renew',id);};
+  $('end').onclick=()=>{if(!ready)return;const id=$('event-select').value,e=events.records.get(id);if(e)emit(e.kind,'end',id);};
+  function frame(t){
+    if(ready){
+      const real=now(),sim=C.simulation(c,states[selected].epoch,real+offset),a=events.active(real);
+      const display=a?{...sim,kind:a.kind==='call'?'phone':'computer',source:'mock',label:'MOCK '+a.kind+' · '+Math.ceil((a.expiresAt-real)/1000)+'s left'}:sim;
+      const target=g.anchors[display.kind];
+      if(!route.length||route[route.length-1]!==target)route=C.path(g,position,target);
+      if(t-lastStep>190){if(route.length>1){route.shift();position=route[0];}lastStep=t;}
+      WorldRender.draw($('scene').getContext('2d'),1040,600,c,display,position,route,$('paths').checked);
+      const at=position===target;$('source-badge').textContent=display.source==='mock'?'MOCK EVENT':'SIMULATED';$('source-badge').classList.toggle('mock',display.source==='mock');
+      const action={rest:'resting',read:'reading',garden:'gardening',build:'building a model',computer:'at the computer',phone:'at the phone'}[display.kind];
+      $('activity').textContent=display.label+' · '+c.dotName+(at?' is '+action:' is walking to '+({phone:'the phone',computer:'the computer',rest:'the rest area',read:'the reading corner',garden:'the garden',build:'the workbench'}[display.kind]));
+      $('scene').setAttribute('aria-label',$('activity').textContent+' in '+c.title);
+      $('project-title').textContent={garden:'A tiny garden',build:'A miniature invention',read:'A reading journal'}[c.routine.hobby];$('progress').value=sim.progress;$('project-status').textContent=sim.stage+' · '+Math.round(sim.progress*100)+'% · simulated';
+      $('clock-note').textContent=offset?'+ '+offset/60000+' minute preview. Not saved; mock expiry uses real time.':'Elapsed time advances the imagined routine between visits.';
+    }
+    requestAnimationFrame(frame);
+  }
+  async function init(){
+    let saved=null,loadWarning='';
+    if(location.protocol==='http:'||location.protocol==='https:'){
+      try{const response=await fetch('/api/state');if(response.ok){const data=await response.json();if(data.mode!=='local-sqlite-lab')throw new Error('Unknown server');for(const id of ['garden','orbital'])if(!goodState(data.worlds[id])||data.worlds[id].config.id!==id)throw new Error('Invalid stored state');Object.assign(states,data.worlds);server=true;serverClock=data.serverTime;clockAnchor=performance.now();}else if(response.status!==404)throw new Error('Database unavailable');}
+      catch(e){status('Database load failed. No data overwritten; reload the server page.',true);return;}
+    }
+    if(!server){
+      try{saved=JSON.parse(localStorage.getItem(key));}catch(e){loadWarning='Stored settings could not be read. Defaults are temporary; export or save deliberately.';}
+      for(const id of ['garden','orbital']){
+        const valid=saved?.version===1&&goodState(saved?.worlds?.[id])&&saved.worlds[id].config.id===id;
+        states[id]=valid?saved.worlds[id]:baseState(id);
+        if(saved&&!valid)loadWarning='Invalid stored settings were preserved. Defaults are temporary; export or save deliberately.';
+      }
+      if(!loadWarning&&!browserSave())loadWarning='Browser storage unavailable. Export your config to keep it.';
+    }
+    select('garden');if(loadWarning)status(loadWarning,true);ready=true;requestAnimationFrame(frame);
+  }
+  init();
+})();
+</script></body></html>
