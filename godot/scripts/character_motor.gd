@@ -16,6 +16,7 @@ var previous_position := Vector3.ZERO
 var facing_offset := 0.0
 var layered := false
 var navigation_surface: Node3D
+var recovery_count := 0
 
 func configure(data: Dictionary) -> void:
 	definition = data
@@ -141,6 +142,17 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if not layered:
 		global_position.y = path_points[0].y
+	else:
+		var support: float = navigation_surface.support_height(global_position)
+		if not is_finite(support) or absf(global_position.y-support) > 0.4:
+			global_position = navigation_surface.safe_fallback(global_position)
+			velocity = Vector3.ZERO
+			moving = false
+			path_points.clear()
+			recovery_count += 1
+			set_action("idle")
+			unreachable.emit(target_station.id)
+			return
 	if global_position.distance_to(previous_position) < 0.005:
 		stalled += delta
 	else:

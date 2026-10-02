@@ -198,6 +198,17 @@ func support_height(point: Vector3) -> float:
 				result = height
 	return result
 
+func safe_fallback(point: Vector3) -> Vector3:
+	# Landings are eroded into the supporting floors, never a bare ramp edge.
+	var best := Vector3.ZERO
+	var distance := INF
+	for transition in transitions:
+		for landing in landing_anchors(transition):
+			if point.distance_to(landing) < distance:
+				distance = point.distance_to(landing)
+				best = landing
+	return best
+
 func _floor_path(from: Vector3, to: Vector3) -> PackedVector3Array:
 	var map := get_world_3d().navigation_map
 	if not is_instance_valid(region) or NavigationServer3D.map_get_iteration_id(map) == 0:

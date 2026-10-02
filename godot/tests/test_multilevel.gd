@@ -119,6 +119,33 @@ func run() -> void:
 	rejected.world.objects = [{"id":"blocked_landing","asset_id":"obstruction","position":[13,3,0]}]
 	check(not await main.load_bundle(rejected) and "blocks ramp" in main.notice,"runtime rejects blocked landing before activation")
 	check(main.ready_world and main.world.id == "ramp_acceptance" and main.motor.position.distance_to(Vector3(-2,0,0)) < 0.001,"failed candidate preserves known-good active world")
+	check(main.motor.recovery_count == 0,"normal traversal never requires recovery teleport")
+	main.motor.go_to(bundle.world.stations[1],main.surface)
+	main.motor.position = Vector3(8,-4,0)
+	await physics_frame
+	await process_frame
+	check(main.motor.recovery_count == 1 and not main.motor.moving,"lost support triggers safe recovery and reports unreachable")
+	check(main.motor.position.distance_to(Vector3(3,0,0)) < 0.01,"recovery uses fully supported interior landing")
+	for degrees in [90,180,270]:
+		var rotated := fixture()
+		rotated.world.id = "ramp_rotated_"+str(degrees)
+		for zone in rotated.world.zones:
+			zone.center = turn(zone.center,degrees)
+		rotated.world.spawn = turn(rotated.world.spawn,degrees)
+		for station in rotated.world.stations:
+			station.approach = turn(station.approach,degrees)
+			station.interaction = turn(station.interaction,degrees)
+		for transition in rotated.world.transitions:
+			transition.entry = turn(transition.entry,degrees)
+			transition.exit = turn(transition.exit,degrees)
+			transition.safe_fallbacks = [turn(transition.safe_fallbacks[0],degrees),turn(transition.safe_fallbacks[1],degrees)]
+		check(await main.load_bundle(rotated),"rotated ramp loads "+str(degrees))
+		main.motor.go_to(rotated.world.stations[1],main.surface)
+		await settle()
+		check(main.motor.position.distance_to(Vector3(rotated.world.stations[1].interaction[0],3,rotated.world.stations[1].interaction[2])) < 0.2,"rotated ramp climbs "+str(degrees))
+		main.motor.go_to(rotated.world.stations[0],main.surface)
+		await settle()
+		check(main.motor.position.distance_to(Vector3(rotated.world.spawn[0],0,rotated.world.spawn[2])) < 0.2,"rotated ramp descends "+str(degrees))
 	check(support_failures == 0,"all sampled traversal positions have continuous support")
 	check(ceiling_failures == 0,"all sampled traversals avoid head collisions")
 	check(samples > 1000,"physical acceptance samples both levels and transitions")
@@ -126,3 +153,7 @@ func run() -> void:
 	main.queue_free()
 	await process_frame
 	quit(0 if failed == 0 else 1)
+
+func turn(values: Array, degrees: int) -> Array:
+	var point := Vector3(values[0],values[1],values[2]).rotated(Vector3.UP,deg_to_rad(degrees))
+	return [snappedf(point.x,0.001),point.y,snappedf(point.z,0.001)]
