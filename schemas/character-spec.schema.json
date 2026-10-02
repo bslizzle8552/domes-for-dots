@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://domes-for-dots.example/schemas/character-spec.schema.json",
+  "title": "Domes character specification envelope v1 (requires registered backend validation)",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "character_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,63}$"
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "backend": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,63}$"
+    },
+    "appearance": {
+      "type": "object",
+      "description": "Producer parameters; validated by the backend-specific contract, never treated as arbitrary production permission."
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,63}$"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "media_type": {
+            "enum": [
+              "image/png",
+              "image/jpeg"
+            ]
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10485760
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "id",
+          "sha256",
+          "media_type",
+          "bytes",
+          "description",
+          "source",
+          "license"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 5
+    },
+    "creative_intent": {
+      "type": "object",
+      "properties": {
+        "self_image": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "personality_cues": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "maxItems": 32,
+          "uniqueItems": true
+        },
+        "identifying_features": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "maxItems": 32,
+          "uniqueItems": true
+        },
+        "activities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,63}$"
+          },
+          "maxItems": 32,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "self_image",
+        "personality_cues",
+        "identifying_features",
+        "activities"
+      ],
+      "additionalProperties": false
+    },
+    "decisions": {
+      "type": "object",
+      "description": "Producer approval/decision payload; validated by the backend-specific contract."
+    },
+    "input_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "character_id",
+    "display_name",
+    "backend",
+    "appearance",
+    "references",
+    "creative_intent",
+    "decisions",
+    "input_sha256"
+  ],
+  "additionalProperties": false
+}

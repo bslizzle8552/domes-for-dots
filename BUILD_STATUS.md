@@ -1,8 +1,22 @@
 # Domes for Dots — build status
 
+## Post-V2 cloud character increment · 2026-10-02
+
+**Pre-merge cleanup:** generic package v2 + mandatory strict producer validation; accurate proof/operator/target wording; Sites preferred for the next private-world experiment while hosting stays portable. [Cleanup files and acceptance](docs/CHARACTER_FACTORY_CLEANUP.md). The Autonomous World Creator is next after merge; auth/storage is deferred. PR #1 remains draft.
+
+The current development branch implements approved-reference/specification transport, a deterministic skinned GLB factory, validated isolated world installation and a real GitHub-hosted Godot export. [The dispatched cloud job passed](https://github.com/bslizzle8552/domes-for-dots/actions/runs/37071571343). See the [completion report](docs/AUTOMATIC_CHARACTER_COMPLETION.md), [cloud build receipt](docs/validation/factory-cloud-build.json), [Rocky investigation](docs/ROCKY_REFERENCE_PIPELINE.md), [capability inventory](docs/CAPABILITY_INVENTORY.md) and [dependency audit](docs/VIRTUAL_ONLY_AUDIT.md).
+
+**Hosted proof: PASS. [Visit Aster's generated world](https://bslizzle8552.github.io/domes-for-dots/).** GitHub Pages serves the verified cloud artifact from publication commit `a40d43059ad08ef1448d4979331500ea7a1ae8a4`. All 16 anonymous downloads matched the cloud file hashes; all nine hosted desktop Chromium checks passed, including actual bone motion, navigation, station clips and same-browser reload. [Hosting evidence](docs/validation/factory-hosted-acceptance.json) and [capture](docs/images/factory-aster-hosted.png). The public specimen uses synthetic preferences and an original reference, with the existing Cedar Atelier template.
+
+Owner documentation now distinguishes the verified installation-free visit, operator-managed generation/build/hosting, and target conversation-to-private-world experience. General self-service creation and automatic private Site provisioning are not deployed. The prototype generates a bounded original segmented robot from approved structured choices; it does not reconstruct image geometry. Production authentication/private storage, cross-device saves, arbitrary retargeting and mobile acceptance remain pending. Existing source worlds and Rocky's working world were preserved.
+
+The v0.2.0 release below is historical and has not been replaced by this development increment. Its original acceptance and publication records remain intact.
+
+## Published V2 release
+
 Current release: **V2 / 0.2.0 publicly released and independently download-verified**. Updated: 2026-10-02.
 
-The accepted V2 runtime is unchanged. **PASS:** 70 Python tests, 92 core assertions, 200 runtime assertions, 43 character assertions, three character audits and 37 browser checks. The clean build, source-archive rebuild and release preparation are recorded in [docs/V2_BUILD.md](docs/V2_BUILD.md). No public world hosting was deployed.
+The published V2 runtime is unchanged. **PASS at release:** 70 Python tests, 92 core assertions, 200 runtime assertions, 43 character assertions, three character audits and 37 browser checks. The clean build, source-archive rebuild and release preparation are recorded in [docs/V2_BUILD.md](docs/V2_BUILD.md). No public world hosting was deployed as part of that release.
 
 ## v0.2.0 publication receipt
 

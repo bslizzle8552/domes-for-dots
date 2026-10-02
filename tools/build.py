@@ -21,20 +21,17 @@ GODOT_TEST_SUITES = ("core", "runtime", "character")
 GODOT_VERSION = "4.5.1"
 ANSI = re.compile(r"\x1b\[[0-?]*[ -/]*[@-~]")
 ENGINE_ERROR = re.compile(r"(?m)^\s*(?:SCRIPT\s+)?ERROR:")
-WEB_README = """DOMES FOR DOTS v0.2.0 - Standalone Web build
+WEB_README = """DOMES FOR DOTS v0.2.0 - Hosted browser runtime
 
-Godot is not required to run this prebuilt browser version.
+VISITORS: Open the HTTPS world link supplied by your Dot or world operator in
+a browser supporting WebGL 2. Nothing needs installing. This ZIP is a hosting
+artifact for the operator, not a setup procedure for visitors.
 
-1. Extract every file into one folder, preserving the names and docs folder.
-2. Open a terminal in that extracted folder. With Python 3 installed, run:
-
-   python -m http.server 8060 --bind 127.0.0.1
-
-3. Open http://127.0.0.1:8060 in a desktop browser with WebGL 2 support.
-
-Keep index.html, index.js, index.wasm, index.pck and their generated siblings
-together. Opening index.html via file:// is unsupported. Stop the local server
-with Ctrl+C. This loopback preview server is not a public deployment service.
+OPERATORS / CONTRIBUTORS: Publish these generated files together on static
+HTTPS hosting. Keep index.html, index.js, index.wasm, index.pck and their
+generated siblings together. Serve WASM as application/wasm. file:// is not
+supported. For development only, tools/serve.py provides a loopback preview.
+See docs/WEB_EXPORT.md in the source for automated cloud build/delivery.
 
 Select Moss's Cedar Atelier, Nova's Tidal Observatory or Lumen's Lantern Archive.
 Their routines and finite projects are SIMULATED; mock work/call controls are MOCK.
@@ -87,6 +84,7 @@ def find_godot(explicit: str | None, root: Path) -> Path:
 
 def run(command: list[str], label: str, root: Path, log_dir: Path, timeout: int = 240) -> str:
     print(f"RUN: {label}", flush=True)
+    log_display = log_dir.relative_to(root) if log_dir.is_relative_to(root) else log_dir
     try:
         completed = subprocess.run(command, cwd=root, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace", timeout=timeout, check=False)
     except subprocess.TimeoutExpired as error:
@@ -94,12 +92,12 @@ def run(command: list[str], label: str, root: Path, log_dir: Path, timeout: int 
         if isinstance(output, bytes):
             output = output.decode("utf-8", "replace")
         (log_dir / f"{label}.log").write_text(output, encoding="utf-8")
-        raise ValueError(f"{label} timed out after {timeout}s; inspect {log_dir.relative_to(root)}/{label}.log") from error
+        raise ValueError(f"{label} timed out after {timeout}s; inspect {log_display}/{label}.log") from error
     output = ANSI.sub("", completed.stdout)
     (log_dir / f"{label}.log").write_text(output, encoding="utf-8")
     if completed.returncode or ENGINE_ERROR.search(output):
         print(output[-12000:])
-        raise ValueError(f"{label} failed (exit {completed.returncode}, engine error log={bool(ENGINE_ERROR.search(output))}); inspect {log_dir.relative_to(root)}/{label}.log")
+        raise ValueError(f"{label} failed (exit {completed.returncode}, engine error log={bool(ENGINE_ERROR.search(output))}); inspect {log_display}/{label}.log")
     print(f"PASS: {label}", flush=True)
     for line in output.splitlines():
         if re.search(r"(?:TESTS:|tests? passed|^Ran \d+ tests|^PASS:)", line, re.I):

@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://domes-for-dots.example/schemas/character-package.schema.json",
+  "title": "Domes character package envelope v1/v2 (requires registered backend validation)",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "enum": [
+        1,
+        2
+      ]
+    },
+    "package_kind": {
+      "const": "domes_character"
+    },
+    "character_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,63}$"
+    },
+    "backend": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,63}$"
+    },
+    "files": {
+      "type": "object",
+      "minProperties": 2,
+      "maxProperties": 128,
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9_-]+(?:[.][a-zA-Z0-9_-]+)*(?:/[a-zA-Z0-9_-]+(?:[.][a-zA-Z0-9_-]+)*)*$",
+        "maxLength": 240
+      },
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "animation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "reference_handling": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        }
+      },
+      "required": [
+        "geometry",
+        "animation",
+        "reference_handling",
+        "license"
+      ],
+      "additionalProperties": false
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]{0,63}$"
+      },
+      "maxItems": 32,
+      "uniqueItems": true
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000
+      },
+      "maxItems": 32,
+      "uniqueItems": true
+    },
+    "runtime_manifest": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_-]+(?:[.][a-zA-Z0-9_-]+)*(?:/[a-zA-Z0-9_-]+(?:[.][a-zA-Z0-9_-]+)*)*$",
+      "maxLength": 240
+    },
+    "spec_path": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_-]+(?:[.][a-zA-Z0-9_-]+)*(?:/[a-zA-Z0-9_-]+(?:[.][a-zA-Z0-9_-]+)*)*$",
+      "maxLength": 240
+    },
+    "assets": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 126,
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9_-]+(?:[.][a-zA-Z0-9_-]+)*(?:/[a-zA-Z0-9_-]+(?:[.][a-zA-Z0-9_-]+)*)*$",
+        "maxLength": 240
+      },
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^res://assets/generated/[a-z][a-z0-9_]{0,63}/[A-Za-z0-9_./-]+$",
+        "maxLength": 320
+      }
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "validator": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{0,63}$"
+        },
+        "report": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]+(?:[.][a-zA-Z0-9_-]+)*(?:/[a-zA-Z0-9_-]+(?:[.][a-zA-Z0-9_-]+)*)*$",
+          "maxLength": 240
+        }
+      },
+      "required": [
+        "validator",
+        "report"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "package_kind",
+    "character_id",
+    "backend",
+    "files",
+    "provenance",
+    "capabilities",
+    "limitations"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "const": 2
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "runtime_manifest",
+          "spec_path",
+          "assets",
+          "validation"
+        ]
+      }
+    }
+  ]
+}

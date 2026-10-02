@@ -1,8 +1,14 @@
 # Create or adapt a character
 
+**Availability:** the current procedural Character Factory is operator-run and has a verified public synthetic example. This prompt is a supported-service check and handoff, not a generalized private upload/self-service endpoint. Broader body types require another registered strict producer.
+
 ---
 
 Create or adapt a character for the current Domes for Dots world. My reference or appearance preference is: [optional]. First read our brief to determine which appearance decisions are OWNER LOCKED, DOT CHOICE or SHARED DECISION. Let the Dot choose where that freedom is delegated.
+
+Use a verified authorized remote character factory/build route if available. I should only supply or approve a reference, discuss preferences and review a hosted preview; never ask me to install or manually operate Blender, Godot, Python, rigging software or command-line tools. The technical operations below belong to the worker. If the worker is unavailable, return the completed specification/package and name the missing service stage.
+
+Ask the Dot how it sees itself: clothing, palette, proportions, accessories, personality cues, realism/stylization, identifying features and activities it wants to perform. Preserve its own reasons alongside my preferences and vetoes. Resolve any material conflict before generating. Use the interview/specification schema and factory backend when available. Keep approved reference provenance separate from public package assets; hashing or recording a reference is not evidence that its geometry was reconstructed.
 
 Inspect the actual tools and the current character schema. A photo or concept image is a reference, not a finished rig. Do not claim automatic modeling, rigging, retargeting or animation quality without producing and testing the assets. Start with a compatible placeholder if that keeps the world runnable while a better visual is prepared.
 
@@ -10,7 +16,7 @@ Keep the world engine and movement controller reusable. Deliver a visual scene p
 
 Map idle, walk and ordinary interaction first. Add rest, sit, phone, work and custom actions only when the rig/props support them. A folded standing rest pose is different from seating; an empty hand beside the head is different from a handset grip. A standing fallback is acceptable; do not claim a seated or handset-grip animation that was never made. Verify imported clips, orientation, feet and scale rather than guessing from a preview thumbnail. Keep locomotion in the motor; use in-place walk clips unless an explicit root-motion implementation is added and tested.
 
-Use Blender or another authoring tool only as needed. Export reusable project assets and record creator/source/license and modifications. Do not publish a personal reference image or identifiable private data merely because it was supplied for creation.
+Use Blender or another production backend remotely only as needed. Export a generator-independent character package with reusable assets, semantic actions/fallbacks and creator/source/license/modification records. Existing working reference characters remain untouched; adapt a copy when appropriate. Do not publish a personal reference image or identifiable private data merely because it was supplied for creation.
 
 Run the schema validator and the headless res://tools/audit_characters.gd command documented in CHARACTER_PIPELINE.md. Save its JSON report: it inventories real scene nodes, skeletons, clips and semantic/fallback resolution. Resolve absent clips or paths rather than relying on a silent visual fallback. Audit success is not visual acceptance or evidence of arbitrary retargeting.
 

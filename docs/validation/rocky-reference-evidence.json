@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "inspected_on": "2026-10-02",
+  "status": "SOURCE_INSPECTED_READ_ONLY",
+  "scope": "Actual Rocky remote source command outputs read through supported Codex chat tools. No Rocky asset modification, rebuild, or deployment performed by this investigation.",
+  "reference_world_url": "https://rockys-workshop.bslizzle.chatgpt.site",
+  "remote_workspace": "/workspace/scratch/597fe7c06f2f",
+  "source_evidence": [
+    {"path": "rocky-blender-v1/README.txt", "observed": "Scripted Blender model; explicitly no armature, skinning or clips; source reference is pixel art."},
+    {"path": "rocky-blender-v1/source/build_rocky.py", "observed": "Original explicit geometry, PBR color materials, separate part nodes, seed 18, Blender GLB export."},
+    {"path": "rocky-blender-v1/source/finalize_rocky.py", "observed": "Geometry-centered origins, outward normals, selected character-only GLB with modifiers applied and Y-up conversion."},
+    {"path": "rocky-blender-v1/source/model_report.json", "observed": "Blender 4.3.2; 14 base meshes; dimensions and base vertex/polygon inventory."},
+    {"path": "rocky-blender-v1/source/glb_import_check.json", "observed": "Existing saved GLB reimport report with evaluated geometry and materials."},
+    {"path": "rocky-world-v2/scripts/world.gd", "observed": "GLB load, scale 0.55, part-name resolution, procedural animate_character, world-owned move_rocky translation and activity routing."},
+    {"path": "rocky-workshop-site/lib/world/model.ts", "observed": "24-minute deterministic routine; activity-to-room mapping; separate real activity type."}
+  ],
+  "source_reference": {
+    "kind": "supplied pixel-art reference",
+    "discovered_files": ["rocky-reference/rocky.png", "rocky-reference/rocky-spritesheet-v4.webp"],
+    "image_generation_provenance": "UNVERIFIED",
+    "automatic_image_reconstruction": false,
+    "generator_reads_image": false,
+    "modeling_method": "Authored geometry coordinates informed by visual reference; scripted deterministic construction",
+    "file_inspection": [
+      {"path": "rocky-reference/rocky.png", "width": 166, "height": 172, "sha256": "dddc7f9d350eda5642d8c20ebab942ad44ff940cbf319592412b5ceed38e5067"},
+      {"path": "rocky-reference/rocky-spritesheet-v4.webp", "width": 1536, "height": 1872, "sha256": "524f3e6ac6508c60cf9d898940ea5f271ca66ca6b9bca66a73ac2b32296290fb"}
+    ],
+    "three_dimensional_interpretation": "Front follows supplied sprite; side and rear are original artistic interpretations."
+  },
+  "blender_source": {
+    "version": "4.3.2",
+    "mesh_objects": 14,
+    "base_vertices": 361,
+    "base_polygons": 515,
+    "dimensions": {"height": 3.4018938578665257, "width": 3.310086488723755, "depth": 1.880108118057251},
+    "front": "-Y",
+    "up": "+Z",
+    "random_seed": 18,
+    "renderer": "CYCLES",
+    "model_path": "rocky-blender-v1/Rocky_Character_v1.blend",
+    "export_path": "rocky-blender-v1/Rocky_Character_v1.glb"
+  },
+  "export_settings_explicit_in_source": {
+    "export_format": "GLB",
+    "use_selection": true,
+    "export_apply": true,
+    "export_yup": true
+  },
+  "fresh_read_only_blend_inspection": {
+    "performed_on_remote_actual_asset": true,
+    "file_version": [4, 3, 34],
+    "scene_units": {"system": "METRIC", "scale_length": 1.0, "length_unit": "METERS"},
+    "armatures": [],
+    "actions": [],
+    "animated_objects": []
+  },
+  "fresh_direct_glb_inspection": {
+    "performed_on_remote_actual_asset": true,
+    "sha256": "b440d24df5115a137efd19bb3d5937864e79c39435035d1a185a335669a05a28",
+    "bytes": 148996,
+    "asset_version": "2.0",
+    "generator": "Khronos glTF Blender I/O v4.3.47",
+    "nodes": 16,
+    "meshes": 14,
+    "materials": 11,
+    "skins": 0,
+    "animations": 0,
+    "images": 0,
+    "textures": 0,
+    "vertices": 3942,
+    "triangles": 1832,
+    "extensionsUsed": [],
+    "extensionsRequired": []
+  },
+  "saved_reimport_report": {
+    "validation_run_in_this_investigation": false,
+    "mesh_count": 14,
+    "vertex_count": 3942,
+    "polygon_count": 1832,
+    "bounds_coordinate_space": "Blender reimport, Z up",
+    "bounds_min": [-1.6880087852478027, -0.9920345544815063, -0.01688552275300026],
+    "bounds_max": [1.6220777034759521, 0.8880735635757446, 3.3850083351135254]
+  },
+  "articulation": {
+    "kind": "named_object_nodes_with_procedural_runtime_motion",
+    "root": "Rocky_CTRL",
+    "head_group": "Head_CTRL",
+    "moving_parts": ["Hand.L", "Hand.R", "Foot.L", "Foot.R"],
+    "godot_sanitized_name_fallbacks": ["Hand_L", "Hand_R", "Foot_L", "Foot_R"],
+    "skeleton_bones": [],
+    "skin_weights": false,
+    "imported_animation_clips": [],
+    "retargeting": "None in inspected source",
+    "root_motion": "No animation root-motion tracks; move_rocky owns world translation"
+  },
+  "materials": [
+    "Body / ochre brown", "Cheeks / rose quartz", "Eyes / charcoal", "Face / warm porcelain",
+    "Recess / earthen shadow", "Sandstone / earth", "Sandstone / light", "Sandstone / soft",
+    "Sandstone / sunlit", "Sandstone / umber", "Sandstone / warm"
+  ],
+  "materials_notes": "Simple metallic-roughness PBR colors; no external image textures required",
+  "runtime": {
+    "godot_version_from_source_readme": "4.6.3",
+    "visual_scale": 0.55,
+    "walk_speed": 2.4,
+    "body_radius": 0.7,
+    "floor_y": 0.015,
+    "pose_function": "animate_character(delta)",
+    "translation_function": "move_rocky(delta)",
+    "root_yaw_expression": "atan2(vector.x, vector.z)",
+    "forward_axis": "+Z",
+    "forward_axis_evidence": "Direct GLB face/eye positions are on positive Z; runtime atan2(x,z) rotates +Z toward motion; no model yaw correction at load.",
+    "routine_cycle_minutes": 24,
+    "activity_room_map": {"work": "office", "make": "workshop", "read": "home", "rest": "home", "garden": "terrace", "music": "home", "stargaze": "terrace", "call": "office"},
+    "real_only_activity": "call",
+    "browser_bridge": "window.RockyWorld.latestState",
+    "godot_bridge_poll_seconds": 2,
+    "offline_behavior": "Explicit offline simulation; no cloud persistence claim",
+    "phone_behavior_scope": "Visual handset response; no voice transport"
+  },
+  "source_inspector_completed_report": {
+    "no_automatic_scripts_or_save_in_blender_inspection": true,
+    "character_vertex_groups": 0,
+    "character_constraints": 0,
+    "character_shape_keys": 0,
+    "pose_function_lines": [1175, 1239],
+    "poses": {"walk": "alternating foot lift and hand swing", "work": "typing hands", "make": "mallet", "call": "handset", "read": "book", "garden": "watering can", "music": "playing keys", "stargaze": "telescope then sketch", "rest": "sway and head tilt"},
+    "prop_attachment": "Hardcoded object transforms; no bone sockets or IK",
+    "real_activity_map": {"call": "office/call", "building": "workshop/make", "coding": "office/work", "research": "office/work", "idle": "home/rest"},
+    "glb_copies_byte_identical": true,
+    "world_script_copies_byte_identical": true,
+    "world_script_sha256": "770d58d055d867ec417cdc1e652c295a53da7931b5a4f033fe90435c892d761d",
+    "site_and_world_pck_copies_byte_identical": true,
+    "world_pck_sha256": "540c3f1ef0edf3547b0a9b29917e1b7880953b71a6708e272ca943a345e897cc",
+    "existing_source_zips_match_current_files": true,
+    "original_assets_world_or_deployment_modified": false,
+    "new_library_upload_started": false
+  },
+  "remaining_evidence_limits": [
+    "Original reference image generation provenance not independently established",
+    "No general skeleton retargeting demonstrated by Rocky",
+    "Existing source verification reports are not rerun acceptance in this investigation",
+    "Hosted URL found but independently loading the private browser world is not claimed",
+    "No ownership or redistribution license for private reference assets inferred"
+  ]
+}

@@ -1,6 +1,14 @@
 # Character pipeline
 
+**CLOUD BACKEND / DEVELOPMENT ONLY.** Character modeling, generation, rigging, import and validation run in an authorized operator's worker or contributor environment. The current Character Factory is operator-run; general self-service creation/private upload is not deployed. In the target owner flow, owners supply or approve references, discuss how the Dot sees itself and review the hosted result. They never install Blender, Godot, Python or rigging software. See [cloud architecture](CLOUD_ARCHITECTURE.md) and [owner onboarding](DOT_ONBOARDING.md).
+
 The controller moves a character body; the character definition supplies the replaceable visual and animation vocabulary. Changing who lives in a world should not require rewriting the navigation, station or routine engine.
+
+The [automatic character factory](CHARACTER_FACTORY.md) now implements approved
+reference/choice intake, a strict specification, original skinned GLB generation,
+twelve semantic clips, package validation and isolated world installation. It
+preserves this runtime contract and clearly distinguishes its procedural robot
+backend from image-to-3D reconstruction.
 
 ## Stable character contract
 
@@ -68,7 +76,7 @@ A larger character can make old anchors and narrow passages invalid. Adjust worl
 
 ## Blender or generated characters
 
-Blender is an optional authoring tool, never required just to run a shipped world. Export a rigged GLB with compatible materials and animations, import it into Godot, and wrap it in a small scene if node paths or orientation need adjustment. Godot's [3D import documentation](https://docs.godotengine.org/en/4.5/tutorials/assets_pipeline/importing_3d_scenes/index.html) describes the import and inherited-scene workflow.
+Blender is an optional developer/cloud production backend. It is never an owner requirement, including when creating or changing a character. A remote worker may export a rigged GLB with compatible materials and animations, import it into Godot, and wrap it in a small scene if node paths or orientation need adjustment. The runtime consumes the same character package regardless of the production backend. Godot's [3D import documentation](https://docs.godotengine.org/en/4.5/tutorials/assets_pipeline/importing_3d_scenes/index.html) describes the import and inherited-scene workflow.
 
 A reference image is input to asset work, not a finished rig. A practical path is: record the Dot's chosen silhouette/palette and owner constraints; author an original primitive character or adapt a licensed model; establish dimensions and ground origin; build or map real idle/walk/interact clips; inspect the scene; integrate it; verify movement and poses in the browser. A simple non-human body can use the original joint rig as an authoring example. Character design remains the Dot's choice within the brief; it need not choose between these two example bodies.
 

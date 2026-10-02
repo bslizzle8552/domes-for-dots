@@ -1,6 +1,8 @@
 # Architecture
 
-Domes for Dots separates a reusable engine from the place a Dot chooses to inhabit. All current authored formats use `schema_version: 1`. The detailed field contract is in [IMPLEMENTATION_CONTRACT.md](IMPLEMENTATION_CONTRACT.md), with machine-readable definitions in [`schemas/`](../schemas/).
+Domes for Dots separates a reusable engine from the place a Dot chooses to inhabit. Runtime-authored world, character, asset, routine and brief formats remain `schema_version: 1`. The Character Factory's producer-independent package envelope now writes version 2, separately from the runtime character contract; legacy package version 1 remains strictly validated. See [Character Factory](CHARACTER_FACTORY.md), [IMPLEMENTATION_CONTRACT.md](IMPLEMENTATION_CONTRACT.md) and [`schemas/`](../schemas/).
+
+The target product boundary is browser-only for owners: see [Cloud architecture](CLOUD_ARCHITECTURE.md) and [Virtual-only audit](VIRTUAL_ONLY_AUDIT.md). Today the hosted synthetic visit is verified and creation/publication is operator-run; generalized self-service and private Site provisioning are not deployed. The local/native adapters below remain developer and fallback implementations; no owner installs the editor or toolchain. Hosted delivery alone does not implement account storage.
 
 ## V2 additions
 

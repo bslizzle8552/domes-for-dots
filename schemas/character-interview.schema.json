@@ -1,0 +1,261 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://domes-for-dots.example/schemas/character-interview.schema.json",
+  "title": "procedural_rigid_skin_v1 approved interview v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "character_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,63}$"
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,63}$"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "approved": {
+            "const": true
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "id",
+          "path",
+          "approved",
+          "description",
+          "source",
+          "license"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 5
+    },
+    "dot": {
+      "type": "object",
+      "properties": {
+        "self_image": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "personality_cues": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "maxItems": 32,
+          "uniqueItems": true
+        },
+        "identifying_features": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "maxItems": 32,
+          "uniqueItems": true
+        },
+        "appearance": {
+          "type": "object",
+          "properties": {
+            "body": {
+              "const": "segmented_robot"
+            },
+            "height_m": {
+              "type": "number",
+              "minimum": 1.2,
+              "maximum": 1.6
+            },
+            "head_scale": {
+              "type": "number",
+              "minimum": 0.85,
+              "maximum": 1.1
+            },
+            "colors": {
+              "type": "object",
+              "properties": {
+                "primary": {
+                  "type": "string",
+                  "pattern": "^#[0-9a-fA-F]{6}$"
+                },
+                "secondary": {
+                  "type": "string",
+                  "pattern": "^#[0-9a-fA-F]{6}$"
+                },
+                "accent": {
+                  "type": "string",
+                  "pattern": "^#[0-9a-fA-F]{6}$"
+                },
+                "visor": {
+                  "type": "string",
+                  "pattern": "^#[0-9a-fA-F]{6}$"
+                }
+              },
+              "required": [
+                "primary",
+                "secondary",
+                "accent",
+                "visor"
+              ],
+              "additionalProperties": false
+            },
+            "clothing": {
+              "enum": [
+                "none",
+                "vest"
+              ]
+            },
+            "accessories": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "antenna",
+                  "chest_badge",
+                  "backpack"
+                ]
+              },
+              "maxItems": 3,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "body",
+            "height_m",
+            "head_scale",
+            "colors",
+            "clothing",
+            "accessories"
+          ],
+          "additionalProperties": false
+        },
+        "activities": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "idle",
+              "walk",
+              "interact",
+              "sit",
+              "work",
+              "read",
+              "build",
+              "inspect",
+              "garden",
+              "sleep",
+              "talk",
+              "phone"
+            ]
+          },
+          "maxItems": 12,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "self_image",
+        "personality_cues",
+        "identifying_features",
+        "appearance",
+        "activities"
+      ],
+      "additionalProperties": false
+    },
+    "human": {
+      "type": "object",
+      "properties": {
+        "approved": {
+          "const": true
+        },
+        "veto_accessories": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "antenna",
+              "chest_badge",
+              "backpack"
+            ]
+          },
+          "maxItems": 3,
+          "uniqueItems": true
+        },
+        "color_overrides": {
+          "type": "object",
+          "properties": {
+            "primary": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "secondary": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "accent": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "visor": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 2000
+        }
+      },
+      "required": [
+        "approved",
+        "veto_accessories",
+        "color_overrides",
+        "notes"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "character_id",
+    "display_name",
+    "references",
+    "dot",
+    "human"
+  ],
+  "additionalProperties": false
+}

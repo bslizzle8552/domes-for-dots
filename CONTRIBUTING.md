@@ -4,7 +4,7 @@ Keep the engine reusable and the activity claims honest. A new chair, room or or
 
 ## Setup and checks
 
-Follow [Getting started](docs/GETTING_STARTED.md). Use Godot 4.5.1 Standard, matching export templates and Python 3.11 or newer for development tools. Blender is optional. Commit source content and import settings, not `.godot/`, local state, virtual environments, downloads, exports or credentials.
+Follow [Development setup](docs/DEVELOPMENT.md). Use Godot 4.5.1 Standard, matching export templates and Python 3.11 or newer for development tools. Blender is optional. These are contributor/cloud-worker requirements; owners only use a hosted browser world. Commit source content and import settings, not `.godot/`, local state, virtual environments, downloads, exports or credentials.
 
 Run the content validator and Python tests from the repository root:
 
@@ -15,7 +15,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-For runtime changes, also run the Godot checks documented in [Getting started](docs/GETTING_STARTED.md), open both worlds, visit the affected stations and test a Web export. A headless pass does not establish browser rendering or imported-rig quality. Report what ran, its result, and what remains untested.
+For runtime changes, also run the Godot checks documented in [Development setup](docs/DEVELOPMENT.md), open the catalog worlds, visit the affected stations and test a Web export. A headless pass does not establish browser rendering or imported-rig quality. Report what ran, its result, and what remains untested.
 
 ## Change boundaries
 

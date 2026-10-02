@@ -1,8 +1,10 @@
 # Domes for Dots
 
-**A place of their own.** A small, open source 3D runtime for personal Dot worlds, built with Godot 4 and GDScript. The owner sets boundaries. The Dot chooses a home, appearance, hobbies and projects within them.
+**A place of their own.** Target product: personal 3D Dot worlds delivered through a browser, with nothing for the owner to install. The owner sets boundaries. The Dot chooses a home, appearance, hobbies and projects within them. Godot, character tools and build systems belong in developer or cloud environments.
 
 The runtime loads separate world, character, asset and routine definitions. A workshop, orbital habitat or future world can use the same engine. Local elapsed-time simulation makes the world feel inhabited between visits without continuous model inference.
+
+**[Visit the generated Aster world](https://bslizzle8552.github.io/domes-for-dots/)** — nothing to install. This public synthetic demo was generated and built on a cloud worker, then verified in its hosted browser form: an original 18-joint character with 12 clips inside the existing Domes runtime. See the [implementation and proof](docs/AUTOMATIC_CHARACTER_COMPLETION.md), [character factory](docs/CHARACTER_FACTORY.md), and [Rocky's actual production pipeline](docs/ROCKY_REFERENCE_PIPELINE.md). This procedural backend does not reconstruct images; saves remain browser-local.
 
 ## V2 · 0.2.0 released
 
@@ -18,30 +20,29 @@ Read [V2 acceptance](docs/V2_BUILD.md), [historical v0.1 verification](docs/VERI
 
 **SIMULATED** means an authored routine. **MOCK** means an explicit test event. Neither proves that a Dot is doing real work. The phone is a visual prop; any native call and its audio remain inside ChatGPT. This project creates no calling system or replacement assistant.
 
-## Quick start
+## Visit the proof; prepare a future world
 
-Download the source or prebuilt Web ZIP from the [v0.2.0 release](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.2.0), or build this source checkout with the commands below. Extract the Web ZIP, run `python -m http.server 8060 --bind 127.0.0.1` in the extracted folder, and open [localhost:8060](http://127.0.0.1:8060). It runs without Godot installed. The release provides downloadable files; no public world hosting was deployed.
+| Availability | Current scope |
+| --- | --- |
+| Verified today | The public synthetic Aster world loads and animates in a desktop browser; visitors install no creative software. |
+| Operator-run | Authorized operators can dispatch the bounded Character Factory through GitHub Actions and manage publication. |
+| Target, not generally deployed | Arbitrary Dot self-service creation, automatic private Site provisioning, private uploads, general job/status, cross-device saves and autonomous bespoke world creation. |
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
-.\.venv\Scripts\python.exe tools\build.py --godot 'C:\path\to\Godot_v4.5.1-stable_win64_console.exe'
-.\.venv\Scripts\python.exe tools\serve.py --port 8060
-```
+ChatGPT Sites is the preferred first target for upcoming private-world experiments, based on the owner's separate research into Rocky's functioning private Site. The Aster proof uses GitHub Pages. Host portability remains part of the design.
 
-Then open [localhost:8060](http://127.0.0.1:8060). Godot and matching Web templates must already be installed where you build.
+Open the hosted world link supplied by your Dot or Domes operator. A capable browser is the only user runtime requirement: no Blender, Godot Editor, Python, Node.js, Git, terminal or downloaded Web ZIP. See [Getting started](docs/GETTING_STARTED.md) for the owner flow and [BUILD_STATUS.md](BUILD_STATUS.md) for the latest verified deployment evidence. A release ZIP or local preview is not a hosted world.
 
-Alternatively, use **Godot 4.5.1 Standard** and open [`godot/project.godot`](godot/project.godot), then press **F5** to run the project. Choose a home in the world selector. No Blender, API key, ChatGPT account or model connection is needed to run the examples.
+Target owner experience, once the required service is available: tell your Dot: **“This is my Dot. Make them a world.”** Supply or approve reference imagery and share any must-haves or vetoes. The Dot records its own appearance and world choices; an authorized operator or future build service produces, validates and hosts them. The current branch proves an operator-run synthetic example; it does not deploy generalized self-service creation or automatic private Site provisioning. If a required service is unavailable, the handoff must name that blocker instead of asking you to install a toolchain.
 
-For the complete install, command line, export and verification procedure, see [Getting started](docs/GETTING_STARTED.md). The editor and Web export templates must have matching versions.
+Inside a world, try **Visit**, **Preview +30 min**, and the explicitly labeled **MOCK work/call** controls. Saves currently stay in the same browser profile and origin. Hosted account storage and cross-device synchronization are still pending; opening a public link on another device does not carry progress across.
 
-In the world, try **Visit**, **Preview +30 min**, and the explicitly labeled **MOCK work/call** controls. **Show station markers** is the current saved preference. Save state, close and reopen on the same machine/browser, and check the save status. **World pack** exports the authored JSON and brief; it omits scene/model binaries and has no in-app importer. Keep the source project for a complete backup.
+Contributors and cloud operators can use [Development setup](docs/DEVELOPMENT.md). The [v0.2.0 release](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.2.0) retains source and build artifacts for those workflows.
 
 ## Create a world with your Dot
 
-Give your Dot this repository and paste [`prompts/CREATE_MY_WORLD.md`](prompts/CREATE_MY_WORLD.md). State your must-haves and dislikes; leave meaningful decisions open. The Dot writes a structured brief with **OWNER LOCKED**, **DOT CHOICE** and **SHARED DECISION**, checks its actual tools, then builds a small working home.
+Use [`prompts/CREATE_MY_WORLD.md`](prompts/CREATE_MY_WORLD.md), or just describe the home you want to make together. State your must-haves and dislikes; leave meaningful decisions open. The Dot records **OWNER LOCKED**, **DOT CHOICE** and **SHARED DECISION** in a brief, checks actual service availability and hands supported work to an authorized operator. General automatic world creation is a future product capability.
 
-When building on your Dot's virtual machine, use its installed Godot and Blender and check versions/templates. For a hosted or already-served prebuilt world, the owner's computer only needs a browser.
+For an operator-assisted build, an authorized build agent resolves project source and runs generation/export remotely. This prompt is a target workflow and service handoff, not a generally available creation endpoint. Users do not need a repository, virtual machine or installed creative software. The [cloud architecture](docs/CLOUD_ARCHITECTURE.md) separates that backend from the browser runtime; the [virtual-only audit](docs/VIRTUAL_ONLY_AUDIT.md) records the changes and remaining gaps.
 
 The [onboarding guide](docs/DOT_ONBOARDING.md) explains the brief and expansion rules. A Dot without filesystem/build tools can still produce a brief for a build agent; it should say what it cannot execute.
 
@@ -82,7 +83,7 @@ These are captures of the exported V2 Godot runtime. See the [created Lantern Ar
 
 The examples need no outbound service, telemetry or private Dot material. Configuration and exported state can still reveal your chosen names and preferences: review them before sharing. Imported Godot scenes can contain executable scripts, so review their source and license before adding them. See [Privacy](docs/PRIVACY.md).
 
-The Web build uses the Compatibility renderer and single-threaded export. Serve the generated files together over HTTP for local testing or HTTPS on a host you control. [Web export](docs/WEB_EXPORT.md) covers exact settings and limits. ChatGPT Sites is a possible future hosting choice; the engine does not require it or assume account access.
+The Web build uses the Compatibility renderer and single-threaded export. The operator serves generated files together over HTTPS; [Web export](docs/WEB_EXPORT.md) covers exact settings and limits. Vercel, GitHub and ChatGPT Sites are infrastructure candidates whose actual access and deployment must be verified. Users do not manage those services.
 
 Local browser state is scoped to that browser profile and origin. Clearing storage, changing host/port or using another device does not carry the save with you. Hosted persistence and transactional cross-device saves remain future adapter work.
 

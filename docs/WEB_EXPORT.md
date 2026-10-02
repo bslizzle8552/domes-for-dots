@@ -1,12 +1,14 @@
 # Web export
 
+**CLOUD BACKEND / DEVELOPMENT ONLY.** Operators build and deploy; owners only open the resulting HTTPS URL. A release ZIP, a localhost preview or a Python server is not the delivered owner experience. The [owner guide](GETTING_STARTED.md) contains no setup commands.
+
 The project pins **Godot 4.5.1 Standard**, GDScript, the **Compatibility** renderer and **single-threaded** Web export. Use matching 4.5.1 templates. The verified editor build is `4.5.1.stable.official.f62fdbde1`.
 
 These choices follow Godot's documented WebAssembly/WebGL 2 export path. Single-threaded export avoids the cross-origin isolation requirement associated with threaded builds; it does not make every browser or host equivalent. See [Godot 4.5 Web export](https://docs.godotengine.org/en/4.5/tutorials/export/exporting_for_web.html).
 
 ## Build
 
-Install the matching templates through Godot's export-template manager and create the development environment in [Getting started](GETTING_STARTED.md). From the repository root in PowerShell:
+On the developer machine or managed worker, install the matching templates through Godot's export-template manager and create the environment in [Development setup](DEVELOPMENT.md). From the repository root in PowerShell:
 
 ```powershell
 $env:GODOT_BIN = 'C:\path\to\Godot_v4.5.1-stable_win64_console.exe'
@@ -30,7 +32,7 @@ Upload the complete Web export to a static host that serves `.wasm` as `applicat
 
 Static hosting exposes the packed authored world and its assets to visitors. A private personal world needs appropriate host access controls. Keeping an API private while publicly serving sensitive content would not protect that content. No credentials should be baked into an export.
 
-Browser saves remain local to the browser profile and origin. A host does not turn local storage into a server database. Cross-device persistence needs a separate authenticated adapter. ChatGPT Sites may be evaluated as a host by someone with suitable access; it is neither required nor provisioned by this project.
+Browser saves remain local to the browser profile and origin. A host does not turn local storage into a server database. Cross-device persistence needs a separate authenticated adapter. The [cloud architecture](CLOUD_ARCHITECTURE.md) covers GitHub Actions as a worker and Vercel as a delivery/control API option. GitHub Pages can deliver a public, non-sensitive static proof; it does not supply a private account system. ChatGPT Sites is the preferred first native target for upcoming private-world experiments based on the owner's separate Rocky research; generalized provisioning and this branch's remote state adapter remain unproven. Hosting remains portable.
 
 ## Browser limitations
 
