@@ -41,6 +41,13 @@ const distance = (a, b) => Math.hypot(...a.map((v, i) => v - b[i]));
       await command('pause_autonomy', 'true');
       const before = await snap();
       check(world.id + ': character has actual imported skeleton', before.visual.bone_count > 0 && before.visual.scene_path.endsWith('.glb'));
+      const frameCadence = await page.evaluate(() => new Promise(resolve => {
+        const intervals = []; let previous;
+        const tick = now => { if (previous !== undefined) intervals.push(now - previous); previous = now;
+          if (intervals.length < 120) requestAnimationFrame(tick);
+          else { intervals.sort((a, b) => a - b); resolve({ samples: intervals.length, median_msec: intervals[60], p95_msec: intervals[114], max_msec: intervals[119] }); }
+        }; requestAnimationFrame(tick);
+      }));
       const samples = [];
       await startSamples();
       for (const station of world.stations) {
@@ -87,10 +94,10 @@ const distance = (a, b) => Math.hypot(...a.map((v, i) => v - b[i]));
       // The dedicated native suite samples every physics tick; Web checks actual displayed samples.
       check(world.id + ': sampled movement remains supported', samples.length > 5 && samples.every(s => Number.isFinite(s.support) && Math.abs(s.p[1] - s.support) <= 0.16));
       check(world.id + ': native integrations honestly unavailable', Object.values(state.connections).every(v => v === 'unavailable'));
-      measurements.push({ world_id: world.id, stations: world.stations.length, navigation_build_msec: state.navigation_build_msec, browser_support_samples: samples.length, startup_msec_first_world: world.id === worlds[0].id ? startup : null, js_heap_bytes: await page.evaluate(() => performance.memory?.usedJSHeapSize ?? null), resource_bytes: await page.evaluate(() => performance.getEntriesByType('resource').reduce((n, r) => n + (r.encodedBodySize || 0), 0)) });
+      measurements.push({ world_id: world.id, stations: world.stations.length, navigation_build_msec: state.navigation_build_msec, browser_support_samples: samples.length, startup_msec_first_world: world.id === worlds[0].id ? startup : null, browser_animation_frame_cadence: frameCadence, js_heap_bytes: await page.evaluate(() => performance.memory?.usedJSHeapSize ?? null), resource_bytes: await page.evaluate(() => performance.getEntriesByType('resource').reduce((n, r) => n + (r.encodedBodySize || 0), 0)) });
     }
     check('no browser or Godot runtime errors', errors.length === 0);
-    const report = { status: 'PASS', url, browser: await browser.version(), checks, errors, measurements, limitations: ['Desktop Chromium acceptance only', 'JavaScript heap observation does not measure total WebAssembly/GPU/process memory', 'Routine animations are SIMULATED; no native calls or real work performed', 'Reload intentionally uses safe spawn while retaining durable timeline and owner preferences'] };
+    const report = { status: 'PASS', url, browser: await browser.version(), checks, errors, measurements, limitations: ['Desktop Chromium acceptance only', 'JavaScript heap observation does not measure total WebAssembly/GPU/process memory', 'Browser requestAnimationFrame cadence is observed presentation timing, not an engine profiler or device guarantee', 'Routine animations are SIMULATED; no native calls or real work performed', 'Reload intentionally uses safe spawn while retaining durable timeline and owner preferences'] };
     fs.writeFileSync(path.join(out, 'acceptance.json'), JSON.stringify(report, null, 2) + '\n');
     console.log('WORLD BROWSER ACCEPTANCE ' + checks.length + ' PASS');
   } catch (error) {
