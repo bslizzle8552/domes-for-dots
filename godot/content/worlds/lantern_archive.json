@@ -1,0 +1,355 @@
+{
+  "schema_version": 1,
+  "id": "lantern_archive",
+  "version": "0.2.0",
+  "title": "Lumen's Lantern Archive",
+  "description": "A quiet night archive for imagined maps, letters and watercolors. Lumen has expanded the lantern terrace with a telescope.",
+  "brief_path": "res://content/briefs/lantern_archive.json",
+  "character_path": "res://content/characters/lumen.json",
+  "routine_path": "res://content/routines/lantern_archive.json",
+  "asset_manifest_paths": [
+    "res://content/assets/lantern_archive.json",
+    "res://content/assets/lantern_telescope.json"
+  ],
+  "environment": {
+    "background": "#192732",
+    "ambient": "#c3d4cf",
+    "light_color": "#ffe2b2",
+    "light_energy": 1.4
+  },
+  "camera": {
+    "position": [
+      17,
+      21,
+      26
+    ],
+    "target": [
+      1,
+      0,
+      0
+    ],
+    "size": 21
+  },
+  "navigation": {
+    "cell_size": 0.5,
+    "character_radius": 0.3
+  },
+  "spawn": [
+    0,
+    0,
+    0
+  ],
+  "zones": [
+    {
+      "id": "archive",
+      "label": "The night archive",
+      "center": [
+        -1,
+        0,
+        0
+      ],
+      "size": [
+        10,
+        10
+      ],
+      "color": "#9e8777"
+    },
+    {
+      "id": "terrace",
+      "label": "Lantern terrace",
+      "center": [
+        6.5,
+        0,
+        0.5
+      ],
+      "size": [
+        5,
+        5
+      ],
+      "color": "#536f73"
+    }
+  ],
+  "objects": [
+    {
+      "id": "writing_desk",
+      "asset_id": "lantern_writing_desk",
+      "position": [
+        -3,
+        0,
+        -3
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "reading_table",
+      "asset_id": "lantern_map_table",
+      "position": [
+        1,
+        0,
+        -3
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "daybed",
+      "asset_id": "lantern_daybed",
+      "position": [
+        -4,
+        0,
+        3
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "easel",
+      "asset_id": "lantern_easel",
+      "position": [
+        1,
+        0,
+        3
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "signal_lamp",
+      "asset_id": "lantern_call_light",
+      "position": [
+        -4.5,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "archive_shelves",
+      "asset_id": "lantern_shelves",
+      "position": [
+        -1,
+        0,
+        -4.75
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "woven_rug",
+      "asset_id": "lantern_rug",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "terrace_beacon",
+      "asset_id": "lantern_beacon",
+      "position": [
+        8,
+        0,
+        2
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "terrace_telescope",
+      "asset_id": "lantern_telescope",
+      "position": [
+        6.5,
+        0,
+        -0.5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "stations": [
+    {
+      "id": "work",
+      "label": "Write correspondence",
+      "object_id": "writing_desk",
+      "activity_tags": [
+        "work"
+      ],
+      "approach": [
+        -3,
+        0,
+        -1.5
+      ],
+      "interaction": [
+        -3,
+        0,
+        -1.5
+      ],
+      "facing": 0,
+      "animation": "work",
+      "fallback_animation": "idle",
+      "behavior": "",
+      "metadata": {}
+    },
+    {
+      "id": "read",
+      "label": "Study the imagined atlas",
+      "object_id": "reading_table",
+      "activity_tags": [
+        "read"
+      ],
+      "approach": [
+        1,
+        0,
+        -1.5
+      ],
+      "interaction": [
+        1,
+        0,
+        -1.5
+      ],
+      "facing": 0,
+      "animation": "read",
+      "fallback_animation": "idle",
+      "behavior": "",
+      "metadata": {}
+    },
+    {
+      "id": "rest",
+      "label": "Pause by the reading nook",
+      "object_id": "daybed",
+      "activity_tags": [
+        "rest"
+      ],
+      "approach": [
+        -2.5,
+        0,
+        3
+      ],
+      "interaction": [
+        -2.5,
+        0,
+        3
+      ],
+      "facing": 90,
+      "animation": "sit",
+      "fallback_animation": "idle",
+      "behavior": "",
+      "metadata": {}
+    },
+    {
+      "id": "paint",
+      "label": "Paint a watercolor",
+      "object_id": "easel",
+      "activity_tags": [
+        "paint"
+      ],
+      "approach": [
+        1,
+        0,
+        1.5
+      ],
+      "interaction": [
+        1,
+        0,
+        1.5
+      ],
+      "facing": 180,
+      "animation": "interact",
+      "fallback_animation": "idle",
+      "behavior": "",
+      "metadata": {}
+    },
+    {
+      "id": "call",
+      "label": "Attend the signal lamp",
+      "object_id": "signal_lamp",
+      "activity_tags": [
+        "call"
+      ],
+      "approach": [
+        -3,
+        0,
+        0
+      ],
+      "interaction": [
+        -3,
+        0,
+        0
+      ],
+      "facing": 90,
+      "animation": "phone",
+      "fallback_animation": "idle",
+      "behavior": "",
+      "metadata": {}
+    },
+    {
+      "id": "observe",
+      "label": "Look through the terrace telescope",
+      "object_id": "terrace_telescope",
+      "activity_tags": [
+        "observe"
+      ],
+      "approach": [
+        6.5,
+        0,
+        1.5
+      ],
+      "interaction": [
+        6.5,
+        0,
+        1.5
+      ],
+      "facing": 0,
+      "animation": "observe",
+      "fallback_animation": "interact",
+      "behavior": "",
+      "metadata": {}
+    }
+  ],
+  "metadata": {
+    "creator": "Domes for Dots contributors",
+    "license": "MIT",
+    "content_kind": "original_v2_creation_pilot",
+    "simulation_notice": "Fictional resident and authored activities; no live Dot service participated."
+  }
+}

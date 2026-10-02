@@ -36,7 +36,8 @@
       "label": "Write simulated craft notes",
       "activity_tag": "work",
       "animation": "work",
-      "duration_seconds": 30
+      "duration_seconds": 30,
+      "station_id": "work"
     },
     {
       "id": "quiet_rest",

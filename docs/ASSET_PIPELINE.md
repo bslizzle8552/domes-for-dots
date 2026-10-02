@@ -29,6 +29,8 @@ The separate [`wind_chime.json`](../godot/content/assets/wind_chime.json) manife
 
 This is the intended extension mechanism: a manifest plus world and routine content, using generic station handling. There is no wind-chime object enum or special central engine case. The validator and runtime acceptance should continue to cover the added route.
 
+V2 also exercises [a telescope request](../examples/authoring/lantern_archive/telescope.proposal.json) through the authoring CLI. It adds a primitive asset, placement and reachable `observe` station to Lumen's terrace, leaving the saved schedule meaning unchanged. The new station can be visited manually or through a labeled tagged MOCK activity. The [pilot instructions](../examples/authoring/lantern_archive/README.md) explain reproduction and the boundary around changing an existing timeline.
+
 To inspect the proof, open Cedar Atelier, select **Play the four-note chime**, and choose **Visit**. The character should leave the studio, enter the terrace, stop at the clear anchor and perform the generic interaction fallback. **Resume routine** returns control to the schedule. The separate manifest, world placement/station and `chime_pause` routine step are the only content records required; a new sound-producing behavior would be additional work. See [Verification](VERIFICATION.md) for the actual automated/browser result.
 
 ## What still needs code
@@ -36,6 +38,8 @@ To inspect the proof, open Cedar Atelier, select **Play the four-note chime**, a
 New geometry/layouts within the current contract are data. New visual action clips need compatible assets. Novel interaction mechanics such as opening a physics door, lifting an object, playing an instrument with actual audio or switching scenes need reviewed behavior code and tests. The main runtime exposes `register_behavior(id, callback)` and calls a registered station hook on arrival with the motor, station and object node. Metadata and an arbitrary `behavior` string do not create that implementation. Only capabilities explicitly registered by application code are available.
 
 Imported scenes may contain scripts and are trusted project code. The runtime is not a sandbox for untrusted downloaded scenes. Review scene dependencies, license and cost of materials/meshes before shipping them in the browser.
+
+V2 includes one reviewed `activity_light` station behavior: it adds a small local light at arrival and removes it when the resident leaves, the activity is interrupted or the world changes. It indicates visual occupancy; it does not create a real external activity. Registered arrival callbacks may return a cleanup callable. Asset-level behavior strings still do not execute automatically.
 
 ## Provenance
 

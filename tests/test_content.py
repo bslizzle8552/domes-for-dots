@@ -121,6 +121,17 @@ class ContentTests(unittest.TestCase):
         self.assert_bundle_error(bundle, "unknown visual_object_id")
         self.assert_bundle_error(bundle, "absent from routine")
 
+    def test_routine_station_preference_resolves_and_matches_tag(self):
+        bundle = self.bundle()
+        step = bundle[3]["steps"][0]
+        station = next(item for item in bundle[0]["stations"] if step["activity_tag"] in item["activity_tags"])
+        step["station_id"] = station["id"]
+        self.assertEqual([], self.validator.validate_world_bundle(*bundle))
+        step["station_id"] = "missing_station"
+        self.assert_bundle_error(bundle, "unknown station_id")
+        step["station_id"] = next(item["id"] for item in bundle[0]["stations"] if step["activity_tag"] not in item["activity_tags"])
+        self.assert_bundle_error(bundle, "does not support its activity_tag")
+
     def test_brief_identity_preserved(self):
         bundle = self.bundle()
         bundle[4]["world_id"] = "different_world"

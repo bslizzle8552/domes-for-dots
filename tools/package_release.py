@@ -10,7 +10,7 @@ from pathlib import Path
 import sys
 import zipfile
 
-from build import GODOT_VERSION, VERSION, runtime_hashes, sha256
+from build import GODOT_TEST_SUITES, GODOT_VERSION, VERSION, runtime_hashes, sha256
 from check_release import ROOT, git, scan
 
 
@@ -45,7 +45,7 @@ def verify_web(root: Path) -> tuple[Path, dict, list[str]]:
     manifest = json.loads(path.read_text(encoding="utf-8"))
     if manifest.get("version") != VERSION or not manifest.get("godot_version", "").startswith(GODOT_VERSION + ".stable"):
         raise ValueError("Web artifact version/Godot pin mismatch")
-    if manifest.get("validation") != "passed" or manifest.get("python_tests") != "passed" or manifest.get("godot_tests") != {"core":"passed", "runtime":"passed"}:
+    if manifest.get("validation") != "passed" or manifest.get("python_tests") != "passed" or manifest.get("character_audit") != "passed" or manifest.get("godot_tests") != {name: "passed" for name in GODOT_TEST_SUITES}:
         raise ValueError("Web build has not passed every required validation/test suite")
     if manifest.get("runtime_source_sha256") != runtime_hashes(root):
         raise ValueError("Runtime source differs from the verified Web build; rebuild before packaging")

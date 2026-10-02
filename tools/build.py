@@ -16,11 +16,12 @@ import uuid
 
 from check_release import FORBIDDEN_DIRECTORIES, FORBIDDEN_SUFFIXES, ROOT, git, tracked_files
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
+GODOT_TEST_SUITES = ("core", "runtime", "character")
 GODOT_VERSION = "4.5.1"
 ANSI = re.compile(r"\x1b\[[0-?]*[ -/]*[@-~]")
 ENGINE_ERROR = re.compile(r"(?m)^\s*(?:SCRIPT\s+)?ERROR:")
-WEB_README = """DOMES FOR DOTS v0.1.0 - Standalone Web build
+WEB_README = """DOMES FOR DOTS v0.2.0 - Standalone Web build
 
 Godot is not required to run this prebuilt browser version.
 
@@ -35,8 +36,8 @@ Keep index.html, index.js, index.wasm, index.pck and their generated siblings
 together. Opening index.html via file:// is unsupported. Stop the local server
 with Ctrl+C. This loopback preview server is not a public deployment service.
 
-Select Moss's Cedar Atelier or Nova's Tidal Observatory. Their routines and
-finite projects are SIMULATED; mock work/call controls are visibly MOCK.
+Select Moss's Cedar Atelier, Nova's Tidal Observatory or Lumen's Lantern Archive.
+Their routines and finite projects are SIMULATED; mock work/call controls are MOCK.
 Actual Dot work and native-call connections are unavailable. This world does
 not carry or initiate calls, run another assistant, or continuously call a model.
 
@@ -165,8 +166,11 @@ def main() -> int:
         before_hashes = runtime_hashes(root)
         base = [str(godot), "--headless", "--path", str(root / "godot")]
         run([*base, "--editor", "--import"], "godot_import", root, log_dir)
+        audit = run([*base, "--script", "res://tools/audit_characters.gd", "--", "--output", str(log_dir / "character-audit.json")], "character_audit", root, log_dir)
+        if not re.search(r"CHARACTER AUDIT:\s*\d+ characters, PASS", audit):
+            raise ValueError("Character audit exited without a recognized success summary")
         tests = {}
-        for name in ["core", "runtime"]:
+        for name in GODOT_TEST_SUITES:
             path = root / f"godot/tests/test_{name}.gd"
             if not path.is_file():
                 if name == "runtime" and args.allow_missing_runtime_test:
@@ -175,7 +179,7 @@ def main() -> int:
                     continue
                 raise ValueError(f"Missing required runtime test: {path.relative_to(root)}")
             command = [*base, "--script", f"res://tests/test_{name}.gd"]
-            if name == "runtime":
+            if name in {"runtime", "character"}:
                 command.extend(["--fixed-fps", "60"])
             output = run(command, f"godot_{name}_tests", root, log_dir)
             if not re.search(rf"{name.upper()} TESTS:\s*\d+ passed,\s*0 failed", output):
@@ -198,7 +202,7 @@ def main() -> int:
             raise ValueError("Runtime source changed during build; rerun after edits finish")
         manifest = dict(schema_version=1,version=VERSION,godot_version=version,renderer="gl_compatibility",threads=False,
             built_at_utc=datetime.now(timezone.utc).isoformat(),**source_metadata(root),
-            validation="passed",python_tests="passed",godot_tests=tests,
+            validation="passed",python_tests="passed",character_audit="passed",godot_tests=tests,
             runtime_source_sha256=after_hashes,files={path.relative_to(staging).as_posix():sha256(path) for path in sorted(staging.rglob("*")) if path.is_file()})
         (staging / "build_manifest.json").write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")
         destination = root / "dist/web"

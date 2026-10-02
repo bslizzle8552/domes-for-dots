@@ -32,6 +32,11 @@
         "call"
       ]
     },
+    "activity_tag": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,63}$",
+      "description": "Optional work-lease activity tag. Omit for work; call leases always route to call."
+    },
     "operation": {
       "enum": [
         "start",
@@ -72,6 +77,10 @@
   ],
   "additionalProperties": false,
   "allOf": [
+    {
+      "if": { "required": ["activity_tag"] },
+      "then": { "properties": { "kind": { "const": "work" } } }
+    },
     {
       "if": {
         "properties": {

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "lantern_evening",
+  "cycle_seconds": 180,
+  "steps": [
+    {
+      "id": "atlas_reading",
+      "label": "Read imagined maps",
+      "activity_tag": "read",
+      "animation": "read",
+      "duration_seconds": 45
+    },
+    {
+      "id": "letter_writing",
+      "label": "Compose simulated correspondence",
+      "activity_tag": "work",
+      "animation": "work",
+      "duration_seconds": 40
+    },
+    {
+      "id": "watercolor",
+      "label": "Paint an imagined shoreline",
+      "activity_tag": "paint",
+      "animation": "interact",
+      "duration_seconds": 55
+    },
+    {
+      "id": "quiet_pause",
+      "label": "Rest in the archive",
+      "activity_tag": "rest",
+      "animation": "sit",
+      "duration_seconds": 40
+    }
+  ],
+  "projects": [],
+  "metadata": {
+    "simulation_only": true,
+    "description": "Ordered, authored activities; names do not imply actual letters or generated paintings."
+  }
+}

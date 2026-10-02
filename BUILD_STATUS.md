@@ -1,8 +1,10 @@
 # Domes for Dots — build status
 
-Target: v0.1.0. Updated: 2026-10-02.
+Current target: **V2 / 0.2.0 local release preparation**. Updated: 2026-10-02.
 
-## Current milestone
+The V2 implementation continues the existing repository. **PASS:** 70 Python tests, 92 core assertions, 200 runtime assertions, 43 character assertions, three character audits and 37 browser checks. Current changes and evidence are recorded in [docs/V2_BUILD.md](docs/V2_BUILD.md): recoverable world authoring with owner boundaries, explicit resident activity state, generalized mock activity routing, an articulated character and a third-world creation/expansion pilot. The local Web build is `dist/web/`; release packages and their provenance/checksums are under `dist/release/`. The local `v0.2.0` tag identifies the prepared release source; `release_manifest.json` identifies the packaged source commit. Follow [the publication handoff](docs/RELEASE_PREPARATION.md) and use the [prepared release body](docs/releases/v0.2.0.md) when publishing. V2 has not been pushed, published or deployed during this preparation. The section below is the historical v0.1.0 release receipt and does not describe V2's publication status.
+
+## Historical v0.1.0 milestone
 
 M6: v0.1.0 published and verified. No remaining v0.1.0 implementation or publication blockers.
 

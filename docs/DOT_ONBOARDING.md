@@ -57,6 +57,10 @@ Confirm the Dot name, owner boundaries, realism/fantasy preference, appearance d
 
 Build one small environment with reachable stations suited to that Dot, a compatible character and one finite imagined project. Rest/work/call visual tags can use any suitable prop; a conventional desk phone is not mandatory. Prove browser loading early, then movement, activity expiry and save/reload.
 
+V2 makes this executable: use the [world authoring CLI](WORLD_AUTHORING.md) to turn the Dot's complete proposal into a validated plan and recoverable source change. The [Lantern Archive pilot](../examples/authoring/lantern_archive/README.md) contains the actual proposal rather than a theme questionnaire. A concept, room layout, objects, routine and representation must be authored; the tool does not choose them from answers.
+
+An optional `owner_locked.authoring_policy` records measurable limits and allowed operations. Choose it with the owner once, then permit changes within it without asking about every ordinary prop. Natural-language preferences still need the Dot's judgment: a geometry validator cannot understand every dislike. Tool allowlists describe authorized tooling and are checked by this authoring command, but do not sandbox other tools or authenticate an owner.
+
 Deliver a usable preview, brief, changed files and a short PASS/FAIL/UNAVAILABLE/NOT TESTED record. Leave native event reporting unavailable unless a real authenticated path was tested for that owner.
 
 ## Expansion without losing the brief

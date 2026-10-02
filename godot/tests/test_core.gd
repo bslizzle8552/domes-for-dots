@@ -3,6 +3,7 @@ extends SceneTree
 const Simulation = preload("res://scripts/core/simulation.gd")
 const Activities = preload("res://scripts/core/activity_store.gd")
 const States = preload("res://scripts/core/state_store.gd")
+const Resident = preload("res://scripts/core/resident_state.gd")
 
 var _passed: int = 0
 var _failed: int = 0
@@ -11,6 +12,7 @@ var _failed: int = 0
 func _init() -> void:
 	_test_simulation()
 	_test_activity()
+	_test_resident()
 	_test_persistence()
 	print("CORE TESTS: %d passed, %d failed" % [_passed, _failed])
 	quit(0 if _failed == 0 else 1)
@@ -33,10 +35,12 @@ func _test_simulation() -> void:
 	var before: String = JSON.stringify(routine)
 	var first: Dictionary = Simulation.evaluate(routine, 1000.0, 1040.0)
 	_check(first["step"]["id"] == "craft", "exact step boundary")
+	_check(first.step_started_at == 1040.0 and first.step_ends_at == 1100.0 and first.cycle_index == 0, "simulation supplies exact activity boundaries")
 	_check(is_equal_approx(first["projects"][0]["progress"], 1.0 / 3.0), "partial cycle integrates only completed reading")
 	_check(first["projects"][1]["progress"] == 0.0, "next step not prematurely counted")
 	var complete_cycle: Dictionary = Simulation.evaluate(routine, 1000.0, 1100.0)
 	_check(complete_cycle["step"]["id"] == "read", "cycle boundary wraps")
+	_check(complete_cycle.step_started_at == 1100.0 and complete_cycle.cycle_index == 1, "new cycle has distinct scheduled activity start")
 	var later: Dictionary = Simulation.evaluate(routine, 1000.0, 1250.0)
 	_check(later["projects"][0]["progress"] == 1.0, "finite project clamps at completion")
 	_check(is_equal_approx(later["projects"][1]["progress"], 0.13), "whole cycles plus remainder integrated")
@@ -121,6 +125,64 @@ func _test_activity() -> void:
 	malformed["sequence"] = 5
 	malformed["timestamp"] = NAN
 	_check(not store.apply(malformed, 1004.0)["accepted"], "nonfinite event timestamp rejected")
+	store.configure("test-world", "test-dot")
+	var custom := _event("custom", "gardening", 1, "work", "start", 1000.0)
+	custom["activity_tag"] = "garden"
+	_check(store.apply(custom, 1000.0).accepted and store.active(1001.0).activity_tag == "garden", "custom activity reuses bounded work lease")
+	var renewal := _event("custom-renew", "gardening", 2, "work", "renew", 1005.0)
+	renewal["activity_tag"] = "garden"
+	_check(store.apply(renewal, 1005.0).accepted and store.active(1006.0).started_at == 1000.0, "renewal retains actual lease lifecycle start")
+	renewal = _event("custom-changed", "gardening", 3, "work", "renew", 1006.0)
+	renewal["activity_tag"] = "read"
+	_check(store.apply(renewal, 1006.0).reason == "activity_tag_changed", "renewal cannot silently change custom activity")
+	var call := _event("custom-call", "call", 1, "call", "start", 1007.0)
+	call["activity_tag"] = "garden"
+	_check(store.apply(call, 1007.0).reason == "invalid_activity_tag", "call semantic cannot be overridden by custom tag")
+	call.erase("activity_tag")
+	store.apply(call, 1007.0)
+	_check(store.active(1008.0).kind == "call", "call priority remains above custom work activity")
+	store.apply(_event("custom-call-end", "call", 2, "call", "end", 1009.0, 0.0), 1009.0)
+	_check(store.active(1010.0).activity_tag == "garden", "custom activity resumes after call ends")
+	_check(store.active(1035.0).is_empty(), "custom activity expires at renewed source deadline")
+	custom = _event("bad-tag", "other", 4, "work", "start", 1040.0)
+	custom["activity_tag"] = "../../bad"
+	_check(store.apply(custom, 1040.0).reason == "invalid_activity_tag", "invalid custom activity identifier rejected")
+
+
+func _test_resident() -> void:
+	var stations := [{"id":"one","object_id":"desk_a","label":"Desk A","activity_tags":["reading"]},{"id":"two","object_id":"desk_b","label":"Desk B","activity_tags":["reading"]},{"id":"phone","object_id":"comms","label":"Comms","activity_tags":["call"]}]
+	var simulation: Dictionary = Simulation.evaluate(_routine(),1000.0,1001.0)
+	var intent: Dictionary = Resident.resolve(simulation,{},"",stations,false,1001.0)
+	_check(intent.target_station == "one" and intent.activity.source == "simulated", "routine preserves first matching station default")
+	simulation.step["station_id"] = "two"
+	intent = Resident.resolve(simulation,{},"",stations,false,1001.0)
+	_check(intent.target_station == "two" and intent.target_object == "desk_b", "routine explicitly selects preferred station")
+	var tracker = Resident.new()
+	var observed: Dictionary = tracker.observe(intent,{"phase":"traveling","current_location":{"zone_id":"room","station_id":""},"animation":"walk"})
+	_check(observed.current_activity.tag == "reading" and observed.animation == "walk" and observed.current_location.station_id == "", "activity remains reading while walking toward unreadied station")
+	observed = tracker.observe(intent,{"phase":"engaged","current_location":{"zone_id":"room","station_id":"two"},"animation":"interact"})
+	_check(observed.phase == "engaged" and observed.previous_activity.is_empty() and observed.current_activity.started_at == 1000.0, "arrival changes phase without replacing activity identity")
+	var call := {"kind":"call","source":"mock","activity_id":"call-a","timestamp":1002.0,"started_at":1002.0,"expires_at":1032.0}
+	intent = Resident.resolve(simulation,call,"two",stations,true,1002.0)
+	observed = tracker.observe(intent,{"phase":"traveling","animation":"walk"})
+	_check(intent.target_station == "phone" and observed.previous_activity.tag == "reading" and observed.current_activity.externally_triggered, "mock call preempts routine/manual/pause and retains previous activity")
+	intent = Resident.resolve(simulation,{},"two",stations,true,1003.0)
+	observed = tracker.observe(intent,{"phase":"traveling"})
+	_check(observed.current_activity.source == "manual" and intent.target_station == "two", "manual visit can run while autonomy is paused")
+	intent = Resident.resolve(simulation,{},"two",stations,true,1005.0)
+	observed = tracker.observe(intent,{"phase":"engaged"})
+	_check(observed.current_activity.started_at == 1003.0, "manual start remains stable over repeated observations")
+	intent = Resident.resolve(simulation,{},"",stations,true,1006.0)
+	observed = tracker.observe(intent,{"phase":"paused"})
+	_check(observed.current_activity.source == "paused" and observed.target_station.is_empty(), "paused autonomy has no navigation target")
+	intent = Resident.resolve(simulation,{},"",stations,false,1007.0)
+	observed = tracker.observe(intent,{"phase":"traveling"})
+	_check(observed.current_activity.source == "simulated" and observed.previous_activity.source == "paused", "resume restores simulated routine without fabricating external activity")
+	observed.current_activity["tag"] = "mutated"
+	_check(tracker.current_activity.tag == "reading", "snapshot cannot mutate resident history")
+	var unknown := {"kind":"work","activity_tag":"unknown","source":"mock","activity_id":"unknown","timestamp":1010.0,"expires_at":1040.0}
+	intent = Resident.resolve(simulation,unknown,"",stations,false,1010.0)
+	_check(intent.target_station.is_empty(), "unmapped activity does not silently display unrelated work")
 
 
 func _write(path: String, contents: String) -> void:

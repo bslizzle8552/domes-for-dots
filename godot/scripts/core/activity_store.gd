@@ -65,6 +65,8 @@ func apply(event: Dictionary, now: float, trusted_source: String = "mock") -> Di
 	if operation == "renew":
 		if not _leases.has(stream) or _activity(_leases[stream]) != activity:
 			return _reject("no_live_activity")
+		if event.get("activity_tag", event.kind) != _leases[stream].get("activity_tag", _leases[stream].kind):
+			return _reject("activity_tag_changed")
 	if operation == "start" and _leases.has(stream):
 		if _activity(_leases[stream]) == activity:
 			return _reject("already_started")
@@ -78,6 +80,7 @@ func apply(event: Dictionary, now: float, trusted_source: String = "mock") -> Di
 	else:
 		var lease: Dictionary = event.duplicate(true)
 		lease["expires_at"] = expires_at
+		lease["started_at"] = _leases[stream]["started_at"] if operation == "renew" else timestamp
 		_leases[stream] = lease
 	_events[event_id] = fingerprint
 	_event_order.append(event_id)
@@ -121,7 +124,7 @@ func _activity(event: Dictionary) -> String:
 
 
 func _validate(event: Dictionary) -> String:
-	if event.size() != FIELDS.size():
+	if event.size() != FIELDS.size() + (1 if event.has("activity_tag") else 0):
 		return "invalid_fields"
 	for field in FIELDS:
 		if not event.has(field):
@@ -135,6 +138,9 @@ func _validate(event: Dictionary) -> String:
 		return "invalid_sequence"
 	if not event["kind"] in ["work", "call"] or not event["operation"] in ["start", "renew", "end"]:
 		return "invalid_operation"
+	if event.has("activity_tag"):
+		if event.kind != "work" or not event.activity_tag is String or not _valid_tag(event.activity_tag):
+			return "invalid_activity_tag"
 	if not _number(event["timestamp"]) or float(event["timestamp"]) < 0.0:
 		return "invalid_timestamp"
 	if not _number(event["ttl_seconds"]):
@@ -143,6 +149,15 @@ func _validate(event: Dictionary) -> String:
 	if ttl > MAX_TTL_SECONDS or ttl < 0.0 or (event["operation"] != "end" and ttl == 0.0):
 		return "invalid_ttl"
 	return ""
+
+
+func _valid_tag(value: String) -> bool:
+	if value.is_empty() or value.length() > 64 or not value[0] in "abcdefghijklmnopqrstuvwxyz":
+		return false
+	for character in value:
+		if not character in "abcdefghijklmnopqrstuvwxyz0123456789_":
+			return false
+	return true
 
 
 func _number(value: Variant) -> bool:

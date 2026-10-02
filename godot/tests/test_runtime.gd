@@ -49,6 +49,7 @@ func _run() -> void:
 			var loaded: bool = await _main.load_world(entry.id)
 			_check(loaded and _main.ready_world, "world loads through shared production runtime: " + entry.id)
 		await _test_world()
+		await _test_resident_flow()
 	await _test_replacement()
 	_finish()
 
@@ -91,6 +92,83 @@ func _connect_motor() -> void:
 	_unreachable.clear()
 	_main.motor.arrived.connect(func(id: String): _arrivals.append(id))
 	_main.motor.unreachable.connect(func(id: String): _unreachable.append(id))
+
+
+func _wait_for_motion() -> void:
+	for frame in range(2400):
+		await physics_frame
+		await process_frame
+		if not _main.motor.moving:
+			break
+	_main._update_world()
+
+
+func _test_resident_flow() -> void:
+	var context: String = _main.world.id
+	_main.test_mode = false
+	_main.command("pause_autonomy","true")
+	var paused: Dictionary = _main.snapshot()
+	var epoch: float = _main.state.routine_epoch
+	_check(not _main.motor.moving and paused.resident.phase == "paused" and paused.autonomy_paused, "pause immediately stops autonomous motion: " + context)
+	_main.command("save")
+	var saved: Dictionary = _main.store.load_state(context)
+	_check(saved.ok and saved.state.preferences.autonomy_paused and saved.state.routine_epoch == epoch, "paused preference saves without changing routine epoch: " + context)
+	var target: Dictionary = _main.world.stations[-1]
+	_main.command("visit",target.id)
+	var traveling: Dictionary = _main.snapshot().resident
+	_check(traveling.phase == "traveling" and traveling.target_station == target.id and traveling.current_location.station_id.is_empty(), "physical travel distinguishes target from actual station: " + context)
+	await _wait_for_motion()
+	var arrived: Dictionary = _main.snapshot().resident
+	_check(arrived.phase == "engaged" and arrived.current_location.station_id == target.id and arrived.current_activity.source == "manual", "arrival records physical location and manual activity while paused: " + context)
+	var custom_station: Dictionary = {}
+	var custom_tag := ""
+	for station in _main.world.stations:
+		for tag in station.activity_tags:
+			if not tag in ["call","work"]:
+				custom_station = station
+				custom_tag = tag
+				break
+		if not custom_station.is_empty():
+			break
+	_check(not custom_station.is_empty(), "world exposes custom routine activity: " + context)
+	if not custom_station.is_empty():
+		_main.command("activity_start",custom_tag)
+		var custom: Dictionary = _main.snapshot().resident
+		_check(custom.current_activity.source == "mock" and custom.current_activity.tag == custom_tag and custom.previous_activity.source == "manual", "custom mock activity preempts manual visit and records history: " + context)
+		await _wait_for_motion()
+		_check(_main.snapshot().resident.current_location.station_id == custom_station.id, "custom activity physically reaches matching station: " + context)
+		var started_at: float = _main.snapshot().resident.current_activity.started_at
+		_main.command("work_renew")
+		_check(_main.last_event_result.accepted and _main.snapshot().resident.current_activity.started_at == started_at, "custom mock renewal preserves semantic and start: " + context)
+		_main.command("call_start")
+		_check(_main.snapshot().resident.current_activity.tag == "call", "call preempts custom activity through production command: " + context)
+		_main.command("call_end")
+		_check(_main.snapshot().resident.current_activity.tag == custom_tag, "call end resumes custom activity through production command: " + context)
+		_main.command("activity_start","unregistered_activity")
+		_check(not _main.last_event_result.accepted and _main.snapshot().resident.current_activity.tag == custom_tag, "failed mock replacement preserves current custom activity: " + context)
+		_main.command("work_end")
+		_check(_main.snapshot().resident.current_activity.source == "manual", "custom activity end restores pending manual visit: " + context)
+	_main.command("resume")
+	_check(_main.snapshot().resident.phase == "paused" and not _main.motor.moving, "resume visit honors retained owner pause: " + context)
+	_main.command("pause_autonomy","false")
+	_check(_main.snapshot().resident.current_activity.source == "simulated" and _main.state.routine_epoch == epoch, "owner unpause resumes unchanged simulated timeline: " + context)
+	var now: float = Time.get_unix_time_from_system()
+	var unknown := {"schema_version":1,"event_id":"unknown-"+context,"activity_id":"unknown-"+context,"source":"mock","sequence":10000,"kind":"work","operation":"start","timestamp":now,"ttl_seconds":30,"world_id":context,"character_id":_main.character.id,"activity_tag":"unregistered_activity"}
+	_check(_main.receive_mock(unknown).reason == "unknown_activity_tag", "runtime rejects unsupported custom activity: " + context)
+	_main.command("pause_autonomy","true")
+	for station in _main.world.stations:
+		if station.behavior == "activity_light":
+			_main.command("visit",station.id)
+			await _wait_for_motion()
+			var object: Node3D = _main.object_nodes[station.object_id]
+			_check(object.has_node("ActivityLight"), "station behavior starts after physical arrival: " + context)
+			_main.command("resume")
+			await process_frame
+			_check(not object.has_node("ActivityLight"), "station behavior cleans up when activity is interrupted: " + context)
+			break
+	_main.command("pause_autonomy","false")
+	_main.command("save")
+	_main.test_mode = true
 
 
 func _visit(station: Dictionary, context: String) -> void:

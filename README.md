@@ -4,23 +4,34 @@
 
 The runtime loads separate world, character, asset and routine definitions. A workshop, orbital habitat or future world can use the same engine. Local elapsed-time simulation makes the world feel inhabited between visits without continuous model inference.
 
-## v0.1 scope
+## V2 · 0.2.0 release preparation
+
+V2 keeps the working Godot foundation and adds a repeatable [world authoring workflow](docs/WORLD_AUTHORING.md), inspectable resident activity state, and an [audited animated character pipeline](docs/CHARACTER_PIPELINE.md). The [V2 build record](docs/V2_BUILD.md) describes the baseline, changes, acceptance and limits. V2 is prepared locally for release; publication remains a separate owner action. See the [release body](docs/releases/v0.2.0.md) and [publication handoff](docs/RELEASE_PREPARATION.md). The published v0.1.0 download remains the earlier release.
 
 | Status | What it means here |
 | --- | --- |
-| Implemented | Real Godot 3D scenes; two data-driven worlds; placeholder characters; generic stations; navigation; deterministic routines and finite simulated projects; local state; bounded mock activity events; state and authoring-JSON export. |
+| Implemented | Real Godot 3D scenes; authored worlds; placeholder and articulated characters; generic stations; navigation; deterministic routines and finite simulated projects; local state; bounded mock activity events; state and authoring-JSON export; candidate validation and recoverable authoring changes. |
 | Experimental | Imported character/prop workflows, browser delivery across untested devices, local save conflict handling, new authored layouts. Verify each new asset and target environment. |
-| Unavailable | Native ChatGPT call/work feeds, hosted account storage, in-app world/state import, automatic photo-to-rig conversion, autonomous creative expansion, multiplayer, mobile acceptance, stairs/elevators. |
+| Unavailable | Native ChatGPT call/work feeds, hosted account storage, in-app world/state import, automatic photo-to-rig conversion, unattended model-driven creative expansion, multiplayer, mobile acceptance, stairs/elevators. |
 
-Read [Verification](docs/VERIFICATION.md) for acceptance evidence and [BUILD_STATUS.md](BUILD_STATUS.md) for the current release status. An implemented feature is not a claim that every browser, imported rig or deployment has been tested.
+Read [V2 acceptance](docs/V2_BUILD.md), [historical v0.1 verification](docs/VERIFICATION.md) and [BUILD_STATUS.md](BUILD_STATUS.md) for build/release status. An implemented feature is not a claim that every browser, imported rig or deployment has been tested.
 
 **SIMULATED** means an authored routine. **MOCK** means an explicit test event. Neither proves that a Dot is doing real work. The phone is a visual prop; any native call and its audio remain inside ChatGPT. This project creates no calling system or replacement assistant.
 
 ## Quick start
 
-Download the [v0.1.0 release](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.1.0): the source ZIP is editable; the Web ZIP runs in a browser without Godot installed. Extract the Web ZIP, run `python -m http.server 8060 --bind 127.0.0.1` in that folder, then open [localhost:8060](http://127.0.0.1:8060). A hosted copy needs only a browser.
+For V2, use this source checkout and the commands below, or the locally prepared `dist/release/domes-for-dots-v0.2.0-web.zip`. Extract the Web ZIP, run `python -m http.server 8060 --bind 127.0.0.1` in the extracted folder, and open [localhost:8060](http://127.0.0.1:8060). It runs without Godot installed. The [published v0.1.0 release](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.1.0) is the earlier baseline; V2 has not been published or hosted publicly.
 
-Use **Godot 4.5.1 Standard** and open [`godot/project.godot`](godot/project.godot), then press **F5** to run the project. Choose either example in the world selector. No Blender, API key, ChatGPT account or model connection is needed to run the examples.
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+.\.venv\Scripts\python.exe tools\build.py --godot 'C:\path\to\Godot_v4.5.1-stable_win64_console.exe'
+.\.venv\Scripts\python.exe tools\serve.py --port 8060
+```
+
+Then open [localhost:8060](http://127.0.0.1:8060). Godot and matching Web templates must already be installed where you build.
+
+Alternatively, use **Godot 4.5.1 Standard** and open [`godot/project.godot`](godot/project.godot), then press **F5** to run the project. Choose a home in the world selector. No Blender, API key, ChatGPT account or model connection is needed to run the examples.
 
 For the complete install, command line, export and verification procedure, see [Getting started](docs/GETTING_STARTED.md). The editor and Web export templates must have matching versions.
 
@@ -34,22 +45,23 @@ When building on your Dot's virtual machine, use its installed Godot and Blender
 
 The [onboarding guide](docs/DOT_ONBOARDING.md) explains the brief and expansion rules. A Dot without filesystem/build tools can still produce a brief for a build agent; it should say what it cannot execute.
 
-For a build agent: start with [Architecture](docs/ARCHITECTURE.md), [World format](docs/WORLD_FORMAT.md) and one example. Add content through manifests before changing the engine. Run the validator, relevant tests and an actual preview. Preserve the brief and runtime epoch during expansion.
+For a build agent: start with [World authoring](docs/WORLD_AUTHORING.md), [Architecture](docs/ARCHITECTURE.md), [World format](docs/WORLD_FORMAT.md) and one example. Submit the Dot's complete design as a proposal, inspect its validated plan, then apply it within owner boundaries. The CLI checks the existing locks and content hash and retains a recovery copy. Rebuild and preview after changes. Compatible expansion preserves the timeline; changed schedule meaning requires an explicit fresh timeline or separately reviewed migration.
 
-## Two homes, one engine
+## Different homes, one engine
 
 | World | Layout and life |
 | --- | --- |
 | [Cedar Atelier](examples/cedar_atelier/README.md) | Moss's terrestrial studio and connected terrace, with reading, crafting and plants. A wind-chime extension adds another activity through content files. |
 | [Tidal Observatory](examples/tidal_observatory/README.md) | Nova's orbital research deck, connecting bridge and observation wing, with instruments and a different imagined project. |
+| [Lantern Archive](examples/authoring/lantern_archive/README.md) | Lumen's night archive and terrace, built from a complete creation proposal and expanded with a telescope through the authoring CLI. A fictional reproducibility pilot, not a live Dot interview. |
 
-These are starting examples, not a fixed menu of possible homes. The engine selects worlds from `godot/content/catalog.json`; it has no switch for their names. See [Asset pipeline](docs/ASSET_PIPELINE.md) for the extension proof and the boundary between data changes and new behavior code.
+These demonstrate authored choices; the questionnaire supplies context and does not select a home from this list. The engine selects worlds from `godot/content/catalog.json`; it has no switch for their names. See [Asset pipeline](docs/ASSET_PIPELINE.md) for the boundary between data changes and new behavior code.
 
 | Cedar Atelier · studio and terrace | Tidal Observatory · linked orbital decks |
 | --- | --- |
-| ![Cedar Atelier rendered in Godot Web, with Moss at the wind chime](docs/images/cedar-atelier.png) | ![Tidal Observatory rendered in Godot Web, with Nova across the bridge](docs/images/tidal-observatory.png) |
+| ![Cedar Atelier rendered in Godot Web, with Moss at the wind chime](docs/images/v2-cedar-atelier.png) | ![Tidal Observatory rendered in Godot Web, with Nova across the bridge](docs/images/v2-tidal-observatory.png) |
 
-These are captures of the exported Godot runtime. The [MOCK phone response](docs/images/mock-phone.png) demonstrates a visual pose only. [Browser acceptance evidence](docs/validation/browser-acceptance.json) records the tested scope.
+These are captures of the exported V2 Godot runtime. See the [created Lantern Archive](docs/images/v2-lantern-archive.png) and [Nova's MOCK phone response](docs/images/v2-nova-phone.png); the phone remains a visual pose only. [Browser acceptance evidence](docs/validation/v2-browser-acceptance.json) records the tested scope.
 
 ## What lives where
 
@@ -60,6 +72,8 @@ These are captures of the exported Godot runtime. The [MOCK phone response](docs
 | `godot/content/characters/` | Appearance and animation contract; replace the visual without rewriting the world engine. |
 | `godot/content/assets/` | Composed primitives or scene/model references, collision footprints, metadata and provenance. |
 | `godot/content/routines/` | Simulated activities and finite projects. |
+| `tools/world_author.py` | Proposed content, candidate validation, policy checks, stale-write rejection and recovery journal. |
+| Resident snapshot | Current/previous activity, source, target, actual location, movement phase and rendered action. Transient and separate from saved progress. |
 | Local runtime state | Timeline epoch, identity, preferences and save revision, stored separately from authored content. |
 | Optional integrations | A future authenticated adapter; never credentials inside a world or asset file. |
 | `prototype/` | Preserved owner-supplied 2D research, separate from the 3D product. |

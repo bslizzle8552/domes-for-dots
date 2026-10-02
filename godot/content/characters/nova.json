@@ -2,16 +2,16 @@
   "schema_version": 1,
   "id": "nova",
   "display_name": "Nova",
-  "scene_path": "res://scenes/characters/placeholder.tscn",
+  "scene_path": "res://scenes/characters/articulated_robot.tscn",
   "scale": [
-    0.92,
-    1.1,
-    0.92
+    1,
+    1,
+    1
   ],
   "forward_axis": "-Z",
   "collision": {
     "radius": 0.27,
-    "height": 1.1
+    "height": 1.45
   },
   "navigation": {
     "radius": 0.3,
@@ -19,15 +19,16 @@
   },
   "rig": {
     "skeleton_path": "",
-    "animation_player_path": "",
-    "notes": "Procedural visual scene exposes set_action(action). Imported rig scenes may map semantic names to AnimationPlayer clips. Visual root stands at y=0; engine owns movement/collision."
+    "animation_player_path": "Motion",
+    "notes": "Original articulated primitive Node3D joint rig with six real AnimationPlayer clips. Not a skinned Skeleton3D or retargeted humanoid. Ground origin; motor owns translation. Rest is a folded standing pose; phone raises an empty hand and does not grip a handset."
   },
   "animations": {
-    "idle": "idle",
-    "walk": "walk",
-    "interact": "interact",
-    "work": "work",
-    "phone": "phone"
+    "idle": "standby",
+    "walk": "stride",
+    "interact": "reach",
+    "work": "console",
+    "rest": "recharge",
+    "phone": "listen"
   },
   "fallbacks": {
     "sit": "idle",
@@ -43,6 +44,7 @@
   "metadata": {
     "creator": "Domes for Dots contributors",
     "license": "MIT",
-    "variant": "orbital"
+    "variant": "articulated_orbital",
+    "source": "Original project primitive geometry and authored joint clips"
   }
 }

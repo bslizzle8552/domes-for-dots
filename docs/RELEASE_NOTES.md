@@ -1,4 +1,12 @@
-# Domes for Dots v0.1.0
+# Domes for Dots release notes
+
+## V2 / 0.2.0 local release preparation
+
+This checkout adds validated Dot-authored creation and expansion requests, owner-policy checks, source hashes and recovery journals; explicit resident activity/location state; optional station preferences and tagged mock activities; an owner pause control; an original articulated character and scene audit; and the Lantern Archive creation/telescope pilot. The existing Godot runtime, local state schema and simulation remain in place.
+
+See [V2 build record](V2_BUILD.md) for current verification, limitations and reproduction. The [prepared v0.2.0 release body](releases/v0.2.0.md) describes the four local assets: `domes-for-dots-v0.2.0-source.zip`, `domes-for-dots-v0.2.0-web.zip`, `SHA256SUMS` and `release_manifest.json`. They are prepared under `dist/release/`; [the publication handoff](RELEASE_PREPARATION.md) records the remaining owner steps. No V2 public release or hosted deployment has been created. The download links and release receipt below belong to v0.1.0.
+
+## Domes for Dots v0.1.0
 
 A first usable foundation for personal Dot homes: a real Godot 4.5.1 3D runtime with two substantially different worlds, replaceable character definitions, open asset manifests and generic interaction stations.
 

@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "world_id": "lantern_archive",
+  "dot_name": "Lumen",
+  "concept": "A fictional creation pilot: an archivist chooses a night library with a terrace, brass light and unfinished maps.",
+  "owner_locked": {
+    "privacy": "Local original content only; no private photos, conversations or credentials.",
+    "truthfulness": "No native call integration. All routine activity is simulation.",
+    "scope": "Flat connected floor and a small browser-friendly scene.",
+    "authoring_policy": {
+      "autonomy": "within_bounds",
+      "allowed_tools": [
+        "world_author"
+      ],
+      "allowed_operations": [
+        "add_object",
+        "move_object",
+        "modify_object",
+        "add_zone",
+        "modify_zone",
+        "add_station",
+        "modify_station",
+        "add_asset",
+        "modify_asset",
+        "replace_character",
+        "edit_routine_presentation",
+        "decorate",
+        "edit_brief"
+      ],
+      "destructive_actions": "deny",
+      "max_objects": 40,
+      "max_zones": 6,
+      "max_stations": 12,
+      "max_assets": 30,
+      "max_primitive_parts": 400,
+      "max_content_bytes": 262144,
+      "world_bounds": {
+        "min_x": -10,
+        "max_x": 12,
+        "min_z": -8,
+        "max_z": 8
+      },
+      "forbidden_asset_tags": [
+        "unlicensed"
+      ],
+      "forbidden_behaviors": []
+    }
+  },
+  "dot_choice": {
+    "architecture": "An open archive joined to a lantern terrace",
+    "palette": [
+      "ink blue",
+      "brass",
+      "paper",
+      "muted stone"
+    ],
+    "hobbies": [
+      "imagined maps",
+      "watercolor",
+      "correspondence"
+    ],
+    "representation": "A small brass mote; a lightweight body is enough for this home.",
+    "future_wish": "A telescope on my terrace."
+  },
+  "shared_decision": {
+    "pilot": "The build agent authored this fictional brief to test the tools. No independent person or actual ChatGPT Dot was interviewed."
+  },
+  "capabilities": {
+    "runtime": "Godot 4.5.1",
+    "character": "Existing reviewed procedural scene",
+    "native_call_reporting": "unavailable"
+  },
+  "initial_scope": [
+    "Archive and connected terrace",
+    "Five activity stations",
+    "Durable creative brief and authored routine",
+    "Space for a later telescope"
+  ],
+  "expansion_history": [
+    {
+      "id": "lantern_archive_initial",
+      "owner_locked_preserved": true,
+      "description": "2026-10-02: Build Lumen's Dot-authored fictional archive from a complete design; demonstrate creation without theme selection. Operations: create_world. Source SHA256: 965d7800858fb3daa4486b210e620b351f8aca3061462ea23ecec583f769eca8. Existing locks preserved; native/browser saves untouched. Candidate schema/reference/navigation validation passed; runtime/browser acceptance is separate. Recovery: artifacts/authoring transaction receipt."
+    },
+    {
+      "id": "lantern_terrace_telescope",
+      "owner_locked_preserved": true,
+      "description": "2026-10-02: Lumen wants a telescope on the terrace. Add an original instrument and reachable observe station within the recorded bounds; preserve existing routine meaning and owner locks. Operations: add_asset, add_object, add_station, decorate. Source SHA256: e138e6a91c6070fbbfb6434fbe6a0f0fb7eb0bfc4cf94ab3321ed891327ff248. Existing locks preserved; native/browser saves untouched. Candidate schema/reference/navigation validation passed; runtime/browser acceptance is separate. Recovery: artifacts/authoring transaction receipt."
+    },
+    {
+      "id": "lantern_visual_polish",
+      "owner_locked_preserved": true,
+      "description": "2026-10-02: Visual acceptance found books hidden behind the shelf backing and an offset telescope lens. Correct primitive positions/orientation; preserve collision, stations, routine and owner policy. Operations: modify_asset. Source SHA256: 4b7e71d3fcc5f804aef6dec745ff57ee637f73601e6b8a8dd9e07bc61686d3bb. Existing locks preserved; native/browser saves untouched. Candidate schema/reference/navigation validation passed; runtime/browser acceptance is separate. Recovery: artifacts/authoring transaction receipt."
+    }
+  ]
+}

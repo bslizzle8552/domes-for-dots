@@ -2,6 +2,14 @@
 
 Domes for Dots separates a reusable engine from the place a Dot chooses to inhabit. All current authored formats use `schema_version: 1`. The detailed field contract is in [IMPLEMENTATION_CONTRACT.md](IMPLEMENTATION_CONTRACT.md), with machine-readable definitions in [`schemas/`](../schemas/).
 
+## V2 additions
+
+The [authoring CLI](WORLD_AUTHORING.md) constructs and validates proposed content in isolation, compares owner locks, applies optional machine-readable bounds and records recoverable changes. It changes authored JSON; it does not impersonate a Dot service, generate designs itself, or mutate a resident's saved timeline. Existing scenes and imported models remain reviewed code/resources outside the JSON-only change request.
+
+The resident-state service separates activity intent from rendered animation and observed physical location. Routine boundaries are derived from the original elapsed-time calculation. Optional routine station preferences and tagged work leases select generic activity locations. Source authority, call priority, lease expiry and replay protection remain intact.
+
+Character inspection loads the actual scene and verifies the declared node/clip contract. Nova's original articulated body exercises this path while the procedural character remains supported. Detailed acceptance and limitations are in [V2 build record](V2_BUILD.md).
+
 ```mermaid
 flowchart LR
     Brief[Owner and Dot brief] --> Content[World / character / assets / routine]

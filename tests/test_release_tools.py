@@ -123,7 +123,7 @@ class ReleaseToolsTests(unittest.TestCase):
             files = ["index.html", "index.js", "index.wasm", "index.pck", "LICENSE", "README.txt", "docs/GODOT_LICENSE.txt", "docs/GODOT_COPYRIGHT.txt", "docs/THIRD_PARTY_NOTICES.md"]
             for relative in files:
                 (web / relative).write_text("fixture")
-            manifest = dict(version="0.1.0",godot_version="4.5.1.stable.official.fixture",validation="passed",python_tests="passed",godot_tests={"core":"passed","runtime":"passed"},runtime_source_sha256={},files={name:build.sha256(web/name) for name in files})
+            manifest = dict(version=build.VERSION,godot_version="4.5.1.stable.official.fixture",validation="passed",python_tests="passed",character_audit="passed",godot_tests={name: "passed" for name in build.GODOT_TEST_SUITES},runtime_source_sha256={},files={name:build.sha256(web/name) for name in files})
             (web / "build_manifest.json").write_text(json.dumps(manifest))
             (web / "index.js").write_text("changed")
             with patch.object(package_release, "runtime_hashes", return_value={}), self.assertRaisesRegex(ValueError, "integrity mismatch"):

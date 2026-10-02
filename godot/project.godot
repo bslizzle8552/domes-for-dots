@@ -1,9 +1,9 @@
-; Domes for Dots 0.1.0 - Godot 4.5.1
+; Domes for Dots 0.2.0 - Godot 4.5.1
 config_version=5
 
 [application]
 config/name="Domes for Dots"
-config/version="0.1.0"
+config/version="0.2.0"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
@@ -20,4 +20,3 @@ environment/defaults/default_clear_color=Color(0.035,0.055,0.07,1)
 
 [physics]
 common/physics_ticks_per_second=60
-

@@ -1,0 +1,928 @@
+{
+  "characters": [
+    {
+      "animation_players": [],
+      "character_id": "lumen",
+      "declared_collision": {
+        "height": 1.1,
+        "radius": 0.27
+      },
+      "definition_path": "res://content/characters/lumen.json",
+      "errors": [],
+      "mesh_count": 9,
+      "neutral_visual_bounds": {
+        "maximum": [
+          0.438784629106522,
+          1.32999992370605,
+          0.340000003576279
+        ],
+        "minimum": [
+          -0.438784629106522,
+          0.0175000000745058,
+          -0.340000003576279
+        ],
+        "scope": "Neutral mesh AABBs including declared scale; not animated or skinned envelope proof.",
+        "size": [
+          0.877569258213043,
+          1.31249992363155,
+          0.680000007152557
+        ]
+      },
+      "nodes": [
+        {
+          "path": ".",
+          "type": "Node3D"
+        },
+        {
+          "path": "@Node3D@2",
+          "type": "Node3D"
+        },
+        {
+          "path": "@Node3D@2/@MeshInstance3D@3",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "@Node3D@2/@MeshInstance3D@4",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "@Node3D@2/@MeshInstance3D@5",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "@Node3D@2/@MeshInstance3D@6",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "@Node3D@2/@MeshInstance3D@7",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "@Node3D@2/@MeshInstance3D@8",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "@Node3D@2/@MeshInstance3D@9",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "@Node3D@2/@MeshInstance3D@10",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "@MeshInstance3D@11",
+          "type": "MeshInstance3D"
+        }
+      ],
+      "ok": true,
+      "rig_kind": "procedural",
+      "scene_path": "res://scenes/characters/placeholder.tscn",
+      "semantic_actions": {
+        "garden": {
+          "chain": [
+            "garden",
+            "interact"
+          ],
+          "clip": "interact",
+          "fallback": true,
+          "provider": "procedural",
+          "resolved": "interact",
+          "supported": true
+        },
+        "idle": {
+          "chain": [
+            "idle"
+          ],
+          "clip": "idle",
+          "fallback": false,
+          "provider": "procedural",
+          "resolved": "idle",
+          "supported": true
+        },
+        "interact": {
+          "chain": [
+            "interact"
+          ],
+          "clip": "interact",
+          "fallback": false,
+          "provider": "procedural",
+          "resolved": "interact",
+          "supported": true
+        },
+        "music": {
+          "chain": [
+            "music",
+            "interact"
+          ],
+          "clip": "interact",
+          "fallback": true,
+          "provider": "procedural",
+          "resolved": "interact",
+          "supported": true
+        },
+        "observe": {
+          "chain": [
+            "observe",
+            "interact"
+          ],
+          "clip": "interact",
+          "fallback": true,
+          "provider": "procedural",
+          "resolved": "interact",
+          "supported": true
+        },
+        "phone": {
+          "chain": [
+            "phone"
+          ],
+          "clip": "phone",
+          "fallback": false,
+          "provider": "procedural",
+          "resolved": "phone",
+          "supported": true
+        },
+        "read": {
+          "chain": [
+            "read",
+            "interact"
+          ],
+          "clip": "interact",
+          "fallback": true,
+          "provider": "procedural",
+          "resolved": "interact",
+          "supported": true
+        },
+        "sit": {
+          "chain": [
+            "sit",
+            "idle"
+          ],
+          "clip": "idle",
+          "fallback": true,
+          "provider": "procedural",
+          "resolved": "idle",
+          "supported": true
+        },
+        "walk": {
+          "chain": [
+            "walk"
+          ],
+          "clip": "walk",
+          "fallback": false,
+          "provider": "procedural",
+          "resolved": "walk",
+          "supported": true
+        },
+        "work": {
+          "chain": [
+            "work"
+          ],
+          "clip": "work",
+          "fallback": false,
+          "provider": "procedural",
+          "resolved": "work",
+          "supported": true
+        }
+      },
+      "skeletons": [],
+      "validation_scope": "Loaded scene, declared nodes, actual clips and fallback graph. Visual/station compatibility still requires acceptance.",
+      "visual_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "warnings": [
+        "No Skeleton3D: this scene does not demonstrate skinning or skeleton retargeting.",
+        "Procedural actions were checked against the scene's explicit capability list; no imported animation clips are present.",
+        "Neutral visual extends above the declared collision height; verify the intended collision envelope with actual props."
+      ]
+    },
+    {
+      "animation_players": [],
+      "character_id": "moss",
+      "declared_collision": {
+        "height": 1.1,
+        "radius": 0.27
+      },
+      "definition_path": "res://content/characters/moss.json",
+      "errors": [],
+      "mesh_count": 9,
+      "neutral_visual_bounds": {
+        "maximum": [
+          0.438784629106522,
+          1.32999992370605,
+          0.340000003576279
+        ],
+        "minimum": [
+          -0.438784629106522,
+          0.0175000000745058,
+          -0.340000003576279
+        ],
+        "scope": "Neutral mesh AABBs including declared scale; not animated or skinned envelope proof.",
+        "size": [
+          0.877569258213043,
+          1.31249992363155,
+          0.680000007152557
+        ]
+      },
+      "nodes": [
+        {
+          "path": ".",
+          "type": "Node3D"
+        },
+        {
+          "path": "@Node3D@12",
+          "type": "Node3D"
+        },
+        {
+          "path": "@Node3D@12/@MeshInstance3D@13",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "@Node3D@12/@MeshInstance3D@14",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "@Node3D@12/@MeshInstance3D@15",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "@Node3D@12/@MeshInstance3D@16",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "@Node3D@12/@MeshInstance3D@17",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "@Node3D@12/@MeshInstance3D@18",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "@Node3D@12/@MeshInstance3D@19",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "@Node3D@12/@MeshInstance3D@20",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "@MeshInstance3D@21",
+          "type": "MeshInstance3D"
+        }
+      ],
+      "ok": true,
+      "rig_kind": "procedural",
+      "scene_path": "res://scenes/characters/placeholder.tscn",
+      "semantic_actions": {
+        "garden": {
+          "chain": [
+            "garden",
+            "interact"
+          ],
+          "clip": "interact",
+          "fallback": true,
+          "provider": "procedural",
+          "resolved": "interact",
+          "supported": true
+        },
+        "idle": {
+          "chain": [
+            "idle"
+          ],
+          "clip": "idle",
+          "fallback": false,
+          "provider": "procedural",
+          "resolved": "idle",
+          "supported": true
+        },
+        "interact": {
+          "chain": [
+            "interact"
+          ],
+          "clip": "interact",
+          "fallback": false,
+          "provider": "procedural",
+          "resolved": "interact",
+          "supported": true
+        },
+        "music": {
+          "chain": [
+            "music",
+            "interact"
+          ],
+          "clip": "interact",
+          "fallback": true,
+          "provider": "procedural",
+          "resolved": "interact",
+          "supported": true
+        },
+        "observe": {
+          "chain": [
+            "observe",
+            "interact"
+          ],
+          "clip": "interact",
+          "fallback": true,
+          "provider": "procedural",
+          "resolved": "interact",
+          "supported": true
+        },
+        "phone": {
+          "chain": [
+            "phone"
+          ],
+          "clip": "phone",
+          "fallback": false,
+          "provider": "procedural",
+          "resolved": "phone",
+          "supported": true
+        },
+        "read": {
+          "chain": [
+            "read",
+            "interact"
+          ],
+          "clip": "interact",
+          "fallback": true,
+          "provider": "procedural",
+          "resolved": "interact",
+          "supported": true
+        },
+        "sit": {
+          "chain": [
+            "sit",
+            "idle"
+          ],
+          "clip": "idle",
+          "fallback": true,
+          "provider": "procedural",
+          "resolved": "idle",
+          "supported": true
+        },
+        "walk": {
+          "chain": [
+            "walk"
+          ],
+          "clip": "walk",
+          "fallback": false,
+          "provider": "procedural",
+          "resolved": "walk",
+          "supported": true
+        },
+        "work": {
+          "chain": [
+            "work"
+          ],
+          "clip": "work",
+          "fallback": false,
+          "provider": "procedural",
+          "resolved": "work",
+          "supported": true
+        }
+      },
+      "skeletons": [],
+      "validation_scope": "Loaded scene, declared nodes, actual clips and fallback graph. Visual/station compatibility still requires acceptance.",
+      "visual_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "warnings": [
+        "No Skeleton3D: this scene does not demonstrate skinning or skeleton retargeting.",
+        "Procedural actions were checked against the scene's explicit capability list; no imported animation clips are present.",
+        "Neutral visual extends above the declared collision height; verify the intended collision envelope with actual props."
+      ]
+    },
+    {
+      "animation_players": [
+        {
+          "clips": [
+            {
+              "length_seconds": 0.800000011920929,
+              "name": "console",
+              "tracks": [
+                {
+                  "keys": 9,
+                  "path": "Torso:position"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/Head:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/LeftArm:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/RightArm:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "LeftLeg:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "RightLeg:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "LeftLeg:position"
+                },
+                {
+                  "keys": 9,
+                  "path": "RightLeg:position"
+                }
+              ]
+            },
+            {
+              "length_seconds": 2.5,
+              "name": "listen",
+              "tracks": [
+                {
+                  "keys": 9,
+                  "path": "Torso:position"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/Head:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/LeftArm:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/RightArm:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "LeftLeg:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "RightLeg:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "LeftLeg:position"
+                },
+                {
+                  "keys": 9,
+                  "path": "RightLeg:position"
+                }
+              ]
+            },
+            {
+              "length_seconds": 1.60000002384186,
+              "name": "reach",
+              "tracks": [
+                {
+                  "keys": 9,
+                  "path": "Torso:position"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/Head:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/LeftArm:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/RightArm:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "LeftLeg:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "RightLeg:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "LeftLeg:position"
+                },
+                {
+                  "keys": 9,
+                  "path": "RightLeg:position"
+                }
+              ]
+            },
+            {
+              "length_seconds": 4.0,
+              "name": "recharge",
+              "tracks": [
+                {
+                  "keys": 9,
+                  "path": "Torso:position"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/Head:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/LeftArm:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/RightArm:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "LeftLeg:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "RightLeg:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "LeftLeg:position"
+                },
+                {
+                  "keys": 9,
+                  "path": "RightLeg:position"
+                }
+              ]
+            },
+            {
+              "length_seconds": 3.0,
+              "name": "standby",
+              "tracks": [
+                {
+                  "keys": 9,
+                  "path": "Torso:position"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/Head:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/LeftArm:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/RightArm:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "LeftLeg:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "RightLeg:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "LeftLeg:position"
+                },
+                {
+                  "keys": 9,
+                  "path": "RightLeg:position"
+                }
+              ]
+            },
+            {
+              "length_seconds": 0.800000011920929,
+              "name": "stride",
+              "tracks": [
+                {
+                  "keys": 9,
+                  "path": "Torso:position"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/Head:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/LeftArm:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "Torso/RightArm:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "LeftLeg:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "RightLeg:rotation"
+                },
+                {
+                  "keys": 9,
+                  "path": "LeftLeg:position"
+                },
+                {
+                  "keys": 9,
+                  "path": "RightLeg:position"
+                }
+              ]
+            }
+          ],
+          "path": "Motion"
+        }
+      ],
+      "character_id": "nova",
+      "declared_collision": {
+        "height": 1.45,
+        "radius": 0.27
+      },
+      "definition_path": "res://content/characters/nova.json",
+      "errors": [],
+      "mesh_count": 19,
+      "neutral_visual_bounds": {
+        "maximum": [
+          0.341474533081055,
+          1.41250002384186,
+          0.174999997019768
+        ],
+        "minimum": [
+          -0.341474533081055,
+          0.00499999523162842,
+          -0.211500003933907
+        ],
+        "scope": "Neutral mesh AABBs including declared scale; not animated or skinned envelope proof.",
+        "size": [
+          0.682949066162109,
+          1.40750002861023,
+          0.386500000953674
+        ]
+      },
+      "nodes": [
+        {
+          "path": ".",
+          "type": "Node3D"
+        },
+        {
+          "path": "Motion",
+          "type": "AnimationPlayer"
+        },
+        {
+          "path": "Torso",
+          "type": "Node3D"
+        },
+        {
+          "path": "Torso/@MeshInstance3D@22",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "Torso/@MeshInstance3D@23",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "Torso/@MeshInstance3D@24",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "Torso/Head",
+          "type": "Node3D"
+        },
+        {
+          "path": "Torso/Head/@MeshInstance3D@25",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "Torso/Head/@MeshInstance3D@26",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "Torso/Head/@MeshInstance3D@27",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "Torso/Head/@MeshInstance3D@28",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "Torso/Head/@MeshInstance3D@29",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "Torso/Head/@MeshInstance3D@30",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "Torso/LeftArm",
+          "type": "Node3D"
+        },
+        {
+          "path": "Torso/LeftArm/@MeshInstance3D@31",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "Torso/LeftArm/@MeshInstance3D@32",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "Torso/LeftArm/@MeshInstance3D@33",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "Torso/RightArm",
+          "type": "Node3D"
+        },
+        {
+          "path": "Torso/RightArm/@MeshInstance3D@36",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "Torso/RightArm/@MeshInstance3D@37",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "Torso/RightArm/@MeshInstance3D@38",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "LeftLeg",
+          "type": "Node3D"
+        },
+        {
+          "path": "LeftLeg/@MeshInstance3D@34",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "LeftLeg/@MeshInstance3D@35",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "RightLeg",
+          "type": "Node3D"
+        },
+        {
+          "path": "RightLeg/@MeshInstance3D@39",
+          "type": "MeshInstance3D"
+        },
+        {
+          "path": "RightLeg/@MeshInstance3D@40",
+          "type": "MeshInstance3D"
+        }
+      ],
+      "ok": true,
+      "rig_kind": "joint_animation",
+      "scene_path": "res://scenes/characters/articulated_robot.tscn",
+      "semantic_actions": {
+        "garden": {
+          "chain": [
+            "garden",
+            "interact"
+          ],
+          "clip": "reach",
+          "fallback": true,
+          "provider": "AnimationPlayer",
+          "resolved": "interact",
+          "supported": true
+        },
+        "idle": {
+          "chain": [
+            "idle"
+          ],
+          "clip": "standby",
+          "fallback": false,
+          "provider": "AnimationPlayer",
+          "resolved": "idle",
+          "supported": true
+        },
+        "interact": {
+          "chain": [
+            "interact"
+          ],
+          "clip": "reach",
+          "fallback": false,
+          "provider": "AnimationPlayer",
+          "resolved": "interact",
+          "supported": true
+        },
+        "music": {
+          "chain": [
+            "music",
+            "interact"
+          ],
+          "clip": "reach",
+          "fallback": true,
+          "provider": "AnimationPlayer",
+          "resolved": "interact",
+          "supported": true
+        },
+        "observe": {
+          "chain": [
+            "observe",
+            "interact"
+          ],
+          "clip": "reach",
+          "fallback": true,
+          "provider": "AnimationPlayer",
+          "resolved": "interact",
+          "supported": true
+        },
+        "phone": {
+          "chain": [
+            "phone"
+          ],
+          "clip": "listen",
+          "fallback": false,
+          "provider": "AnimationPlayer",
+          "resolved": "phone",
+          "supported": true
+        },
+        "read": {
+          "chain": [
+            "read",
+            "interact"
+          ],
+          "clip": "reach",
+          "fallback": true,
+          "provider": "AnimationPlayer",
+          "resolved": "interact",
+          "supported": true
+        },
+        "rest": {
+          "chain": [
+            "rest"
+          ],
+          "clip": "recharge",
+          "fallback": false,
+          "provider": "AnimationPlayer",
+          "resolved": "rest",
+          "supported": true
+        },
+        "sit": {
+          "chain": [
+            "sit",
+            "idle"
+          ],
+          "clip": "standby",
+          "fallback": true,
+          "provider": "AnimationPlayer",
+          "resolved": "idle",
+          "supported": true
+        },
+        "walk": {
+          "chain": [
+            "walk"
+          ],
+          "clip": "stride",
+          "fallback": false,
+          "provider": "AnimationPlayer",
+          "resolved": "walk",
+          "supported": true
+        },
+        "work": {
+          "chain": [
+            "work"
+          ],
+          "clip": "console",
+          "fallback": false,
+          "provider": "AnimationPlayer",
+          "resolved": "work",
+          "supported": true
+        }
+      },
+      "skeletons": [],
+      "validation_scope": "Loaded scene, declared nodes, actual clips and fallback graph. Visual/station compatibility still requires acceptance.",
+      "visual_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "warnings": [
+        "No Skeleton3D: this scene does not demonstrate skinning or skeleton retargeting."
+      ]
+    }
+  ],
+  "engine_version": "4.5.1-stable (official)",
+  "ok": true,
+  "schema_version": 1
+}

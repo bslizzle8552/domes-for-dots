@@ -10,6 +10,11 @@
       "id": "tidal_observatory",
       "title": "Nova's Tidal Observatory",
       "path": "res://content/worlds/tidal_observatory.json"
+    },
+    {
+      "id": "lantern_archive",
+      "title": "Lumen's Lantern Archive",
+      "path": "res://content/worlds/lantern_archive.json"
     }
   ]
 }

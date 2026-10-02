@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://domes-for-dots.example/schemas/owner-policy.schema.json",
+  "title": "Optional local authoring guardrails v1",
+  "type": "object",
+  "properties": {
+    "autonomy": {"enum": ["within_bounds", "proposal_only"]},
+    "allowed_tools": {"type": "array", "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"}, "uniqueItems": true},
+    "allowed_operations": {
+      "type": "array", "uniqueItems": true,
+      "items": {"enum": ["add_object", "move_object", "modify_object", "remove_object", "add_zone", "modify_zone", "remove_zone", "add_station", "modify_station", "remove_station", "add_asset", "modify_asset", "remove_asset", "replace_character", "edit_routine_presentation", "decorate", "edit_brief"]}
+    },
+    "destructive_actions": {"enum": ["deny", "require_owner_review", "allow"]},
+    "max_objects": {"type": "integer", "minimum": 0, "maximum": 1000},
+    "max_zones": {"type": "integer", "minimum": 1, "maximum": 100},
+    "max_stations": {"type": "integer", "minimum": 1, "maximum": 1000},
+    "max_assets": {"type": "integer", "minimum": 1, "maximum": 5000},
+    "max_primitive_parts": {"type": "integer", "minimum": 0, "maximum": 100000},
+    "max_content_bytes": {"type": "integer", "minimum": 1024, "maximum": 16777216},
+    "world_bounds": {
+      "type": "object", "properties": {
+        "min_x": {"type": "number"}, "max_x": {"type": "number"},
+        "min_z": {"type": "number"}, "max_z": {"type": "number"}
+      }, "required": ["min_x", "max_x", "min_z", "max_z"], "additionalProperties": false
+    },
+    "forbidden_asset_tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "forbidden_behaviors": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+  },
+  "required": ["autonomy", "allowed_tools", "allowed_operations", "destructive_actions", "max_objects", "max_zones", "max_stations", "max_assets", "max_primitive_parts", "max_content_bytes", "world_bounds", "forbidden_asset_tags", "forbidden_behaviors"],
+  "additionalProperties": false
+}

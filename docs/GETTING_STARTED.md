@@ -1,5 +1,7 @@
 # Getting started
 
+This checkout is V2 / 0.2.0. The published 0.1.0 ZIP is the earlier release. See [V2 build record](V2_BUILD.md) for current acceptance and [World authoring](WORLD_AUTHORING.md) for executable creation and expansion.
+
 Start with the shipped examples. When building on your Dot's virtual machine, use its installed Godot and Blender and check versions/templates. For a hosted or already-served prebuilt world, the owner's computer only needs a browser. The requirements below apply to the environment doing the build.
 
 ## Requirements
@@ -17,7 +19,7 @@ Download the editor and templates from the [Godot 4.5.1 archive](https://godoten
 1. Clone or extract this repository.
 2. Import `godot/project.godot` into Godot 4.5.1.
 3. Wait for the initial import, then press **F5**.
-4. Switch between Cedar Atelier and Tidal Observatory. Visit several stations and wait for the character to arrive.
+4. Switch between Cedar Atelier, Tidal Observatory and Lantern Archive. Visit several stations and wait for the character to arrive.
 5. Try a MOCK work event followed by MOCK call. When the call ends or expires, any still-valid work can resume. Otherwise the simulated routine resumes.
 
 **Preview +30 min** changes only the displayed simulation time; **Live time** clears the offset. It does not extend activity TTLs or save the preview offset as real elapsed time. A manual **Visit** remains selected until **Resume routine**, while MOCK activity can temporarily take priority.
@@ -45,6 +47,8 @@ On macOS/Linux, set `GODOT_BIN` to the executable and use `.venv/bin/python` in 
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 & $env:GODOT_BIN --headless --path godot --script res://tests/test_core.gd
 & $env:GODOT_BIN --headless --fixed-fps 60 --path godot --script res://tests/test_runtime.gd
+& $env:GODOT_BIN --headless --fixed-fps 60 --path godot --script res://tests/test_character.gd
+& $env:GODOT_BIN --headless --path godot --script res://tools/audit_characters.gd
 ```
 
 The validator checks JSON schemas and content relationships. Core tests exercise deterministic state/event behavior. Runtime tests load the real engine and its examples; `--fixed-fps 60` removes wall-clock pacing while retaining real physics callbacks. Browser rendering, visual poses and user interaction also need an actual preview; passing JSON validation alone does not prove them.

@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "preexisting_content_preserved": true,
+  "receipts": [
+    {
+      "schema_version": 1,
+      "request_id": "lantern_archive_initial",
+      "world_id": "lantern_archive",
+      "intent": "create",
+      "base_content_hash": "965d7800858fb3daa4486b210e620b351f8aca3061462ea23ecec583f769eca8",
+      "candidate_content_hash": "e138e6a91c6070fbbfb6434fbe6a0f0fb7eb0bfc4cf94ab3321ed891327ff248",
+      "request_hash": "8d87cee887bd07cc64dada26004c5531150bf21b919123570c10c859f2bd803d",
+      "operations": [
+        "create_world"
+      ],
+      "metrics": {
+        "objects": 8,
+        "zones": 2,
+        "stations": 5,
+        "assets": 8,
+        "primitive_parts": 42,
+        "content_bytes": 32029
+      },
+      "policy_source": "owner_locked.authoring_policy",
+      "status": "committed",
+      "save_effect": "untouched; compatible existing identities and integrated routine timing preserved",
+      "verification": "authoring checks only; build and runtime/browser acceptance still required",
+      "transaction_id": "lantern_archive_initial-1fc7c1665d34"
+    },
+    {
+      "schema_version": 1,
+      "request_id": "lantern_terrace_telescope",
+      "world_id": "lantern_archive",
+      "intent": "expand",
+      "base_content_hash": "e138e6a91c6070fbbfb6434fbe6a0f0fb7eb0bfc4cf94ab3321ed891327ff248",
+      "candidate_content_hash": "4b7e71d3fcc5f804aef6dec745ff57ee637f73601e6b8a8dd9e07bc61686d3bb",
+      "request_hash": "cacd7dcc6a284f0eb5585f908e9a78682b91eedf7b085f133db302e7e9feb08d",
+      "operations": [
+        "add_asset",
+        "add_object",
+        "add_station",
+        "decorate"
+      ],
+      "metrics": {
+        "objects": 9,
+        "zones": 2,
+        "stations": 6,
+        "assets": 9,
+        "primitive_parts": 48,
+        "content_bytes": 36530
+      },
+      "policy_source": "owner_locked.authoring_policy",
+      "status": "committed",
+      "save_effect": "untouched; compatible existing identities and integrated routine timing preserved",
+      "verification": "authoring checks only; build and runtime/browser acceptance still required",
+      "transaction_id": "lantern_terrace_telescope-3d8d37e863cf"
+    },
+    {
+      "schema_version": 1,
+      "request_id": "lantern_visual_polish",
+      "world_id": "lantern_archive",
+      "intent": "expand",
+      "base_content_hash": "4b7e71d3fcc5f804aef6dec745ff57ee637f73601e6b8a8dd9e07bc61686d3bb",
+      "candidate_content_hash": "0719fba02bdbe0ea32e094b8fec0eaad3bf1ac74d2f7dd8e55cd29384012b249",
+      "request_hash": "0c3778cea3ec29a8111c583b2c09f439871a12d680f7e6ba47b32d80c1d51bd3",
+      "operations": [
+        "modify_asset"
+      ],
+      "metrics": {
+        "objects": 9,
+        "zones": 2,
+        "stations": 6,
+        "assets": 9,
+        "primitive_parts": 48,
+        "content_bytes": 37147
+      },
+      "policy_source": "owner_locked.authoring_policy",
+      "status": "committed",
+      "save_effect": "untouched; compatible existing identities and integrated routine timing preserved",
+      "verification": "authoring checks only; build and runtime/browser acceptance still required",
+      "transaction_id": "lantern_visual_polish-bacd0626a716"
+    }
+  ]
+}

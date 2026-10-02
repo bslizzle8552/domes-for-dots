@@ -1,5 +1,7 @@
 # v0.1 implementation coordination contract
 
+This section preserves the original foundation contract. V2 remains on content/state schema version 1 and extends it as follows: optional routine-step `station_id`; optional work-event `activity_tag`; simulation step boundary timestamps and cycle index; transient resident activity/location observations; a saved `autonomy_paused` preference; reviewed station-arrival cleanup callbacks; and a JSON-only authoring request/policy workflow. See [Core notes](CORE_NOTES.md), [Activity events](ACTIVITY_EVENTS.md), [World authoring](WORLD_AUTHORING.md), and [V2 build record](V2_BUILD.md) for current contracts and acceptance. No new real event authority is introduced.
+
 Internal architecture reference, maintained as public technical documentation. All JSON uses snake_case and schema_version: 1. Files are under `godot/content/`; paths in manifests use `res://content/...`. No external URLs or credentials in visual content.
 
 ## Content

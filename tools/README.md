@@ -7,6 +7,7 @@ deploy a site, create accounts, or grant access. Use Python 3.12 and install
 | Tool | Purpose |
 | --- | --- |
 | `validate_content.py` | Strict schema, reference, character and planar navigation checks. |
+| `world_author.py create/prepare/plan/apply/recover` | Validate complete Dot-authored proposals, enforce existing locks/policy, detect stale bases and retain recoverable originals. See [World authoring](../docs/WORLD_AUTHORING.md). |
 | `build.py --godot PATH` | Verify Godot 4.5.1, validate content, run Python and actual Godot tests, and export Web into `dist/web`. |
 | `serve.py --port 8060` | Serve a built Web preview on loopback; see its `--help`. |
 | `check_release.py` | Scan Git-tracked source for obvious credentials, private home-directory paths and accidental build/cache/state files. |
@@ -33,7 +34,7 @@ packaging still requires a Git checkout with reviewed tracked files.
 `--allow-dirty` permits an explicitly labeled candidate package. It does not add
 untracked source or bypass hygiene, hash or test checks. The build's
 `--allow-missing-runtime-test` supports early development only; final packaging
-always requires both Godot core and runtime test suites to have passed.
+always requires Godot core, runtime and character test suites plus the loaded-scene character audit to have passed.
 
 Source and Web ZIP files have stable file timestamps and are CRC-verified after
 creation. `SHA256SUMS` identifies the resulting bytes; build/release manifests

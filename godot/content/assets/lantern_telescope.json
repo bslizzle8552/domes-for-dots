@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "id": "lantern_telescope_assets",
+  "assets": [
+    {
+      "id": "lantern_telescope",
+      "display_name": "Brass terrace telescope",
+      "category": "instrument",
+      "tags": [
+        "original",
+        "observation"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": true,
+        "size": [
+          1.2,
+          1.8,
+          1.8
+        ],
+        "offset": [
+          0,
+          0.9,
+          0
+        ]
+      },
+      "footprint": [
+        1.2,
+        1.8
+      ],
+      "anchors": {},
+      "parts": [
+        {
+          "shape": "cylinder",
+          "position": [
+            0,
+            0.55,
+            0
+          ],
+          "size": [
+            0.13,
+            1.1,
+            0.13
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#c89f60",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -0.3,
+            0.25,
+            0
+          ],
+          "size": [
+            0.1,
+            0.65,
+            0.1
+          ],
+          "rotation": [
+            0,
+            0,
+            -40
+          ],
+          "color": "#c89f60",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.3,
+            0.25,
+            0
+          ],
+          "size": [
+            0.1,
+            0.65,
+            0.1
+          ],
+          "rotation": [
+            0,
+            0,
+            40
+          ],
+          "color": "#c89f60",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.25,
+            0.3
+          ],
+          "size": [
+            0.1,
+            0.65,
+            0.1
+          ],
+          "rotation": [
+            40,
+            0,
+            0
+          ],
+          "color": "#c89f60",
+          "emission": 0
+        },
+        {
+          "shape": "cylinder",
+          "position": [
+            0,
+            1.3,
+            0
+          ],
+          "size": [
+            0.38,
+            1.6,
+            0.38
+          ],
+          "rotation": [
+            -65,
+            0,
+            0
+          ],
+          "color": "#c89f60",
+          "emission": 0
+        },
+        {
+          "shape": "cylinder",
+          "position": [
+            0,
+            1.65,
+            -0.75
+          ],
+          "size": [
+            0.34,
+            0.025,
+            0.34
+          ],
+          "rotation": [
+            -65,
+            0,
+            0
+          ],
+          "color": "#81bfb0",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {
+        "optics": "Decorative telescope; no rendered magnified view"
+      },
+      "provenance": {
+        "creator": "Domes for Dots contributors",
+        "source": "Original primitive composition for the V2 expansion pilot",
+        "license": "MIT"
+      }
+    }
+  ]
+}

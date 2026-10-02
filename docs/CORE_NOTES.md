@@ -1,10 +1,12 @@
 # Core service semantics and verification
 
-The three services in `godot/scripts/core/` are plain GDScript `RefCounted` classes. They do not depend on scene nodes, native ChatGPT APIs, model inference, or any named example world. The runtime must validate content and retain configuration independently from runtime state.
+The four services in `godot/scripts/core/` are plain GDScript `RefCounted` classes. They do not depend on scene nodes, native ChatGPT APIs, model inference, or any named example world. The runtime must validate content and retain configuration independently from runtime state.
 
 ## Simulation
 
 `Simulation.evaluate(routine, epoch, now)` is pure. It integrates the duration of each activity tag over complete routine cycles, then integrates one partial cycle. Runtime cost depends on the routine and project count, not elapsed days. The current step changes at its exact boundary; the cycle wraps to its first step. Time before the epoch clamps to zero.
+
+The result also includes `cycle_index`, `step_started_at`, and `step_ends_at`. These are scheduled boundaries in the supplied simulation clock, not measured animation or arrival times. An optional step `station_id` selects a preferred station with the same activity tag. The authoring validator checks both existence and tag compatibility. Without it, the first matching station remains the deterministic default. Ordered duration cycles remain the routine model; weighted randomness and civil-time/daylight-saving schedules are not implemented.
 
 Each finite project earns the elapsed seconds matching its activity tag. Projects sharing a tag advance in parallel, by design; this is imagined progress rather than evidence of model work. `progress` is a fraction from 0 through 1, clamped permanently at completion for a fixed epoch. The stage is selected from equal progress intervals, with the last stage retained at completion. Changing project requirements or the routine changes the derived answer: migrations must be intentional.
 
@@ -21,6 +23,16 @@ Only a matching, live activity can renew. A newer start can replace a different 
 Identical event IDs and payloads are accepted as duplicates without changing the lease. Reusing an event ID with a changed payload fails. The most recent 2,048 fingerprints are cached; older duplicate events still cannot bypass stream high-water checks. Tombstones and stream high-water values remain for the session. They are intentionally not pruned in a way that would allow resurrection. A future long-lived real adapter should own durable deduplication and authenticated resynchronization; page reload resets this in-memory session protection. Short timestamp-based TTLs still bound replay lifetime across reloads.
 
 Calls have visual priority over work. Among simultaneous leases of one kind, newest timestamp wins, with event ID as a deterministic tie-break. Ending a call reveals still-valid work. No activity result asserts that a native call or actual work occurred; only the optional authenticated adapter could provide that evidence.
+
+An optional `activity_tag` lets a work lease visualize any authored activity, using the same TTL, sequencing, source and lifecycle rules. It does not create a new stream or change priority. A renewal must retain its original tag; a call cannot override its tag. `started_at` is retained internally from START through all renewals. The public runtime rejects unregistered custom tags before submitting them to the store, which remains independent of world content.
+
+## Resident state and visual behaviors
+
+`ResidentState.resolve(simulation, active, manual_station, stations, paused, now)` resolves the current intent in this order: valid activity lease, explicit manual visit, paused autonomous movement, scheduled routine. The result names the activity and target independently of physical movement. `observe(intent, observation)` maintains current and previous activity identity, with copies returned to callers. Repeated samples of a manual/paused activity retain the original start time; renewal and resumption retain the lease's START time. Routine identities include the cycle index so consecutive cycles remain distinguishable.
+
+The production motor supplies actual travel/arrival signals. Runtime snapshots expose a phase (`traveling`, `engaged`, `idle`, `paused`, `unreachable`, or `unavailable`), current zone and position, reached station, last reached station, target object/station, and rendered semantic animation. Changing animation does not change activity identity. Unknown targets fail idle; the intent resolver never substitutes an unrelated work station. Runtime state remains transient: saves retain the original v1 identity/epoch contract, with `preferences.autonomy_paused` as an optional boolean. Pausing movement does not alter elapsed-time project progress. MOCK leases and physical positions are not saved.
+
+Station arrival hooks remain a small local code registry. A callback receives `(motor, station, object_node)` and may return a cleanup `Callable`. The runtime invokes cleanup before routing elsewhere, on failure, and on world switch. The shipped `activity_light` behavior creates a shadow-free light at a station's object while occupied; its optional `metadata.activity_light_color` defaults to a pale blue. It changes no collider or authored content. Both example workstations demonstrate it. New behavior identifiers still require reviewed code registered by the runtime; arbitrary content strings never execute scripts.
 
 ## State persistence
 
@@ -43,6 +55,8 @@ Run from the repository root with Godot 4.5.1:
 ```
 
 The native deterministic suite exercises cycle/step boundaries, complete cycles plus remainder, large absences, finite project completion, repeatable evaluation, non-mutating content, clock bounds, lease expiry, idempotency, payload collisions, source/target validation, sequence/timestamp ordering, delayed START after END, renewal constraints, call priority/resumption, revision conflicts, strict import validation, native writer exclusion, known-good backup recovery, and corrupt-state refusal. It uses an isolated `user://core-test-*` directory and removes its own files. Native tests do not verify browser localStorage, browser exports, real adapter authority, real calls, or physical character motion; those require separate acceptance evidence.
+
+V2 adds independent checks for scheduled boundaries, preferred station selection, custom-tag expiry/renewal/call priority, intent versus pose, stable start times, current/previous activity copies, manual override while paused, and pause/resume priority. Production runtime checks physically travel during these transitions, verify target versus reached station, save the pause preference without changing the epoch, reject unknown custom tags, and start/clean up workstation lighting. The tests iterate the catalog, so additional authored worlds exercise the same contract.
 
 The separate production-runtime suite instantiates `scenes/main.tscn`, injects an isolated state directory before `_ready`, and uses actual Godot navigation queries and `CharacterBody3D.move_and_slide` physics:
 

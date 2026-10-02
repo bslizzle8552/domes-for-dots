@@ -39,12 +39,14 @@ static func evaluate(routine: Dictionary, epoch: float, now: float) -> Dictionar
 		accumulated[tag] = whole_cycles * float(per_cycle[tag])
 	var cursor: float = 0.0
 	var selected: Dictionary = steps[0]
+	var selected_offset: float = 0.0
 	for step in steps:
 		var duration: float = float(step["duration_seconds"])
 		var tag: String = str(step.get("activity_tag", ""))
 		accumulated[tag] = float(accumulated.get(tag, 0.0)) + clampf(remainder - cursor, 0.0, duration)
 		if remainder >= cursor and remainder < cursor + duration:
 			selected = step
+			selected_offset = cursor
 		cursor += duration
 	var projects: Array = []
 	for project in routine.get("projects", []):
@@ -59,4 +61,5 @@ static func evaluate(routine: Dictionary, epoch: float, now: float) -> Dictionar
 		if not stages.is_empty():
 			stage = str(stages[mini(int(floor(progress * stages.size())), stages.size() - 1)])
 		projects.append({"id": project.get("id", ""), "title": project.get("title", ""), "progress": progress, "stage": stage})
-	return {"step": selected.duplicate(true), "projects": projects, "elapsed": elapsed}
+	var started_at: float = epoch + whole_cycles * cycle + selected_offset
+	return {"step": selected.duplicate(true), "projects": projects, "elapsed": elapsed, "cycle_index": whole_cycles, "step_started_at": started_at, "step_ends_at": started_at + float(selected.duration_seconds)}

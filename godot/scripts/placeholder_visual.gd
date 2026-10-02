@@ -33,6 +33,10 @@ func _ready() -> void:
 func set_action(value: String) -> void:
 	action = value
 
+func get_supported_actions() -> PackedStringArray:
+	# Introspection is explicit: arbitrary strings do not establish a new pose.
+	return PackedStringArray(["idle", "walk", "interact", "work", "phone"])
+
 func _process(delta: float) -> void:
 	phase += delta
 	if not is_instance_valid(torso):
@@ -49,4 +53,3 @@ func _process(delta: float) -> void:
 		left_hand.position = Vector3(-0.22,0.81+sin(phase*5)*0.04,-0.32)
 		right_hand.position = Vector3(0.22,0.81-sin(phase*5)*0.04,-0.32)
 	# 'sit' intentionally falls back to grounded idle unless a compatible rig is supplied.
-

@@ -17,6 +17,8 @@ The source of truth is the versioned JSON schemas in [`schemas/`](../schemas/), 
 
 All shipped JSON documents use `schema_version: 1`. Paths inside content use `res://content/...` or another allowed project resource path. Credentials, permissions and private activity payloads do not belong in any world, character or asset document.
 
+V2 adds separate change-request and owner-policy schemas without changing the shape of existing worlds or runtime saves. The optional policy lives inside `owner_locked.authoring_policy`. See [World authoring](WORLD_AUTHORING.md). A change request is a source edit proposal, not a browser-importable world pack.
+
 ## World definition
 
 A world identifies itself with `id`, `version`, `title` and `description`. `brief_path`, `character_path`, `routine_path` and `asset_manifest_paths` reference its collaborators. It has no embedded mutable save counter.
@@ -30,6 +32,8 @@ A world identifies itself with `id`, `version`, `title` and `description`. `brie
 ## Routines and finite projects
 
 A routine declares `cycle_seconds` and ordered steps. Every step has a stable ID, label, activity tag, animation field and positive duration. Step durations must sum to the cycle. The current display chooses a station by activity tag and plays that station's semantic action; the routine's animation field is retained authoring information rather than an override of the station. These compressed cycles demonstrate elapsed-time behavior; v0.1 does not implement civil-time/daylight-saving schedules.
+
+V2 optionally accepts `station_id` on a routine step to select a particular compatible station instead of the first matching tag. Validation checks both the reference and tag. The live resident snapshot describes the chosen activity separately from its target, arrived location, movement phase and animation. These transient observations are not persisted or replayed as real activity. See [Core notes](CORE_NOTES.md).
 
 Projects have stable IDs, titles, matching activity tags, required activity seconds, stage labels and a required associated `visual_object_id`. Progress counts time assigned to the matching activity, including completed cycles, and clamps to completion. The display shows the stage label and scales the associated visual's height as a simple progress effect. Nothing in that calculation authorizes real work or generates a novel object.
 

@@ -215,6 +215,14 @@ class ContentValidator:
             errors.append("brief world_id does not match world id")
         if brief["dot_name"] != character["display_name"]:
             errors.append("brief dot_name does not match character display_name")
+        if "authoring_policy" in brief["owner_locked"]:
+            policy = brief["owner_locked"]["authoring_policy"]
+            errors.extend(self.validate_document("owner-policy", policy, "owner_locked.authoring_policy"))
+            if isinstance(policy, dict) and isinstance(policy.get("world_bounds"), dict):
+                limits = policy["world_bounds"]
+                if all(isinstance(limits.get(key), (int, float)) for key in ["min_x", "max_x", "min_z", "max_z"]):
+                    if limits["min_x"] >= limits["max_x"] or limits["min_z"] >= limits["max_z"]:
+                        errors.append("authoring_policy world_bounds require increasing minima/maxima")
         if not math.isclose(sum(step["duration_seconds"] for step in routine["steps"]), routine["cycle_seconds"], rel_tol=0, abs_tol=1e-7):
             errors.append("routine step durations must sum to cycle_seconds")
         if character["navigation"]["radius"] > world["navigation"]["character_radius"] + 1e-7:
@@ -248,12 +256,19 @@ class ContentValidator:
                 if not animation_resolves(character, semantic):
                     errors.append(f"station {station['id']} animation {semantic} cannot resolve through character contract")
         step_tags = set()
+        stations_by_id = {station["id"]: station for station in world["stations"]}
         for step in routine["steps"]:
             step_tags.add(step["activity_tag"])
             if step["activity_tag"] not in station_tags:
                 errors.append(f"routine step {step['id']} has no station for activity {step['activity_tag']}")
             if not animation_resolves(character, step["animation"]):
                 errors.append(f"routine step {step['id']} has unsupported animation {step['animation']}")
+            if "station_id" in step:
+                station = stations_by_id.get(step["station_id"])
+                if station is None:
+                    errors.append(f"routine step {step['id']} references unknown station_id {step['station_id']}")
+                elif step["activity_tag"] not in station["activity_tags"]:
+                    errors.append(f"routine step {step['id']} station_id does not support its activity_tag")
         for project in routine["projects"]:
             if project["activity_tag"] not in step_tags:
                 errors.append(f"project {project['id']} activity is absent from routine")

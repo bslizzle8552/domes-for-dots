@@ -29,13 +29,14 @@
       "label": "Write simulated observation notes",
       "activity_tag": "work",
       "animation": "work",
-      "duration_seconds": 35
+      "duration_seconds": 35,
+      "station_id": "work"
     },
     {
       "id": "capsule_rest",
       "label": "Rest between orbital watches",
       "activity_tag": "rest",
-      "animation": "sit",
+      "animation": "rest",
       "duration_seconds": 45
     }
   ],

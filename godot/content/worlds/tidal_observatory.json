@@ -285,7 +285,7 @@
       "facing": 0,
       "animation": "work",
       "fallback_animation": "interact",
-      "behavior": "",
+      "behavior": "activity_light",
       "metadata": {}
     },
     {
@@ -329,7 +329,7 @@
         2.5
       ],
       "facing": 90,
-      "animation": "sit",
+      "animation": "rest",
       "fallback_animation": "interact",
       "behavior": "",
       "metadata": {}
