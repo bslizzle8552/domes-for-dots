@@ -18,6 +18,8 @@ Read [Verification](docs/VERIFICATION.md) for acceptance evidence and [BUILD_STA
 
 ## Quick start
 
+Download the [v0.1.0 release](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.1.0): the source ZIP is editable; the Web ZIP runs in a browser without Godot installed. Extract the Web ZIP, run `python -m http.server 8060 --bind 127.0.0.1` in that folder, then open [localhost:8060](http://127.0.0.1:8060). A hosted copy needs only a browser.
+
 Use **Godot 4.5.1 Standard** and open [`godot/project.godot`](godot/project.godot), then press **F5** to run the project. Choose either example in the world selector. No Blender, API key, ChatGPT account or model connection is needed to run the examples.
 
 For the complete install, command line, export and verification procedure, see [Getting started](docs/GETTING_STARTED.md). The editor and Web export templates must have matching versions.

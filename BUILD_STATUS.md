@@ -4,7 +4,7 @@ Target: v0.1.0. Updated: 2026-10-02.
 
 ## Current milestone
 
-M4: implementation accepted locally; final clean Web build, package audit and GitHub publication in progress.
+M5: all local v0.1.0 acceptance and packaging checks pass. Public repository created; tag and release upload are the remaining publication steps.
 
 ## Completed
 
@@ -29,8 +29,11 @@ M4: implementation accepted locally; final clean Web build, package audit and Gi
 - Content validator: PASS both worlds and extension.
 - Native runtime integration: PASS (108 assertions, all 49 Cedar and 36 Tidal station pairs, physical visits to every station plus returns, 13,956 collider-clearance samples, safe unreachable target, replacement geometry/AnimationPlayer/fallbacks/navigation).
 - Startup synchronization bug found and fixed: wait for the newly created navigation region to own the spawn point, with a 5-second timeout; do not infer readiness from two frames alone.
-- Browser acceptance: PASS (26 checks), including both worlds, mock priority/expiry/pose, data-only extension, bridge crossing, save/reload/shared epoch, stale revision conflict, injected storage failure preserving original bytes, backup recovery, downloads and pointer input. Final export rerun pending.
-- GitHub authenticated account/capability inspection: PASS, bslizzle8552 can create repositories and releases. Target repository does not yet exist. Publication is authorized by the original build-and-ship request, after final checks.
+- Browser acceptance: PASS (26 checks) again on the final export, including both worlds, mock priority/expiry/pose, data-only extension, bridge crossing, save/reload/shared epoch/project IDs, stale revision conflict, injected storage failure preserving original bytes, backup recovery, downloads and pointer input.
+- Clean build: PASS from runtime source commit 2039920faad095ff1de5aa856f77d4212b9ef8bf, recorded with source_dirty=false in docs/validation/build-manifest.json. Later commits update documentation/evidence only.
+- Archive acceptance: PASS source/Web ZIP CRCs and SHA-256 inventories. Extracted source rebuilt with 46 Python, 71 core and 108 runtime passes and a new Web export without Git metadata.
+- Repository hygiene: PASS tracked-only package scan, review of authored files, no private Dot world or secrets found. Toolchains, caches, local saves, downloaded test exports and credentials are excluded.
+- Public repository created: https://github.com/bslizzle8552/domes-for-dots . The original request authorizes publication after validation.
 
 ## Decisions
 
@@ -38,11 +41,29 @@ M4: implementation accepted locally; final clean Web build, package audit and Gi
 - Engine, authored content, character contracts, runtime state, and connections remain separate.
 - No access to any private Dot world. Native call integration is unavailable unless independently verified; mocks must be labeled.
 
-## Remaining v0.1 blockers
+## Remaining publication steps
 
-- Final clean Web build and rerun browser acceptance on that export.
-- Final doc reconciliation, secret/private-material audit, source/Web archives with checksums, archive extraction smoke test.
-- Create public domes-for-dots repository, push main, tag v0.1.0, upload/publish/verify release.
+- No implementation blockers remain at the stated v0.1 level.
+- Commit final evidence/docs, regenerate final archives, push main and v0.1.0, publish/verify release downloads.
+
+## Reproduce verification
+
+```powershell
+.\.venv\Scripts\python.exe tools/build.py
+.\.venv\Scripts\python.exe tools/serve.py --port 8060
+node tools/browser_acceptance.cjs
+.\.venv\Scripts\python.exe tools/check_release.py
+.\.venv\Scripts\python.exe tools/package_release.py
+```
+
+Use Godot 4.5.1 plus matching templates; set GODOT_BIN if it is not discoverable. The browser script requires Playwright and Chrome. See docs/GETTING_STARTED.md and docs/WEB_EXPORT.md. Tests, schema validation, engine-error log checks and Web export are included in build.py.
+
+## v0.1 limits
+
+- Real work/native-call adapters unavailable; mock events never establish integration.
+- One saving browser tab recommended: stale revisions are detected, but localStorage is not an atomic cross-tab transaction or hosted state.
+- Flat connected floors, static footprints, simple standing/hand poses; arbitrary rigs, stairs, mobile and other browsers are unverified.
+- New content is authored JSON/scene data and rebuilt; in-app import/editing and automatic photo-to-rig generation are not shipped.
 
 ## Post-v0.1 backlog
 
