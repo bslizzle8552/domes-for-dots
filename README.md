@@ -4,6 +4,8 @@
 
 The runtime loads separate world, character, asset and routine definitions. A workshop, orbital habitat or future world can use the same engine. Local elapsed-time simulation makes the world feel inhabited between visits without continuous model inference.
 
+**[Visit the generated Aster world](https://bslizzle8552.github.io/domes-for-dots/)** — nothing to install. This public synthetic demo was generated and built on a cloud worker, then verified in its hosted browser form: an original 18-joint character with 12 clips inside the existing Domes runtime. See the [implementation and proof](docs/AUTOMATIC_CHARACTER_COMPLETION.md), [character factory](docs/CHARACTER_FACTORY.md), and [Rocky's actual production pipeline](docs/ROCKY_REFERENCE_PIPELINE.md). This procedural backend does not reconstruct images; saves remain browser-local.
+
 ## V2 · 0.2.0 released
 
 V2 keeps the working Godot foundation and adds a repeatable [world authoring workflow](docs/WORLD_AUTHORING.md), inspectable resident activity state, and an [audited animated character pipeline](docs/CHARACTER_PIPELINE.md). The [V2 build record](docs/V2_BUILD.md) describes the baseline, changes, acceptance and limits. [v0.2.0 is publicly released](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.2.0) and independently download-verified as of 2026-10-02. See the [release notes](docs/releases/v0.2.0.md) and [publication receipt](docs/validation/v0.2.0-publication.json).

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "package_kind": "domes_character",
+  "character_id": "aster",
+  "backend": "procedural_rigid_skin_v1",
+  "files": {
+    "character.glb": "a9643d2330b6c12bd2474916f4eefcaad55bfe4ddd894fe79a3863bd9499e244",
+    "character.json": "d3330da0ef3456aa610aecb2c424755a5e20821be12dd6f5e170263eece8fb2a",
+    "spec.json": "b690de9f50d8fca8039c84fc04ef4e269496a00175075eb717143629672af9fa"
+  },
+  "provenance": {
+    "geometry": "Original procedural segmented robot generated from approved structured choices",
+    "animation": "Original fixed-rig skeletal clips authored in factory_glb.py; no third-party animation or retargeting",
+    "reference_handling": "Only upload digests, approved descriptions and source/license declarations; no uploaded image pixels are copied into the package",
+    "license": "MIT for generated geometry and clips; input reference rights remain with their owners"
+  },
+  "capabilities": [
+    "idle",
+    "walk",
+    "interact",
+    "sit",
+    "work",
+    "read",
+    "build",
+    "inspect",
+    "garden",
+    "sleep",
+    "talk",
+    "phone"
+  ],
+  "limitations": [
+    "Procedural stylized prototype, not image-to-3D reconstruction",
+    "Rigid skin weights; not organic deformation",
+    "Sleep is a seated doze, not bed placement",
+    "Phone uses an empty hand; no handset or live call",
+    "No prop grip, seat alignment, inverse kinematics, arbitrary-rig retargeting or visual likeness guarantee"
+  ]
+}

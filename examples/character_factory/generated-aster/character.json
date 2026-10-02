@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "id": "aster",
+  "display_name": "Aster",
+  "scene_path": "res://assets/generated/aster/character.glb",
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "forward_axis": "-Z",
+  "collision": {
+    "radius": 0.29063,
+    "height": 1.49062
+  },
+  "navigation": {
+    "radius": 0.29531,
+    "speed": 2.4
+  },
+  "rig": {
+    "skeleton_path": "Character/Skeleton3D",
+    "animation_player_path": "AnimationPlayer",
+    "notes": "18-joint glTF skin, rigid weights for segmented geometry. Twelve original in-place skeletal clips. No arbitrary retargeting or station IK; sit and sleep use a seated pose, phone an empty-hand gesture."
+  },
+  "animations": {
+    "idle": "idle",
+    "walk": "walk",
+    "interact": "interact",
+    "sit": "sit",
+    "work": "work",
+    "read": "read",
+    "build": "build",
+    "inspect": "inspect",
+    "garden": "garden",
+    "sleep": "sleep",
+    "talk": "talk",
+    "phone": "phone"
+  },
+  "fallbacks": {
+    "rest": "sleep",
+    "observe": "inspect",
+    "music": "talk"
+  },
+  "appearance": {
+    "color": "#79b7ad",
+    "accent": "#ffca6a"
+  },
+  "metadata": {
+    "creator": "Domes character factory",
+    "license": "MIT",
+    "backend": "procedural_rigid_skin_v1",
+    "spec_sha256": "4ce283a00634a25e2415fe0cd4188e088d7e993b2df7d94733f2b2b970b49bb0",
+    "source": "Original procedural geometry and authored skeletal clips; not image reconstruction"
+  }
+}

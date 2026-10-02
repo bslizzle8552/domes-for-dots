@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "character_id": "aster",
+  "display_name": "Aster",
+  "backend": "procedural_rigid_skin_v1",
+  "appearance": {
+    "accessories": [
+      "chest_badge"
+    ],
+    "body": "segmented_robot",
+    "clothing": "vest",
+    "colors": {
+      "accent": "#ffca6a",
+      "primary": "#79b7ad",
+      "secondary": "#25384a",
+      "visor": "#152735"
+    },
+    "head_scale": 1.0,
+    "height_m": 1.5
+  },
+  "references": [
+    {
+      "id": "approved_robot_card",
+      "description": "Original flat front-view segmented teal robot concept with amber eyes and chest badge. A design reference, not a 3D reconstruction target.",
+      "source": "Original project fixture authored by Domes contributors; not Rocky imagery",
+      "license": "MIT",
+      "sha256": "848f1996d7adeabf6d5995304f86902da3c1b92ae639baa48f92d16e1c7dd682",
+      "media_type": "image/png",
+      "bytes": 1010
+    }
+  ],
+  "creative_intent": {
+    "self_image": "A calm archive companion with a compact segmented body and warm amber eyes.",
+    "personality_cues": [
+      "Curious and patient; this fixture demonstrates recording creative intent."
+    ],
+    "identifying_features": [
+      "Warm amber square eyes and a small chest badge."
+    ],
+    "activities": [
+      "work",
+      "read",
+      "build",
+      "inspect",
+      "garden",
+      "sleep",
+      "talk",
+      "phone"
+    ]
+  },
+  "decisions": {
+    "human_approved": true,
+    "veto_accessories": [
+      "antenna"
+    ],
+    "human_notes": "Synthetic approved-interview fixture, not a claim that a real Dot or human was interviewed. Keep an uncluttered silhouette.",
+    "implementation_scope": "Original segmented robot from explicit palette, proportions, clothing and accessory choices. Images are approved reference evidence; this backend does not infer geometry from pixels. Gestures have no automatic prop contact or arbitrary-rig retargeting.",
+    "unimplemented_intent": [
+      "Warm amber square eyes and a small chest badge.",
+      "Curious and patient; this fixture demonstrates recording creative intent."
+    ]
+  },
+  "input_sha256": "9ca369658ff44ff858b97d916314de73f449fbc8c35ba295e03ea07717c80f63"
+}

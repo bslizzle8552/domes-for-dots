@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-02",
+  "scope": "Local development acceptance; hosted proof recorded separately",
+  "python": {
+    "discovered": 123,
+    "passed": 122,
+    "skipped": 1,
+    "skip_reason": "Windows symlink creation privilege"
+  },
+  "godot": {
+    "version": "4.5.1.stable.official.f62fdbde1",
+    "core": 92,
+    "runtime": 200,
+    "character": 43,
+    "factory_character": 59,
+    "physical_obstacle_samples": 21534,
+    "all_passed": true
+  },
+  "browser": {
+    "status": "PASS",
+    "url": "http://127.0.0.1:8063/",
+    "browser": "154.0.8037.97",
+    "checks": [
+      "world page delivered successfully",
+      "generated skinned GLB loaded in original Domes runtime",
+      "walking changes both world position and actual skeleton pose",
+      "station arrival plays imported work clip",
+      "mock call routes to actual phone clip",
+      "daybed station plays its authored sit clip",
+      "same-browser reload preserves timeline",
+      "native integrations remain explicitly unavailable",
+      "no browser or Godot runtime errors"
+    ],
+    "errors": [],
+    "character_id": "aster",
+    "limitations": [
+      "Desktop Chromium only; no physical-device mobile/Safari acceptance",
+      "Procedural specimen, not Rocky or image reconstruction",
+      "Same-browser storage only, no cloud saves",
+      "Motion checked, no automatic prop grip, seat fit or likeness guarantee"
+    ]
+  },
+  "package": {
+    "schema_version": 1,
+    "ok": true,
+    "errors": [],
+    "checks": [
+      "schemas_and_digests",
+      "real_skin_and_weighted_geometry",
+      "semantic_clips_and_in_place_motion"
+    ],
+    "scope": "Package schemas, immutable file digests, bounded self-contained GLB, real skin and animated joints. Godot import, appearance, motion quality, station fit and browser playback require separate acceptance.",
+    "joint_count": 18,
+    "vertex_count": 480,
+    "clip_count": 12
+  },
+  "job_receipt_schema": "passed",
+  "original_worlds_unchanged": true
+}

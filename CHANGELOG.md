@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased — cloud character factory
+
+- Added approved reference/interview transport, deterministic skinned GLB production, semantic package validation and isolated world installation.
+- Added a real GitHub Actions worker for pinned engine setup, motion acceptance and Web export; kept build, publication and browser evidence separate.
+- Replaced owner-facing installation/command flows with conversation and browser delivery; preserved contributor tooling.
+- Inspected Rocky's real Blender and runtime source read-only and documented procedural part articulation rather than inventing skeletal rigging.
+- Preserved existing worlds, local save semantics, and SIMULATED/MOCK boundaries. See [completion and limits](docs/AUTOMATIC_CHARACTER_COMPLETION.md).
+
 ## 0.2.0 — 2026-10-02
 
 - Added a JSON proposal/plan/apply/recovery workflow, immutable existing owner locks, optional resource/operation policy, stale-base rejection and durable expansion history.

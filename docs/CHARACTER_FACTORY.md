@@ -170,8 +170,23 @@ unpacks it into a fresh upload directory, and supports authenticated operator
 dispatch. Workflow input is data, never interpolated shell code. This small-input
 prototype still needs private object storage for typical larger references.
 
-The worker receipt separates build success from deployment: it retains
-`deployment.status = not_deployed` until an external publisher establishes a URL.
+The immutable worker receipt separates build success from deployment: it records
+`deployment.status = not_deployed`. An external publisher establishes a URL in a
+separate publication receipt; browser acceptance is another explicit check.
+The operator-only [`publish_pages.py`](../tools/publish_pages.py) implements first
+publication of an explicitly public synthetic demo. It verifies the exact Web
+inventory and committed bytes, uses a fresh isolated branch without force, and
+refuses to replace an existing proof branch or conflicting Pages source:
+
+```powershell
+python tools/publish_pages.py --web artifacts/cloud-job/web --job-receipt artifacts/cloud-job/job.json --repository OWNER/REPOSITORY --checkout artifacts/pages-first-publication --public-demo
+```
+
+It requires existing operator Git/API authorization. Submission does not mean
+hosting is ready; poll the hosting service, verify anonymous asset hashes and run
+the browser acceptance runner against the returned URL. [The completed Aster
+proof](validation/factory-hosted-acceptance.json) records those separate stages.
+
 See [cloud architecture](CLOUD_ARCHITECTURE.md) for orchestration, hosting and
 persistence boundaries. A public multi-user request UI, production authentication,
 private upload storage, per-owner hosting and cross-device world persistence are

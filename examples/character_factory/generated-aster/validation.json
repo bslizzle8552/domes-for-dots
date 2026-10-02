@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "ok": true,
+  "errors": [],
+  "checks": [
+    "schemas_and_digests",
+    "real_skin_and_weighted_geometry",
+    "semantic_clips_and_in_place_motion"
+  ],
+  "scope": "Package schemas, immutable file digests, bounded self-contained GLB, real skin and animated joints. Godot import, appearance, motion quality, station fit and browser playback require separate acceptance.",
+  "joint_count": 18,
+  "vertex_count": 480,
+  "clip_count": 12
+}

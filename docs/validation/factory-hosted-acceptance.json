@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-10-02T18:31:24.944096-04:00",
+  "url": "https://bslizzle8552.github.io/domes-for-dots/",
+  "repository": "bslizzle8552/domes-for-dots",
+  "source_commit": "1446257f788e72407055f3578606d3774a2ecfcb",
+  "cloud_run_id": "37071571343",
+  "publication_branch": "codex/hosted-character-proof",
+  "publication_commit": "a40d43059ad08ef1448d4979331500ea7a1ae8a4",
+  "pages_status": "built",
+  "public_synthetic_demo": true,
+  "anonymous_assets": {
+    ".nojekyll": {
+      "status": 200,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches": true,
+      "bytes": 0,
+      "content_type": "application/octet-stream"
+    },
+    "index.apple-touch-icon.png": {
+      "status": 200,
+      "sha256": "9b374ecbc8558f480421e646f38aaa8a69d5b1d65ff7b48d0735da214c46773a",
+      "matches": true,
+      "bytes": 11952,
+      "content_type": "image/png"
+    },
+    "index.audio.position.worklet.js": {
+      "status": 200,
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+      "matches": true,
+      "bytes": 2973,
+      "content_type": "application/javascript; charset=utf-8"
+    },
+    "index.audio.worklet.js": {
+      "status": 200,
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+      "matches": true,
+      "bytes": 7298,
+      "content_type": "application/javascript; charset=utf-8"
+    },
+    "index.html": {
+      "status": 200,
+      "sha256": "11f685f7af8fd34efc092a8f082756f11d2786492e0dcd89ea2cbfd097dc6133",
+      "matches": true,
+      "bytes": 5444,
+      "content_type": "text/html; charset=utf-8"
+    },
+    "index.icon.png": {
+      "status": 200,
+      "sha256": "08808dd5397e9a502cb3624944151f87a9705b5b66b5c365c5ca4c6ab51525f5",
+      "matches": true,
+      "bytes": 5702,
+      "content_type": "image/png"
+    },
+    "index.js": {
+      "status": 200,
+      "sha256": "8a7c7d57f7da69bb71da9de302480b87e4c7ecb467ce643665b4a288683cd18f",
+      "matches": true,
+      "bytes": 305185,
+      "content_type": "application/javascript; charset=utf-8"
+    },
+    "index.pck": {
+      "status": 200,
+      "sha256": "1b1a714e55d29f77882c1b889f727a52d968a6b32ec52d4449859c98fa411058",
+      "matches": true,
+      "bytes": 226188,
+      "content_type": "application/octet-stream"
+    },
+    "index.png": {
+      "status": 200,
+      "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e",
+      "matches": true,
+      "bytes": 21443,
+      "content_type": "image/png"
+    },
+    "index.wasm": {
+      "status": 200,
+      "sha256": "6498359ba889796a0d95a2f71113ac184badc0f2d84cf28f4103c7e399d2d547",
+      "matches": true,
+      "bytes": 38034280,
+      "content_type": "application/wasm"
+    },
+    "LICENSE": {
+      "status": 200,
+      "sha256": "8ce2d182054fced04c24792d9c9a92e4ade1c9aa8a9b00edc17a1bfdd4d43ad3",
+      "matches": true,
+      "bytes": 1462,
+      "content_type": "application/octet-stream"
+    },
+    "README.txt": {
+      "status": 200,
+      "sha256": "3cd1090d7b9fd2a34ea58b44475f16390595f4b09fab6b75d64d7122f3629441",
+      "matches": true,
+      "bytes": 1703,
+      "content_type": "text/plain; charset=utf-8"
+    },
+    "vercel.json": {
+      "status": 200,
+      "sha256": "9564bc9d98afdd194b4682b3bc2a7bb6cba396b2ca6285551cc1632d0955ddad",
+      "matches": true,
+      "bytes": 343,
+      "content_type": "application/json; charset=utf-8"
+    },
+    "docs/GODOT_COPYRIGHT.txt": {
+      "status": 200,
+      "sha256": "2039020f520ebd55592070ede2ef38dfbc28a6550140008da004143872789e5d",
+      "matches": true,
+      "bytes": 97253,
+      "content_type": "text/plain; charset=utf-8"
+    },
+    "docs/GODOT_LICENSE.txt": {
+      "status": 200,
+      "sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80",
+      "matches": true,
+      "bytes": 1149,
+      "content_type": "text/plain; charset=utf-8"
+    },
+    "docs/THIRD_PARTY_NOTICES.md": {
+      "status": 200,
+      "sha256": "7ebfd273d647472b7f804ae9f870cbe7ffaf9ab18efedd128bd20dda05a1ab5f",
+      "matches": true,
+      "bytes": 2112,
+      "content_type": "text/markdown; charset=utf-8"
+    }
+  },
+  "all_hashes_match": true,
+  "browser_verified": true,
+  "browser": {
+    "status": "PASS",
+    "url": "https://bslizzle8552.github.io/domes-for-dots/",
+    "browser": "154.0.8037.97",
+    "checks": [
+      "world page delivered successfully",
+      "generated skinned GLB loaded in original Domes runtime",
+      "walking changes both world position and actual skeleton pose",
+      "station arrival plays imported work clip",
+      "mock call routes to actual phone clip",
+      "daybed station plays its authored sit clip",
+      "same-browser reload preserves timeline",
+      "native integrations remain explicitly unavailable",
+      "no browser or Godot runtime errors"
+    ],
+    "errors": [],
+    "character_id": "aster",
+    "limitations": [
+      "Desktop Chromium only; no physical-device mobile/Safari acceptance",
+      "Procedural specimen, not Rocky or image reconstruction",
+      "Same-browser storage only, no cloud saves",
+      "Motion checked, no automatic prop grip, seat fit or likeness guarantee"
+    ]
+  }
+}

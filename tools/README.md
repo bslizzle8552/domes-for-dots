@@ -1,11 +1,19 @@
 # Development and release tools
 
-These Python tools run locally and do not install Godot, publish a repository,
-deploy a site, create accounts, or grant access. Use Python 3.12 and install
-`requirements-dev.txt` in a development environment.
+These are contributor/cloud-operator tools, never owner setup instructions.
+Use Python 3.12 and `requirements-dev.txt` in that environment. Most validation
+tools are local; `setup_cloud_godot.py` explicitly prepares an ephemeral Linux
+worker, `character_request.dispatch` submits authenticated cloud work, and
+`publish_pages.py` explicitly publishes a verified public synthetic proof.
 
 | Tool | Purpose |
 | --- | --- |
+| `character_factory.py` | Approved interview to spec, real skinned GLB/package, validation and isolated world install. |
+| `character_request.py` | Bounded reference/spec transport and authenticated operator workflow dispatch. |
+| `cloud_worker.py` | Recorded production/import/motion-validation/Web-export stages. |
+| `setup_cloud_godot.py` | Linux CI-only pinned engine/template bootstrap with upstream hash verification. |
+| `publish_pages.py` | First public demo publication from an exact succeeded-job file inventory; never overwrites an existing proof branch or different Pages source. |
+| `factory_browser_acceptance.cjs` | Real navigation, changing bone poses, imported clips and reload behavior in local or hosted Web export. |
 | `validate_content.py` | Strict schema, reference, character and planar navigation checks. |
 | `world_author.py create/prepare/plan/apply/recover` | Validate complete Dot-authored proposals, enforce existing locks/policy, detect stale bases and retain recoverable originals. See [World authoring](../docs/WORLD_AUTHORING.md). |
 | `build.py --godot PATH` | Verify Godot 4.5.1, validate content, run Python and actual Godot tests, and export Web into `dist/web`. |
