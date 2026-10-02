@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://domes-for-dots.example/schemas/character.schema.json",
+  "title": "Domes for Dots character schema v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,63}$"
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "scene_path": {
+      "type": "string",
+      "pattern": "^res://(?!.*\\.\\.)(?!.*\\\\)[A-Za-z0-9_./-]+$"
+    },
+    "scale": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": 0.001,
+        "maximum": 1000
+      },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "forward_axis": {
+      "enum": [
+        "-Z",
+        "+Z",
+        "+X",
+        "-X"
+      ]
+    },
+    "collision": {
+      "type": "object",
+      "properties": {
+        "radius": {
+          "type": "number",
+          "minimum": 0.05,
+          "maximum": 10
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0.1,
+          "maximum": 50
+        }
+      },
+      "required": [
+        "radius",
+        "height"
+      ],
+      "additionalProperties": false
+    },
+    "navigation": {
+      "type": "object",
+      "properties": {
+        "radius": {
+          "type": "number",
+          "minimum": 0.05,
+          "maximum": 10
+        },
+        "speed": {
+          "type": "number",
+          "minimum": 0.05,
+          "maximum": 30
+        }
+      },
+      "required": [
+        "radius",
+        "speed"
+      ],
+      "additionalProperties": false
+    },
+    "rig": {
+      "type": "object",
+      "properties": {
+        "skeleton_path": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "animation_player_path": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        }
+      },
+      "required": [
+        "skeleton_path",
+        "animation_player_path",
+        "notes"
+      ],
+      "additionalProperties": false
+    },
+    "animations": {
+      "type": "object",
+      "required": [
+        "idle",
+        "walk",
+        "interact"
+      ],
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]{0,63}$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4000
+      }
+    },
+    "fallbacks": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]{0,63}$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]{0,63}$"
+      }
+    },
+    "appearance": {
+      "type": "object",
+      "properties": {
+        "color": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "accent": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        }
+      },
+      "required": [
+        "color",
+        "accent"
+      ],
+      "additionalProperties": false
+    },
+    "metadata": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*$"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "display_name",
+    "scene_path",
+    "scale",
+    "forward_axis",
+    "collision",
+    "navigation",
+    "rig",
+    "animations",
+    "fallbacks",
+    "appearance",
+    "metadata"
+  ],
+  "additionalProperties": false
+}

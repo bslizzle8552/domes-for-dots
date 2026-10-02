@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "world_id": "tidal_observatory",
+  "dot_name": "Nova",
+  "concept": "A fictional orbital research home, with a separate telescope wing reached over a bridge.",
+  "owner_locked": {
+    "privacy": "No credentials, external connections, or private third-party world material in this example.",
+    "scope": "A small navigable home; local state only in v0.1.",
+    "truthfulness": "All routines/projects are simulation. Real activity adapters remain unavailable."
+  },
+  "dot_choice": {
+    "architecture": "Central deck, narrow skybridge, detached observation wing",
+    "palette": "Midnight blue, ice cyan and lavender",
+    "hobbies": [
+      "tidal maps",
+      "horizon observation",
+      "spectrum archives"
+    ]
+  },
+  "shared_decision": {
+    "character": "Replaceable primitive placeholder using the shared character contract",
+    "expansion": "Review an explicit content change before adding new creative scope."
+  },
+  "capabilities": {
+    "runtime": "Godot 4 GDScript",
+    "browser": "Compatibility Web export; build evidence is recorded in BUILD_STATUS.md",
+    "blender": "Optional authoring tool, never a runtime requirement",
+    "native_call_reporting": "unavailable"
+  },
+  "initial_scope": [
+    "Three connected zones",
+    "Rest, reading, hobby, work and visual call stations",
+    "Finite deterministic projects",
+    "Separate world, character, routine and runtime state"
+  ],
+  "expansion_history": []
+}

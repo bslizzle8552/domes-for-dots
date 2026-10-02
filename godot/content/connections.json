@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "adapters": [
+    {
+      "id": "mock_events",
+      "display_name": "Mock activity controls",
+      "status": "mock",
+      "description": "Browser-local bounded events demonstrate the visual contract only."
+    },
+    {
+      "id": "native_work",
+      "display_name": "Actual Dot work",
+      "status": "unavailable",
+      "description": "No authenticated source is connected or implemented."
+    },
+    {
+      "id": "native_call",
+      "display_name": "Native ChatGPT call",
+      "status": "unavailable",
+      "description": "No call event feed is connected. Audio remains in ChatGPT; this world never carries calls."
+    }
+  ]
+}

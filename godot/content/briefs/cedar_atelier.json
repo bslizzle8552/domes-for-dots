@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "world_id": "cedar_atelier",
+  "dot_name": "Moss",
+  "concept": "A craft studio with a connected herb terrace, authored as a fictional Dot's own home.",
+  "owner_locked": {
+    "privacy": "No credentials, external connections, or private third-party world material in this example.",
+    "scope": "A small navigable home; local state only in v0.1.",
+    "truthfulness": "All routines/projects are simulation. Real activity adapters remain unavailable."
+  },
+  "dot_choice": {
+    "architecture": "Ground-level cedar studio opening to a garden terrace",
+    "palette": "Sage, amber, linen and cedar",
+    "hobbies": [
+      "field journals",
+      "wooden mobiles",
+      "herbs",
+      "wind chimes"
+    ]
+  },
+  "shared_decision": {
+    "character": "Replaceable primitive placeholder using the shared character contract",
+    "expansion": "Review an explicit content change before adding new creative scope."
+  },
+  "capabilities": {
+    "runtime": "Godot 4 GDScript",
+    "browser": "Compatibility Web export; build evidence is recorded in BUILD_STATUS.md",
+    "blender": "Optional authoring tool, never a runtime requirement",
+    "native_call_reporting": "unavailable"
+  },
+  "initial_scope": [
+    "Two connected navigable spaces",
+    "Rest, reading, hobby, work and visual call stations",
+    "Finite deterministic projects",
+    "Separate world, character, routine and runtime state"
+  ],
+  "expansion_history": [
+    {
+      "id": "wind_chime_extension",
+      "description": "Added a separately authored asset manifest, object, generic station and routine step; no engine changes.",
+      "owner_locked_preserved": true
+    }
+  ]
+}

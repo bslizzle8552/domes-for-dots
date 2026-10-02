@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://domes-for-dots.example/schemas/routine.schema.json",
+  "title": "Domes for Dots routine schema v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,63}$"
+    },
+    "cycle_seconds": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 1000000000
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,63}$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4000
+          },
+          "activity_tag": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,63}$"
+          },
+          "animation": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,63}$"
+          },
+          "duration_seconds": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 1000000000
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "activity_tag",
+          "animation",
+          "duration_seconds"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 1000
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,63}$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4000
+          },
+          "activity_tag": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,63}$"
+          },
+          "required_seconds": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 1000000000
+          },
+          "stages": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000
+            },
+            "minItems": 2,
+            "maxItems": 20
+          },
+          "visual_object_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,63}$"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "activity_tag",
+          "required_seconds",
+          "stages",
+          "visual_object_id"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 1000
+    },
+    "metadata": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*$"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "cycle_seconds",
+    "steps",
+    "projects",
+    "metadata"
+  ],
+  "additionalProperties": false
+}

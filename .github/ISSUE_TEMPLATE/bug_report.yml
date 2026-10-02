@@ -1,0 +1,39 @@
+name: Bug report
+description: Report a reproducible runtime, content or build problem.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: "Use a shipped example or a sanitized fixture. Do not attach private world state, tokens, transcripts or call audio."
+  - type: input
+    id: version
+    attributes:
+      label: Project and Godot version
+      placeholder: "v0.1.0, Godot 4.5.1"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Operating system and browser
+      placeholder: "Windows; Edge; native or Web"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction and observed result
+      description: Include the example world, station/action and exact steps.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized evidence
+      description: Relevant errors, validator result or screenshot; distinguish SIMULATED, MOCK and any actual adapter.

@@ -1,0 +1,453 @@
+{
+  "schema_version": 1,
+  "id": "cedar_atelier",
+  "version": "0.1.0",
+  "title": "Moss's Cedar Atelier",
+  "description": "A warm craft studio opens onto an herb terrace. Moss keeps field journals, shapes a wooden mobile, and pauses at a handmade wind chime.",
+  "brief_path": "res://content/briefs/cedar_atelier.json",
+  "character_path": "res://content/characters/moss.json",
+  "routine_path": "res://content/routines/cedar_atelier.json",
+  "asset_manifest_paths": [
+    "res://content/assets/cedar_atelier.json",
+    "res://content/assets/wind_chime.json"
+  ],
+  "environment": {
+    "background": "#263b35",
+    "ambient": "#e4d9be",
+    "light_color": "#fff0d1",
+    "light_energy": 1.15
+  },
+  "camera": {
+    "position": [
+      15,
+      19,
+      23
+    ],
+    "target": [
+      0.5,
+      0,
+      0
+    ],
+    "size": 19
+  },
+  "navigation": {
+    "cell_size": 0.5,
+    "character_radius": 0.3
+  },
+  "spawn": [
+    -1,
+    0,
+    1
+  ],
+  "zones": [
+    {
+      "id": "studio",
+      "label": "Cedar studio",
+      "center": [
+        -2,
+        0,
+        0
+      ],
+      "size": [
+        10,
+        10
+      ],
+      "color": "#c6ad8e"
+    },
+    {
+      "id": "terrace",
+      "label": "Herb terrace",
+      "center": [
+        6,
+        0,
+        0.5
+      ],
+      "size": [
+        6,
+        7
+      ],
+      "color": "#acac88"
+    }
+  ],
+  "objects": [
+    {
+      "id": "craft_bench",
+      "asset_id": "cedar_workbench",
+      "position": [
+        -3,
+        0,
+        -3.5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "work_desk",
+      "asset_id": "cedar_desk",
+      "position": [
+        0,
+        0,
+        -3.5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "quiet_daybed",
+      "asset_id": "linen_sofa",
+      "position": [
+        -5,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "reading_corner",
+      "asset_id": "reading_chair",
+      "position": [
+        -5,
+        0,
+        2.5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "phone_side_table",
+      "asset_id": "phone_table",
+      "position": [
+        1,
+        0,
+        3
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "herb_bed",
+      "asset_id": "terrace_planter",
+      "position": [
+        6,
+        0,
+        -1.5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "herb_growth",
+      "asset_id": "herb_project",
+      "position": [
+        6,
+        0.5,
+        -1.5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cedar_mobile",
+      "asset_id": "mobile_project",
+      "position": [
+        -3,
+        0.96,
+        -3.5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "journals",
+      "asset_id": "cedar_bookshelf",
+      "position": [
+        -5.4,
+        0,
+        -4.4
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "olive_tree",
+      "asset_id": "cedar_tree",
+      "position": [
+        8,
+        0,
+        -2.5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "terrace_chime",
+      "asset_id": "hanging_chime",
+      "position": [
+        7.5,
+        0,
+        2.5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "rear_wall",
+      "asset_id": "cedar_back_wall",
+      "position": [
+        -2,
+        0,
+        -5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "woven_rug",
+      "asset_id": "studio_rug",
+      "position": [
+        -0.5,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "terrace_rear_rail",
+      "asset_id": "terrace_rail",
+      "position": [
+        6,
+        0,
+        -3
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "stations": [
+    {
+      "id": "craft",
+      "label": "Shape the wooden mobile",
+      "object_id": "craft_bench",
+      "activity_tags": [
+        "craft"
+      ],
+      "approach": [
+        -3,
+        0,
+        -2
+      ],
+      "interaction": [
+        -3,
+        0,
+        -2
+      ],
+      "facing": 0,
+      "animation": "interact",
+      "fallback_animation": "interact",
+      "behavior": "",
+      "metadata": {}
+    },
+    {
+      "id": "work",
+      "label": "Writing desk",
+      "object_id": "work_desk",
+      "activity_tags": [
+        "work"
+      ],
+      "approach": [
+        0,
+        0,
+        -2
+      ],
+      "interaction": [
+        0,
+        0,
+        -2
+      ],
+      "facing": 0,
+      "animation": "work",
+      "fallback_animation": "interact",
+      "behavior": "",
+      "metadata": {}
+    },
+    {
+      "id": "rest",
+      "label": "Quiet daybed",
+      "object_id": "quiet_daybed",
+      "activity_tags": [
+        "rest"
+      ],
+      "approach": [
+        -3.5,
+        0,
+        0
+      ],
+      "interaction": [
+        -3.5,
+        0,
+        0
+      ],
+      "facing": 90,
+      "animation": "sit",
+      "fallback_animation": "interact",
+      "behavior": "",
+      "metadata": {}
+    },
+    {
+      "id": "read",
+      "label": "Read field journals",
+      "object_id": "reading_corner",
+      "activity_tags": [
+        "read"
+      ],
+      "approach": [
+        -3.5,
+        0,
+        2.5
+      ],
+      "interaction": [
+        -3.5,
+        0,
+        2.5
+      ],
+      "facing": 90,
+      "animation": "read",
+      "fallback_animation": "interact",
+      "behavior": "",
+      "metadata": {}
+    },
+    {
+      "id": "call",
+      "label": "Copper phone",
+      "object_id": "phone_side_table",
+      "activity_tags": [
+        "call"
+      ],
+      "approach": [
+        1,
+        0,
+        1.5
+      ],
+      "interaction": [
+        1,
+        0,
+        1.5
+      ],
+      "facing": 180,
+      "animation": "phone",
+      "fallback_animation": "interact",
+      "behavior": "",
+      "metadata": {}
+    },
+    {
+      "id": "garden",
+      "label": "Tend imagined herbs",
+      "object_id": "herb_bed",
+      "activity_tags": [
+        "garden"
+      ],
+      "approach": [
+        6,
+        0,
+        0
+      ],
+      "interaction": [
+        6,
+        0,
+        0
+      ],
+      "facing": 0,
+      "animation": "garden",
+      "fallback_animation": "interact",
+      "behavior": "",
+      "metadata": {}
+    },
+    {
+      "id": "wind_chime",
+      "label": "Play the four-note chime",
+      "object_id": "terrace_chime",
+      "activity_tags": [
+        "chime"
+      ],
+      "approach": [
+        6,
+        0,
+        2.5
+      ],
+      "interaction": [
+        6,
+        0,
+        2.5
+      ],
+      "facing": -90,
+      "animation": "music",
+      "fallback_animation": "interact",
+      "behavior": "",
+      "metadata": {}
+    }
+  ],
+  "metadata": {
+    "author": "Domes for Dots contributors",
+    "license": "MIT",
+    "content_kind": "original_example",
+    "simulation_notice": "Routines and imagined projects are deterministic simulation, not model work."
+  }
+}

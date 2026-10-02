@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "id": "orbital_watch",
+  "cycle_seconds": 210,
+  "steps": [
+    {
+      "id": "horizon_watch",
+      "label": "Observe the tidal horizon",
+      "activity_tag": "observe",
+      "animation": "observe",
+      "duration_seconds": 45
+    },
+    {
+      "id": "atlas_session",
+      "label": "Assemble a simulated tidal atlas",
+      "activity_tag": "map",
+      "animation": "interact",
+      "duration_seconds": 50
+    },
+    {
+      "id": "archive_study",
+      "label": "Study an imagined spectrum",
+      "activity_tag": "read",
+      "animation": "read",
+      "duration_seconds": 35
+    },
+    {
+      "id": "console_log",
+      "label": "Write simulated observation notes",
+      "activity_tag": "work",
+      "animation": "work",
+      "duration_seconds": 35
+    },
+    {
+      "id": "capsule_rest",
+      "label": "Rest between orbital watches",
+      "activity_tag": "rest",
+      "animation": "sit",
+      "duration_seconds": 45
+    }
+  ],
+  "projects": [
+    {
+      "id": "tidal_atlas",
+      "title": "An imagined tidal atlas",
+      "activity_tag": "map",
+      "required_seconds": 200,
+      "stages": [
+        "Coordinate grid",
+        "First contours",
+        "Pattern study",
+        "Complete"
+      ],
+      "visual_object_id": "tidal_atlas"
+    },
+    {
+      "id": "signal_catalog",
+      "title": "A simulated spectrum study",
+      "activity_tag": "read",
+      "required_seconds": 140,
+      "stages": [
+        "Baseline",
+        "Samples",
+        "Patterns",
+        "Complete"
+      ],
+      "visual_object_id": "signal_study"
+    }
+  ],
+  "metadata": {
+    "simulation_only": true,
+    "completion_policy": "Finite authored projects only; no claim of new discoveries or autonomous model work."
+  }
+}

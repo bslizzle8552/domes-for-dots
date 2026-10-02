@@ -1,0 +1,1945 @@
+{
+  "schema_version": 1,
+  "id": "cedar_collection",
+  "assets": [
+    {
+      "id": "cedar_workbench",
+      "display_name": "Cedar crafting bench",
+      "category": "furniture",
+      "tags": [
+        "furniture"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": true,
+        "size": [
+          2,
+          1,
+          1.1
+        ],
+        "offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "footprint": [
+        2,
+        1.1
+      ],
+      "anchors": {},
+      "parts": [
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.86,
+            0
+          ],
+          "size": [
+            2,
+            0.16,
+            1.1
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#ac7951",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -0.78,
+            0.4,
+            -0.35200000000000004
+          ],
+          "size": [
+            0.12,
+            0.8,
+            0.12
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#614a3b",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -0.78,
+            0.4,
+            0.35200000000000004
+          ],
+          "size": [
+            0.12,
+            0.8,
+            0.12
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#614a3b",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.78,
+            0.4,
+            -0.35200000000000004
+          ],
+          "size": [
+            0.12,
+            0.8,
+            0.12
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#614a3b",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.78,
+            0.4,
+            0.35200000000000004
+          ],
+          "size": [
+            0.12,
+            0.8,
+            0.12
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#614a3b",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.65,
+            1.01,
+            -0.15
+          ],
+          "size": [
+            0.4,
+            0.15,
+            0.4
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#7b9780",
+          "emission": 0
+        },
+        {
+          "shape": "cylinder",
+          "position": [
+            -0.7,
+            1.04,
+            0
+          ],
+          "size": [
+            0.24,
+            0.28,
+            0.24
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#c7b59a",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {},
+      "provenance": {
+        "creator": "Domes for Dots contributors",
+        "source": "Original primitive composition authored for Domes for Dots v0.1.0",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cedar_desk",
+      "display_name": "Writing and work desk",
+      "category": "furniture",
+      "tags": [
+        "furniture"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": true,
+        "size": [
+          2,
+          1,
+          1.1
+        ],
+        "offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "footprint": [
+        2,
+        1.1
+      ],
+      "anchors": {},
+      "parts": [
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.86,
+            0
+          ],
+          "size": [
+            2,
+            0.16,
+            1.1
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#ac7951",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -0.78,
+            0.4,
+            -0.35200000000000004
+          ],
+          "size": [
+            0.12,
+            0.8,
+            0.12
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#614a3b",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -0.78,
+            0.4,
+            0.35200000000000004
+          ],
+          "size": [
+            0.12,
+            0.8,
+            0.12
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#614a3b",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.78,
+            0.4,
+            -0.35200000000000004
+          ],
+          "size": [
+            0.12,
+            0.8,
+            0.12
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#614a3b",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.78,
+            0.4,
+            0.35200000000000004
+          ],
+          "size": [
+            0.12,
+            0.8,
+            0.12
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#614a3b",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            1.35,
+            -0.25
+          ],
+          "size": [
+            1.05,
+            0.7,
+            0.08
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#445e55",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            1.35,
+            -0.197
+          ],
+          "size": [
+            0.88,
+            0.52,
+            0.012
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#8cc8b2",
+          "emission": 0.25
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.97,
+            0.2
+          ],
+          "size": [
+            0.8,
+            0.06,
+            0.3
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#d5c3a5",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {},
+      "provenance": {
+        "creator": "Domes for Dots contributors",
+        "source": "Original primitive composition authored for Domes for Dots v0.1.0",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "linen_sofa",
+      "display_name": "Quiet linen daybed",
+      "category": "furniture",
+      "tags": [
+        "furniture"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": true,
+        "size": [
+          1.5,
+          1,
+          1.5
+        ],
+        "offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "footprint": [
+        1.5,
+        1.5
+      ],
+      "anchors": {},
+      "parts": [
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.2,
+            0
+          ],
+          "size": [
+            1.45,
+            0.3,
+            1.45
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#755943",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.48,
+            0
+          ],
+          "size": [
+            1.4,
+            0.3,
+            1.4
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#bdbea0",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.92,
+            -0.6
+          ],
+          "size": [
+            1.5,
+            0.65,
+            0.22
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#abb195",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.75,
+            -0.3
+          ],
+          "size": [
+            0.8,
+            0.15,
+            0.45
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#e2d2a7",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {},
+      "provenance": {
+        "creator": "Domes for Dots contributors",
+        "source": "Original primitive composition authored for Domes for Dots v0.1.0",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "reading_chair",
+      "display_name": "Amber reading chair",
+      "category": "furniture",
+      "tags": [
+        "furniture"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": true,
+        "size": [
+          1.2,
+          1,
+          1.25
+        ],
+        "offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "footprint": [
+        1.2,
+        1.25
+      ],
+      "anchors": {},
+      "parts": [
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.32,
+            0
+          ],
+          "size": [
+            1.1,
+            0.5,
+            1.1
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#bc8158",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.9,
+            -0.48
+          ],
+          "size": [
+            1.15,
+            0.8,
+            0.2
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#bc8158",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -0.48,
+            0.7,
+            0
+          ],
+          "size": [
+            0.2,
+            0.25,
+            1.1
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#dfad76",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.48,
+            0.7,
+            0
+          ],
+          "size": [
+            0.2,
+            0.25,
+            1.1
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#dfad76",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.65,
+            0
+          ],
+          "size": [
+            0.55,
+            0.05,
+            0.4
+          ],
+          "rotation": [
+            0,
+            10,
+            0
+          ],
+          "color": "#efe5c6",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {},
+      "provenance": {
+        "creator": "Domes for Dots contributors",
+        "source": "Original primitive composition authored for Domes for Dots v0.1.0",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "phone_table",
+      "display_name": "Copper desk phone",
+      "category": "furniture",
+      "tags": [
+        "furniture"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": true,
+        "size": [
+          1.1,
+          1,
+          0.9
+        ],
+        "offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "footprint": [
+        1.1,
+        0.9
+      ],
+      "anchors": {},
+      "parts": [
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.86,
+            0
+          ],
+          "size": [
+            1.1,
+            0.16,
+            0.9
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#ac7951",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -0.42900000000000005,
+            0.4,
+            -0.28800000000000003
+          ],
+          "size": [
+            0.12,
+            0.8,
+            0.12
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#614a3b",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -0.42900000000000005,
+            0.4,
+            0.28800000000000003
+          ],
+          "size": [
+            0.12,
+            0.8,
+            0.12
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#614a3b",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.42900000000000005,
+            0.4,
+            -0.28800000000000003
+          ],
+          "size": [
+            0.12,
+            0.8,
+            0.12
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#614a3b",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.42900000000000005,
+            0.4,
+            0.28800000000000003
+          ],
+          "size": [
+            0.12,
+            0.8,
+            0.12
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#614a3b",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            1,
+            0
+          ],
+          "size": [
+            0.62,
+            0.18,
+            0.38
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#314941",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            1.22,
+            -0.06
+          ],
+          "size": [
+            0.76,
+            0.14,
+            0.2
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#b7794d",
+          "emission": 0
+        },
+        {
+          "shape": "sphere",
+          "position": [
+            -0.31,
+            1.16,
+            -0.06
+          ],
+          "size": [
+            0.2,
+            0.22,
+            0.24
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#b7794d",
+          "emission": 0
+        },
+        {
+          "shape": "sphere",
+          "position": [
+            0.31,
+            1.16,
+            -0.06
+          ],
+          "size": [
+            0.2,
+            0.22,
+            0.24
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#b7794d",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {},
+      "provenance": {
+        "creator": "Domes for Dots contributors",
+        "source": "Original primitive composition authored for Domes for Dots v0.1.0",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "terrace_planter",
+      "display_name": "Raised herb bed",
+      "category": "plants",
+      "tags": [
+        "plants"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": true,
+        "size": [
+          2.2,
+          1,
+          1.25
+        ],
+        "offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "footprint": [
+        2.2,
+        1.25
+      ],
+      "anchors": {},
+      "parts": [
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.24,
+            0
+          ],
+          "size": [
+            2.2,
+            0.48,
+            1.25
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#996749",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.49,
+            0
+          ],
+          "size": [
+            2,
+            0.05,
+            1.05
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#493e32",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {},
+      "provenance": {
+        "creator": "Domes for Dots contributors",
+        "source": "Original primitive composition authored for Domes for Dots v0.1.0",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "herb_project",
+      "display_name": "Simulated herb growth",
+      "category": "project",
+      "tags": [
+        "project"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": false,
+        "size": [
+          1,
+          1,
+          0.6
+        ],
+        "offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "footprint": [
+        1,
+        0.6
+      ],
+      "anchors": {},
+      "parts": [
+        {
+          "shape": "cylinder",
+          "position": [
+            -0.5,
+            0.28,
+            0
+          ],
+          "size": [
+            0.05,
+            0.56,
+            0.05
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#527357",
+          "emission": 0
+        },
+        {
+          "shape": "sphere",
+          "position": [
+            -0.5,
+            0.52,
+            0
+          ],
+          "size": [
+            0.5,
+            0.45,
+            0.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#89ae72",
+          "emission": 0
+        },
+        {
+          "shape": "cylinder",
+          "position": [
+            0.25,
+            0.34,
+            0
+          ],
+          "size": [
+            0.05,
+            0.68,
+            0.05
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#527357",
+          "emission": 0
+        },
+        {
+          "shape": "sphere",
+          "position": [
+            0.25,
+            0.65,
+            0
+          ],
+          "size": [
+            0.6,
+            0.5,
+            0.6
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#a4bc79",
+          "emission": 0
+        },
+        {
+          "shape": "sphere",
+          "position": [
+            0.65,
+            0.4,
+            0
+          ],
+          "size": [
+            0.45,
+            0.45,
+            0.45
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#6d9d71",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {},
+      "provenance": {
+        "creator": "Domes for Dots contributors",
+        "source": "Original primitive composition authored for Domes for Dots v0.1.0",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "mobile_project",
+      "display_name": "Simulated wooden mobile",
+      "category": "project",
+      "tags": [
+        "project"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": false,
+        "size": [
+          0.7,
+          1,
+          0.6
+        ],
+        "offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "footprint": [
+        0.7,
+        0.6
+      ],
+      "anchors": {},
+      "parts": [
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.3,
+            0
+          ],
+          "size": [
+            0.09,
+            0.6,
+            0.09
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#6c5546",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.57,
+            0
+          ],
+          "size": [
+            0.7,
+            0.06,
+            0.06
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#d9b477",
+          "emission": 0
+        },
+        {
+          "shape": "sphere",
+          "position": [
+            -0.26,
+            0.33,
+            0
+          ],
+          "size": [
+            0.23,
+            0.23,
+            0.23
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#a0b787",
+          "emission": 0
+        },
+        {
+          "shape": "sphere",
+          "position": [
+            0.26,
+            0.2,
+            0
+          ],
+          "size": [
+            0.2,
+            0.2,
+            0.2
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#d39469",
+          "emission": 0
+        },
+        {
+          "shape": "cylinder",
+          "position": [
+            0,
+            0.04,
+            0
+          ],
+          "size": [
+            0.5,
+            0.08,
+            0.5
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#b3885d",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {},
+      "provenance": {
+        "creator": "Domes for Dots contributors",
+        "source": "Original primitive composition authored for Domes for Dots v0.1.0",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cedar_bookshelf",
+      "display_name": "Collected field journals",
+      "category": "decoration",
+      "tags": [
+        "decoration"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": true,
+        "size": [
+          2.15,
+          1,
+          0.5
+        ],
+        "offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "footprint": [
+        2.15,
+        0.5
+      ],
+      "anchors": {},
+      "parts": [
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.85,
+            0
+          ],
+          "size": [
+            2,
+            0.12,
+            0.45
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#755943",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.25,
+            0
+          ],
+          "size": [
+            2,
+            0.12,
+            0.45
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#755943",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -1,
+            0.55,
+            0
+          ],
+          "size": [
+            0.12,
+            1.25,
+            0.45
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#755943",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            1,
+            0.55,
+            0
+          ],
+          "size": [
+            0.12,
+            1.25,
+            0.45
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#755943",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -0.8,
+            0.58,
+            0
+          ],
+          "size": [
+            0.2,
+            0.54,
+            0.35
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#8da182",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -0.5,
+            0.58,
+            0
+          ],
+          "size": [
+            0.2,
+            0.54,
+            0.35
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#d3ae79",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -0.20000000000000007,
+            0.58,
+            0
+          ],
+          "size": [
+            0.2,
+            0.54,
+            0.35
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#c58564",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.09999999999999987,
+            0.58,
+            0
+          ],
+          "size": [
+            0.2,
+            0.54,
+            0.35
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#c4ccae",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.3999999999999999,
+            0.58,
+            0
+          ],
+          "size": [
+            0.2,
+            0.54,
+            0.35
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#9f7d62",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0.7,
+            0.58,
+            0
+          ],
+          "size": [
+            0.2,
+            0.54,
+            0.35
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#8aaca5",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {},
+      "provenance": {
+        "creator": "Domes for Dots contributors",
+        "source": "Original primitive composition authored for Domes for Dots v0.1.0",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cedar_tree",
+      "display_name": "Terrace olive tree",
+      "category": "plants",
+      "tags": [
+        "plants"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": true,
+        "size": [
+          1,
+          1,
+          1
+        ],
+        "offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "footprint": [
+        1,
+        1
+      ],
+      "anchors": {},
+      "parts": [
+        {
+          "shape": "cylinder",
+          "position": [
+            0,
+            0.2,
+            0
+          ],
+          "size": [
+            0.7,
+            0.4,
+            0.7
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#b77858",
+          "emission": 0
+        },
+        {
+          "shape": "cylinder",
+          "position": [
+            0,
+            1.02,
+            0
+          ],
+          "size": [
+            0.13,
+            1.6,
+            0.13
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#77624c",
+          "emission": 0
+        },
+        {
+          "shape": "sphere",
+          "position": [
+            0,
+            1.75,
+            0
+          ],
+          "size": [
+            1.3,
+            1.2,
+            1.2
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#6d8e6a",
+          "emission": 0
+        },
+        {
+          "shape": "sphere",
+          "position": [
+            0.35,
+            2,
+            0
+          ],
+          "size": [
+            0.75,
+            0.8,
+            0.7
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#93a777",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {},
+      "provenance": {
+        "creator": "Domes for Dots contributors",
+        "source": "Original primitive composition authored for Domes for Dots v0.1.0",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "cedar_back_wall",
+      "display_name": "Low cedar backdrop",
+      "category": "structure",
+      "tags": [
+        "structure"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": false,
+        "size": [
+          10,
+          1,
+          0.18
+        ],
+        "offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "footprint": [
+        10,
+        0.18
+      ],
+      "anchors": {},
+      "parts": [
+        {
+          "shape": "box",
+          "position": [
+            0,
+            1.1,
+            0
+          ],
+          "size": [
+            10,
+            2.2,
+            0.18
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#b9a184",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            2.19,
+            0
+          ],
+          "size": [
+            10,
+            0.09,
+            0.25
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#866b54",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {},
+      "provenance": {
+        "creator": "Domes for Dots contributors",
+        "source": "Original primitive composition authored for Domes for Dots v0.1.0",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "studio_rug",
+      "display_name": "Woven studio rug",
+      "category": "decoration",
+      "tags": [
+        "decoration"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": false,
+        "size": [
+          3,
+          1,
+          2
+        ],
+        "offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "footprint": [
+        3,
+        2
+      ],
+      "anchors": {},
+      "parts": [
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.017,
+            0
+          ],
+          "size": [
+            3,
+            0.025,
+            2
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#ba8f65",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.034,
+            0
+          ],
+          "size": [
+            2.75,
+            0.012,
+            1.75
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#cfb286",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {},
+      "provenance": {
+        "creator": "Domes for Dots contributors",
+        "source": "Original primitive composition authored for Domes for Dots v0.1.0",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "terrace_rail",
+      "display_name": "Terrace rear rail",
+      "category": "structure",
+      "tags": [
+        "structure"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": false,
+        "size": [
+          6,
+          1,
+          0.1
+        ],
+        "offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "footprint": [
+        6,
+        0.1
+      ],
+      "anchors": {},
+      "parts": [
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.88,
+            0
+          ],
+          "size": [
+            6,
+            0.1,
+            0.1
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#9a8469",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -2.9,
+            0.43,
+            0
+          ],
+          "size": [
+            0.1,
+            0.86,
+            0.1
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#9a8469",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            -1.5,
+            0.43,
+            0
+          ],
+          "size": [
+            0.1,
+            0.86,
+            0.1
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#9a8469",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            0.43,
+            0
+          ],
+          "size": [
+            0.1,
+            0.86,
+            0.1
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#9a8469",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            1.5,
+            0.43,
+            0
+          ],
+          "size": [
+            0.1,
+            0.86,
+            0.1
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#9a8469",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            2.9,
+            0.43,
+            0
+          ],
+          "size": [
+            0.1,
+            0.86,
+            0.1
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#9a8469",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {},
+      "provenance": {
+        "creator": "Domes for Dots contributors",
+        "source": "Original primitive composition authored for Domes for Dots v0.1.0",
+        "license": "MIT"
+      }
+    }
+  ]
+}

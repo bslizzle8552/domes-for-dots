@@ -1,0 +1,22 @@
+name: Content or capability request
+description: Suggest a reusable content improvement or engine capability.
+title: "[Idea] "
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: What should the owner or Dot be able to do?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Smallest useful version
+      description: Explain whether existing manifests/stations can represent it or which new capability is needed.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Examples and verification
+      description: Suggest how to prove it works in two different worlds. Do not attach private material.

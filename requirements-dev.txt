@@ -1,0 +1,2 @@
+# Authoring/test dependency only. Godot runtime has no Python requirement.
+jsonschema>=4.23,<5

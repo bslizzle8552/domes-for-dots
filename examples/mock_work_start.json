@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "event_id": "example_work_start",
+  "activity_id": "example_work",
+  "source": "mock",
+  "sequence": 1,
+  "kind": "work",
+  "operation": "start",
+  "timestamp": 1790938800,
+  "ttl_seconds": 30,
+  "world_id": "cedar_atelier",
+  "character_id": "moss"
+}

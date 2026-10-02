@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://domes-for-dots.example/schemas/brief.schema.json",
+  "title": "Domes for Dots brief schema v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "world_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,63}$"
+    },
+    "dot_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "concept": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "owner_locked": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*$"
+      },
+      "minProperties": 1
+    },
+    "dot_choice": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*$"
+      },
+      "minProperties": 1
+    },
+    "shared_decision": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*$"
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*$"
+      }
+    },
+    "initial_scope": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4000
+      },
+      "minItems": 1,
+      "maxItems": 100
+    },
+    "expansion_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,63}$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4000
+          },
+          "owner_locked_preserved": {
+            "const": true
+          }
+        },
+        "required": [
+          "id",
+          "description",
+          "owner_locked_preserved"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 1000
+    }
+  },
+  "required": [
+    "schema_version",
+    "world_id",
+    "dot_name",
+    "concept",
+    "owner_locked",
+    "dot_choice",
+    "shared_decision",
+    "capabilities",
+    "initial_scope",
+    "expansion_history"
+  ],
+  "additionalProperties": false
+}

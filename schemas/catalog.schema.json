@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://domes-for-dots.example/schemas/catalog.schema.json",
+  "title": "Domes for Dots catalog schema v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "worlds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,63}$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4000
+          },
+          "path": {
+            "type": "string",
+            "pattern": "^res://(?!.*\\.\\.)(?!.*\\\\)[A-Za-z0-9_./-]+$"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "path"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 100
+    }
+  },
+  "required": [
+    "schema_version",
+    "worlds"
+  ],
+  "additionalProperties": false
+}

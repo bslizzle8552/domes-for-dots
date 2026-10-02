@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "worlds": [
+    {
+      "id": "cedar_atelier",
+      "title": "Moss's Cedar Atelier",
+      "path": "res://content/worlds/cedar_atelier.json"
+    },
+    {
+      "id": "tidal_observatory",
+      "title": "Nova's Tidal Observatory",
+      "path": "res://content/worlds/tidal_observatory.json"
+    }
+  ]
+}

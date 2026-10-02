@@ -1,0 +1,124 @@
+extends CharacterBody3D
+signal arrived(station_id: String)
+signal unreachable(station_id: String)
+
+var definition: Dictionary
+var visual: Node3D
+var path_points := PackedVector3Array()
+var target_station: Dictionary = {}
+var animation_player: AnimationPlayer
+var action := ""
+var moving := false
+var speed := 2.4
+var stalled := 0.0
+var previous_position := Vector3.ZERO
+var facing_offset := 0.0
+
+func configure(data: Dictionary) -> void:
+	definition = data
+	speed = data.navigation.speed
+	var capsule := CapsuleShape3D.new()
+	capsule.radius = data.collision.radius
+	capsule.height = data.collision.height
+	var collision := CollisionShape3D.new()
+	collision.shape = capsule
+	collision.position.y = capsule.height * 0.5
+	add_child(collision)
+	var resource = load(data.scene_path)
+	if resource is PackedScene:
+		visual = resource.instantiate()
+	else:
+		visual = preload("res://scenes/characters/placeholder.tscn").instantiate()
+	if visual.has_method("configure"):
+		visual.configure(data)
+	visual.scale = preload("res://scripts/asset_builder.gd").vector(data.scale)
+	var offsets := {"-Z":0.0,"+Z":180.0,"+X":90.0,"-X":-90.0}
+	facing_offset = deg_to_rad(offsets.get(data.forward_axis, 0.0))
+	visual.rotation.y = facing_offset
+	add_child(visual)
+	var player_path: String = data.rig.get("animation_player_path", "")
+	if not player_path.is_empty():
+		animation_player = visual.get_node_or_null(player_path) as AnimationPlayer
+	set_action("idle")
+
+func _resolve_action(semantic: String) -> String:
+	var visited: Dictionary = {}
+	var chosen := semantic
+	while not chosen.is_empty() and not visited.has(chosen):
+		visited[chosen] = true
+		if definition.get("animations",{}).has(chosen):
+			if not is_instance_valid(animation_player) or animation_player.has_animation(definition.animations[chosen]):
+				return chosen
+		chosen = definition.get("fallbacks",{}).get(chosen,"")
+	return ""
+
+func set_action(semantic: String, station_fallback: String = "interact") -> void:
+	var chosen := _resolve_action(semantic)
+	if chosen.is_empty():
+		chosen = _resolve_action(station_fallback)
+	if chosen.is_empty():
+		chosen = "idle"
+	if action == chosen and is_instance_valid(visual):
+		return
+	action = chosen
+	if visual.has_method("set_action"):
+		visual.set_action(chosen)
+	if is_instance_valid(animation_player):
+		var clip: String = definition.get("animations", {}).get(chosen, "")
+		if animation_player.has_animation(clip):
+			animation_player.play(clip)
+		else:
+			var fallback: String = definition.get("animations", {}).get("idle", "")
+			if animation_player.has_animation(fallback):
+				animation_player.play(fallback)
+
+func go_to(station: Dictionary, surface: Node3D) -> bool:
+	target_station = station
+	var approach := preload("res://scripts/asset_builder.gd").vector(station.approach)
+	var interaction := preload("res://scripts/asset_builder.gd").vector(station.interaction)
+	var first: PackedVector3Array = surface.path(global_position, approach)
+	var second: PackedVector3Array = surface.path(approach, interaction)
+	if first.is_empty() or second.is_empty():
+		moving = false
+		path_points.clear()
+		set_action("idle")
+		unreachable.emit(station.id)
+		return false
+	path_points = first
+	path_points.append_array(second)
+	stalled = 0.0
+	previous_position = global_position
+	moving = true
+	set_action("walk")
+	return true
+
+func _physics_process(delta: float) -> void:
+	if not moving:
+		velocity = Vector3.ZERO
+		return
+	while not path_points.is_empty() and Vector2(global_position.x,global_position.z).distance_to(Vector2(path_points[0].x,path_points[0].z)) < 0.09:
+		path_points.remove_at(0)
+	if path_points.is_empty():
+		moving = false
+		velocity = Vector3.ZERO
+		rotation.y = deg_to_rad(float(target_station.get("facing",0)))
+		set_action(target_station.get("animation",""),target_station.get("fallback_animation","interact"))
+		arrived.emit(target_station.id)
+		return
+	var offset := path_points[0] - global_position
+	offset.y = 0
+	var direction := offset.normalized()
+	rotation.y = lerp_angle(rotation.y, atan2(-direction.x,-direction.z), minf(1,delta*10))
+	velocity = direction * minf(speed, offset.length() / delta)
+	move_and_slide()
+	global_position.y = 0
+	if global_position.distance_to(previous_position) < 0.005:
+		stalled += delta
+	else:
+		stalled = 0.0
+	previous_position = global_position
+	if stalled > 2.0:
+		moving = false
+		path_points.clear()
+		set_action("idle")
+		unreachable.emit(target_station.id)

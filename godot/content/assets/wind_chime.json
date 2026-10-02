@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "id": "wind_chime_extension",
+  "assets": [
+    {
+      "id": "hanging_chime",
+      "display_name": "Four-note wind chime",
+      "category": "musical_instrument",
+      "tags": [
+        "musical_instrument"
+      ],
+      "scene_path": "",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_y": 0,
+      "collision": {
+        "enabled": true,
+        "size": [
+          1.15,
+          1,
+          1.15
+        ],
+        "offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "footprint": [
+        1.15,
+        1.15
+      ],
+      "anchors": {
+        "play": {
+          "position": [
+            -1.5,
+            0,
+            0
+          ],
+          "facing": -90
+        }
+      },
+      "parts": [
+        {
+          "shape": "cylinder",
+          "position": [
+            0,
+            1.95,
+            0
+          ],
+          "size": [
+            1.1,
+            0.1,
+            1.1
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#bc9563",
+          "emission": 0
+        },
+        {
+          "shape": "box",
+          "position": [
+            0,
+            1.12,
+            0
+          ],
+          "size": [
+            0.07,
+            2.2,
+            0.07
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#735f4a",
+          "emission": 0
+        },
+        {
+          "shape": "cylinder",
+          "position": [
+            0,
+            0.07,
+            0
+          ],
+          "size": [
+            0.8,
+            0.14,
+            0.8
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#8c7554",
+          "emission": 0
+        },
+        {
+          "shape": "cylinder",
+          "position": [
+            -0.38,
+            1.7,
+            0
+          ],
+          "size": [
+            0.025,
+            0.5,
+            0.025
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#e3d9af",
+          "emission": 0
+        },
+        {
+          "shape": "cylinder",
+          "position": [
+            -0.38,
+            1.17,
+            0
+          ],
+          "size": [
+            0.085,
+            0.56,
+            0.085
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#e1b378",
+          "emission": 0
+        },
+        {
+          "shape": "cylinder",
+          "position": [
+            0,
+            1.6,
+            0.35
+          ],
+          "size": [
+            0.025,
+            0.7,
+            0.025
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#e3d9af",
+          "emission": 0
+        },
+        {
+          "shape": "cylinder",
+          "position": [
+            0,
+            0.97,
+            0.35
+          ],
+          "size": [
+            0.085,
+            0.56,
+            0.085
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#e1b378",
+          "emission": 0
+        },
+        {
+          "shape": "cylinder",
+          "position": [
+            0.38,
+            1.725,
+            0
+          ],
+          "size": [
+            0.025,
+            0.44999999999999996,
+            0.025
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#e3d9af",
+          "emission": 0
+        },
+        {
+          "shape": "cylinder",
+          "position": [
+            0.38,
+            1.22,
+            0
+          ],
+          "size": [
+            0.085,
+            0.56,
+            0.085
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#e1b378",
+          "emission": 0
+        },
+        {
+          "shape": "cylinder",
+          "position": [
+            0,
+            1.665,
+            -0.35
+          ],
+          "size": [
+            0.025,
+            0.5700000000000001,
+            0.025
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#e3d9af",
+          "emission": 0
+        },
+        {
+          "shape": "cylinder",
+          "position": [
+            0,
+            1.0999999999999999,
+            -0.35
+          ],
+          "size": [
+            0.085,
+            0.56,
+            0.085
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "color": "#e1b378",
+          "emission": 0
+        }
+      ],
+      "animation": "",
+      "behavior": "",
+      "metadata": {},
+      "provenance": {
+        "creator": "Domes for Dots contributors",
+        "source": "Original primitive composition authored for Domes for Dots v0.1.0",
+        "license": "MIT"
+      }
+    }
+  ]
+}

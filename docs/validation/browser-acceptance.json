@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "checks": [
+    "real Godot Web engine initialized",
+    "WebGL 2 Compatibility renderer",
+    "initial browser save created",
+    "connections explicitly unavailable",
+    "wind-chime data extension reached in Web",
+    "call visually overrides live work",
+    "actual placeholder pickup pose reached",
+    "call end resumes unexpired work",
+    "duplicate event idempotent in Web",
+    "missed END expires automatically",
+    "expired activity cannot renew",
+    "browser cannot self-authorize real reports",
+    "preview advances finite simulated projects",
+    "saved preferences survive reload",
+    "routine epoch preserved and preview not saved",
+    "second viewer shares epoch and project identities",
+    "stale viewer save reports revision conflict",
+    "storage failure is visible",
+    "failed save preserves known-good bytes",
+    "corrupt primary recovers known-good backup",
+    "recovered save can repair primary",
+    "state export is parseable JSON",
+    "world pack preserves brief and assets without runtime state",
+    "second world navigates across bridge to observation wing",
+    "visible canvas preview control responds to pointer input",
+    "no JavaScript or Godot runtime errors"
+  ],
+  "engine": "Godot 4.5.1",
+  "browser": "154.0.8037.97",
+  "platform": "win32",
+  "worlds": [
+    "cedar_atelier",
+    "tidal_observatory"
+  ],
+  "errors": [],
+  "limitations": [
+    "Real Dot/native-call integrations unavailable",
+    "localStorage revision protection is optimistic, not an atomic cross-tab CAS",
+    "No mobile/Safari/Firefox/Blender rig acceptance claimed"
+  ]
+}

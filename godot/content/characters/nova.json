@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "id": "nova",
+  "display_name": "Nova",
+  "scene_path": "res://scenes/characters/placeholder.tscn",
+  "scale": [
+    0.92,
+    1.1,
+    0.92
+  ],
+  "forward_axis": "-Z",
+  "collision": {
+    "radius": 0.27,
+    "height": 1.1
+  },
+  "navigation": {
+    "radius": 0.3,
+    "speed": 3
+  },
+  "rig": {
+    "skeleton_path": "",
+    "animation_player_path": "",
+    "notes": "Procedural visual scene exposes set_action(action). Imported rig scenes may map semantic names to AnimationPlayer clips. Visual root stands at y=0; engine owns movement/collision."
+  },
+  "animations": {
+    "idle": "idle",
+    "walk": "walk",
+    "interact": "interact",
+    "work": "work",
+    "phone": "phone"
+  },
+  "fallbacks": {
+    "sit": "idle",
+    "read": "interact",
+    "garden": "interact",
+    "observe": "interact",
+    "music": "interact"
+  },
+  "appearance": {
+    "color": "#9bbde0",
+    "accent": "#d9a0da"
+  },
+  "metadata": {
+    "creator": "Domes for Dots contributors",
+    "license": "MIT",
+    "variant": "orbital"
+  }
+}

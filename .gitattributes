@@ -1,0 +1,7 @@
+* text=auto eol=lf
+prototype/Dot_World_Preview.html -text
+prototype/Dot_World_Starter_Kit.md -text
+*.png binary
+*.glb binary
+*.zip binary
+

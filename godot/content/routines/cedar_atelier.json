@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "cedar_day",
+  "cycle_seconds": 180,
+  "steps": [
+    {
+      "id": "morning_reading",
+      "label": "Read a field journal",
+      "activity_tag": "read",
+      "animation": "read",
+      "duration_seconds": 25
+    },
+    {
+      "id": "craft_session",
+      "label": "Shape a wooden mobile",
+      "activity_tag": "craft",
+      "animation": "interact",
+      "duration_seconds": 40
+    },
+    {
+      "id": "terrace_gardening",
+      "label": "Tend imagined herbs",
+      "activity_tag": "garden",
+      "animation": "garden",
+      "duration_seconds": 30
+    },
+    {
+      "id": "chime_pause",
+      "label": "Pause at the wind chime",
+      "activity_tag": "chime",
+      "animation": "music",
+      "duration_seconds": 20
+    },
+    {
+      "id": "desk_notes",
+      "label": "Write simulated craft notes",
+      "activity_tag": "work",
+      "animation": "work",
+      "duration_seconds": 30
+    },
+    {
+      "id": "quiet_rest",
+      "label": "Rest in the studio",
+      "activity_tag": "rest",
+      "animation": "sit",
+      "duration_seconds": 35
+    }
+  ],
+  "projects": [
+    {
+      "id": "wooden_mobile",
+      "title": "A hand-shaped wooden mobile",
+      "activity_tag": "craft",
+      "required_seconds": 160,
+      "stages": [
+        "Sketch",
+        "Cut pieces",
+        "Balance",
+        "Complete"
+      ],
+      "visual_object_id": "cedar_mobile"
+    },
+    {
+      "id": "herb_garden",
+      "title": "A small imagined herb garden",
+      "activity_tag": "garden",
+      "required_seconds": 180,
+      "stages": [
+        "Seedlings",
+        "Leaves",
+        "Full planter",
+        "Complete"
+      ],
+      "visual_object_id": "herb_growth"
+    }
+  ],
+  "metadata": {
+    "simulation_only": true,
+    "completion_policy": "Finite projects stop at completion. New projects require authored content and explicit migration."
+  }
+}

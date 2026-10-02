@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "world_id": "cedar_atelier",
+  "world_version": "0.1.0",
+  "character_id": "moss",
+  "routine_id": "cedar_day",
+  "routine_epoch": 1790938800,
+  "revision": 0,
+  "project_ids": [
+    "wooden_mobile",
+    "herb_garden"
+  ],
+  "preferences": {}
+}
