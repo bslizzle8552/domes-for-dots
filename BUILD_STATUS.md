@@ -4,7 +4,15 @@ Target: v0.1.0. Updated: 2026-10-02.
 
 ## Current milestone
 
-M5: all local v0.1.0 acceptance and packaging checks pass. Public repository created; tag and release upload are the remaining publication steps.
+M6: v0.1.0 published and verified. No remaining v0.1.0 implementation or publication blockers.
+
+- Repository: https://github.com/bslizzle8552/domes-for-dots
+- Release: https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.1.0
+- Release source/tag commit: 738fa7e24aca5997c874e58507670efac7ad28b4.
+- Runtime build commit: 2039920faad095ff1de5aa856f77d4212b9ef8bf. Later commits change documentation/evidence only.
+- Public assets were downloaded anonymously and compared byte for byte by SHA-256 to the locally verified packages: PASS.
+- GitHub CI for the release commit: PASS, https://github.com/bslizzle8552/domes-for-dots/actions/runs/37009910087 .
+- The immutable release source records acceptance before publication. Main additionally contains this post-publication receipt.
 
 ## Completed
 
@@ -41,10 +49,13 @@ M5: all local v0.1.0 acceptance and packaging checks pass. Public repository cre
 - Engine, authored content, character contracts, runtime state, and connections remain separate.
 - No access to any private Dot world. Native call integration is unavailable unless independently verified; mocks must be labeled.
 
-## Remaining publication steps
+## Release artifacts
 
-- No implementation blockers remain at the stated v0.1 level.
-- Commit final evidence/docs, regenerate final archives, push main and v0.1.0, publish/verify release downloads.
+- `dist/release/domes-for-dots-v0.1.0-source.zip`: 611,468 bytes; 106 tracked source files. SHA-256 `0337f3364426a98f84de8e94f8a50bb473bb1b1e5248d0cc003b62fcc33daf1d`.
+- `dist/release/domes-for-dots-v0.1.0-web.zip`: 9,512,459 bytes; runtime, notices, launch README and build/release manifests. SHA-256 `edf7e9986845c1ac7b83c66d8f2aaf56e8770353a63cdf3687d3dcec2c52f0a3`.
+- `dist/release/SHA256SUMS` and `release_manifest.json` are also published.
+- Both source and Web archives passed CRC/inventory checks. Downloaded public files matched the prepared files, including manifest and checksum assets. Tag v0.1.0 resolves to the release source commit above.
+- Local preview: http://127.0.0.1:8060 while tools/serve.py is running. No public world hosting or real activity connection was provisioned.
 
 ## Reproduce verification
 
