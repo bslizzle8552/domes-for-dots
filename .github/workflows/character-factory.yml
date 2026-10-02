@@ -26,6 +26,15 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+      - name: Mask operator request before passing it to the worker
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const request = context.payload.inputs?.request_json || '';
+            if (request) {
+              core.setSecret(request);
+              core.exportVariable('DOMES_CHARACTER_REQUEST', request);
+            }
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -38,8 +47,6 @@ jobs:
       - name: Prepare ephemeral headless engine
         run: python tools/setup_cloud_godot.py
       - name: Receive approved character request
-        env:
-          DOMES_CHARACTER_REQUEST: ${{ inputs.request_json }}
         run: >-
           python tools/character_request.py
           --from-env DOMES_CHARACTER_REQUEST

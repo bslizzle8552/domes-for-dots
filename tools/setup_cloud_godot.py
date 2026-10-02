@@ -34,7 +34,7 @@ def main():
     template_dir = Path(os.environ.get('XDG_DATA_HOME', str(Path.home() / '.local/share'))) / 'godot/export_templates/4.5.1.stable'
     template_dir.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(templates) as archive:
-        for name in ['web_release.zip', 'web_debug.zip', 'version.txt']:
+        for name in ['web_nothreads_release.zip', 'web_nothreads_debug.zip', 'version.txt']:
             (template_dir / name).write_bytes(archive.read('templates/' + name))
     print(str(target / editor_name))
 

@@ -190,7 +190,9 @@ class CharacterFactoryTests(unittest.TestCase):
 
     def test_install_refuses_existing_directory_and_live_source(self):
         folder = self.package()
-        for destination in (ROOT, self.folder, ROOT / "godot" / "test_stage"):
+        destinations = [ROOT, self.folder]
+        destinations.extend(ROOT / name / "test_stage" for name in ("godot", "schemas", "tools", "tests", "docs", "examples", "prompts", "cloud"))
+        for destination in destinations:
             with self.subTest(path=destination), self.assertRaises(ValueError):
                 factory.install_package(folder, ROOT, destination, "tidal_observatory")
 

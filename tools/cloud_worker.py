@@ -106,8 +106,8 @@ def execute(interview_path: Path, reference_root: Path, job_dir: Path,
             (web / 'README.txt').write_text(WEB_README, encoding='utf-8')
             shutil.copy2(ROOT / 'cloud/vercel.json', web / 'vercel.json')
             (web / '.nojekyll').touch()
-            # Artifact downloads are for contributors, never required by visitors.
-            shutil.copytree(package, web / 'character-package')
+            # Private interview/reference descriptions stay in controlled job
+            # evidence, not in the visitor's static asset directory.
             receipt['web_sha256'] = {p.relative_to(web).as_posix(): sha256(p) for p in sorted(web.rglob('*')) if p.is_file()}
         receipt['status'] = 'succeeded'
         phase('complete')

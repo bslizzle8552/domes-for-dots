@@ -4,6 +4,12 @@
 
 The controller moves a character body; the character definition supplies the replaceable visual and animation vocabulary. Changing who lives in a world should not require rewriting the navigation, station or routine engine.
 
+The [automatic character factory](CHARACTER_FACTORY.md) now implements approved
+reference/choice intake, a strict specification, original skinned GLB generation,
+twelve semantic clips, package validation and isolated world installation. It
+preserves this runtime contract and clearly distinguishes its procedural robot
+backend from image-to-3D reconstruction.
+
 ## Stable character contract
 
 See [`character.schema.json`](../schemas/character.schema.json) and the examples in [`godot/content/characters/`](../godot/content/characters/).

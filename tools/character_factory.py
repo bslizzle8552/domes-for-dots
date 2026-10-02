@@ -251,8 +251,8 @@ def install_package(package_dir: Path, source_repository: Path, stage_dir: Path,
     source, destination = Path(source_repository).resolve(), Path(stage_dir).resolve()
     if destination.exists() or destination == source or source.is_relative_to(destination):
         raise ValueError("world stage must be a new isolated directory")
-    if destination.is_relative_to(source / "godot"):
-        raise ValueError("world stage cannot be nested inside the live Godot project")
+    if destination.is_relative_to(source) and not any(destination != source/folder and destination.is_relative_to(source/folder) for folder in ("artifacts", "dist")):
+        raise ValueError("a stage inside the source repository must be a child of artifacts/ or dist/; source folders cannot contain stages")
     source_errors = ContentValidator(source).validate()
     if source_errors:
         raise ValueError("source world content invalid: "+"; ".join(source_errors))
@@ -268,7 +268,7 @@ def install_package(package_dir: Path, source_repository: Path, stage_dir: Path,
     temporary = destination.parent / (".world-stage-"+uuid.uuid4().hex)
     temporary.mkdir()
     try:
-        for folder in ("godot", "schemas", "tools", "tests", "docs"):
+        for folder in ("godot", "schemas", "tools", "tests", "docs", "examples", "prompts", "cloud"):
             if (source/folder).exists():
                 shutil.copytree(source/folder, temporary/folder, ignore=shutil.ignore_patterns(".godot", "__pycache__"))
         for name in ("LICENSE", "requirements-dev.txt"):

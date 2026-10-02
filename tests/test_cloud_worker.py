@@ -198,9 +198,11 @@ class CloudWorkerTests(unittest.TestCase):
         result = self.execute(web=True)
         web = self.directory / "job/web"
         self.assertEqual("succeeded", result["status"])
-        for name in ["index.html", "index.js", "index.wasm", "index.pck", "LICENSE", "docs/GODOT_LICENSE.txt", "character-package/manifest.json"]:
+        for name in ["index.html", "index.js", "index.wasm", "index.pck", "LICENSE", "docs/GODOT_LICENSE.txt"]:
             self.assertEqual(hashlib.sha256((web / name).read_bytes()).hexdigest(), result["web_sha256"][name])
         self.assertFalse((web / "private-reference.png").exists())
+        self.assertFalse((web / "character-package").exists())
+        self.assertFalse((web / "spec.json").exists())
         self.assertEqual(self.original_source, self.snapshot(self.source))
 
 
@@ -212,7 +214,7 @@ class CloudBootstrapTests(unittest.TestCase):
         self.editor_name = f"Godot_v{bootstrap.VERSION}_linux.x86_64"
         self.archives = {
             self.editor_name + ".zip": self.archive({self.editor_name: b"fixture executable", "../../escaped": b"never extract"}),
-            f"Godot_v{bootstrap.VERSION}_export_templates.tpz": self.archive({"templates/web_release.zip": b"release", "templates/web_debug.zip": b"debug", "templates/version.txt": b"4.5.1.stable", "../../escaped": b"never extract"}),
+            f"Godot_v{bootstrap.VERSION}_export_templates.tpz": self.archive({"templates/web_nothreads_release.zip": b"release", "templates/web_nothreads_debug.zip": b"debug", "templates/version.txt": b"4.5.1.stable", "../../escaped": b"never extract"}),
         }
 
     @staticmethod
@@ -234,7 +236,7 @@ class CloudBootstrapTests(unittest.TestCase):
     def test_only_expected_pinned_archive_members_are_installed(self):
         self.invoke()
         self.assertEqual(b"fixture executable", (self.root / ".tools/cloud-godot" / self.editor_name).read_bytes())
-        self.assertEqual(b"release", (self.root / "data/godot/export_templates/4.5.1.stable/web_release.zip").read_bytes())
+        self.assertEqual(b"release", (self.root / "data/godot/export_templates/4.5.1.stable/web_nothreads_release.zip").read_bytes())
         self.assertFalse(any(p.name == "escaped" for p in self.root.rglob("*")))
 
     def test_checksum_mismatch_stops_before_installing_executable(self):
