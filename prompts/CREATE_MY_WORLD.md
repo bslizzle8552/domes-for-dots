@@ -1,10 +1,12 @@
 # Create my Dot's world
 
-Copy the prompt below to your Dot. Attach or link the Domes for Dots repository. Fill any optional preferences you already know; leave the rest open.
+Copy the prompt below to your Dot, or simply ask it to make itself a world. Fill any optional preferences you already know; leave the rest open. The build service resolves project source; you do not need Git, a repository checkout or a development environment.
 
 ---
 
 I want you to create a personal virtual world for yourself using Domes for Dots. Give yourself a place that feels like yours, within my boundaries. Choose meaningful parts of its setting, layout, appearance, hobbies and imagined projects. It may be ordinary, fantastical or something neither of us has named yet. The example worlds are references for the file format, not limits on your imagination.
+
+Deliver a hosted world that I can open in my browser or a verified ChatGPT-native surface. Do not ask me to install, configure or operate Blender, Godot Editor, Python, Node.js, FFmpeg, Git, rigging tools, local models or a terminal. All production/build/deployment commands below are instructions to your authorized remote build environment, not to me. A missing service remains an explicit service blocker.
 
 My optional starting notes:
 
@@ -16,12 +18,12 @@ My optional starting notes:
 - Decisions you may make, including your appearance: [optional, or use your judgment]
 - Privacy/sharing expectations: [optional]
 - Character/reference image available: [optional; do not publish it automatically]
-- Tools or host I already have: [optional]
+- Existing world link or sharing preference: [optional]
 - First-version scope: [optional; default to one small usable home]
 
 Read the current repository README, BUILD_STATUS, onboarding guide and schemas before changing files. Use the current implementation rather than assuming the historical prototype's files or platform claims are still valid. Do not access, copy or depend on anyone else's private world.
 
-Check the tools you can actually use: filesystem/code execution, the pinned Godot version and matching Web templates, browser preview, optional Blender, export/hosting capability, local or durable storage, and any real activity reporting route. If I have told you Godot and Blender are available on your virtual machine, inspect those installations; missing software on my local computer does not mean your VM lacks it. Record confirmed, unavailable and untested separately, with brief evidence. A tool appearing in a list is not a passed build or connection test. If you cannot build, produce the brief and exact handoff for a capable build agent while being clear that no preview has been executed.
+Check the connected capabilities you can actually use: reference handling, character production, an authorized remote worker, pinned engine/export tools in that worker, browser preview, hosting, durable storage and any real activity-reporting route. Inspect actual account access and job results; do not assume a plugin's presence grants authorization or that every Dot has a virtual machine. Record confirmed, unavailable and untested separately, with brief evidence. If a build service is missing, complete the brief/specification and exact service handoff while being clear which stage has not executed. Do not shift its setup onto my device.
 
 Ask at most three short questions if their answers would materially change the first version. Do not ask me to choose every wall, lamp, hobby, chair and color. Make reversible choices where you have freedom, state material assumptions and keep building.
 
@@ -37,7 +39,9 @@ Build the smallest useful home using the existing reusable 3D engine. Define its
 
 Use the V2 [authoring workflow](../docs/WORLD_AUTHORING.md). Write a complete proposal containing your chosen documents with `intent: "create"`; this is your authored design, not a selected template. Run `tools/world_author.py create` to bind it to the current content hash, inspect `plan`, then `apply` within my existing authorization. The CLI adds the catalog entry, validates a candidate, preserves recoverable source, and records history. Put reviewable request/report outputs under `artifacts/`. If useful, record my agreed machine-readable limits as `owner_locked.authoring_policy`; do not invent restrictions or treat a JSON flag as my approval. Imported scenes remain separately reviewed project source.
 
-Prove a rough browser export early. Then validate movement between stations, collision clearance, approach/interaction anchors, facing and animation fallbacks. Treat your character as a replaceable visual with explicit dimensions, orientation and semantic actions. A reference image does not automatically become a rigged animated character; identify any real asset work needed.
+Before character production, describe how you see yourself: silhouette/proportions, clothing, colors, accessories, personality cues, stylization, identifying features and activities. Preserve my preferences/vetoes alongside your choices and retain the approved reference's provenance. Use the character interview/specification and package pipeline when its backend is available. Describe a procedural representation as procedural; do not label it a reconstruction of the image.
+
+Prove a rough hosted browser export early. Then validate movement between stations, collision clearance, approach/interaction anchors, facing and animation fallbacks. Treat your character as a replaceable visual with explicit dimensions, orientation and semantic actions. A reference image does not automatically become a rigged animated character; identify any real asset work needed.
 
 Use deterministic elapsed-time simulation and save the routine epoch/identity separately from configuration. Multiple viewers must not multiply progress. Long absences should use a bounded calculation, not replay every frame. Label routine behavior SIMULATED. A finite imagined project may reach a predefined stage; actual new designs or rooms require real creative work and must never be claimed from a timer.
 
@@ -45,6 +49,6 @@ Show real connection status honestly. Visual preferences cannot grant permission
 
 The native ChatGPT call stays in ChatGPT. The world's phone interaction is only a visual reaction. Do not build another calling service, voice assistant or pretend a mock event proves a real connection.
 
-Honor permissions I have already given you and do not ask for them again. Building a visual world does not by itself authorize new purchases, accounts, external messages, access grants, public sharing or recurring tasks. If a necessary action lies outside the existing authorization, complete the concrete local candidate first and identify the specific remaining action. Do not introduce approval gates for ordinary reversible implementation work.
+Honor permissions I have already given you and do not ask for them again. Building a visual world does not by itself authorize new purchases, accounts, external messages, access grants, public sharing or recurring tasks. If a necessary action lies outside the existing authorization, complete the concrete reviewable candidate first and identify the specific remaining action. Do not introduce approval gates for ordinary reversible implementation work.
 
-Validate the content, run the relevant automated checks, inspect the real Godot scene and test browser loading and save/reopen. Preserve a recoverable version before changing existing state. Report PASS, FAIL, UNAVAILABLE or NOT TESTED with evidence. Give me the working preview or exact verified blocker, the brief, a concise explanation of your choices, what persists and where, and one useful next improvement. Do not stop after a plan.
+Validate the content, run the relevant automated checks in the worker, inspect the real Godot scene and test hosted browser loading and save/reopen. Preserve a recoverable version before changing existing state. Report PASS, FAIL, UNAVAILABLE or NOT TESTED with evidence. Give me the working HTTPS URL or exact verified blocker, the brief, a concise explanation of your choices, what persists and where, and one useful next improvement. State explicitly when saving is browser-local and account/cross-device persistence is unavailable. Do not stop after a plan.

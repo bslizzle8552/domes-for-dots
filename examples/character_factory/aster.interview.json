@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "character_id": "aster",
+  "display_name": "Aster",
+  "references": [
+    {
+      "id": "approved_robot_card",
+      "path": "aster-reference.png",
+      "approved": true,
+      "description": "Original flat front-view segmented teal robot concept with amber eyes and chest badge. A design reference, not a 3D reconstruction target.",
+      "source": "Original project fixture authored by Domes contributors; not Rocky imagery",
+      "license": "MIT"
+    }
+  ],
+  "dot": {
+    "self_image": "A calm archive companion with a compact segmented body and warm amber eyes.",
+    "personality_cues": [
+      "Curious and patient; this fixture demonstrates recording creative intent."
+    ],
+    "identifying_features": [
+      "Warm amber square eyes and a small chest badge."
+    ],
+    "appearance": {
+      "body": "segmented_robot",
+      "height_m": 1.5,
+      "head_scale": 1.0,
+      "colors": {
+        "primary": "#79b7ad",
+        "secondary": "#25384a",
+        "accent": "#ffca6a",
+        "visor": "#152735"
+      },
+      "clothing": "vest",
+      "accessories": [
+        "chest_badge",
+        "antenna"
+      ]
+    },
+    "activities": [
+      "work",
+      "read",
+      "build",
+      "inspect",
+      "garden",
+      "sleep",
+      "talk",
+      "phone"
+    ]
+  },
+  "human": {
+    "approved": true,
+    "veto_accessories": [
+      "antenna"
+    ],
+    "color_overrides": {},
+    "notes": "Synthetic approved-interview fixture, not a claim that a real Dot or human was interviewed. Keep an uncluttered silhouette."
+  }
+}

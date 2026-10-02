@@ -1,5 +1,7 @@
 # Dot-led authoring and recoverable expansion
 
+**CLOUD BACKEND / DEVELOPMENT ONLY.** The commands and filesystem operations in this guide run inside a managed worker or contributor environment. Owners express preferences in ChatGPT and open hosted URLs; they do not install Python, manipulate JSON files, clone repositories or run Godot. The [owner guide](GETTING_STARTED.md) is the user entry point. The [cloud architecture](CLOUD_ARCHITECTURE.md) explains the service boundary and remaining authentication/persistence work.
+
 V2 adds an executable path from a Dot's complete authored proposal to validated source content. The existing Godot world, character, asset, routine and brief formats remain the source of truth. There is no fixed menu of world templates and no model inference inside the authoring tool.
 
 The owner supplies context and boundaries. The Dot interprets them, chooses a concept, records its choices in the brief, authors the required documents and assets, and prepares a concrete change request. The tool validates a candidate and records its effect before changing the working project. A build and real preview then establish whether the proposed home works visually.

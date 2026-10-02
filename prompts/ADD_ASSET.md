@@ -4,7 +4,9 @@
 
 Add this content to the current Domes for Dots world: [describe the prop, structure, decoration or station; leave creative details to the Dot if preferred].
 
-Read the current brief and asset/world schemas. Preserve owner locks, existing IDs and the runtime engine. Choose the smallest compatible representation: original primitive composition, an already approved asset, or a reviewed imported scene/model with clear redistribution rights. Blender may help create or adapt it but must not be required to run the resulting world.
+Perform creation, import, validation and deployment in the authorized cloud worker. The owner supplies a description/reference and reviews the hosted world; no local tools, manual JSON editing or deployment steps are required. If a service stage is unavailable, retain the reviewable result and report that stage honestly.
+
+Read the current brief and asset/world schemas. Preserve owner locks, existing IDs and the runtime engine. Choose the smallest compatible representation: original primitive composition, an already approved asset, or a reviewed imported scene/model with clear redistribution rights. Blender may run in the production backend; it must never be required on the owner's device, including during creation.
 
 Record a stable asset ID, display name, category/tags, source or scene path, scale/orientation, collision and floor footprint, any interaction anchors, semantic animation/fallback, optional implemented behavior, metadata, creator, source and license. Do not invent a license for a downloaded model. Treat scenes with scripts as code to review; a manifest is not a sandbox or automatic downloader.
 

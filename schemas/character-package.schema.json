@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://domes-for-dots.example/schemas/character-package.schema.json",
+  "title": "Domes character-package v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "package_kind": {
+      "const": "domes_character"
+    },
+    "character_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,63}$"
+    },
+    "backend": {
+      "const": "procedural_rigid_skin_v1"
+    },
+    "files": {
+      "type": "object",
+      "properties": {
+        "character.glb": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "character.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "spec.json": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "character.glb",
+        "character.json",
+        "spec.json"
+      ],
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "animation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "reference_handling": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        }
+      },
+      "required": [
+        "geometry",
+        "animation",
+        "reference_handling",
+        "license"
+      ],
+      "additionalProperties": false
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 32,
+      "uniqueItems": true
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000
+      },
+      "maxItems": 32,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "package_kind",
+    "character_id",
+    "backend",
+    "files",
+    "provenance",
+    "capabilities",
+    "limitations"
+  ],
+  "additionalProperties": false
+}

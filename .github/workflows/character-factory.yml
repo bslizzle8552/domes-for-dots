@@ -1,0 +1,76 @@
+name: Cloud character factory
+
+on:
+  push:
+    branches: [main, codex/cloud-character-factory]
+    paths:
+      - 'tools/**'
+      - 'godot/**'
+      - 'schemas/**'
+      - 'tests/**'
+      - 'examples/character_factory/**'
+      - '.github/workflows/character-factory.yml'
+  workflow_dispatch:
+    inputs:
+      request_json:
+        description: 'Operator-supplied approved character envelope; empty runs the public Aster fixture'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  generate-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install worker validation dependencies
+        run: python -m pip install -r requirements-dev.txt
+      - name: Validate contracts and failure boundaries
+        run: |
+          python tools/validate_content.py
+          python -m unittest discover -s tests -v
+      - name: Prepare ephemeral headless engine
+        run: python tools/setup_cloud_godot.py
+      - name: Receive approved character request
+        env:
+          DOMES_CHARACTER_REQUEST: ${{ inputs.request_json }}
+        run: >-
+          python tools/character_request.py
+          --from-env DOMES_CHARACTER_REQUEST
+          --default-interview examples/character_factory/aster.interview.json
+          --output-dir artifacts/character-request
+      - name: Generate skinned character and isolated world
+        run: >-
+          python tools/cloud_worker.py
+          --interview artifacts/character-request/interview.json
+          --reference-root artifacts/character-request
+          --job-dir artifacts/cloud-job
+          --world-id cedar_atelier
+          --godot .tools/cloud-godot/Godot_v4.5.1-stable_linux.x86_64
+      - name: Preserve job evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloud-job-evidence
+          path: |
+            artifacts/cloud-job/job.json
+            artifacts/cloud-job/engine-audit.json
+            artifacts/cloud-job/spec.json
+            artifacts/cloud-job/logs/
+            artifacts/cloud-job/package/
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Preserve complete browser world
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-world-web
+          path: artifacts/cloud-job/web/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14

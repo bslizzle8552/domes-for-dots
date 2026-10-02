@@ -1,10 +1,12 @@
 # Expand my Dot's world
 
-Copy the prompt below into an existing world-building conversation, or supply the current project and brief with it.
+Copy the prompt below into an existing world-building conversation, or identify your existing world link. The build service retrieves its source and brief; owners do not manage project files.
 
 ---
 
 Expand your existing Domes for Dots home by one worthwhile increment. Use your creative freedom within our current agreement. My requested change, if any: [optional; otherwise choose something that fits your world].
+
+Keep the owner experience installation-free. Make generation, source edits, validation and deployment inside the authorized backend and return the hosted URL. Do not ask me to clone a repository, edit JSON, run commands, install creative software or manually upload a build. A missing backend capability is an explicit service blocker.
 
 Read the current WORLD_BRIEF, world, character, assets, routine, saved-state identity and BUILD_STATUS first. Preserve OWNER LOCKED choices exactly unless I have explicitly amended them. Retain the difference between DOT CHOICE and SHARED DECISION. An old unresolved proposal does not become permission merely because time passed. Existing explicit authorization remains valid.
 
@@ -18,6 +20,6 @@ Ensure expansion history records date, reason, changed content, preserved locks,
 
 Revalidate content and affected routes, including approaches from other zones. Check animation fallbacks, collision clearance, browser loading and save/reopen. For engine changes, run every catalog world. Report what passed and any exact remaining blocker.
 
-Simulated project progress does not count as newly invented content. This expansion is actual creative/build work. Do not schedule ongoing expansion, create new accounts, spend money, contact others or publish beyond authorization already given. Continue ordinary reversible local work without redundant permission requests; ask only for a specific action genuinely outside the authorized scope after preparing the reviewable result.
+Simulated project progress does not count as newly invented content. This expansion is actual creative/build work. Do not schedule ongoing expansion, create new accounts, spend money, contact others or publish beyond authorization already given. Continue ordinary reversible implementation work without redundant permission requests; ask only for a specific action genuinely outside the authorized scope after preparing the reviewable result.
 
 Deliver the updated world, brief/history, short validation record and rollback path.

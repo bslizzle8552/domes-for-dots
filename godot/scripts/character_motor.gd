@@ -7,6 +7,7 @@ var visual: Node3D
 var path_points := PackedVector3Array()
 var target_station: Dictionary = {}
 var animation_player: AnimationPlayer
+var visual_skeleton: Skeleton3D
 var action := ""
 var moving := false
 var speed := 2.4
@@ -39,7 +40,25 @@ func configure(data: Dictionary) -> void:
 	var player_path: String = data.rig.get("animation_player_path", "")
 	if not player_path.is_empty():
 		animation_player = visual.get_node_or_null(player_path) as AnimationPlayer
+	var skeleton_path: String = data.rig.get("skeleton_path", "")
+	if not skeleton_path.is_empty():
+		visual_skeleton = visual.get_node_or_null(skeleton_path) as Skeleton3D
 	set_action("idle")
+
+func visual_snapshot() -> Dictionary:
+	# Read-only acceptance evidence: actual running clip and bone poses, separate
+	# from the requested semantic. Works with any manifest's declared rig paths.
+	var result := {"scene_path":definition.get("scene_path", ""), "clip":"", "playing":false, "position_seconds":0.0, "bone_count":0, "bone_rotations":[]}
+	if is_instance_valid(animation_player):
+		result.clip = str(animation_player.current_animation)
+		result.playing = animation_player.is_playing()
+		result.position_seconds = animation_player.current_animation_position
+	if is_instance_valid(visual_skeleton):
+		result.bone_count = visual_skeleton.get_bone_count()
+		for index in range(visual_skeleton.get_bone_count()):
+			var rotation := visual_skeleton.get_bone_pose_rotation(index)
+			result.bone_rotations.append([rotation.x, rotation.y, rotation.z, rotation.w])
+	return result
 
 func _resolve_action(semantic: String) -> String:
 	var visited: Dictionary = {}

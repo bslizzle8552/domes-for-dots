@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://domes-for-dots.example/schemas/character-job.schema.json",
+  "title": "Domes cloud worker receipt v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "status": {
+      "enum": [
+        "running",
+        "succeeded",
+        "failed"
+      ]
+    },
+    "phase": {
+      "type": "string"
+    },
+    "started_at_utc": {
+      "type": "string"
+    },
+    "interview_sha256": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "world_id": {
+      "type": "string"
+    },
+    "provider": {
+      "enum": [
+        "github_actions",
+        "developer_worker"
+      ]
+    },
+    "run_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_commit": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "phase": {
+            "type": "string"
+          },
+          "at_utc": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "phase",
+          "at_utc"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "const": "not_deployed"
+        },
+        "url": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "status",
+        "url"
+      ],
+      "additionalProperties": false
+    },
+    "package_validation": {
+      "type": "object"
+    },
+    "installation": {
+      "type": "object"
+    },
+    "engine_audit": {
+      "type": "object"
+    },
+    "animation_tests": {
+      "const": "passed"
+    },
+    "web_sha256": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      }
+    },
+    "error": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "status",
+    "phase",
+    "started_at_utc",
+    "interview_sha256",
+    "world_id",
+    "provider",
+    "run_id",
+    "source_commit",
+    "events",
+    "deployment"
+  ],
+  "additionalProperties": false
+}

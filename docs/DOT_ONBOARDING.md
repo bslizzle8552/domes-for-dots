@@ -2,7 +2,9 @@
 
 The owner sets the boundaries; the Dot should make meaningful creative choices. Begin with a short exchange and a small build, not a survey asking the owner to design every object.
 
-Copy [CREATE_MY_WORLD.md](../prompts/CREATE_MY_WORLD.md) directly to the Dot. When building on your Dot's virtual machine, use its installed Godot and Blender and check versions/templates. For a hosted or already-served prebuilt world, the owner's computer only needs a browser. A Dot can work with a build agent when its tools cannot edit or execute the project. Capability reports should distinguish confirmed, unavailable and untested tools.
+Use [CREATE_MY_WORLD.md](../prompts/CREATE_MY_WORLD.md) directly, or begin with “Make yourself a world.” The owner supplies preferences or approved imagery and receives a hosted URL. No repository, local creative software, terminal or developer account is required from the owner. The Dot checks available connected services and delegates generation, build, validation and deployment to a cloud worker. A missing worker is a service blocker, never an owner installation task. Capability reports distinguish confirmed, unavailable and untested tools.
+
+Character participation starts with how the Dot sees itself: silhouette/proportions, clothing, colors, accessories, personality cues, realism/stylization, important identifying features and expected activities. Human preferences and vetoes remain explicit. Preserve both voices in the specification, including conflicts that still need resolution. An approved reference does not itself establish automated image-to-mesh capability or redistribution permission.
 
 ## Decision ownership
 
@@ -16,7 +18,7 @@ Missing preferences are not a reason to ask about every detail. Ask at most thre
 
 ## Structured brief
 
-Save a JSON brief under `godot/content/briefs/` and reference it with the world's `brief_path`. It has its own schema and is authored content, separate from the runtime save. A minimal shape is:
+The build agent saves a JSON brief under `godot/content/briefs/` and references it with the world's `brief_path`; the owner reviews its meaning through the conversation. It has its own schema and is authored content, separate from the runtime save. A minimal backend shape is:
 
 ```json
 {
@@ -25,7 +27,7 @@ Save a JSON brief under `godot/content/briefs/` and reference it with the world'
   "dot_name": "Your Dot",
   "concept": "A place the Dot chose within the owner's boundaries",
   "owner_locked": {
-    "privacy": "Local preview first; no personal conversations in content",
+    "privacy": "No personal conversations or private references in published content",
     "avoid": ["Owner-specified dislikes"],
     "reserved_decisions": ["Owner-specified decisions"]
   },
@@ -39,9 +41,10 @@ Save a JSON brief under `godot/content/briefs/` and reference it with the world'
     "unresolved": []
   },
   "capabilities": {
-    "godot": "untested",
-    "web_export": "untested",
-    "blender": "optional; untested",
+    "cloud_worker": "untested",
+    "hosted_browser_delivery": "untested",
+    "character_generation": "untested",
+    "account_persistence": "unavailable",
     "real_activity": "unavailable"
   },
   "initial_scope": ["One home", "One character", "One simulated project"],
@@ -53,15 +56,15 @@ Use the actual brief schema for accepted value shapes. Replace examples with the
 
 ## First build
 
-Confirm the Dot name, owner boundaries, realism/fantasy preference, appearance delegation, privacy expectations and available tools only as needed. The Dot should choose at least two meaningful elements of its home. A new setting and hobby matter more than a new paint color.
+Confirm the Dot name, owner boundaries, realism/fantasy preference, appearance delegation and privacy expectations only as needed. Inspect service availability directly; do not make the owner inventory development tools. The Dot should choose at least two meaningful elements of its home. A new setting and hobby matter more than a new paint color.
 
 Build one small environment with reachable stations suited to that Dot, a compatible character and one finite imagined project. Rest/work/call visual tags can use any suitable prop; a conventional desk phone is not mandatory. Prove browser loading early, then movement, activity expiry and save/reload.
 
-V2 makes this executable: use the [world authoring CLI](WORLD_AUTHORING.md) to turn the Dot's complete proposal into a validated plan and recoverable source change. The [Lantern Archive pilot](../examples/authoring/lantern_archive/README.md) contains the actual proposal rather than a theme questionnaire. A concept, room layout, objects, routine and representation must be authored; the tool does not choose them from answers.
+V2 makes source authoring executable: the build agent uses the [world authoring CLI](WORLD_AUTHORING.md) to turn the Dot's complete proposal into a validated plan and recoverable source change. The [Lantern Archive pilot](../examples/authoring/lantern_archive/README.md) contains the actual proposal rather than a theme questionnaire. A concept, room layout, objects, routine and representation must be authored; the tool does not choose them from answers. This CLI is internal backend tooling, not an owner-facing step or a deployed multi-user API.
 
 An optional `owner_locked.authoring_policy` records measurable limits and allowed operations. Choose it with the owner once, then permit changes within it without asking about every ordinary prop. Natural-language preferences still need the Dot's judgment: a geometry validator cannot understand every dislike. Tool allowlists describe authorized tooling and are checked by this authoring command, but do not sandbox other tools or authenticate an owner.
 
-Deliver a usable preview, brief, changed files and a short PASS/FAIL/UNAVAILABLE/NOT TESTED record. Leave native event reporting unavailable unless a real authenticated path was tested for that owner.
+Deliver a hosted URL with the brief and a short PASS/FAIL/UNAVAILABLE/NOT TESTED record; the operator retains packages, source and recovery receipts. Name a deployment blocker explicitly if no URL exists. State where progress is saved: current browser-local saves do not become cross-device persistence merely because the world is hosted. Leave native event reporting unavailable unless a real authenticated path was tested for that owner.
 
 ## Expansion without losing the brief
 
