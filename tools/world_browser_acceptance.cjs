@@ -24,7 +24,7 @@ const distance = (a, b) => Math.hypot(...a.map((v, i) => v - b[i]));
   const snap = () => page.evaluate(() => structuredClone(window.domesSnapshot));
   const command = (action, value = '') => page.evaluate(([a, v]) => window.domesCommand(a, v), [action, value]);
   const ready = id => page.waitForFunction(id => window.domesSnapshot?.ready && window.domesSnapshot.world_id === id, id, { timeout: 90000 });
-  const startSamples = () => page.evaluate(() => { window.worldAcceptanceSamples = []; window.worldAcceptanceTimer = setInterval(() => { const s = window.domesSnapshot; if (s?.ready) window.worldAcceptanceSamples.push({ p: s.position, support: s.support_height, transition: s.transition_id, moving: s.moving }); }, 100); });
+  const startSamples = () => page.evaluate(() => { window.worldAcceptanceSamples = []; window.worldAcceptanceTimer = setInterval(() => { const s = window.domesSnapshot; if (s?.ready) window.worldAcceptanceSamples.push({ p: s.position, support: s.support_height, transition: s.transition_id, moving: s.moving, recoveries: s.recovery_count }); }, 100); });
   const takeSamples = () => page.evaluate(() => { clearInterval(window.worldAcceptanceTimer); return window.worldAcceptanceSamples || []; });
   const visit = async station => {
     await command('visit', station.id);
@@ -93,6 +93,7 @@ const distance = (a, b) => Math.hypot(...a.map((v, i) => v - b[i]));
       samples.push(...await takeSamples());
       // The dedicated native suite samples every physics tick; Web checks actual displayed samples.
       check(world.id + ': sampled movement remains supported', samples.length > 5 && samples.every(s => Number.isFinite(s.support) && Math.abs(s.p[1] - s.support) <= 0.16));
+      check(world.id + ': navigation never requires recovery teleport', samples.every(s => s.recoveries === 0));
       check(world.id + ': native integrations honestly unavailable', Object.values(state.connections).every(v => v === 'unavailable'));
       measurements.push({ world_id: world.id, stations: world.stations.length, navigation_build_msec: state.navigation_build_msec, browser_support_samples: samples.length, startup_msec_first_world: world.id === worlds[0].id ? startup : null, browser_animation_frame_cadence: frameCadence, js_heap_bytes: await page.evaluate(() => performance.memory?.usedJSHeapSize ?? null), resource_bytes: await page.evaluate(() => performance.getEntriesByType('resource').reduce((n, r) => n + (r.encodedBodySize || 0), 0)) });
     }

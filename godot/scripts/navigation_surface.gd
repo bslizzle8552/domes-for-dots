@@ -12,7 +12,7 @@ var build_msec := 0
 
 static func transition_errors(world: Dictionary, assets: Dictionary, character: Dictionary) -> Array[String]:
 	var errors: Array[String] = []
-	var body_radius := maxf(float(character.collision.radius), float(character.navigation.radius))
+	var body_radius := maxf(maxf(float(character.collision.radius), float(character.navigation.radius)),float(world.navigation.character_radius))
 	var body_height := float(character.collision.height)
 	var levels: Dictionary = {}
 	for level in world.get("levels", []):
@@ -45,7 +45,18 @@ static func transition_errors(world: Dictionary, assets: Dictionary, character: 
 		if transition.get("interruption", "") != "hold_supported" or not transition.get("bidirectional", true):
 			errors.append(label+"requires supported pause and bidirectional traversal")
 		var inset := maxf(1.0, body_radius+float(world.navigation.cell_size))
-		for landing in [entry-horizontal.normalized()*inset, exit+horizontal.normalized()*inset]:
+		var landings := [entry-horizontal.normalized()*inset, exit+horizontal.normalized()*inset]
+		if transition.get("safe_fallbacks", []).size() != 2:
+			errors.append(label+"requires two explicit safe landing fallbacks")
+			continue
+		landings = [Builder.vector(transition.safe_fallbacks[0]),Builder.vector(transition.safe_fallbacks[1])]
+		for landing_index in range(2):
+			var landing: Vector3 = landings[landing_index]
+			var endpoint := entry if landing_index == 0 else exit
+			var away := -horizontal.normalized() if landing_index == 0 else horizontal.normalized()
+			var projected: float = (landing-endpoint).dot(away)
+			if projected < inset-0.001 or (landing-endpoint-away*projected).length() > 0.001:
+				errors.append(label+"safe fallback must continue ramp centerline into its level landing")
 			var supported := false
 			for zone in world.zones:
 				if absf(float(zone.center[1])-landing.y) < 0.001 and absf(landing.x-float(zone.center[0]))+body_radius < float(zone.size[0])/2.0 and absf(landing.z-float(zone.center[2]))+body_radius < float(zone.size[1])/2.0:
@@ -53,9 +64,9 @@ static func transition_errors(world: Dictionary, assets: Dictionary, character: 
 			if not supported:
 				errors.append(label+"landing lacks complete body-envelope support")
 		# Sample the entire swept body envelope, including both landing approaches.
-		var start := entry-horizontal.normalized()*inset
-		var finish := exit+horizontal.normalized()*inset
-		var count := ceili((run+2.0*inset)/0.1)
+		var start: Vector3 = landings[0]
+		var finish: Vector3 = landings[1]
+		var count := ceili(start.distance_to(finish)/0.1)
 		for index in range(count+1):
 			var point := start.lerp(finish, float(index)/count)
 			var fraction := clampf(Vector3(point.x-entry.x,0,point.z-entry.z).dot(horizontal)/horizontal.length_squared(),0,1)
@@ -161,6 +172,8 @@ func build(world: Dictionary, assets: Dictionary, character_radius: float) -> vo
 	build_msec = Time.get_ticks_msec() - started
 
 func landing_anchors(transition: Dictionary) -> Array[Vector3]:
+	if transition.get("safe_fallbacks", []).size() == 2:
+		return [Builder.vector(transition.safe_fallbacks[0]),Builder.vector(transition.safe_fallbacks[1])]
 	var entry := Builder.vector(transition.entry)
 	var exit := Builder.vector(transition.exit)
 	var direction := Vector3(exit.x-entry.x, 0, exit.z-entry.z).normalized()

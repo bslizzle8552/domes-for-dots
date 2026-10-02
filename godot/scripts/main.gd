@@ -79,8 +79,18 @@ func load_world(id: String) -> bool:
 	if path.is_empty():
 		return false
 	var data := Loader.bundle(path)
+	data = Loader.hosted_bundle(data)
+	return await load_bundle(data)
+
+func load_bundle(data: Dictionary) -> bool:
+	if switching:
+		return false
 	if data.has("error"):
 		notice = data.error
+		return false
+	var transition_errors: Array[String] = Surface.transition_errors(data.world, data.assets, data.character)
+	if not transition_errors.is_empty():
+		notice = "; ".join(transition_errors)
 		return false
 	switching = true
 	ready_world = false
@@ -106,7 +116,7 @@ func load_world(id: String) -> bool:
 	mock_tags.clear()
 	activities = Activities.new()
 	activities.configure(world.id,character.id)
-	_load_state()
+	await _load_state()
 	show_markers = state.get("preferences",{}).get("show_markers",true)
 	content_root = Node3D.new()
 	content_root.name = "WorldContent"
@@ -116,8 +126,13 @@ func load_world(id: String) -> bool:
 	markers.clear()
 	station_by_id.clear()
 	for zone in world.zones:
-		content_root.add_child(Builder.part({"shape":"box","size":[zone.size[0],0.26,zone.size[1]],"position":[zone.center[0],-0.14,zone.center[2]],"color":zone.color}))
-		content_root.add_child(Builder.part({"shape":"box","size":[zone.size[0]+0.1,0.25,zone.size[1]+0.1],"position":[zone.center[0],-0.38,zone.center[2]],"color":"#253934"}))
+		if not world.get("transitions", []).is_empty():
+			content_root.add_child(Builder.support_box(Vector3(zone.size[0],0.26,zone.size[1]), Vector3(zone.center[0],float(zone.center[1])-0.13,zone.center[2]), zone.color))
+		else:
+			content_root.add_child(Builder.part({"shape":"box","size":[zone.size[0],0.26,zone.size[1]],"position":[zone.center[0],float(zone.center[1])-0.14,zone.center[2]],"color":zone.color}))
+		content_root.add_child(Builder.part({"shape":"box","size":[zone.size[0]+0.1,0.25,zone.size[1]+0.1],"position":[zone.center[0],float(zone.center[1])-0.38,zone.center[2]],"color":"#253934"}))
+	for transition in world.get("transitions", []):
+		content_root.add_child(Builder.ramp(transition))
 	for object in world.objects:
 		var node := Builder.instantiate(assets[object.asset_id],object)
 		content_root.add_child(node)
@@ -218,10 +233,10 @@ func _load_state() -> void:
 			save_status = "Content/state mismatch. Original save preserved; migrate explicitly."
 			state = store.initial_state(world,character,routine,Time.get_unix_time_from_system())
 		else:
-			save_status = ("Recovered backup" if loaded.get("recovered",false) else "Local save") + " · revision " + str(int(state.revision))
+			save_status = ("Private Site" if store.hosted_enabled() else ("Recovered backup" if loaded.get("recovered",false) else "Local save")) + " · revision " + str(int(state.revision))
 	elif loaded.get("ok",false):
 		state = store.initial_state(world,character,routine,Time.get_unix_time_from_system())
-		_save()
+		await _save()
 		if save_status.begins_with("SAVE FAILED"):
 			var concurrent: Dictionary = store.load_state(world.id)
 			if concurrent.get("ok",false) and concurrent.get("found",false):
@@ -235,10 +250,18 @@ func _save() -> void:
 	if not state_writable:
 		notice = "Save protected. Export preview and repair/migrate stored state first."
 		return
-	var result: Dictionary = store.save_state(world.id,state,int(state.revision))
+	var saving_world_id: String = world.id
+	var result: Dictionary
+	if store.hosted_enabled():
+		save_status = "Saving to private Site…"
+		result = await store.save_hosted_state(world.id,state,int(state.revision))
+	else:
+		result = store.save_state(world.id,state,int(state.revision))
+	if world.id != saving_world_id:
+		return
 	if result.get("ok",false):
 		state = result.state
-		save_status = ("This browser" if OS.has_feature("web") else "This computer") + " · saved revision " + str(int(state.revision))
+		save_status = ("Private Site" if store.hosted_enabled() else ("This browser" if OS.has_feature("web") else "This computer")) + " · saved revision " + str(int(state.revision))
 	else:
 		save_status = "SAVE FAILED: " + str(result.get("error","unknown")) + ". Existing save preserved."
 
@@ -283,7 +306,7 @@ func _update_world() -> void:
 		phase = "idle"
 	var zone_id := ""
 	for zone in world.zones:
-		if absf(motor.position.x-float(zone.center[0])) <= float(zone.size[0])/2.0 and absf(motor.position.z-float(zone.center[2])) <= float(zone.size[1])/2.0:
+		if absf(motor.position.y-float(zone.center[1])) < 0.4 and absf(motor.position.x-float(zone.center[0])) <= float(zone.size[0])/2.0 and absf(motor.position.z-float(zone.center[2])) <= float(zone.size[1])/2.0:
 			zone_id = zone.id
 			break
 	resident = resident_tracker.observe(intent,{"phase":phase,"current_location":{"zone_id":zone_id,"station_id":arrived_station if not motor.moving else "","position":[motor.position.x,motor.position.y,motor.position.z]},"last_arrived_station":last_arrived_station,"animation":motor.action,"clock":"simulation_preview" if activity.source == "simulated" and preview_offset != 0 else "live"})
@@ -422,7 +445,7 @@ func receive_mock(event: Dictionary) -> Dictionary:
 	return last_event_result
 
 func snapshot() -> Dictionary:
-	return {"ready":ready_world,"world_id":world.get("id",""),"character_id":character.get("id",""),"position":[motor.position.x,motor.position.y,motor.position.z] if is_instance_valid(motor) else [],"station":current_station,"moving":motor.moving if is_instance_valid(motor) else false,"action":motor.action if is_instance_valid(motor) else "","source":displayed_source,"resident":resident,"simulation":simulation,"epoch":state.get("routine_epoch",0),"revision":state.get("revision",0),"preview_offset":preview_offset,"save_status":save_status,"notice":notice,"show_markers":show_markers,"autonomy_paused":state.get("preferences",{}).get("autonomy_paused",false),"controls":ui.control_bounds() if is_instance_valid(ui) else {},"viewport_size":[get_viewport().get_visible_rect().size.x,get_viewport().get_visible_rect().size.y],"connections":{"work":"unavailable","native_call":"unavailable"},"event_result":last_event_result,"visual":motor.visual_snapshot() if is_instance_valid(motor) else {}}
+	return {"ready":ready_world,"recovery_count":motor.recovery_count if is_instance_valid(motor) else 0,"transition_id":str(surface.transition_at(motor.position).get("id","")) if is_instance_valid(surface) and is_instance_valid(motor) else "","navigation_build_msec":surface.build_msec if is_instance_valid(surface) else 0,"support_height":surface.support_height(motor.position) if is_instance_valid(surface) and is_instance_valid(motor) else 0,"world_id":world.get("id",""),"character_id":character.get("id",""),"position":[motor.position.x,motor.position.y,motor.position.z] if is_instance_valid(motor) else [],"station":current_station,"moving":motor.moving if is_instance_valid(motor) else false,"action":motor.action if is_instance_valid(motor) else "","source":displayed_source,"resident":resident,"simulation":simulation,"epoch":state.get("routine_epoch",0),"revision":state.get("revision",0),"preview_offset":preview_offset,"save_status":save_status,"notice":notice,"show_markers":show_markers,"autonomy_paused":state.get("preferences",{}).get("autonomy_paused",false),"controls":ui.control_bounds() if is_instance_valid(ui) else {},"viewport_size":[get_viewport().get_visible_rect().size.x,get_viewport().get_visible_rect().size.y],"connections":{"work":"unavailable","native_call":"unavailable"},"event_result":last_event_result,"visual":motor.visual_snapshot() if is_instance_valid(motor) else {}}
 
 func _setup_bridge() -> void:
 	bridge_callback = JavaScriptBridge.create_callback(_web_command)
