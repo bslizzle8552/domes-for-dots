@@ -1,14 +1,26 @@
 name: Cloud world creator
 
 on:
+  # Allows the first cloud proof before this new workflow exists on main.
+  push:
+    branches: [codex/autonomous-world-creator]
+    paths:
+      - 'tools/**'
+      - 'schemas/**'
+      - 'tests/**'
+      - 'godot/**'
+      - 'examples/world_creator/**'
+      - 'requirements-dev.txt'
+      - '.github/workflows/world-creator.yml'
   workflow_dispatch:
   pull_request:
     paths:
-      - 'tools/world_*.py'
-      - 'schemas/world*.json'
-      - 'schemas/semantic-grid-world-spec.schema.json'
+      - 'tools/**'
+      - 'schemas/**'
+      - 'tests/**'
       - 'godot/**'
       - 'examples/world_creator/**'
+      - 'requirements-dev.txt'
       - '.github/workflows/world-creator.yml'
 
 permissions:
@@ -20,6 +32,10 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+        with:
+          # A draft PR is eligible; this job tests its exact feature head.
+          # The separate source CI also tests GitHub's PR merge checkout.
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'

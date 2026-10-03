@@ -56,6 +56,7 @@ def execute(job_dir, godot_bin=None, export_web=True):
                "started_at_utc": datetime.now(timezone.utc).isoformat(),
                "provider": "github_actions" if os.environ.get("GITHUB_ACTIONS") == "true" else "developer_worker",
                "run_id": os.environ.get("GITHUB_RUN_ID"), "run_attempt": os.environ.get("GITHUB_RUN_ATTEMPT"),
+               "github_event": os.environ.get("GITHUB_EVENT_NAME"), "github_ref": os.environ.get("GITHUB_REF"),
                "source": source_metadata(ROOT), "world_ids": list(FIXTURES), "events": [], "durations_seconds": {},
                "deployment": {"status": "not_deployed", "privacy": "requires_private_host", "url": None},
                "browser_acceptance": "not_run_by_worker; requires separate browser evidence for these bytes"}
