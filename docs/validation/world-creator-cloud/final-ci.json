@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "source_commit": "611895b87244717b21c39de2b8f25e6459c330ff",
+  "observed_at_utc": "2026-10-03T00:33:21.196693+00:00",
+  "all_completed": true,
+  "all_succeeded": true,
+  "runs": [
+    {
+      "id": 37082142550,
+      "name": "Cloud world creator",
+      "event": "push",
+      "head_sha": "611895b87244717b21c39de2b8f25e6459c330ff",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/bslizzle8552/domes-for-dots/actions/runs/37082142550",
+      "created_at": "2026-10-03T00:27:30Z",
+      "updated_at": "2026-10-03T00:32:04Z",
+      "jobs": [
+        {
+          "id": 111084775077,
+          "name": "compile-three-worlds",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-03T00:27:33Z",
+          "completed_at": "2026-10-03T00:32:04Z"
+        }
+      ],
+      "log_evidence": [
+        {
+          "job_id": 111084775077,
+          "available": true,
+          "log_sha256": "ddc9534265ebe136b3dc1d55e96656371fe53e05e8a3c7e502f5e12bd5da064e",
+          "python_suites": [
+            {
+              "discovered": 237,
+              "elapsed_seconds": 220.904,
+              "skipped": 2,
+              "passed": 235
+            }
+          ],
+          "engine_summaries": [
+            "FACTORY CHARACTER TESTS: 59 passed, 0 failed",
+            "FACTORY CHARACTER TESTS: 59 passed, 0 failed",
+            "FACTORY CHARACTER TESTS: 59 passed, 0 failed",
+            "GENERATED WORLD TESTS: 61 passed, 0 failed; 2414 physical samples",
+            "MULTILEVEL TESTS: 38 passed, 0 failed; 4542 support/headroom samples; support_failures=0"
+          ],
+          "python_skip_reasons": [
+            {
+              "test": "test_windows_case_alias_does_not_bypass_shared_document_protection (test_authoring.AuthoringTests.test_windows_case_alias_does_not_bypass_shared_document_protection)",
+              "reason": "case aliases are a Windows filesystem behavior"
+            },
+            {
+              "test": "test_windows_content_folder_case_alias_still_validates_candidate_bytes (test_authoring.AuthoringTests.test_windows_content_folder_case_alias_still_validates_candidate_bytes)",
+              "reason": "case aliases are a Windows filesystem behavior"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 37082146060,
+      "name": "Cloud world creator",
+      "event": "pull_request",
+      "head_sha": "611895b87244717b21c39de2b8f25e6459c330ff",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/bslizzle8552/domes-for-dots/actions/runs/37082146060",
+      "created_at": "2026-10-03T00:27:33Z",
+      "updated_at": "2026-10-03T00:29:58Z",
+      "jobs": [
+        {
+          "id": 111084786603,
+          "name": "compile-three-worlds",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-03T00:27:36Z",
+          "completed_at": "2026-10-03T00:29:57Z"
+        }
+      ],
+      "log_evidence": [
+        {
+          "job_id": 111084786603,
+          "available": true,
+          "log_sha256": "803911e1dc3ec480f618e324511b0e8e3d041bb9a4cfeb2d049828dd881e3d96",
+          "python_suites": [
+            {
+              "discovered": 237,
+              "elapsed_seconds": 106.14,
+              "skipped": 2,
+              "passed": 235
+            }
+          ],
+          "engine_summaries": [
+            "FACTORY CHARACTER TESTS: 59 passed, 0 failed",
+            "FACTORY CHARACTER TESTS: 59 passed, 0 failed",
+            "FACTORY CHARACTER TESTS: 59 passed, 0 failed",
+            "GENERATED WORLD TESTS: 61 passed, 0 failed; 2414 physical samples",
+            "MULTILEVEL TESTS: 38 passed, 0 failed; 4542 support/headroom samples; support_failures=0"
+          ],
+          "python_skip_reasons": [
+            {
+              "test": "test_windows_case_alias_does_not_bypass_shared_document_protection (test_authoring.AuthoringTests.test_windows_case_alias_does_not_bypass_shared_document_protection)",
+              "reason": "case aliases are a Windows filesystem behavior"
+            },
+            {
+              "test": "test_windows_content_folder_case_alias_still_validates_candidate_bytes (test_authoring.AuthoringTests.test_windows_content_folder_case_alias_still_validates_candidate_bytes)",
+              "reason": "case aliases are a Windows filesystem behavior"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 37082142602,
+      "name": "Validate content and contracts",
+      "event": "push",
+      "head_sha": "611895b87244717b21c39de2b8f25e6459c330ff",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/bslizzle8552/domes-for-dots/actions/runs/37082142602",
+      "created_at": "2026-10-03T00:27:30Z",
+      "updated_at": "2026-10-03T00:31:25Z",
+      "jobs": [
+        {
+          "id": 111084775404,
+          "name": "content",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-03T00:27:34Z",
+          "completed_at": "2026-10-03T00:31:24Z"
+        }
+      ],
+      "log_evidence": [
+        {
+          "job_id": 111084775404,
+          "available": true,
+          "log_sha256": "3e03a5224772f30fdf4b916c5d982b2bb24b566e6e0d7c1a27bfe90e7a328617",
+          "python_suites": [
+            {
+              "discovered": 237,
+              "elapsed_seconds": 220.28,
+              "skipped": 2,
+              "passed": 235
+            }
+          ],
+          "engine_summaries": [],
+          "python_skip_reasons": [
+            {
+              "test": "test_windows_case_alias_does_not_bypass_shared_document_protection (test_authoring.AuthoringTests.test_windows_case_alias_does_not_bypass_shared_document_protection)",
+              "reason": "case aliases are a Windows filesystem behavior"
+            },
+            {
+              "test": "test_windows_content_folder_case_alias_still_validates_candidate_bytes (test_authoring.AuthoringTests.test_windows_content_folder_case_alias_still_validates_candidate_bytes)",
+              "reason": "case aliases are a Windows filesystem behavior"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 37082146086,
+      "name": "Validate content and contracts",
+      "event": "pull_request",
+      "head_sha": "611895b87244717b21c39de2b8f25e6459c330ff",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/bslizzle8552/domes-for-dots/actions/runs/37082146086",
+      "created_at": "2026-10-03T00:27:33Z",
+      "updated_at": "2026-10-03T00:31:24Z",
+      "jobs": [
+        {
+          "id": 111084786705,
+          "name": "content",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-10-03T00:27:37Z",
+          "completed_at": "2026-10-03T00:31:23Z"
+        }
+      ],
+      "log_evidence": [
+        {
+          "job_id": 111084786705,
+          "available": true,
+          "log_sha256": "039ee8d15bf885055e5b5b1e3e2ed00d3537bab3fcd3a224f0761c0a864b3340",
+          "python_suites": [
+            {
+              "discovered": 237,
+              "elapsed_seconds": 216.923,
+              "skipped": 2,
+              "passed": 235
+            }
+          ],
+          "engine_summaries": [],
+          "python_skip_reasons": [
+            {
+              "test": "test_windows_case_alias_does_not_bypass_shared_document_protection (test_authoring.AuthoringTests.test_windows_case_alias_does_not_bypass_shared_document_protection)",
+              "reason": "case aliases are a Windows filesystem behavior"
+            },
+            {
+              "test": "test_windows_content_folder_case_alias_still_validates_candidate_bytes (test_authoring.AuthoringTests.test_windows_content_folder_case_alias_still_validates_candidate_bytes)",
+              "reason": "case aliases are a Windows filesystem behavior"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scope": "Final implementation CI. Earlier exact cloud artifact/browser proof is retained separately; no new browser result is inferred from these CI checks."
+}
