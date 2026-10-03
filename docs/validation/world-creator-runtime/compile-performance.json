@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "python": "3.12.10",
+  "platform": "Windows",
+  "runs_per_world": 3,
+  "scope": "Same local process, sequential warm samples; in-memory compile from saved spec and character. Compiler includes static candidate validation. Package revalidation includes digests and deterministic recompilation. Excludes Character Factory, Godot import, composition, export, network and deployment. Not a product latency guarantee.",
+  "worlds": [
+    {
+      "world_id": "ember_foundry",
+      "compile_including_static_validation_msec": [
+        171.824,
+        167.007,
+        164.638
+      ],
+      "package_revalidation_including_recompilation_msec": [
+        181.072,
+        180.725,
+        188.148
+      ],
+      "compile_median_msec": 167.007,
+      "package_revalidation_median_msec": 181.072
+    },
+    {
+      "world_id": "lumen_observatory",
+      "compile_including_static_validation_msec": [
+        164.952,
+        150.73,
+        148.604
+      ],
+      "package_revalidation_including_recompilation_msec": [
+        169.679,
+        165.095,
+        167.736
+      ],
+      "compile_median_msec": 150.73,
+      "package_revalidation_median_msec": 167.736
+    },
+    {
+      "world_id": "verdant_courtyard",
+      "compile_including_static_validation_msec": [
+        166.283,
+        167.961,
+        164.802
+      ],
+      "package_revalidation_including_recompilation_msec": [
+        187.445,
+        182.671,
+        183.895
+      ],
+      "compile_median_msec": 166.283,
+      "package_revalidation_median_msec": 183.895
+    }
+  ]
+}

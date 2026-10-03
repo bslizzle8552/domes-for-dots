@@ -1,0 +1,382 @@
+{
+  "schema_version": 1,
+  "status": "succeeded",
+  "phase": "complete",
+  "started_at_utc": "2026-10-03T00:12:37.180073+00:00",
+  "provider": "github_actions",
+  "run_id": "37080816856",
+  "run_attempt": "1",
+  "github_event": "push",
+  "github_ref": "refs/heads/codex/autonomous-world-creator",
+  "source": {
+    "source_commit": "2c26332ec202901359bdd12870cc7c7bcedfb37e",
+    "source_dirty": false
+  },
+  "world_ids": [
+    "ember_foundry",
+    "lumen_observatory",
+    "verdant_courtyard"
+  ],
+  "durations_seconds": {
+    "ember_foundry_character": 0.463483,
+    "ember_foundry_compile": 0.810195,
+    "lumen_observatory_character": 0.454142,
+    "lumen_observatory_compile": 0.75154,
+    "verdant_courtyard_character": 0.452471,
+    "verdant_courtyard_compile": 0.811737,
+    "composition": 2.033997,
+    "staged_content_validation": 0.473371,
+    "engine_version": 0.075687,
+    "engine_import": 5.36285,
+    "engine_audit": 0.244803,
+    "ember_synthetic_motion": 0.244402,
+    "lumen_synthetic_motion": 0.244023,
+    "fern_synthetic_motion": 0.244995,
+    "generated_worlds": 0.525809,
+    "multilevel": 0.989872,
+    "web_export": 3.705822,
+    "total": 19.696919
+  },
+  "deployment": {
+    "status": "not_deployed",
+    "privacy": "requires_private_host",
+    "url": null
+  },
+  "browser_acceptance": "not_run_by_worker; requires separate browser evidence for these bytes",
+  "source_sha256": {
+    "godot/content/assets/cedar_atelier.json": "bcc1bc9a9af735ca1799146398f281e8fe88c196ba128293fb3b839b2808c123",
+    "godot/content/assets/lantern_archive.json": "7bb4c66021cf1502aab4d6b5852c23ec28f27349ad6f169eca4ec91f8821cda6",
+    "godot/content/assets/lantern_telescope.json": "c1eebd6411ef6b00d476ea9fd5f4ca8a5f615a10a19f37d5deaf4ae8dc16691e",
+    "godot/content/assets/tidal_observatory.json": "3f83cb66130c143655e2fab6ac1c6a89e4b1235c80c9de69b1f99bffd0347e19",
+    "godot/content/assets/wind_chime.json": "3f802693576ba63389625742c72eb9868d1c7fe572f78c8bd5b7365f31a5463c",
+    "godot/content/briefs/cedar_atelier.json": "ce76667b6515c669d1e44c111470c8cba3c5465de3a5375517abe932d3eab14d",
+    "godot/content/briefs/lantern_archive.json": "d875519ef75782ee80e7f1117f1d74b9da3225de789dcca3a0d56f55a180035d",
+    "godot/content/briefs/tidal_observatory.json": "13a3db4639edeceafcd5aacf8de0ef2577222fb8479545131c927d49ff64b1d9",
+    "godot/content/catalog.json": "e3e51bdd907636d2cef781c302284f2286614618854caa5f2f3e37b1a4e0f80e",
+    "godot/content/characters/lumen.json": "218ef7cee19a854ded4f427080015d83ccfdd0113e26d4cb01b3b3f4b2601486",
+    "godot/content/characters/moss.json": "15625aff182adcc73edb86872b0a4ac44af476e1a2c7b97fd103d9cc272f0bf5",
+    "godot/content/characters/nova.json": "0f4c7a1c4400f791db1f13fb2c926adf39338cec2ffe799fe3c82fc407390450",
+    "godot/content/connections.json": "8673d61e14242b1afd5d9ab778914fec3772274c1c9e6a799fbbf0c92726f0ef",
+    "godot/content/routines/cedar_atelier.json": "eba724008da2fddeb8ddba65053005b3e28346ca2e2a49651ccc5617f061963a",
+    "godot/content/routines/lantern_archive.json": "599713b6b6ba88e31bf73075aed99153ecb33bcaf77d88100c92c1544a6ee898",
+    "godot/content/routines/tidal_observatory.json": "bfa0a5acc6b656d426756b84344d6a9f523dc4a5dd86d5483a1459e1edca7e8e",
+    "godot/content/worlds/cedar_atelier.json": "8cb3af0813862a92a66baaaae9ad1bdf645766355b6c327dcd10a6066fa8345c",
+    "godot/content/worlds/lantern_archive.json": "5fe85d29818f2d461bada136bd3e7f7585c034164ddec984e9f325fb9b3ff1e0",
+    "godot/content/worlds/tidal_observatory.json": "b34f18376a968d986293acba0cbcb2c3125cb1b3f34c40f4b44c48b576622570",
+    "godot/export_presets.cfg": "3cd6b7bb66542d93610338a25d4cfed12c0a0051b3b5e3d6f1b69b1f2ab95839",
+    "godot/project.godot": "b4ed3c700573c3028c7c826482252a84937cf34ecabf86b52dab54d8318b9a49",
+    "godot/scenes/characters/articulated_robot.tscn": "a4a72d6b1ad312660aa4a578f73222f01ccc8064829d38e5c204c2cb06afb704",
+    "godot/scenes/characters/placeholder.tscn": "e7ca0f728e2966b952d27bfd59a6f826052953eb47c68a7ab7c41abc6d848b29",
+    "godot/scenes/main.tscn": "9534c30ec86b97db35babadd26bb0a7292a1eaa857fa111039c4247d8ef35524",
+    "godot/scripts/articulated_robot_visual.gd": "a6f4cca066c2e9ff886756e7fabec6d54960633067961fa8c89009f984008776",
+    "godot/scripts/articulated_robot_visual.gd.uid": "cde4d59ab52ac3d891c1779d793ba78c9b3fa7665915c3d53a0c946f662861b5",
+    "godot/scripts/asset_builder.gd": "da2b4f1d2e57c6d0da6103b1aad258b8e08ca77b230af85cd9cd71c733f45eca",
+    "godot/scripts/asset_builder.gd.uid": "9cb90c677ff9d6f8a1f3abd483c97a4ca3c015472eccfe0cca6c08efa963f1ea",
+    "godot/scripts/character_audit.gd": "70decad5108aa010f2ff16de1f85a40e901b428d21c61dfb9c633ae241b30f9f",
+    "godot/scripts/character_audit.gd.uid": "f4bbfacdc15793d0141dce86ff7f8c4cddb968580e4d70d230c865d85f4d7652",
+    "godot/scripts/character_motor.gd": "991e60be5fde86784157f66b6c6c912f1e865dc74e93174565b095967c50e015",
+    "godot/scripts/character_motor.gd.uid": "11b323869570099604bf22e47c681bfd07b4f9807dedefb71cb22709f0143c6e",
+    "godot/scripts/content_loader.gd": "580d1c0589466c6f5e1c37e60279615f230031e4363a88153bd6cc5e5c8ef779",
+    "godot/scripts/content_loader.gd.uid": "c85efe6ba7344d409455a13ae57a735ec1841c94051e2b3c314b4148dcc321c3",
+    "godot/scripts/core/activity_store.gd": "b54d29e952d2eb174c2fec93a05fe3f11c65d5e9242616c872bd4874f4521611",
+    "godot/scripts/core/activity_store.gd.uid": "347d31284ec0f718df364408601bc03fd7511301b2617ace2e1c314a6bacc6de",
+    "godot/scripts/core/resident_state.gd": "5ae4fc10970bcb5bfe99c9597a0d2c2724ccb2248d69c81187680134b284c611",
+    "godot/scripts/core/resident_state.gd.uid": "e8c340de0ac93f5226f2a1e5e405a743f0db39d875891c4b6b1226e1ce94493b",
+    "godot/scripts/core/simulation.gd": "335346b531643d9a374b5e697ad014faf218f60076e86fb259c9fca602611859",
+    "godot/scripts/core/simulation.gd.uid": "ae569ae99ccc9c43c0edcde166864e8f9b61bee9d84cedd4683c00787406be16",
+    "godot/scripts/core/state_store.gd": "68c0a55ef00233ac38dca0cf74455c6bf6900679b24922cea2b279f8213e9fca",
+    "godot/scripts/core/state_store.gd.uid": "6df1e8a7ec739da17b2624a7326ddf2022306cf2f22226323c3d972ba22e1a3f",
+    "godot/scripts/main.gd": "a4c4dfdcd768266470081e6e3229ae0207f20ac8ba0d80710199c11f5b249c1b",
+    "godot/scripts/main.gd.uid": "d6abbed881759fecb1f9d108b8764bc031688373521e2e79b76787ee86f5fb84",
+    "godot/scripts/navigation_surface.gd": "04d18289552533f6a39852394040f8982c7dfa41a2877704765ee4b3e93b9f90",
+    "godot/scripts/navigation_surface.gd.uid": "07fb9bf933e65a0f6b9e3e3d368ce088e74ec93c90954be9d54480ed0a77d64c",
+    "godot/scripts/placeholder_visual.gd": "aa24be16932d8e78287c6183763f160887ad76c0c5ac426f4dec8f29ffd56fc1",
+    "godot/scripts/placeholder_visual.gd.uid": "d41d4518bf11e2d9b27161cdf469b61be4c8e676f017b17360e76458fd3828fd",
+    "godot/scripts/world_ui.gd": "5910800e456e003598e22bd101653f277688c786f77a63a1824e593fc3fe5974",
+    "godot/scripts/world_ui.gd.uid": "1a318bd954b642e262673008fd0e44d9a81bc21dd079b77a79eddf7d369fa98e",
+    "godot/tests/fixtures/replacement.tscn": "d2ebc57bd68a72c7e258de5dc930f58038d35f173863d2355ab0afa783d2ea4c",
+    "godot/tests/test_character.gd": "caa8f44783cf6db9e100d2a4846a8f9820266771916dd9a137aa52fb85674b96",
+    "godot/tests/test_character.gd.uid": "b79cc154cb8c6f6142c9b01ef3daf8bac617260e826accb05583057bbc419665",
+    "godot/tests/test_core.gd": "4ea319733d9f7cd21ab3b0ce29595535ce32f7820b2e89c7023cd9baf0115435",
+    "godot/tests/test_core.gd.uid": "3b13c0ba70cb66f8ccdb612b499dc064c6da03655f1c2d6d146636bfbb4d711d",
+    "godot/tests/test_factory_character.gd": "de45965e5f3ceb501a32e9ed43e5a18c4109c0fba7a790a04410ad92e3222c71",
+    "godot/tests/test_factory_character.gd.uid": "91551b73339962ef6d6b8c69a6b8ee6ca7daa8d312e9eb2f390bf50189df6cae",
+    "godot/tests/test_generated_worlds.gd": "36b27c80a1364f949614dba94faafb40bac11045f7ba93625136de8f8abb7890",
+    "godot/tests/test_generated_worlds.gd.uid": "a2aa60113c079b33e9e8a715dd8b2f3af7d9d62b255bab401e374cfece64a6c3",
+    "godot/tests/test_multilevel.gd": "700ab19aae32261b5f7539354ee51898282457f8752c80eeea0925b975eb7e05",
+    "godot/tests/test_multilevel.gd.uid": "1a201c3ae330be3916ad80a2c1ef1f70d988ba4ef2fdae02eb8e0104e420f9ae",
+    "godot/tests/test_runtime.gd": "b628815cb3110fc3f3c79f5da1aa2a4fc8ad6fb9a2a9cfbf11e32076ac503f3f",
+    "godot/tests/test_runtime.gd.uid": "b0582f12edd1cf1055e3a45ae168bf077e05ae65b60bba5b817a048f35786cd2",
+    "godot/tools/audit_characters.gd": "9edd98a87ff26562d505bd21581e15aa292d633550c0ff160c84b677e3865ee6",
+    "godot/tools/audit_characters.gd.uid": "e08ca45a333b2a5c7ff466ec4ae7b37e478e04fd2bdb2c50fc199318c458c799",
+    "tools/build.py": "06022c7eed1d5bb7d8b65a83845266a3804dd6a07e1a0ffe7e81500d2746a7b4",
+    "tools/character_backends.py": "ef5348bc1d9596c38fd1c1010f45cd54a8d91ca73f84d1511d81ea7d5c950f21",
+    "tools/character_contract.py": "c309d6d7690214dcdbe21ec50b8f9811e354154da7c34242e097d643eb9588c2",
+    "tools/character_factory.py": "9ca46d4573c66a3765b6c3bb329ba38d5bee3d72ca28e5bf3a0514df187416ef",
+    "tools/character_package.py": "c596b6610db6a9c5ead70f6e650e427135b0cf949f0fc72678b01bdcbdfff364",
+    "tools/character_request.py": "2d1705cb845d094d72fb783faaea9b82d8a1868ba352b3474e0ff0d380530210",
+    "tools/check_release.py": "e093579355e486efe8a95a09cefc0ea7d15e17f053c705fff96f7b72b37472d1",
+    "tools/cloud_worker.py": "b4aa612c835db17ce09054540d324c05aef66964a81861020a2152b164b01ca0",
+    "tools/factory_glb.py": "d79f2f867c2cbaaf1797c5c7ec7dcea162c1c955424fe2fb70dd05469d1a75e0",
+    "tools/package_release.py": "4b2c9bb1d5b977616926a209951fd349f075fdf0ca5ecdcd82f3e35b2ac64a66",
+    "tools/procedural_character.py": "1248b904420a433546885e8122f3ae7c640fcef637e4b2fb9cc605a1330d363c",
+    "tools/publish_pages.py": "fe824d933717748f9751042e09fa6accbaba0d1b96d727eeeefcb215452bf4be",
+    "tools/serve.py": "5802cf655163e7696fd5dfa6178883a191ac389a52a599f61018bac123297a85",
+    "tools/setup_cloud_godot.py": "fe6654448650a27f0b4dec68c7c684af5714a66cb1e3586c5553679457ced28c",
+    "tools/validate_content.py": "46300c793aca6a3b25ccee587911d68c70d70343ce54b0917ef361f169d99de6",
+    "tools/world_author.py": "95525ab8cf969b3e5244a71bb20001d3440c2027881f1064ebb3e2ca9275ccd8",
+    "tools/world_compiler.py": "6dc30582cdb26971af27e2daa7e631e7bcc1d57795ffb8642cf046e6071e97e3",
+    "tools/world_composer.py": "c1edd726d5d1ab41b565c39b97b8202069634ae6b84c3682ab3ae0de7a39d824",
+    "tools/world_creator_worker.py": "92700e0649ce105a08d1dc794a10a67453e7a923479f13fe6c2032950886c93c",
+    "tools/world_intent.py": "152f475ee663e1915a7e35f5e34abbd0548f329e282a1865436ebb7778af2a2f",
+    "tools/world_navigation.py": "206987566f3332e382ad1768c476b0099eeb108f4762f945f355166461f26a90",
+    "tools/world_package.py": "e97f20405c239d6e00091256b0297094ca4b843272902a7e2e04ce505946da8a",
+    "tools/world_revision_acceptance.py": "d8452584c1d7c90747532163622f6da26800a5f2d8097a93c92c94ba7f34ec15",
+    "tools/world_revision_guards.py": "6499a4dd7199557e4668dc0faedd8694b79cda979c6a1a71bd9abd1d2082b523",
+    "tools/world_revisions.py": "f62bfb3e2f5d107f3f7aaa4c957c8dc7cc0d3dd5b138ed155f112dcae70aced2",
+    "tools/world_site_prepare.py": "597cf95d76c9c475c17bfd7055876f6054c33e812e87f855905de501277f44d8",
+    "schemas/activity.schema.json": "dfba78c3028079f80ca08a22177b15217000f0d5ab06992e3858cc89a6ce7470",
+    "schemas/asset.schema.json": "80620d6be2c31768e3d9cba1be70781f27992ea77b5fe6406246350291b1db09",
+    "schemas/brief.schema.json": "f1e3ca8923758c0074ae06e9644a2e32c61434c3a9080d3340373149b1f71671",
+    "schemas/catalog.schema.json": "38e18425a26256851dad6104283a06b0e3e54835c1cf51a2fa20ecd9c16ef3cf",
+    "schemas/change-request.schema.json": "2fa291d5b029bd4007cdfe46f0117cfa9cf7d0514befd62d50bad721b0ade370",
+    "schemas/character-interview.schema.json": "bd4e331ef38b4dd01e9065fbe017301e275a3b30cdb7e75459ade0be7ab82d14",
+    "schemas/character-job.schema.json": "70fd53da8a5d14bfc4a0664b5ddffb5a340fa5cfff887855f039cd6840495256",
+    "schemas/character-package.schema.json": "26e8129466b6eb64ca31e4cc5a57fe3bbd461d2f8bcba0f5192850067c732447",
+    "schemas/character-spec.schema.json": "7b378a37ec6fbfea1b55e2a2ecafc9b9f58e8e39f8fd3b7761b16c7b166f7b8f",
+    "schemas/character.schema.json": "8aabfec0e54e2d9307ee87e919246cb5452968849368c58c037bcb4ced3c46bb",
+    "schemas/connections.schema.json": "8068a3cab019090423c11430e46f0785bf52d8b8fa22014dd56c6de7f8e22070",
+    "schemas/owner-policy.schema.json": "76448e304f775b3cc79d1fa21065fd151c4db3c3897575d7760ae6a3a1c8f0d9",
+    "schemas/procedural-rigid-skin-spec.schema.json": "d14aa8d4da3d80f4e0bb7131f375c5ce40f8bd2bfdae522c21e29b1c83d3a978",
+    "schemas/routine.schema.json": "62fb8adb032ff3ea4e781ab29d8cc36276ecbf9e93e1bf151bf62b48dec44915",
+    "schemas/semantic-grid-world-spec.schema.json": "be9fe609752884d2473272a70b2a7b64406fe312e296294b2ce6c85b035d35c4",
+    "schemas/state.schema.json": "109916eab2118ef6802ae71a2a24459620ef378c45161c944d0ada007b6dcf06",
+    "schemas/world-intent.schema.json": "3e2d9ec79b1ae69885637a78c37dd742b887706926ef26dcba0fa895bdba5b6a",
+    "schemas/world-package.schema.json": "17ec0e961458599adcdaa3ec46f389fce3591311b46e53deb5d0794e1a752aa3",
+    "schemas/world-spec.schema.json": "f48451145f64575de6da2e5fec6018fd6ac483fb9e7c1ff9b65f5556e6096da2",
+    "schemas/world.schema.json": "b1a247bc0caaacc038274cb4bf374965b920535f123c5ba788d16faaa4e31263",
+    "examples/world_creator/ember_foundry.intent.json": "fd681dd3fe7d8b7e1e608aec4e9032a30654975e537cf866c54514216080b617",
+    "examples/world_creator/lumen_observatory.intent.json": "7df8f0c12b34e22fb010709138fff71d560db01c875466531d34aadb813fa43c",
+    "examples/world_creator/verdant_courtyard.intent.json": "1d2ac4b813c2671a0d3ebcbd03d5fff334933d8b3fc26786c76fb74c6d3d1e5b",
+    "examples/world_creator/ember_foundry.character-spec.json": "50c854e28ed138198735de7a869b20a739c9baefb6a6b65391cb9940c277c958",
+    "examples/world_creator/lumen_observatory.character-spec.json": "bd951e8b0d30247ab3954979e5681cabd08f3c4810376b841667a5a42ff1b89e",
+    "examples/world_creator/verdant_courtyard.character-spec.json": "fe45964cae5e114c698d28385c746d006500194622398ed1031215103a203c77"
+  },
+  "package_validation": [
+    {
+      "world_id": "ember_foundry",
+      "character": {
+        "schema_version": 1,
+        "ok": true,
+        "errors": [],
+        "checks": [
+          "schemas_and_digests",
+          "real_skin_and_weighted_geometry",
+          "semantic_clips_and_in_place_motion"
+        ],
+        "scope": "Generic envelope, identities, bounded files/digests and runtime manifest, followed by registered backend-specific specification/asset checks. Engine import, visual fit and browser playback require separate acceptance.",
+        "backend": "procedural_rigid_skin_v1",
+        "validator": "procedural_rigid_skin_v1",
+        "joint_count": 18,
+        "vertex_count": 480,
+        "clip_count": 12
+      },
+      "world": {
+        "schema_version": 1,
+        "ok": true,
+        "errors": [],
+        "checks": [
+          "bounded_local_files",
+          "complete_hashes",
+          "identity",
+          "strict_spec",
+          "exact_recompilation",
+          "functional_validation"
+        ],
+        "scope": "Static package/registered compiler acceptance only; browser and host evidence are separate.",
+        "world_id": "ember_foundry",
+        "compiler": "semantic_grid_v1",
+        "validator": "semantic_grid_validator_v1"
+      },
+      "world_package_sha256": "b590e6bb4dd1c5b8de50c8b75c308049c57dcdb4bb97f6265611992caa447f0c",
+      "character_package_sha256": "536719995495b33065129d7dca6b795c9cda6dfdc24e042d20e85bbd72dfde29"
+    },
+    {
+      "world_id": "lumen_observatory",
+      "character": {
+        "schema_version": 1,
+        "ok": true,
+        "errors": [],
+        "checks": [
+          "schemas_and_digests",
+          "real_skin_and_weighted_geometry",
+          "semantic_clips_and_in_place_motion"
+        ],
+        "scope": "Generic envelope, identities, bounded files/digests and runtime manifest, followed by registered backend-specific specification/asset checks. Engine import, visual fit and browser playback require separate acceptance.",
+        "backend": "procedural_rigid_skin_v1",
+        "validator": "procedural_rigid_skin_v1",
+        "joint_count": 18,
+        "vertex_count": 480,
+        "clip_count": 12
+      },
+      "world": {
+        "schema_version": 1,
+        "ok": true,
+        "errors": [],
+        "checks": [
+          "bounded_local_files",
+          "complete_hashes",
+          "identity",
+          "strict_spec",
+          "exact_recompilation",
+          "functional_validation"
+        ],
+        "scope": "Static package/registered compiler acceptance only; browser and host evidence are separate.",
+        "world_id": "lumen_observatory",
+        "compiler": "semantic_grid_v1",
+        "validator": "semantic_grid_validator_v1"
+      },
+      "world_package_sha256": "82a911a57b1a669046685dfaea8070f905cffcdd2197ce48bf11513d2a8d4021",
+      "character_package_sha256": "d3e4f12e8a952245cafa374b1766be0e4d2dac5edcaaf56bcadca05f2c357c50"
+    },
+    {
+      "world_id": "verdant_courtyard",
+      "character": {
+        "schema_version": 1,
+        "ok": true,
+        "errors": [],
+        "checks": [
+          "schemas_and_digests",
+          "real_skin_and_weighted_geometry",
+          "semantic_clips_and_in_place_motion"
+        ],
+        "scope": "Generic envelope, identities, bounded files/digests and runtime manifest, followed by registered backend-specific specification/asset checks. Engine import, visual fit and browser playback require separate acceptance.",
+        "backend": "procedural_rigid_skin_v1",
+        "validator": "procedural_rigid_skin_v1",
+        "joint_count": 18,
+        "vertex_count": 480,
+        "clip_count": 12
+      },
+      "world": {
+        "schema_version": 1,
+        "ok": true,
+        "errors": [],
+        "checks": [
+          "bounded_local_files",
+          "complete_hashes",
+          "identity",
+          "strict_spec",
+          "exact_recompilation",
+          "functional_validation"
+        ],
+        "scope": "Static package/registered compiler acceptance only; browser and host evidence are separate.",
+        "world_id": "verdant_courtyard",
+        "compiler": "semantic_grid_v1",
+        "validator": "semantic_grid_validator_v1"
+      },
+      "world_package_sha256": "62490a92b67fe1a3d8922148c28797cab1c3a21935b999085c22525601f283f3",
+      "character_package_sha256": "271e80bc1a8aebf5681948a7674cb7315988d576fa6601a884bf09f92b9e1517"
+    }
+  ],
+  "engine": {
+    "version": "4.5.1.stable.official.f62fdbde1",
+    "binary_sha256": "db07cae7de644278a1884d4552bdf2bca3f5d30131b18faf3a0c4d730080b199",
+    "export_profile": "Compatibility Web, single-threaded"
+  },
+  "motion_acceptance": [
+    {
+      "character_id": "ember_synthetic",
+      "status": "passed",
+      "contract": {
+        "script": "res://tests/test_factory_character.gd",
+        "success_pattern": "FACTORY CHARACTER TESTS:\\s*\\d+ passed,\\s*0 failed"
+      }
+    },
+    {
+      "character_id": "lumen_synthetic",
+      "status": "passed",
+      "contract": {
+        "script": "res://tests/test_factory_character.gd",
+        "success_pattern": "FACTORY CHARACTER TESTS:\\s*\\d+ passed,\\s*0 failed"
+      }
+    },
+    {
+      "character_id": "fern_synthetic",
+      "status": "passed",
+      "contract": {
+        "script": "res://tests/test_factory_character.gd",
+        "success_pattern": "FACTORY CHARACTER TESTS:\\s*\\d+ passed,\\s*0 failed"
+      }
+    }
+  ],
+  "generated_worlds": {
+    "status": "passed",
+    "summary": "GENERATED WORLD TESTS: 61 passed, 0 failed; 2414 physical samples"
+  },
+  "generated_world_evidence": {
+    "failed": 0,
+    "passed": 61,
+    "physical_samples": 2414,
+    "prop_samples": 8799,
+    "worlds": [
+      {
+        "acceptance_msec": 33,
+        "navigation_build_msec": 3,
+        "station_count": 4,
+        "station_pairs": 16,
+        "world_id": "ember_foundry"
+      },
+      {
+        "acceptance_msec": 134,
+        "navigation_build_msec": 1,
+        "station_count": 3,
+        "station_pairs": 9,
+        "world_id": "lumen_observatory"
+      },
+      {
+        "acceptance_msec": 37,
+        "navigation_build_msec": 2,
+        "station_count": 4,
+        "station_pairs": 16,
+        "world_id": "verdant_courtyard"
+      }
+    ]
+  },
+  "multilevel": {
+    "status": "passed",
+    "summary": "MULTILEVEL TESTS: 38 passed, 0 failed; 4542 support/headroom samples; support_failures=0"
+  },
+  "web_sha256": {
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "LICENSE": "8ce2d182054fced04c24792d9c9a92e4ade1c9aa8a9b00edc17a1bfdd4d43ad3",
+    "README.txt": "f4898816c6f606fc476d552309524d1cd44dac3403528456c6babd4b9528917b",
+    "docs/GODOT_COPYRIGHT.txt": "2039020f520ebd55592070ede2ef38dfbc28a6550140008da004143872789e5d",
+    "docs/GODOT_LICENSE.txt": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80",
+    "docs/THIRD_PARTY_NOTICES.md": "7ebfd273d647472b7f804ae9f870cbe7ffaf9ab18efedd128bd20dda05a1ab5f",
+    "index.apple-touch-icon.png": "9b374ecbc8558f480421e646f38aaa8a69d5b1d65ff7b48d0735da214c46773a",
+    "index.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+    "index.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+    "index.html": "5aef2631806ea7216a9fca2b028a62e48503791c6af95299c3807858af2b53dc",
+    "index.icon.png": "08808dd5397e9a502cb3624944151f87a9705b5b66b5c365c5ca4c6ab51525f5",
+    "index.js": "8a7c7d57f7da69bb71da9de302480b87e4c7ecb467ce643665b4a288683cd18f",
+    "index.pck": "3e70ae201a8382d48c99f05d7e15e474769593f8740ef1a611c272168f0ec996",
+    "index.png": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e",
+    "index.wasm": "6498359ba889796a0d95a2f71113ac184badc0f2d84cf28f4103c7e399d2d547"
+  },
+  "web_bytes": 38841021,
+  "source_unchanged": true,
+  "receipt_selection": {
+    "original_job_sha256": "5f2e1f9c1b8e0a35582fb8686d2103e59fc6768e1c392dea13aa8ce91bea5ac8",
+    "omitted_fields": [
+      "events",
+      "composition",
+      "engine_audit"
+    ],
+    "note": "Full unmodified job receipt remains in the GitHub artifact. Browser acceptance below is separately recorded."
+  },
+  "motion_test_summaries": {
+    "ember_synthetic_motion": "FACTORY CHARACTER TESTS: 59 passed, 0 failed",
+    "fern_synthetic_motion": "FACTORY CHARACTER TESTS: 59 passed, 0 failed",
+    "lumen_synthetic_motion": "FACTORY CHARACTER TESTS: 59 passed, 0 failed"
+  }
+}

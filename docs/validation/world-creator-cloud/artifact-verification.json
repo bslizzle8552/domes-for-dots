@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "run_id": 37080816856,
+  "run_url": "https://github.com/bslizzle8552/domes-for-dots/actions/runs/37080816856",
+  "head_sha": "2c26332ec202901359bdd12870cc7c7bcedfb37e",
+  "event": "push",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-10-03T00:09:04Z",
+  "updated_at": "2026-10-03T00:13:04Z",
+  "artifacts": [
+    {
+      "name": "world-creator-evidence",
+      "id": 11259320569,
+      "zip_bytes": 96940,
+      "zip_sha256": "9fe14d7e1fd5516b9d6e590ffc261730189f2924bc9039d27542f8fee12491fc",
+      "api_digest": "sha256:9fe14d7e1fd5516b9d6e590ffc261730189f2924bc9039d27542f8fee12491fc",
+      "expanded_bytes": 870993
+    },
+    {
+      "name": "three-worlds-web",
+      "id": 11259190886,
+      "zip_bytes": 9662029,
+      "zip_sha256": "76b020c31f469a06c05c9de10fdea533dcc7b5fa685e0d60120e8721e9818064",
+      "api_digest": "sha256:76b020c31f469a06c05c9de10fdea533dcc7b5fa685e0d60120e8721e9818064",
+      "expanded_bytes": 38841021
+    }
+  ],
+  "web_inventory_verified": true,
+  "web_file_count": 15,
+  "web_bytes": 38841021,
+  "job_receipt_sha256": "5f2e1f9c1b8e0a35582fb8686d2103e59fc6768e1c392dea13aa8ce91bea5ac8",
+  "package_revalidation": [
+    {
+      "world_id": "ember_foundry",
+      "kind": "world",
+      "ok": true
+    },
+    {
+      "world_id": "ember_foundry",
+      "kind": "character",
+      "ok": true
+    },
+    {
+      "world_id": "lumen_observatory",
+      "kind": "world",
+      "ok": true
+    },
+    {
+      "world_id": "lumen_observatory",
+      "kind": "character",
+      "ok": true
+    },
+    {
+      "world_id": "verdant_courtyard",
+      "kind": "world",
+      "ok": true
+    },
+    {
+      "world_id": "verdant_courtyard",
+      "kind": "character",
+      "ok": true
+    }
+  ]
+}

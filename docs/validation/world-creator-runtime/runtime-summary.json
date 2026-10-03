@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "engine": "Godot 4.5.1.stable.official.f62fdbde1",
+  "primary_native_suites": {
+    "core": 92,
+    "existing_runtime": 200,
+    "existing_character": 43,
+    "multilevel": 38,
+    "generated_world_navigation": 61,
+    "compiled_character_motion": {
+      "ember_synthetic": 59,
+      "lumen_synthetic": 59,
+      "fern_synthetic": 59
+    }
+  },
+  "primary_native_checks": 611,
+  "additional_approved_aster_motion_regression": 59,
+  "sampling": {
+    "existing_runtime_prop_samples": 21534,
+    "multilevel_support_headroom_samples": 4542,
+    "generated_support_headroom_samples": 2414,
+    "generated_prop_samples": 8799
+  },
+  "compiled_worlds": {
+    "ember_foundry": {
+      "station_pairs": 16,
+      "stations": 4
+    },
+    "lumen_observatory": {
+      "station_pairs": 9,
+      "stations": 3
+    },
+    "verdant_courtyard": {
+      "station_pairs": 16,
+      "stations": 4
+    }
+  },
+  "browser": {
+    "existing_world_regression_checks": 37,
+    "compiled_three_world_checks": 46,
+    "compiled_receipt": "artifacts/world_creator/browser/acceptance.json",
+    "isolated_ramp_smoke_checks": 15,
+    "isolated_ramp_receipt": "artifacts/runtime-ramp-browser/browser/acceptance.json"
+  },
+  "transition": "straight_ramp",
+  "supported_directions": [
+    "+X",
+    "-X",
+    "+Z",
+    "-Z"
+  ],
+  "limitations": [
+    "Station templates prove navigation, facing and supported animation, not IK, contact, seat fit or real work.",
+    "Only the bounded straight ramp is implemented; no staircase, elevator, moving support or arbitrary terrain.",
+    "Reload intentionally respawns on declared safe spawn while preserving durable timeline and owner preferences.",
+    "Browser acceptance is desktop Chromium only.",
+    "Browser RAF and JS heap observations are not total engine frame/GPU/memory profiling."
+  ],
+  "export_note": "Final corrected export accepted in desktop Chromium: exact engine/PCK delivered, browser adapter selected,3worlds46checks.",
+  "export_files": {
+    "index.apple-touch-icon.png": {
+      "bytes": 11952,
+      "sha256": "9b374ecbc8558f480421e646f38aaa8a69d5b1d65ff7b48d0735da214c46773a"
+    },
+    "index.audio.position.worklet.js": {
+      "bytes": 2973,
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+    },
+    "index.audio.worklet.js": {
+      "bytes": 7298,
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+    },
+    "index.html": {
+      "bytes": 5444,
+      "sha256": "eae10ffe330ad8e03f90898055638611cf94d129c073d03e37a7220c27ddb757"
+    },
+    "index.icon.png": {
+      "bytes": 5702,
+      "sha256": "08808dd5397e9a502cb3624944151f87a9705b5b66b5c365c5ca4c6ab51525f5"
+    },
+    "index.js": {
+      "bytes": 305185,
+      "sha256": "8a7c7d57f7da69bb71da9de302480b87e4c7ecb467ce643665b4a288683cd18f"
+    },
+    "index.pck": {
+      "bytes": 347508,
+      "sha256": "55623c1db8c1e4745c44b964ceafa6785790c3c8b1685fe2ca334a7260ce1afe"
+    },
+    "index.png": {
+      "bytes": 21443,
+      "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+    },
+    "index.wasm": {
+      "bytes": 38034280,
+      "sha256": "6498359ba889796a0d95a2f71113ac184badc0f2d84cf28f4103c7e399d2d547"
+    }
+  },
+  "export_total_bytes": 38741785
+}

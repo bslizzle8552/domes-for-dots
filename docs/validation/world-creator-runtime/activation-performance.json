@@ -1,0 +1,21 @@
+{
+  "initial_engine_startup_msec": 3848.0493,
+  "worlds": [
+    {
+      "world_id": "lumen_observatory",
+      "world_activation_from_loaded_engine_msec": 205.61260000000038,
+      "navigation_mesh_build_msec": 3
+    },
+    {
+      "world_id": "verdant_courtyard",
+      "world_activation_from_loaded_engine_msec": 159.64649999999983,
+      "navigation_mesh_build_msec": 2
+    },
+    {
+      "world_id": "ember_foundry",
+      "world_activation_from_loaded_engine_msec": 145.16400000000067,
+      "navigation_mesh_build_msec": 3
+    }
+  ],
+  "method": "Fresh desktop Chromium; first engine startup plus sequential catalog activation measured through exposed ready snapshot. Not device performance guarantees."
+}
