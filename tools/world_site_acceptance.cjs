@@ -8,7 +8,13 @@ const out=path.resolve(process.env.DOMES_SITE_OUTPUT||'artifacts/world-site-acce
 const checks=[],errors=[];fs.mkdirSync(out,{recursive:true});
 const check=(name,condition)=>{assert.ok(condition,name);checks.push(name);console.log('PASS '+name);};
 async function main(){
-  let secret='';if(process.env.DOMES_SITE_READ_STDIN==='1'){console.log('Ready for private Site credential JSON on stdin (input is hidden).');secret=await new Promise(resolve=>{let raw='';process.stdin.on('data',chunk=>{raw+=chunk;if(raw.includes('\n')){resolve(JSON.parse(raw.trim()).token||'');process.stdin.pause();}});});}
+  let secret='';if(process.env.DOMES_SITE_READ_STDIN==='1'){
+    const terminal=process.stdin.isTTY;if(terminal)process.stdin.setRawMode(true);
+    console.log('Ready for private Site credential JSON on stdin (input is hidden).');
+    secret=await new Promise((resolve,reject)=>{let raw='';const done=()=>{process.stdin.removeListener('data',read);if(terminal)process.stdin.setRawMode(false);process.stdin.pause();};
+      const read=chunk=>{raw+=chunk;if(raw.includes('\n')||raw.includes('\r')){done();try{resolve(JSON.parse(raw.trim()).token||'');}catch{reject(new Error('Invalid credential input'));}}};
+      process.stdin.setEncoding('utf8');process.stdin.on('data',read);process.stdin.resume();});
+  }
   const auth=secret?{'OAI-Sites-Authorization':'Bearer '+secret}:{};
   async function api(body,extra={}){const response=await fetch(new URL('/api/world',base),{method:body?'POST':'GET',redirect:'manual',headers:{...auth,...(body?{'Content-Type':'application/json'}:{}),...extra},body:body?JSON.stringify(body):undefined});let value;try{value=await response.json();}catch{if(response.status>=400)value={error:'request_rejected'};else throw new Error('Expected private API JSON, received '+response.status);}return {status:response.status,value};}
   if(secret){const anonymous=await fetch(new URL('/api/world',base),{redirect:'manual'});check('anonymous API access is gated',anonymous.status!==200);}
@@ -23,7 +29,17 @@ async function main(){
   check('epoch rewrite rejected',(await api({operation:'save',expected_revision:active.state.revision,state:{...active.state,routine_epoch:epoch+1}})).status===400);
   check('unregistered code-lane command rejected',(await api({operation:'execute',code:'never executed'})).status===400);
   const browser=await chromium.launch({headless:true,channel:'chrome',args:['--enable-webgl','--ignore-gpu-blocklist']});
-  async function context(){const ctx=await browser.newContext({viewport:{width:1440,height:1000}});if(secret)await ctx.route('**/*',async route=>{const url=new URL(route.request().url());await route.continue({headers:{...route.request().headers(),...(url.origin===base.origin?auth:{})}});});return ctx;}
+  async function context(){const ctx=await browser.newContext({viewport:{width:1440,height:1000}});if(secret)await ctx.route('**/*',async route=>{const url=new URL(route.request().url()),headers={...route.request().headers()};delete headers['oai-sites-authorization'];if(url.origin===base.origin)Object.assign(headers,auth);await route.continue({headers});});
+    // Chromium does not route audio-worklet requests through Playwright's page
+    // interceptor. Authenticate only these reviewed same-origin modules with a
+    // normal fetch; execute identical bytes via Blob. No owner cookies assumed.
+    if(secret)await ctx.addInitScript(()=>{const original=Worklet.prototype.addModule;
+      Worklet.prototype.addModule=async function(url,options){const target=new URL(url,location.href);
+        if(target.origin!==location.origin||!/^\/world\/index\.audio\.(position\.)?worklet\.js$/.test(target.pathname))return original.call(this,url,options);
+        const response=await fetch(target,{redirect:'error'});if(!response.ok)throw new Error('Authenticated worklet fetch failed');
+        const blob=URL.createObjectURL(new Blob([await response.arrayBuffer()],{type:'text/javascript'}));
+        try{return await original.call(this,blob,options);}finally{URL.revokeObjectURL(blob);}};});
+    return ctx;}
   const ctx=await context(),page=await ctx.newPage();
   page.on('pageerror',error=>errors.push(error.message));page.on('console',msg=>{if(msg.type()==='error'||/SCRIPT ERROR|ERROR:/.test(msg.text()))errors.push(msg.text());});
   const ready=async()=>{await page.waitForFunction(()=>window.domesSnapshot?.ready&&window.domesSnapshot.world_id==='lumen_observatory',null,{timeout:90000});};
@@ -31,6 +47,7 @@ async function main(){
   const startupMs=Date.now()-started;
   const snapshot=await page.evaluate(()=>({runtime:window.domesSnapshot,host:window.domesHostSnapshot,objects:window.domesHostedBundle.world.objects.length}));
   check('Godot uses the approved same-origin generated bundle',snapshot.runtime.world_id===snapshot.host.world_id && snapshot.runtime.object_count===snapshot.objects && snapshot.runtime.structure_revision===snapshot.host.structure_revision);
+  check('private world picker exposes only its registered world',JSON.stringify(snapshot.runtime.catalog_world_ids)===JSON.stringify([snapshot.host.world_id]));
   check('runtime reads durable D1 epoch',snapshot.runtime.epoch===epoch&&snapshot.runtime.save_status.includes('Private Site'));
   check('character loads actual imported animation clips',snapshot.runtime.visual?.bone_count===18&&typeof snapshot.runtime.visual?.clip==='string');
   const currentMarkers=snapshot.runtime.show_markers;
@@ -57,6 +74,12 @@ async function main(){
   if(after.available_revisions.length>1){
     const latest=Math.max(...after.available_revisions),baseRevision=after.structure_revision,serial=after.activation_serial;
     if(latest!==baseRevision){
+      const candidate=(await api({operation:'inspect_revision',target_revision:latest})).value.bundle;
+      const candidateUrl=new URL(candidate.bundle_url,base).href;
+      await page.route(candidateUrl,route=>route.fulfill({status:200,contentType:'application/json',body:'{}'}));
+      const rejected=await page.evaluate(async target=>{try{await window.domesChangeRevision(target);return false;}catch(error){return error.message==='World data hash mismatch';}},latest);
+      await page.unroute(candidateUrl);
+      check('invalid downloaded candidate leaves active structure unchanged',rejected&&(await api()).value.structure_revision===baseRevision);
       const activated=await api({operation:'activate',expected_revision:baseRevision,expected_serial:serial,target_revision:latest});check('validated structural revision activates atomically',activated.status===200&&activated.value.structure_revision===latest);
       check('stale structural candidate rejected',(await api({operation:'activate',expected_revision:baseRevision,expected_serial:serial,target_revision:latest})).status===409);
       await page.reload();await ready();const revised=await page.evaluate(()=>({host:window.domesHostSnapshot,objects:window.domesHostedBundle.world.objects.length,world:window.domesHostedBundle.world}));
@@ -73,7 +96,7 @@ async function main(){
   await page.evaluate(value=>{window.domesCommand('markers',String(value));window.domesCommand('save');},currentMarkers);
   await page.waitForFunction(()=>window.domesSnapshot.save_status.includes('saved revision'),null,{timeout:20000});
   check('no browser or Godot errors',errors.length===0);
-  const receipt={status:'PASS',url:base.href,authentication:secret?'private scoped service access (not owner SIWC UI proof)':'local Miniflare development',browser:browser.version(),checks,errors,startup_ms:startupMs,pck_sha256:pckHash,epoch,persistence:'D1',state_revision:(await api()).value.state.revision};
+  const receipt={status:'PASS',url:base.href,authentication:secret?'private scoped service access (not owner SIWC UI proof)':'local Miniflare development',service_worklet_transport:secret?'same-origin authenticated fetch to Blob for headless service bypass':'standard',browser:browser.version(),checks,errors,startup_ms:startupMs,pck_sha256:pckHash,epoch,persistence:'D1',state_revision:(await api()).value.state.revision};
   fs.writeFileSync(path.join(out,'acceptance.json'),JSON.stringify(receipt,null,2)+'\n');
   await browser.close();console.log('SITE ACCEPTANCE: '+checks.length+' passed');
 }
