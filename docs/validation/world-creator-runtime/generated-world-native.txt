@@ -1,0 +1,7 @@
+Godot Engine v4.5.1.stable.official.f62fdbde1 - https://godotengine.org
+
+WORLD_READY ember_foundry stations=4 cells=556
+WORLD_READY lumen_observatory stations=3 cells=332
+WORLD_READY verdant_courtyard stations=4 cells=556
+GENERATED_WORLD_EVIDENCE {"failed":0,"passed":61,"physical_samples":2414,"prop_samples":8799,"worlds":[{"acceptance_msec":36,"navigation_build_msec":6,"station_count":4,"station_pairs":16,"world_id":"ember_foundry"},{"acceptance_msec":159,"navigation_build_msec":2,"station_count":3,"station_pairs":9,"world_id":"lumen_observatory"},{"acceptance_msec":34,"navigation_build_msec":2,"station_count":4,"station_pairs":16,"world_id":"verdant_courtyard"}]}
+GENERATED WORLD TESTS: 61 passed, 0 failed; 2414 physical samples

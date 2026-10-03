@@ -1,0 +1,159 @@
+{
+  "status": "PASS",
+  "url": "https://domes-world-creator-lab.bslizzle.chatgpt.site/",
+  "files": {
+    "favicon.svg": {
+      "sha256": "19f1b49b6aaa9a04866252f4246fa303c47f9d959c385612c791686727cf4ded",
+      "expected_file_sha256": "19f1b49b6aaa9a04866252f4246fa303c47f9d959c385612c791686727cf4ded",
+      "bytes": 252,
+      "content_encoding": null,
+      "match": true
+    },
+    "file.svg": {
+      "sha256": "1e0ae4d1a1ddfa36752988647b731e4abf150c414d069ec83c96fb0aaeff0307",
+      "expected_file_sha256": "1e0ae4d1a1ddfa36752988647b731e4abf150c414d069ec83c96fb0aaeff0307",
+      "bytes": 392,
+      "content_encoding": null,
+      "match": true
+    },
+    "globe.svg": {
+      "sha256": "d051a8c47936990a9085693d307bb7cea1bc1b6d7ed956bcbaacf674f4ec96b9",
+      "expected_file_sha256": "d051a8c47936990a9085693d307bb7cea1bc1b6d7ed956bcbaacf674f4ec96b9",
+      "bytes": 1036,
+      "content_encoding": null,
+      "match": true
+    },
+    "window.svg": {
+      "sha256": "decf1cf7bb22b5c99c4857cfcd5718ce5465c4454166317589c83fc73df74b66",
+      "expected_file_sha256": "decf1cf7bb22b5c99c4857cfcd5718ce5465c4454166317589c83fc73df74b66",
+      "bytes": 386,
+      "content_encoding": null,
+      "match": true
+    },
+    "world-data/3481b0db9c158a53cb2642f7159ce88862efc8f49b30a814b8bde4d59c08765f.json": {
+      "sha256": "3481b0db9c158a53cb2642f7159ce88862efc8f49b30a814b8bde4d59c08765f",
+      "expected_file_sha256": "3481b0db9c158a53cb2642f7159ce88862efc8f49b30a814b8bde4d59c08765f",
+      "bytes": 12321,
+      "content_encoding": null,
+      "match": true
+    },
+    "world-data/651fa42acd748790fca3266b0022a0f692208de9e2f5c12fea66ec9864cf8277.json": {
+      "sha256": "651fa42acd748790fca3266b0022a0f692208de9e2f5c12fea66ec9864cf8277",
+      "expected_file_sha256": "651fa42acd748790fca3266b0022a0f692208de9e2f5c12fea66ec9864cf8277",
+      "bytes": 11369,
+      "content_encoding": null,
+      "match": true
+    },
+    "world-data/95b80a7cf927de61e06b8d988ff4caaac71aaa4be16310e6f460492d6f86cf91.json": {
+      "sha256": "95b80a7cf927de61e06b8d988ff4caaac71aaa4be16310e6f460492d6f86cf91",
+      "expected_file_sha256": "95b80a7cf927de61e06b8d988ff4caaac71aaa4be16310e6f460492d6f86cf91",
+      "bytes": 9542,
+      "content_encoding": null,
+      "match": true
+    },
+    "world-data/d43a2b61042679943595b621e8359f506e298ce520cc177f4fce4e40b3926b78.json": {
+      "sha256": "d43a2b61042679943595b621e8359f506e298ce520cc177f4fce4e40b3926b78",
+      "expected_file_sha256": "d43a2b61042679943595b621e8359f506e298ce520cc177f4fce4e40b3926b78",
+      "bytes": 8431,
+      "content_encoding": null,
+      "match": true
+    },
+    "world-data/e2e65ac5528532e09f71966233985f727338cbff97962f2a46cea2471b768efa.json": {
+      "sha256": "e2e65ac5528532e09f71966233985f727338cbff97962f2a46cea2471b768efa",
+      "expected_file_sha256": "e2e65ac5528532e09f71966233985f727338cbff97962f2a46cea2471b768efa",
+      "bytes": 10375,
+      "content_encoding": null,
+      "match": true
+    },
+    "world-data/ffd0f334efe9209fe8b362e5a5c18d115cb1a7154927c88f53aecfd51fe58e26.json": {
+      "sha256": "ffd0f334efe9209fe8b362e5a5c18d115cb1a7154927c88f53aecfd51fe58e26",
+      "expected_file_sha256": "ffd0f334efe9209fe8b362e5a5c18d115cb1a7154927c88f53aecfd51fe58e26",
+      "bytes": 9542,
+      "content_encoding": null,
+      "match": true
+    },
+    "world-host.js": {
+      "sha256": "71e0fde4fdf8c9d4fe5d62ec48b38e6d90f49124c4777bf23ebb3500f2608d8d",
+      "expected_file_sha256": "71e0fde4fdf8c9d4fe5d62ec48b38e6d90f49124c4777bf23ebb3500f2608d8d",
+      "bytes": 5104,
+      "content_encoding": null,
+      "match": true
+    },
+    "world/index.apple-touch-icon.png": {
+      "sha256": "9b374ecbc8558f480421e646f38aaa8a69d5b1d65ff7b48d0735da214c46773a",
+      "expected_file_sha256": "9b374ecbc8558f480421e646f38aaa8a69d5b1d65ff7b48d0735da214c46773a",
+      "bytes": 11952,
+      "content_encoding": null,
+      "match": true
+    },
+    "world/index.audio.position.worklet.js": {
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+      "expected_file_sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+      "bytes": 2973,
+      "content_encoding": null,
+      "match": true
+    },
+    "world/index.audio.worklet.js": {
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+      "expected_file_sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+      "bytes": 7298,
+      "content_encoding": null,
+      "match": true
+    },
+    "world/index.html": {
+      "sha256": "176678889778a1e6636b36d5475c196b6ef088a75ff2002b83edf60a2431f393",
+      "expected_file_sha256": "b8db38bb9c198553ee7c37c101e7bb4ba0608c893eb46649a12494427c599cdc",
+      "bytes": 6455,
+      "content_encoding": null,
+      "match": false
+    },
+    "world/index.icon.png": {
+      "sha256": "08808dd5397e9a502cb3624944151f87a9705b5b66b5c365c5ca4c6ab51525f5",
+      "expected_file_sha256": "08808dd5397e9a502cb3624944151f87a9705b5b66b5c365c5ca4c6ab51525f5",
+      "bytes": 5702,
+      "content_encoding": null,
+      "match": true
+    },
+    "world/index.js": {
+      "sha256": "53439d8947bf9ca54584518ff92663d1ece0351da40c09bfc674e2fdb4b130ed",
+      "expected_file_sha256": "53439d8947bf9ca54584518ff92663d1ece0351da40c09bfc674e2fdb4b130ed",
+      "bytes": 305571,
+      "content_encoding": null,
+      "match": true
+    },
+    "world/index.pck": {
+      "sha256": "302c2b9fd9c7403f4fa662bd1da6c7752ab479d1caa1e52db6341d7ae2b00afd",
+      "expected_file_sha256": "302c2b9fd9c7403f4fa662bd1da6c7752ab479d1caa1e52db6341d7ae2b00afd",
+      "bytes": 347636,
+      "content_encoding": null,
+      "match": true
+    },
+    "world/index.png": {
+      "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e",
+      "expected_file_sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e",
+      "bytes": 21443,
+      "content_encoding": null,
+      "match": true
+    },
+    "world/index.wasm.gz": {
+      "sha256": "afc6a3d4c975b539ed8ae17898f8e084f798f739282435eb4ca74874dd4b5b4a",
+      "expected_file_sha256": "afc6a3d4c975b539ed8ae17898f8e084f798f739282435eb4ca74874dd4b5b4a",
+      "bytes": 9237412,
+      "content_encoding": null,
+      "match": true
+    }
+  },
+  "anonymous_pck_status": 401,
+  "engine_sha256": "6498359ba889796a0d95a2f71113ac184badc0f2d84cf28f4103c7e399d2d547",
+  "pck_sha256": "302c2b9fd9c7403f4fa662bd1da6c7752ab479d1caa1e52db6341d7ae2b00afd",
+  "checked_at_utc": "2026-10-03T00:33:56.178Z",
+  "note": "Node fetch may decode Content-Encoding; engine comparison uses approved uncompressed hash when decoded.",
+  "html_transform": {
+    "status": "observed_host_insertion",
+    "inserted_characters": 938,
+    "source_characters_removed": 0,
+    "source_characters_replaced": 0,
+    "note": "Hosted HTML adds one script. Original document is otherwise unchanged; binary/JS/JSON/static hashes match as recorded."
+  },
+  "exact_or_decoded_asset_matches": 19
+}

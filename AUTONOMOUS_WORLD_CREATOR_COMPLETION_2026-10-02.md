@@ -4,7 +4,7 @@ Date: 2026-10-02
 Repository: `bslizzle8552/domes-for-dots`  
 Feature branch: `codex/autonomous-world-creator`
 
-**Draft handoff status:** the reusable compiler, packages, composition, three generated worlds, physical ramp, guarded revisions and browser acceptance are implemented and exercised. Final feature-head validation, live private Site evidence, cloud CI conclusion and draft PR identity are **PENDING ROOT INSERTION**. This draft does not certify those pending gates.
+**Implementation status:** the bounded compiler, three generated worlds, real straight-ramp movement, protected revisions and private Site adapter are implemented and exercised. Full Python discovery passed 235 tests with 2 skips; local and exact cloud-created exports passed browser suites. The new private Site verifies durable state, structural activation and rollback. This remains draft PR #2, not a released general self-service product.
 
 ## 1. What was built
 
@@ -14,9 +14,9 @@ The existing flat runtime gained one supported multilevel family: a solid straig
 
 World changes use narrow operations over the existing `world_author.py` transaction machinery. Tests preserve an owner-moved, protected lamp during unrelated edits, add a functional object/station, add a connected deck with a station and explicit migration, reject a stale candidate, recover an interrupted installation and roll back without erasing unrelated progress.
 
-A separate Site adapter provides approved same-origin world data, D1 state, acknowledged saves, guarded structure activation and rollback. Local Miniflare/browser integration has a passing receipt. Actual private Site deployment and fresh authenticated access are separate gates still awaiting final evidence in this draft.
+A separate Site adapter provides approved same-origin world data, D1 state, acknowledged saves, guarded structure activation and rollback. Local Miniflare/browser integration and a first private Site deployment have passing receipts. The live test uses scoped service access and does not prove owner sign-in UI. Four-revision hosted acceptance is still awaiting final evidence in this draft.
 
-This is a working bounded foundation for “Make yourself a world.” It is not yet a general self-service service, an unrestricted building generator, a live model interview, an organic-character producer, or a guarantee that every preference written in prose is implemented. The fixtures are synthetic authored inputs, not records of independent native Dot conversations. Simulated routines remain visibly distinguished from real activity.
+This is a working bounded foundation for “Make yourself a world.” It is not yet a general self-service product, an unrestricted building generator, a live model interview, an organic-character producer, or a guarantee that every preference written in prose is implemented. The fixtures are synthetic authored inputs, not records of independent native Dot conversations. Simulated routines remain visibly distinguished from real activity.
 
 ### Evidence vocabulary
 
@@ -28,7 +28,6 @@ This is a working bounded foundation for “Make yourself a world.” It is not 
 | **INFERRED** | A conclusion drawn from evidence rather than directly exercised. |
 | **PROPOSED** | Follow-up work, not a delivered capability. |
 | **NOT TESTED** | No acceptance evidence for the claimed surface. |
-| **PENDING ROOT INSERTION** | A final publication/test fact must be filled from the root task's actual receipt. |
 
 ## 2. Baseline, repository state and boundaries
 
@@ -42,10 +41,10 @@ Existing release history and `v0.2.0` artifacts are outside this change. Develop
 |---|---|
 | Baseline merged main | `c4fb1e2743ede9750582750b3e531fc2e0549aa5` |
 | Feature branch | `codex/autonomous-world-creator` |
-| Final reviewed feature commit | **PENDING ROOT INSERTION — exact SHA after final changes** |
+| Final reviewed feature commit | `611895b87244717b21c39de2b8f25e6459c330ff`; later evidence/documentation commits do not change this implementation |
 | Draft pull request | [#2 — Autonomous World Creator](https://github.com/bslizzle8552/domes-for-dots/pull/2); keep draft, do not merge. |
-| Final GitHub Actions runs | **PENDING ROOT INSERTION — URLs, exact tested SHA and conclusions** |
-| Release/tag verification | **PENDING ROOT INSERTION — final confirmation of unchanged release refs** |
+| GitHub Actions | [Cloud run 37080816856](https://github.com/bslizzle8552/domes-for-dots/actions/runs/37080816856) succeeded at `2c26332ec202901359bdd12870cc7c7bcedfb37e`. [Exact cloud artifact/browser evidence](docs/validation/world-creator-cloud/README.md); [Final CI receipt](docs/validation/world-creator-cloud/final-ci.json): both source validations and both cloud workers passed at implementation `611895b`; Linux discovered 237 tests, 235 passed and two Windows-case-alias tests skipped. |
+| Release/tag verification | Remote tags verified: v0.1.0 resolves to `738fa7e24aca5997c874e58507670efac7ad28b4`, v0.2.0 to `9e00fea63e45e1a3ed5a91290d63ce0a04300ff4`. Neither tag/release was mutated. |
 
 ## 3. Architecture and implementation map
 
@@ -233,9 +232,9 @@ This establishes different topology, activities and geometry relationships, beyo
 
 ![Verdant Courtyard browser view](docs/images/world-creator/verdant_courtyard.png)
 
-The screenshots document appearance only. Functional proof comes from the [46-check three-world browser receipt](docs/validation/world-creator-runtime/browser-acceptance.json) and [61-check generated-world native log](docs/validation/world-creator-runtime/generated-world-native.log).
+The screenshots document appearance only. Functional proof comes from the [47-check final three-world browser receipt](docs/validation/world-creator-runtime/browser-scoped-catalog-acceptance.json) and [61-check generated-world native log](docs/validation/world-creator-runtime/generated-world-native.txt).
 
-Browser execution used desktop Chromium `154.0.8037.97`. All 11 stations were reached, each station selected a real imported clip, all three simulated routines reached a real station, and all three characters had actual imported skeletons. The browser sampled 646 supported positions, required zero recovery teleports, checked the ramp scenarios and reported no browser or Godot errors. Existing-world Web regression separately passed 37 checks.
+Browser execution used desktop Chromium `154.0.8037.97`. All 11 stations were reached, each station selected a real imported clip, all three simulated routines reached a real station, and all three characters had actual imported skeletons. The browser sampled 645 supported positions, required zero recovery teleports, checked the ramp scenarios and reported no browser or Godot errors. Existing-world Web regression separately passed 37 checks.
 
 Small in-world labels are less readable at the wide default camera than the sidebar labels. Mobile/touch, Safari, Firefox, accessibility and low-end graphics acceptance are **NOT TESTED**.
 
@@ -249,25 +248,27 @@ The runtime has an optional hosted state adapter while keeping standalone browse
 
 `GET /api/world` returns registered active structure and durable state. Mutations validate input size/type, origin, world/routine/character identity, immutable epoch, allowed preference fields and revision expectations. SQL compare-and-swap guards state writes and structure activation. Activation requires a registered compatible bundle and explicit migration; rollback preserves the separate state JSON. Secrets stay server-side. This is a single test-world proof, not a generalized account/signup service.
 
-**VERIFIED in local development only:** the current `artifacts/world-site-acceptance/acceptance.json` records 16 passing checks against Miniflare at a loopback URL. These include idempotent initialization, epoch preservation, one CAS winner for concurrent writers, cross-origin mutation rejection, rejected epoch rewrite/code-lane command, use of the approved same-origin bundle, reading the D1 epoch, imported clips, preference changes during pending save, acknowledged D1 save, fresh isolated browser restoration, upper/lower station traversal, unchanged PCK across revision operations and no browser/Godot errors. Local first startup was 4,207 ms. This receipt is not proof of production authentication or remotely durable persistence.
+**VERIFIED in local development:** the [local Site receipt](docs/validation/world-creator-runtime/site-local-acceptance.json) records 16 passing checks against Miniflare at a loopback URL. These include idempotent initialization, epoch preservation, one CAS winner for concurrent writers, cross-origin mutation rejection, rejected epoch rewrite/code-lane command, use of the approved same-origin bundle, reading the D1 epoch, imported clips, preference changes during pending save, acknowledged D1 save, fresh isolated browser restoration, upper/lower station traversal, unchanged PCK and no browser/Godot errors. Local first startup was 4,207 ms. This local receipt alone is not proof of production authentication or remotely durable persistence.
 
-**PENDING ROOT INSERTION:** replace or supplement that preliminary local receipt with the final hosted test receipt, exact check count, safe public evidence path, private-access checks, active/previous revision behavior and actual deployment version. Do not publish credentials, owner IDs or private references.
+**VERIFIED live, version 1:** the new [World Creator test Site](https://domes-world-creator-lab.bslizzle.chatgpt.site/) passed [17 browser/API checks](docs/validation/world-creator-runtime/site-live-v1-acceptance.json), adding anonymous API gating to the state/runtime checks above. A fresh isolated browser restored D1 state, movement reached upper/lower stations, the exact accepted PCK digest was delivered and startup measured 8,889 ms. The authenticated path used private scoped service credentials. Chromium worklet requests required a disclosed harness transport: authenticated same-origin fetch of the two reviewed audio-worklet modules, then execution of identical bytes through Blob URLs. This does not prove normal owner sign-in UI, owner-session resource delivery or audio-feature acceptance. No credential is stored in the receipt. Version 1 is not counted as the final four-revision activation/rollback proof.
+
+**VERIFIED final private Site:** [hosted acceptance](docs/validation/world-creator-site/acceptance.json) records 26 passing checks: revision 1 to 4, a physically usable added station, stale revision rejection, rollback to revision 1 and retained epoch/preferences. Corrupt candidate downloads fail before activation. [Native deployment/access evidence](docs/validation/world-creator-site/deployment.json) records saved versions and audience counts without identities or credentials; [delivery verification](docs/validation/world-creator-site/delivery.json) checks hosted hashes and anonymous binary gating; HTML includes one observed hosting-script insertion. The private picker exposes only its registered world.
 
 ### Native Sites capability matrix
 
-| Requested capability | Draft status |
+| Requested capability | Observed result |
 |---|---|
-| New separate test Site creation | **PENDING ROOT INSERTION — actual tool result / project evidence** |
-| Source upload/update and build | Adapter/preparer implemented; final native operation evidence pending. |
-| Binary WASM/PCK delivery | Raw Web export verified locally; gzip delivery path implemented; final hosted byte/hash checks pending. |
-| Deployment and Site version identity | **PENDING ROOT INSERTION** |
-| Owner-private visibility / unauthorized access behavior | **PENDING ROOT INSERTION**; never infer this from world JSON. |
-| Backend routes and D1 | Implemented; local Miniflare/browser acceptance verified; deployed evidence pending. |
-| New world data revision | Registered-data path implemented; final live activation/recovery evidence pending. |
-| Structural rollback | Local authoring recovery verified; hosted final result pending. |
-| Hosting deployment rollback / previous deployment | **PENDING ROOT INSERTION**; distinguish this from world-data rollback. |
-| R2 or equivalent optional blob storage | **NOT TESTED in this report**. No inference from upstream Cloudflare capabilities. |
-| Owner device offline as host | Architecture serves from the Site; actual remote hosting result pending. No owner workstation is required by the viewer design. |
+| New separate test Site creation | New synthetic owner-private Site; successive native private deployments succeeded. |
+| Source upload/update and build | Native source workflow/build/update succeeded; exact Site source commits in deployment receipt. |
+| Binary WASM/PCK delivery | 19 static/binary/data files matched hashes; HTML adds one hosting script with no removed/replaced source characters. Engine/PCK exact; gzip wrapper accepted. |
+| Deployment and Site version identity | Saved versions and final active version in deployment receipt. |
+| Owner-private visibility / unauthorized access behavior | Native metadata: one allowed account user, no groups/external visitors. Anonymous API/binary access gated; scoped service access verified. Owner sign-in UI NOT TESTED. |
+| Backend routes and D1 | Actual hosted D1 acknowledgment, fresh-browser restoration and retained state through rollback verified. |
+| New world data revision | Revision 1 to 4 loads changed geometry and a physically usable new station with unchanged PCK during activation. |
+| Structural rollback | Local transaction recovery and hosted revision 4 to 1 rollback verified; unrelated durable state preserved. |
+| Hosting deployment rollback / previous deployment | Native redeployment of saved Site v2 succeeded and restored its exact old PCK; D1 state revision/epoch remained unchanged. Redeploying saved v3 then restored the final PCK and retained state. See version-rollback/restored receipts. |
+| R2 or equivalent optional blob storage | R2 NOT TESTED; content-addressed same-origin static JSON and binary storage exercised as the alternative. |
+| Owner device offline as host | Runtime is served by the remote Site, not an owner workstation. No physical owner-device shutdown experiment is claimed. |
 
 If a native operation is unavailable, the final report must identify the exact missing operation and the successful preceding steps. A ready export does not excuse an unsupported claim that a private Site is deployed. The prepared artifact remains usable for a final authorized delivery without installing development tools on the owner's device.
 
@@ -275,7 +276,7 @@ If a native operation is unavailable, the final report must identify the exact m
 
 The minimum useful dynamic lane is implemented: a prebuilt Web runtime can consume a registered, validated same-origin JSON bundle of world/asset/brief data. The host fetches an approved `/world-data/<sha256>.json` location, bounds it to 2 MiB, verifies its SHA-256 and passes it through the JS bridge. The Godot loader enforces primitive-only dynamic assets and exact agreement with the bundled approved character and routine. Runtime snapshots expose actual object count and structure revision so acceptance can check changed loaded geometry, not merely a matching JavaScript world ID.
 
-Local hosted acceptance verifies the approved data lane with the same PCK digest as the three-world export. Changed character GLBs, new scripts, new rendering/physics, changed executable scenes and incompatible routine semantics remain in the build/review lane. Arbitrary remote GLB loading was not implemented or accepted. Supporting data-only world revision does not establish arbitrary package loading from an untrusted URL.
+Live hosted acceptance verifies the data lane with an unchanged PCK before and after activation/rollback. A later UI scope fix correctly requires a new reviewed export; its own data-change test still keeps that new PCK fixed. Changed character GLBs, new scripts, new rendering/physics, changed executable scenes and incompatible routine semantics remain in the build/review lane. Arbitrary remote GLB loading was not implemented or accepted. Supporting data-only world revision does not establish arbitrary package loading from an untrusted URL.
 
 The pinned Web export exposed a JS bridge conversion issue during real testing: a direct Boolean expression did not select the hosted path reliably. An explicit string sentinel is now used and exercised. This is an observed integration fix for this export, not a general claim about every Godot version. The gzip wrapper also distinguishes compressed bytes from a response already decoded by the browser, preventing double decompression.
 
@@ -291,7 +292,7 @@ Activation is still operator registered and prevalidated. The API's acknowledgem
 | Compiled output | Immutable packages and hashed Web runtime; build artifacts are not the mutable state database. |
 | Policy / revision history | Owner protection, source hashes, operations, transaction journal and registered activation history. |
 
-Standalone browser saves are browser-local, never described as cloud persistence. Cloud persistence is claimed only for the tested D1 adapter scope. Final remote durability remains pending in this draft.
+Standalone browser saves are browser-local, never described as cloud persistence. Remote D1 persistence is verified by the first live fresh-isolated-browser test. The actual live revision 1 to 4 to 1 sequence preserves the epoch and owner preferences. Simulation remains deterministic from the durable epoch.
 
 ## 12. Trust and deployment boundaries
 
@@ -309,8 +310,7 @@ Counts below refer to checks/assertions or Python test cases as named. Sample co
 
 | Suite | Result | Evidence / scope |
 |---|---|---|
-| Preliminary full Python discovery | 213 run: **211 passed, 2 skipped**, 134.509 s | [Preliminary log](docs/validation/world-creator-runtime/python-preliminary.log). Later package/preparer hardening tests exist; this is not the final feature-head count. |
-| Final full Python discovery | **PENDING ROOT INSERTION** | Exact command, SHA, number run/passed/skipped and log. |
+| Full Python discovery | 237 run: **235 passed, 2 skipped**, 222.407 s | [Final log](docs/validation/world-creator-runtime/python-final.txt). Run after compiler/package/revision/preparer hardening; subsequent runtime-only picker changes have separate browser acceptance. |
 | Godot core | 92 passed | Existing contract/runtime core. |
 | Existing Godot runtime | 200 passed | 21,534 prop samples. |
 | Existing character runtime | 43 passed | Existing character regression. |
@@ -320,11 +320,13 @@ Counts below refer to checks/assertions or Python test cases as named. Sample co
 | **Primary native total** | **611 passed, 0 failed** | [Runtime summary](docs/validation/world-creator-runtime/runtime-summary.json). |
 | Additional approved Aster motion | 59 passed | Separate isolated regression; excluded from primary 611. |
 | Existing-world browser regression | 37 passed | [Receipt](docs/validation/world-creator-runtime/existing-browser-acceptance.json). |
-| Three generated worlds browser | 46 passed | [Receipt](docs/validation/world-creator-runtime/browser-acceptance.json), no runtime errors. |
-| Isolated early ramp browser smoke | 15 passed | Additional exploratory fixture; excluded from the three-world 46. |
+| Three generated worlds browser | 47 passed | [Receipt](docs/validation/world-creator-runtime/browser-scoped-catalog-acceptance.json), no runtime errors. |
+| Isolated early ramp browser smoke | 15 passed | Additional exploratory fixture; excluded from the final three-world 47. |
 | Revision acceptance | 7 scenario checks passed | [Receipt](docs/validation/world-creator-runtime/revision-acceptance.json). |
-| Local hosted D1/browser integration | 16 checks passed in preliminary receipt | Local Miniflare only; final/live evidence pending. |
-| Cloud worker / CI | **PENDING ROOT INSERTION** | Workflow source or queued run is not a successful cloud job. |
+| Local hosted D1/browser integration | 16 checks passed | [Local Miniflare receipt](docs/validation/world-creator-runtime/site-local-acceptance.json). |
+| First live Site D1/browser integration | 17 checks passed | [Version 1 receipt](docs/validation/world-creator-runtime/site-live-v1-acceptance.json); scoped service access, not owner sign-in UI. |
+| Final private Site browser/API | 26 passed, zero errors | [Receipt](docs/validation/world-creator-site/acceptance.json); one-world scope, corrupted-candidate rejection, actual added station and state-preserving rollback. |
+| Cloud worker / CI | Run 37080816856 succeeded at `2c26332…` | [15 exported files hash-matched, six packages revalidated, exact cloud export browser 46/46](docs/validation/world-creator-cloud/README.md). [Final CI receipt](docs/validation/world-creator-cloud/final-ci.json): both source validations and both cloud workers passed at implementation `611895b`; Linux discovered 237 tests, 235 passed and two Windows-case-alias tests skipped. |
 
 Godot version was `4.5.1.stable.official.f62fdbde1`, Compatibility renderer, single-threaded Web export with matching templates. The navigation readiness gate waits for asynchronous map ownership before declaring the world ready. A successful import alone is not counted as traversal acceptance.
 
@@ -344,28 +346,28 @@ These are measurements from this workstation and local browser, not product budg
 | Lumen | 150.730 ms | 167.736 ms |
 | Fern | 166.283 ms | 183.895 ms |
 
-These timings must not be summed with a cloud worker wall clock as though they are separate independent phases; revalidation performs compilation again. The worker records per-phase durations for a complete run. **PENDING ROOT INSERTION:** actual final cloud job durations/receipt if obtained.
+These timings must not be summed with a cloud worker wall clock as though they are separate independent phases; revalidation performs compilation again. The worker records per-phase durations for a complete run. [Actual cloud receipt](docs/validation/world-creator-cloud/job-receipt.json): 19.697 s worker total; package compilation 0.810/0.752/0.812 s, composition 2.034 s, engine import 5.363 s, Web export 3.706 s. Dependency installation/bootstrap are separate workflow steps.
 
 ### Export and browser
 
-The accepted raw Web export contains nine files totaling **38,741,785 bytes**. Its WASM is 38,034,280 bytes and PCK 347,508 bytes. The [runtime summary](docs/validation/world-creator-runtime/runtime-summary.json) records every file size and digest.
+The accepted raw Web export contains nine files totaling **38,741,913 bytes**. Its WASM is 38,034,280 bytes and PCK 347,636 bytes. The [final runtime summary](docs/validation/world-creator-runtime/runtime-summary-scoped-catalog.json) records every file size and digest.
 
 | Artifact | SHA-256 |
 |---|---|
 | `index.wasm` | `6498359ba889796a0d95a2f71113ac184badc0f2d84cf28f4103c7e399d2d547` |
-| `index.pck` | `55623c1db8c1e4745c44b964ceafa6785790c3c8b1685fe2ca334a7260ce1afe` |
+| `index.pck` | `302c2b9fd9c7403f4fa662bd1da6c7752ab479d1caa1e52db6341d7ae2b00afd` |
 
-Final standalone browser first-world readiness was **4,110.396 ms**. A separate fresh-browser activation measurement observed initial engine startup at 3,848.049 ms and later catalog activation, including ready publication, at Lumen 205.613 ms, Fern 159.646 ms and Ember 145.164 ms. That [activation receipt](docs/validation/world-creator-runtime/activation-performance.json) precedes the final hosted-bridge correction and is a separate measurement, not a repeat of the final export startup.
+Final standalone browser first-world readiness was **3,995.760 ms**. A separate fresh-browser activation measurement observed initial engine startup at 3,848.049 ms and later catalog activation, including ready publication, at Lumen 205.613 ms, Fern 159.646 ms and Ember 145.164 ms. That [activation receipt](docs/validation/world-creator-runtime/activation-performance.json) precedes the final hosted-bridge correction and is a separate measurement, not a repeat of the final export startup.
 
 | World | Final browser navigation mesh build | RAF median / p95 / maximum | Observed JS heap | Resource encoded body bytes |
 |---|---:|---:|---:|---:|
-| Ember | 11 ms | 16.7 / 16.8 / 16.9 ms | 55,825,786 | 38,714,118 |
-| Lumen | 4 ms | 16.7 / 16.8 / 17.4 ms | 20,322,332 | 38,387,490 |
-| Fern | 3 ms | 16.7 / 16.8 / 17.3 ms | 15,213,762 | 38,387,490 |
+| Ember | 10 ms | 16.7 / 16.8 / 17.2 ms | 55,880,496 | 38,714,246 |
+| Lumen | 4 ms | 16.7 / 16.8 / 17.2 ms | 15,688,332 | 38,387,618 |
+| Fern | 2 ms | 16.7 / 16.8 / 16.8 ms | 15,498,527 | 38,387,618 |
 
 Each frame observation uses 120 browser `requestAnimationFrame` samples. It measures presentation scheduling, not an engine/GPU profiler. JS heap excludes full WebAssembly/GPU/process memory and varies with collection; it is not a total-memory comparison between worlds. Resource entries are browser encoded-body observations and should not be added as three independent first-download totals. Navigation mesh construction excludes asynchronous map synchronization. The raw local server did not establish final compressed hosted network transfer size.
 
-**PENDING ROOT INSERTION:** final Site compressed asset size, actual delivered byte/hash checks and remote startup/network observations, if measured. Do not substitute the local raw size for a hosted wire-size claim.
+The Site stores a 9,237,412-byte gzip engine versus 38,034,280 uncompressed bytes. Delivered hashes and decoding details appear in the delivery receipt. Fresh service-authenticated startup measured 8,889 ms on v1 and 10,405 ms on v2; final scoped-picker startup was 9,255 ms. These include network and instrumentation overhead and are not a general latency guarantee.
 
 ## 15. Reproduction and cloud/operator handoff
 
@@ -381,7 +383,7 @@ It regenerates separate character/world packages, composes the shared runtime, v
 
 The workflow uses read-only repository permissions and pinned Godot/bootstrap/template checks. It uploads evidence and ready Web files without implying publication. The current cloud input is the three reviewed synthetic fixtures, not an arbitrary private upload or a self-service natural-language endpoint. Browser acceptance and Site publication are subsequent gates. An owner visiting the final hosted browser output needs none of these development tools.
 
-Local generated-world browser acceptance and revision acceptance have dedicated runners. The revision runner's resulting content still needs the relevant runtime/export/host gates before deployment. No coding agent should replace package validation with an old `ok: true` receipt, reuse an immutable output directory for a different candidate, or activate stale data to bypass a conflict.
+Local generated-world browser acceptance and revision acceptance have dedicated runners. The revision runner's resulting content still needs the relevant runtime/export/host gates before deployment. [SITES_WORLD_CREATOR.md](docs/SITES_WORLD_CREATOR.md) documents the private adapter, D1 CAS, deployment and service-access test boundary. No coding agent should replace package validation with an old `ok: true` receipt, reuse an immutable output directory for a different candidate, or activate stale data to bypass a conflict.
 
 ## 16. Unsupported capabilities and remaining work
 
@@ -398,9 +400,9 @@ Local generated-world browser acceptance and revision acceptance have dedicated 
 * No generalized distributed authoring service, private input API, autonomous scheduler, billing or public account system.
 * No R2 availability claim, no assumption that all upstream Cloudflare features are exposed through Sites, and no substitution of local owner-side hosting for private deployment.
 
-**Draft completion blockers:** final private Site deployment/access/state/update/rollback proof, exact final aggregate test result, successful cloud workflow conclusions, final feature SHA and draft PR link remain to be inserted from observed results. The substantial runtime and local revision evidence does not erase these gates.
+**Remaining product blockers:** normal owner sign-in UI/resource delivery is not accepted; general private intent submission, authenticated job orchestration and automatic per-owner provisioning are not deployed. No native ChatGPT call/work feed or arbitrary physical activity was established. These limits remain explicit despite successful bounded compiler, remote-build and private-adapter evidence.
 
-**Recommended next implementation step after those gates:** add a bounded authenticated creation/request adapter that accepts the existing WorldIntent plus approved Character Package identity, retains private inputs outside public CI artifacts, and submits the existing immutable worker job. It should return the validated package and reviewable deployment/revision result using the same registry and conflict checks. This closes the largest remaining gap between the demonstrated developer-operated pipeline and an owner's single “Make yourself a world” request. Increasing architectural freedom or adding a paid mesh generator first would not close that delivery gap.
+**Recommended next implementation step:** add a bounded authenticated creation/request adapter that accepts the existing WorldIntent plus approved Character Package identity, retains private inputs outside public CI artifacts, and submits the existing immutable worker job. It should return the validated package and reviewable deployment/revision result using the same registry and conflict checks. This closes the largest remaining gap between the demonstrated developer-operated pipeline and an owner's single “Make yourself a world” request. Increasing architectural freedom or adding a paid mesh generator first would not close that delivery gap.
 
 The next quality pass should then extend browser/device and accessibility acceptance, improve camera/label readability, and introduce additional interaction capability only with measurable contact/fit semantics. Those are proposed follow-ups, not features silently promised by the present fixtures.
 
@@ -409,7 +411,7 @@ The next quality pass should then extend browser/device and accessibility accept
 | # | Requested deliverable | Location / status |
 |---:|---|---|
 | 1 | Executive implementation summary | §1 |
-| 2 | Exact branch and commit | §2; final SHA pending |
+| 2 | Exact branch and commit | §2; implementation SHA and draft PR head |
 | 3 | Draft PR link/number | §2, draft PR #2 |
 | 4 | Architecture map | §3 |
 | 5 | WorldIntent contract | §4 and schema |
@@ -422,13 +424,13 @@ The next quality pass should then extend browser/device and accessibility accept
 | 12 | Supported multilevel transition | §8 |
 | 13 | Safe revision/change model | §9 |
 | 14 | Protected owner edits | §9 |
-| 15 | Rollback mechanism | §9; hosted final result in §11 pending |
+| 15 | Rollback mechanism | §9 and §11; local and hosted rollback |
 | 16 | Three test worlds | §10, checked example packages |
-| 17 | Browser acceptance for all three | §10, §13, 46-check receipt |
-| 18 | Native Site experiment/result | §11; final native result pending |
-| 19 | Persistence result | §11; local D1 verified, live final result pending |
+| 17 | Browser acceptance for all three | §10, §13, final 47-check receipt |
+| 18 | Native Site experiment/result | §11; private deployment and update/rollback verified |
+| 19 | Persistence result | §11; fresh-browser D1 restoration and revision rollback verified |
 | 20 | Runtime dynamic-loading result | §11; approved same-origin data lane |
-| 21 | Exact test counts | §13; final aggregate pending |
+| 21 | Exact test counts | §13; full Python 235 passed / 2 skipped plus native/browser/cloud/Site evidence |
 | 22 | Performance measurements | §14 |
 | 23 | Unsupported capabilities | §16 and package limitations |
 | 24 | Remaining blockers | §16 |

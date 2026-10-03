@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "phase": "version-restored",
+  "epoch_unchanged": true,
+  "state_revision_unchanged": true,
+  "structure_revision": 1,
+  "pck_sha256": "302c2b9fd9c7403f4fa662bd1da6c7752ab479d1caa1e52db6341d7ae2b00afd",
+  "checked_at_utc": "2026-10-03T00:37:19.338Z"
+}
