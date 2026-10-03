@@ -1,0 +1,1 @@
+ALTER TABLE `domes_world` ADD `activation_serial` integer DEFAULT 1 NOT NULL;

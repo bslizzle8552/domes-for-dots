@@ -67,7 +67,14 @@ func _ready() -> void:
 	if OS.has_feature("web"):
 		_setup_bridge()
 	if not catalog.is_empty():
-		await load_world(catalog[0].id)
+		var startup_id: String = catalog[0].id
+		if OS.has_feature("web"):
+			var hosted_id: Variant = JavaScriptBridge.eval("window.domesHostedBundle?.world?.id || null", true)
+			if hosted_id is String:
+				for entry in catalog:
+					if entry.id == hosted_id:
+						startup_id = hosted_id
+		await load_world(startup_id)
 
 func load_world(id: String) -> bool:
 	if switching:
@@ -251,6 +258,7 @@ func _save() -> void:
 		notice = "Save protected. Export preview and repair/migrate stored state first."
 		return
 	var saving_world_id: String = world.id
+	var submitted_preferences: Dictionary = state.preferences.duplicate(true)
 	var result: Dictionary
 	if store.hosted_enabled():
 		save_status = "Saving to private Site…"
@@ -260,8 +268,16 @@ func _save() -> void:
 	if world.id != saving_world_id:
 		return
 	if result.get("ok",false):
+		var latest_preferences: Dictionary = state.preferences.duplicate(true)
+		var changed_during_save := latest_preferences != submitted_preferences
 		state = result.state
+		if changed_during_save:
+			state.preferences = latest_preferences
 		save_status = ("Private Site" if store.hosted_enabled() else ("This browser" if OS.has_feature("web") else "This computer")) + " · saved revision " + str(int(state.revision))
+		if changed_during_save:
+			# Preserve edits made while the network request was pending and persist
+			# them against the acknowledged revision, never an obsolete snapshot.
+			await _save()
 	else:
 		save_status = "SAVE FAILED: " + str(result.get("error","unknown")) + ". Existing save preserved."
 
@@ -445,7 +461,7 @@ func receive_mock(event: Dictionary) -> Dictionary:
 	return last_event_result
 
 func snapshot() -> Dictionary:
-	return {"ready":ready_world,"recovery_count":motor.recovery_count if is_instance_valid(motor) else 0,"transition_id":str(surface.transition_at(motor.position).get("id","")) if is_instance_valid(surface) and is_instance_valid(motor) else "","navigation_build_msec":surface.build_msec if is_instance_valid(surface) else 0,"support_height":surface.support_height(motor.position) if is_instance_valid(surface) and is_instance_valid(motor) else 0,"world_id":world.get("id",""),"character_id":character.get("id",""),"position":[motor.position.x,motor.position.y,motor.position.z] if is_instance_valid(motor) else [],"station":current_station,"moving":motor.moving if is_instance_valid(motor) else false,"action":motor.action if is_instance_valid(motor) else "","source":displayed_source,"resident":resident,"simulation":simulation,"epoch":state.get("routine_epoch",0),"revision":state.get("revision",0),"preview_offset":preview_offset,"save_status":save_status,"notice":notice,"show_markers":show_markers,"autonomy_paused":state.get("preferences",{}).get("autonomy_paused",false),"controls":ui.control_bounds() if is_instance_valid(ui) else {},"viewport_size":[get_viewport().get_visible_rect().size.x,get_viewport().get_visible_rect().size.y],"connections":{"work":"unavailable","native_call":"unavailable"},"event_result":last_event_result,"visual":motor.visual_snapshot() if is_instance_valid(motor) else {}}
+	return {"ready":ready_world,"object_count":world.get("objects",[]).size(),"structure_revision":world.get("metadata",{}).get("structure_revision",0),"recovery_count":motor.recovery_count if is_instance_valid(motor) else 0,"transition_id":str(surface.transition_at(motor.position).get("id","")) if is_instance_valid(surface) and is_instance_valid(motor) else "","navigation_build_msec":surface.build_msec if is_instance_valid(surface) else 0,"support_height":surface.support_height(motor.position) if is_instance_valid(surface) and is_instance_valid(motor) else 0,"world_id":world.get("id",""),"character_id":character.get("id",""),"position":[motor.position.x,motor.position.y,motor.position.z] if is_instance_valid(motor) else [],"station":current_station,"moving":motor.moving if is_instance_valid(motor) else false,"action":motor.action if is_instance_valid(motor) else "","source":displayed_source,"resident":resident,"simulation":simulation,"epoch":state.get("routine_epoch",0),"revision":state.get("revision",0),"preview_offset":preview_offset,"save_status":save_status,"notice":notice,"show_markers":show_markers,"autonomy_paused":state.get("preferences",{}).get("autonomy_paused",false),"controls":ui.control_bounds() if is_instance_valid(ui) else {},"viewport_size":[get_viewport().get_visible_rect().size.x,get_viewport().get_visible_rect().size.y],"connections":{"work":"unavailable","native_call":"unavailable"},"event_result":last_event_result,"visual":motor.visual_snapshot() if is_instance_valid(motor) else {}}
 
 func _setup_bridge() -> void:
 	bridge_callback = JavaScriptBridge.create_callback(_web_command)
