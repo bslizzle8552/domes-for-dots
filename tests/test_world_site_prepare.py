@@ -185,6 +185,46 @@ class WorldSitePrepareTests(unittest.TestCase):
                 self.prepare()
         self.assert_no_generated_output()
 
+    def renamed_candidate(self):
+        candidate = self.candidate()
+        path = candidate / "godot/content/worlds/cedar_atelier.json"
+        world = author.read_json(path)
+        world["title"] = "A new title for the same home"
+        author.write_json(path, world)
+        catalog_path = candidate / "godot/content/catalog.json"
+        catalog = author.read_json(catalog_path)
+        next(entry for entry in catalog["worlds"] if entry["id"] == world["id"])["title"] = world["title"]
+        author.write_json(catalog_path, catalog)
+        return candidate
+
+    def test_existing_registry_revision_cannot_be_rebound_to_other_bytes(self):
+        self.prepare()
+        registry = self.site / "lib/world/registry.json"
+        original = registry.read_bytes()
+        candidate = self.renamed_candidate()
+        with self.assertRaisesRegex(ValueError, "Cannot rebind immutable registered revision 1"):
+            self.prepare([candidate])
+        self.assertEqual(original, registry.read_bytes())
+
+    def test_existing_registry_revision_cannot_be_omitted(self):
+        candidate = self.renamed_candidate()
+        self.prepare([self.root, candidate])
+        registry = self.site / "lib/world/registry.json"
+        original = registry.read_bytes()
+        with self.assertRaisesRegex(ValueError, "Cannot omit registered revision 2"):
+            self.prepare([self.root])
+        self.assertEqual(original, registry.read_bytes())
+
+    def test_registry_extension_preserves_exact_known_good_identity(self):
+        self.prepare()
+        registry_path = self.site / "lib/world/registry.json"
+        original = author.read_json(registry_path)
+        candidate = self.renamed_candidate()
+        self.prepare([self.root, candidate])
+        extended = author.read_json(registry_path)
+        self.assertEqual(original["revisions"]["1"], extended["revisions"]["1"])
+        self.assertEqual({"1", "2"}, set(extended["revisions"]))
+
 
 if __name__ == "__main__":
     unittest.main()

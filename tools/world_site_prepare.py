@@ -52,6 +52,9 @@ def prepare(site: Path, web: Path, roots: list[Path], world_id: str) -> dict:
     _safe_public_tree(site)
     if not (site/'.openai/hosting.json').is_file():
         raise ValueError('Prepare an isolated Sites starter before packaging')
+    registry_path=site/'lib/world/registry.json'
+    prior_registry_bytes=registry_path.read_bytes() if registry_path.exists() else None
+    prior_registry=json.loads(prior_registry_bytes) if prior_registry_bytes is not None else None
     if not 1 <= len(roots) <= 10:
         raise ValueError('Require 1..10 validated revisions')
     # Validate the complete trusted export and exact supported loader BEFORE
@@ -144,12 +147,25 @@ def prepare(site: Path, web: Path, roots: list[Path], world_id: str) -> dict:
             'source_hash':source_hash}
         validated_sources.append((root,source_hash))
     registry={'world_id':world_id,'default_revision':1,'revisions':records}
+    if prior_registry is not None:
+        if not isinstance(prior_registry,dict) or set(prior_registry)!={'world_id','default_revision','revisions'} or not isinstance(prior_registry['revisions'],dict):
+            raise ValueError('Existing registry is malformed; preserve it for reviewed recovery')
+        if prior_registry['world_id']!=world_id or prior_registry['default_revision']!=registry['default_revision']:
+            raise ValueError('Existing registry world/default identity is immutable')
+        for identity,old_record in prior_registry['revisions'].items():
+            if identity not in records:
+                raise ValueError('Cannot omit registered revision '+identity+'; retain known-good history')
+            if records[identity]!=old_record:
+                raise ValueError('Cannot rebind immutable registered revision '+identity+'; preserve prior input order and append new revisions')
     # Only after every candidate/export check passes, update local packaging.
     # Content-addressed old bundles are deliberately retained for known-good
     # rollback; this adapter performs no cleanup or hosted activation.
     for root,source_hash in validated_sources:
         if content_hash(root/'godot/content')!=source_hash:
             raise ValueError('Source content changed during Site preparation; revalidate the current revision')
+    current_registry_bytes=registry_path.read_bytes() if registry_path.exists() else None
+    if current_registry_bytes!=prior_registry_bytes:
+        raise ValueError('Site registry changed during preparation; retry against the latest registry')
     _safe_public_tree(site)
     data_dir.mkdir(parents=True, exist_ok=True)
     for name,raw in pending_data.items():
