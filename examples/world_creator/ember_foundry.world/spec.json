@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "compiler": "semantic_grid_v1",
+  "compiler_version": "1.0.0",
+  "world_id": "ember_foundry",
+  "intent_sha256": "9861d78e3c6b126ff8415553508543b7f7218cd72aa157a66c61061407d9ec24",
+  "character_profile": {
+    "character_id": "ember_synthetic",
+    "display_name": "Ember",
+    "radius": 0.25594,
+    "height": 1.29187,
+    "forward_axis": "-Z",
+    "movement": "ground_walk",
+    "actions": [
+      "garden",
+      "inspect",
+      "observe",
+      "read",
+      "tinker",
+      "work"
+    ],
+    "contact": "not_declared",
+    "reach": "unknown"
+  },
+  "topology": "linear",
+  "zones": [
+    {
+      "id": "zone_0",
+      "label": "Forge",
+      "purpose": "Forge supports tinker"
+    },
+    {
+      "id": "zone_1",
+      "label": "Assembly",
+      "purpose": "Assembly supports work"
+    },
+    {
+      "id": "zone_2",
+      "label": "Archive",
+      "purpose": "Archive supports inspect"
+    }
+  ],
+  "objects": [
+    {
+      "id": "activity_0",
+      "zone_id": "zone_0",
+      "recipe": "workbench",
+      "label": "Forge - tinker",
+      "action": "tinker",
+      "reason": "I want a dedicated place to tinker.",
+      "chosen_by": "dot",
+      "protected": false
+    },
+    {
+      "id": "activity_1",
+      "zone_id": "zone_1",
+      "recipe": "workbench",
+      "label": "Assembly - work",
+      "action": "work",
+      "reason": "I want a dedicated place to work.",
+      "chosen_by": "dot",
+      "protected": false
+    },
+    {
+      "id": "activity_2",
+      "zone_id": "zone_2",
+      "recipe": "shelf",
+      "label": "Archive - inspect",
+      "action": "inspect",
+      "reason": "I want a dedicated place to inspect.",
+      "chosen_by": "dot",
+      "protected": false
+    },
+    {
+      "id": "keepsake",
+      "label": "Ember original signal sculpture",
+      "zone_id": "zone_0",
+      "recipe": "sculpture",
+      "protected": true,
+      "chosen_by": "dot",
+      "reason": "A stable personal marker that survives later expansions.",
+      "action": "inspect"
+    }
+  ],
+  "palette": {
+    "floor": "#4a4c50",
+    "secondary": "#80715c",
+    "accent": "#ffa154",
+    "background": "#171e25",
+    "material": "#606973"
+  },
+  "owner_constraints": {
+    "privacy": "private",
+    "max_zones": 6,
+    "max_objects": 24,
+    "max_span": 60,
+    "must_haves": [
+      "No paid generation; preserve the meaningful object."
+    ],
+    "veto_tags": [],
+    "accessibility": [
+      "desktop_keyboard"
+    ],
+    "protected_objects": [
+      "keepsake"
+    ]
+  },
+  "title": "Ember's Ember Foundry",
+  "description": "Industrial flow from making through assembly to useful records.",
+  "provenance": {
+    "setting": {
+      "value": "Ember's Ember Foundry",
+      "chosen_by": "dot",
+      "reason": "Independent synthetic Dot choice for this specimen."
+    },
+    "mood": {
+      "value": "Industrial flow from making through assembly to useful records.",
+      "chosen_by": "dot",
+      "reason": "Activities determine the physical plan."
+    },
+    "topology": {
+      "value": "linear",
+      "chosen_by": "dot",
+      "reason": "Separate chosen activities through a distinct usable spatial relationship."
+    },
+    "shared_decisions": [
+      {
+        "value": "Use supported animation poses and keep the first world private.",
+        "chosen_by": "collaborative",
+        "reason": "Honest capabilities and owner privacy belong in this synthetic brief."
+      }
+    ],
+    "expansion_ideas": [
+      "A connected display room using the same bounded grammar."
+    ],
+    "unsupported_wishes": [
+      "Physical hand contact and a general organic character rig are not implemented."
+    ]
+  }
+}

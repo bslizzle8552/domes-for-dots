@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "id": "ember_foundry",
+  "version": "0.1.0",
+  "title": "Ember's Ember Foundry",
+  "description": "Industrial flow from making through assembly to useful records.",
+  "brief_path": "res://content/briefs/ember_foundry.json",
+  "character_path": "res://content/characters/ember_synthetic.json",
+  "routine_path": "res://content/routines/ember_foundry.json",
+  "asset_manifest_paths": [
+    "res://content/assets/ember_foundry.json"
+  ],
+  "environment": {
+    "background": "#171e25",
+    "ambient": "#e7e2d7",
+    "light_color": "#fff0d2",
+    "light_energy": 1.1
+  },
+  "camera": {
+    "position": [
+      26.0,
+      25,
+      28.0
+    ],
+    "target": [
+      8.0,
+      0.0,
+      0.0
+    ],
+    "size": 30.599999999999998
+  },
+  "navigation": {
+    "cell_size": 0.5,
+    "character_radius": 0.25594
+  },
+  "spawn": [
+    0,
+    0,
+    0
+  ],
+  "zones": [
+    {
+      "id": "zone_0",
+      "label": "Forge",
+      "center": [
+        0.0,
+        0,
+        0
+      ],
+      "size": [
+        8.0,
+        8.0
+      ],
+      "color": "#4a4c50",
+      "level_id": "lower"
+    },
+    {
+      "id": "zone_1",
+      "label": "Assembly",
+      "center": [
+        8.0,
+        0,
+        0
+      ],
+      "size": [
+        8.0,
+        8.0
+      ],
+      "color": "#80715c",
+      "level_id": "lower"
+    },
+    {
+      "id": "zone_2",
+      "label": "Archive",
+      "center": [
+        16.0,
+        0,
+        0
+      ],
+      "size": [
+        8.0,
+        8.0
+      ],
+      "color": "#4a4c50",
+      "level_id": "lower"
+    }
+  ],
+  "levels": [
+    {
+      "id": "lower",
+      "elevation": 0
+    }
+  ],
+  "transitions": [],
+  "objects": [
+    {
+      "id": "activity_0",
+      "asset_id": "wc_workbench",
+      "position": [
+        -2.1,
+        0,
+        -2.5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "activity_1",
+      "asset_id": "wc_workbench",
+      "position": [
+        5.9,
+        0,
+        -2.5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "activity_2",
+      "asset_id": "wc_shelf",
+      "position": [
+        13.9,
+        0,
+        -2.5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "keepsake",
+      "asset_id": "wc_sculpture",
+      "position": [
+        2.1,
+        0,
+        -2.5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "stations": [
+    {
+      "id": "activity_0_station",
+      "label": "Forge - tinker",
+      "object_id": "activity_0",
+      "level_id": "lower",
+      "activity_tags": [
+        "tinker"
+      ],
+      "approach": [
+        -2.1,
+        0,
+        -1.294
+      ],
+      "interaction": [
+        -2.1,
+        0,
+        -1.294
+      ],
+      "facing": 0,
+      "animation": "interact",
+      "fallback_animation": "idle",
+      "behavior": "",
+      "metadata": {
+        "template": "tinker",
+        "interaction_scope": "navigate_face_and_animate",
+        "contact": "not_implemented",
+        "local_anchor": "front_approach"
+      }
+    },
+    {
+      "id": "activity_1_station",
+      "label": "Assembly - work",
+      "object_id": "activity_1",
+      "level_id": "lower",
+      "activity_tags": [
+        "work"
+      ],
+      "approach": [
+        5.9,
+        0,
+        -1.294
+      ],
+      "interaction": [
+        5.9,
+        0,
+        -1.294
+      ],
+      "facing": 0,
+      "animation": "work",
+      "fallback_animation": "idle",
+      "behavior": "",
+      "metadata": {
+        "template": "work",
+        "interaction_scope": "navigate_face_and_animate",
+        "contact": "not_implemented",
+        "local_anchor": "front_approach"
+      }
+    },
+    {
+      "id": "activity_2_station",
+      "label": "Archive - inspect",
+      "object_id": "activity_2",
+      "level_id": "lower",
+      "activity_tags": [
+        "inspect"
+      ],
+      "approach": [
+        13.9,
+        0,
+        -1.469
+      ],
+      "interaction": [
+        13.9,
+        0,
+        -1.469
+      ],
+      "facing": 0,
+      "animation": "idle",
+      "fallback_animation": "idle",
+      "behavior": "",
+      "metadata": {
+        "template": "inspect",
+        "interaction_scope": "navigate_face_and_animate",
+        "contact": "not_implemented",
+        "local_anchor": "front_approach"
+      }
+    },
+    {
+      "id": "keepsake_station",
+      "label": "Ember original signal sculpture",
+      "object_id": "keepsake",
+      "level_id": "lower",
+      "activity_tags": [
+        "inspect"
+      ],
+      "approach": [
+        2.1,
+        0,
+        -1.244
+      ],
+      "interaction": [
+        2.1,
+        0,
+        -1.244
+      ],
+      "facing": 0,
+      "animation": "idle",
+      "fallback_animation": "idle",
+      "behavior": "",
+      "metadata": {
+        "template": "inspect",
+        "interaction_scope": "navigate_face_and_animate",
+        "contact": "not_implemented",
+        "local_anchor": "front_approach"
+      }
+    }
+  ],
+  "metadata": {
+    "compiler": "semantic_grid_v1",
+    "compiler_version": "1.0.0",
+    "topology": "linear",
+    "structure_revision": 1,
+    "intent_sha256": "9861d78e3c6b126ff8415553508543b7f7218cd72aa157a66c61061407d9ec24",
+    "simulation_notice": "SIMULATED ROUTINE; animation is not real work.",
+    "object_provenance": [
+      {
+        "id": "activity_0",
+        "chosen_by": "dot",
+        "reason": "I want a dedicated place to tinker."
+      },
+      {
+        "id": "activity_1",
+        "chosen_by": "dot",
+        "reason": "I want a dedicated place to work."
+      },
+      {
+        "id": "activity_2",
+        "chosen_by": "dot",
+        "reason": "I want a dedicated place to inspect."
+      },
+      {
+        "id": "keepsake",
+        "chosen_by": "dot",
+        "reason": "A stable personal marker that survives later expansions."
+      }
+    ]
+  }
+}

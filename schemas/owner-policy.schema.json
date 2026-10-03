@@ -8,7 +8,7 @@
     "allowed_tools": {"type": "array", "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"}, "uniqueItems": true},
     "allowed_operations": {
       "type": "array", "uniqueItems": true,
-      "items": {"enum": ["add_object", "move_object", "modify_object", "remove_object", "add_zone", "modify_zone", "remove_zone", "add_station", "modify_station", "remove_station", "add_asset", "modify_asset", "remove_asset", "replace_character", "edit_routine_presentation", "decorate", "edit_brief"]}
+      "items": {"enum": ["add_object", "move_object", "modify_object", "remove_object", "add_zone", "modify_zone", "remove_zone", "add_station", "modify_station", "remove_station", "add_transition", "modify_transition", "remove_transition", "add_level", "modify_level", "remove_level", "add_asset", "modify_asset", "remove_asset", "replace_character", "edit_routine_presentation", "decorate", "edit_brief"]}
     },
     "destructive_actions": {"enum": ["deny", "require_owner_review", "allow"]},
     "max_objects": {"type": "integer", "minimum": 0, "maximum": 1000},

@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "world_id": "lumen_observatory",
+  "source_content_hash": "9b8b561208ea49ab7bd7acf29bf12f5fa0b0fc06933d9c8f69a2a2fde57df246",
+  "source_package_hash": "2f95f0c693ff0ef8f7fb994d8a7572fe38d0d0d52108eb38d84e44b561bfe359",
+  "synthetic_owner_fixture": {
+    "id": "revision_owner_lamp",
+    "asset_id": "revision_lamp_asset",
+    "position": [
+      0.7,
+      0,
+      0
+    ],
+    "rotation_y": 15,
+    "scale": [
+      1,
+      1,
+      1
+    ]
+  },
+  "snapshots": {
+    "base": {
+      "repository": "C:\\dev\\domes_for_dots\\artifacts\\world_creator\\revisions-final\\base",
+      "content_hash": "700bd9dce580f60e46863b9df96310a7cdef651781675519a4086900a5fedd8a",
+      "structure_revision": 1,
+      "world_id": "lumen_observatory",
+      "receipt": null
+    },
+    "furniture": {
+      "repository": "C:\\dev\\domes_for_dots\\artifacts\\world_creator\\revisions-final\\furniture",
+      "content_hash": "9954aeb971b99be7187297b935d5902ba43643d65909498e44608237d933b2c2",
+      "structure_revision": 2,
+      "world_id": "lumen_observatory",
+      "receipt": {
+        "schema_version": 1,
+        "request_id": "acceptance_furniture",
+        "world_id": "lumen_observatory",
+        "intent": "expand",
+        "base_content_hash": "700bd9dce580f60e46863b9df96310a7cdef651781675519a4086900a5fedd8a",
+        "candidate_content_hash": "9954aeb971b99be7187297b935d5902ba43643d65909498e44608237d933b2c2",
+        "request_hash": "b76c3957832888053c51d52297c6adf7049ee57c695131869ecd0d77871f6986",
+        "operations": [
+          "modify_station",
+          "move_object"
+        ],
+        "metrics": {
+          "objects": 4,
+          "zones": 2,
+          "stations": 3,
+          "assets": 4,
+          "primitive_parts": 15,
+          "content_bytes": 22307
+        },
+        "policy_source": "documented_default",
+        "status": "committed",
+        "save_effect": "untouched; compatible existing identities and integrated routine timing preserved",
+        "verification": "authoring checks only; build and runtime/browser acceptance still required",
+        "transaction_id": "acceptance_furniture-b1c005e2c885",
+        "base_revision": 1,
+        "structure_revision": 2,
+        "revision_id": "acceptance_furniture",
+        "affected_entities": [
+          "object:activity_0",
+          "station:activity_0_station"
+        ],
+        "protected_entities": [
+          "object:keepsake",
+          "object:revision_owner_lamp"
+        ],
+        "expected_capabilities": [
+          "move_object"
+        ],
+        "state_migration": null,
+        "state_effect": "runtime state files untouched; routine epoch, preferences and meaningful progress preserved",
+        "activation_scope": "local authored content; export/publication/runtime reload remain separate",
+        "candidate_hash": "f47fa41f93dc088a2f4d3329fab431b81e1f4ef0acb97ccbb00e23c47ec5e600"
+      }
+    },
+    "addition": {
+      "repository": "C:\\dev\\domes_for_dots\\artifacts\\world_creator\\revisions-final\\addition",
+      "content_hash": "0d8dba26438f965d9f0145a22f6a0a194a83b0b99b4ab77bced76b8b23af4fe3",
+      "structure_revision": 3,
+      "world_id": "lumen_observatory",
+      "receipt": {
+        "schema_version": 1,
+        "request_id": "acceptance_addition",
+        "world_id": "lumen_observatory",
+        "intent": "expand",
+        "base_content_hash": "9954aeb971b99be7187297b935d5902ba43643d65909498e44608237d933b2c2",
+        "candidate_content_hash": "0d8dba26438f965d9f0145a22f6a0a194a83b0b99b4ab77bced76b8b23af4fe3",
+        "request_hash": "e90d257ba55c0bf1f0a6d37c42b3d937c83cbb89c03b7be58c8350e2c5526540",
+        "operations": [
+          "add_object",
+          "add_station"
+        ],
+        "metrics": {
+          "objects": 5,
+          "zones": 2,
+          "stations": 4,
+          "assets": 4,
+          "primitive_parts": 15,
+          "content_bytes": 24714
+        },
+        "policy_source": "documented_default",
+        "status": "committed",
+        "save_effect": "untouched; compatible existing identities and integrated routine timing preserved",
+        "verification": "authoring checks only; build and runtime/browser acceptance still required",
+        "transaction_id": "acceptance_addition-edb666b466d6",
+        "base_revision": 2,
+        "structure_revision": 3,
+        "revision_id": "acceptance_addition",
+        "affected_entities": [
+          "object:revision_field_lamp",
+          "station:revision_inspect_lamp"
+        ],
+        "protected_entities": [
+          "object:keepsake",
+          "object:revision_owner_lamp"
+        ],
+        "expected_capabilities": [
+          "add_object",
+          "add_station"
+        ],
+        "state_migration": null,
+        "state_effect": "runtime state files untouched; routine epoch, preferences and meaningful progress preserved",
+        "activation_scope": "local authored content; export/publication/runtime reload remain separate",
+        "candidate_hash": "7b0811a1056b3755d6405baab03c31626799d2a3f6830af88e087c36e69de0c1"
+      }
+    },
+    "structural": {
+      "repository": "C:\\dev\\domes_for_dots\\artifacts\\world_creator\\revisions-final\\structural",
+      "content_hash": "6f33d8a8e8bd530201f997fd56857480505382c959e21e16116813310f244808",
+      "structure_revision": 4,
+      "world_id": "lumen_observatory",
+      "receipt": {
+        "schema_version": 1,
+        "request_id": "acceptance_deck",
+        "world_id": "lumen_observatory",
+        "intent": "expand",
+        "base_content_hash": "0d8dba26438f965d9f0145a22f6a0a194a83b0b99b4ab77bced76b8b23af4fe3",
+        "candidate_content_hash": "6f33d8a8e8bd530201f997fd56857480505382c959e21e16116813310f244808",
+        "request_hash": "a95f8025d9786067c6206622aeff8746014b262088bd31648636a5afd3ab681e",
+        "operations": [
+          "add_object",
+          "add_station",
+          "add_zone"
+        ],
+        "metrics": {
+          "objects": 6,
+          "zones": 3,
+          "stations": 5,
+          "assets": 4,
+          "primitive_parts": 15,
+          "content_bytes": 26949
+        },
+        "policy_source": "documented_default",
+        "status": "committed",
+        "save_effect": "untouched; compatible existing identities and integrated routine timing preserved",
+        "verification": "authoring checks only; build and runtime/browser acceptance still required",
+        "transaction_id": "acceptance_deck-f69b07a3ea9b",
+        "base_revision": 3,
+        "structure_revision": 4,
+        "revision_id": "acceptance_deck",
+        "affected_entities": [
+          "object:revision_deck_lamp",
+          "station:revision_deck_inspection",
+          "zone:revision_observation_deck"
+        ],
+        "protected_entities": [
+          "object:keepsake",
+          "object:revision_owner_lamp"
+        ],
+        "expected_capabilities": [
+          "add_object",
+          "add_station",
+          "add_zone"
+        ],
+        "state_migration": {
+          "strategy": "preserve_existing_ids_and_routine",
+          "routine_id": "lumen_observatory_routine",
+          "reset_transient_navigation": true
+        },
+        "state_effect": "runtime state files untouched; routine epoch, preferences and meaningful progress preserved",
+        "activation_scope": "local authored content; export/publication/runtime reload remain separate",
+        "candidate_hash": "467d481be2e6d3c4912ed6a852d65aad26ee4e28154c6ecff663d8215d730c47"
+      }
+    }
+  },
+  "checks": {
+    "furniture_preserves_owner_lamp_routes_and_state": "PASS",
+    "new_object_and_station_functional_in_validator": "PASS",
+    "stale_candidate_rejected": "stale_revision: content changed; replan against the current world",
+    "connected_zone_explicit_migration": "PASS",
+    "rollback_preserves_newer_progress": "PASS",
+    "activation_failure_recovers_known_good": "PASS",
+    "source_repository_unchanged": "PASS"
+  },
+  "limitations": [
+    "Filesystem authoring acceptance; hosted CAS and browser scene activation are separately tested.",
+    "Runtime state sentinel verifies no local save overwrite; it is not evidence of cloud durability."
+  ],
+  "rollback_receipt": {
+    "schema_version": 1,
+    "request_id": "acceptance_deck",
+    "world_id": "lumen_observatory",
+    "intent": "expand",
+    "base_content_hash": "0d8dba26438f965d9f0145a22f6a0a194a83b0b99b4ab77bced76b8b23af4fe3",
+    "candidate_content_hash": "6f33d8a8e8bd530201f997fd56857480505382c959e21e16116813310f244808",
+    "request_hash": "a95f8025d9786067c6206622aeff8746014b262088bd31648636a5afd3ab681e",
+    "operations": [
+      "add_object",
+      "add_station",
+      "add_zone"
+    ],
+    "metrics": {
+      "objects": 6,
+      "zones": 3,
+      "stations": 5,
+      "assets": 4,
+      "primitive_parts": 15,
+      "content_bytes": 26949
+    },
+    "policy_source": "documented_default",
+    "status": "recovered",
+    "save_effect": "untouched; compatible existing identities and integrated routine timing preserved",
+    "verification": "authoring checks only; build and runtime/browser acceptance still required",
+    "transaction_id": "acceptance_deck-f69b07a3ea9b",
+    "active_structure_revision": 3,
+    "active_revision_id": "acceptance_addition",
+    "state_effect": "runtime state untouched; unrelated durable progress is not rolled back",
+    "activation_scope": "local content recovery; hosted deployment requires its own rollback"
+  },
+  "bounded_fixture_candidates_rejected": [],
+  "status": "PASS"
+}

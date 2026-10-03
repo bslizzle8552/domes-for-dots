@@ -6,6 +6,46 @@ const FIELDS: Array[String] = ["schema_version", "world_id", "world_version", "c
 
 var _root: String
 var _namespace: String
+signal hosted_save_completed(result: Dictionary)
+var _hosted_callback: JavaScriptObject
+var _hosted_pending := false
+
+
+func hosted_enabled() -> bool:
+	if not OS.has_feature("web"):
+		return false
+	# Our pinned Web export returned a numeric Variant for eval(Boolean(...));
+	# comparing it to a GDScript bool failed the typed expression during acceptance.
+	# String transport is the same tested boundary used for all state responses.
+	var enabled: Variant = JavaScriptBridge.eval("window.domesCloudState ? 'enabled' : 'disabled'", true)
+	return enabled is String and enabled == "enabled"
+
+
+func save_hosted_state(world_id: String, state: Dictionary, expected_revision: int) -> Dictionary:
+	# The opt-in host bridge acknowledges a real server-side compare-and-swap.
+	# A queued network request must never be reported as a successful save.
+	var error := validate_state(state, world_id)
+	if not error.is_empty():
+		return _failure(error)
+	if not hosted_enabled() or _hosted_pending:
+		return _failure("hosted_save_unavailable_or_busy")
+	_hosted_pending = true
+	_hosted_callback = JavaScriptBridge.create_callback(_hosted_result)
+	var window := JavaScriptBridge.get_interface("window")
+	window.domesCloudState.save(JSON.stringify(state), expected_revision, _hosted_callback)
+	var result: Dictionary = await hosted_save_completed
+	_hosted_pending = false
+	_hosted_callback = null
+	if result.get("ok", false):
+		var received: Variant = result.get("state")
+		if not received is Dictionary or not validate_state(received, world_id).is_empty() or int(received.revision) != expected_revision + 1:
+			return _failure("invalid_hosted_save_acknowledgment")
+	return result
+
+
+func _hosted_result(args: Array) -> void:
+	var parsed: Variant = JSON.parse_string(str(args[0])) if args.size() == 1 else null
+	hosted_save_completed.emit(parsed if parsed is Dictionary else _failure("invalid_hosted_save_response"))
 
 
 func _init(storage_root: String = "user://state", storage_namespace: String = "domes-for-dots.v1") -> void:
@@ -152,6 +192,8 @@ return JSON.stringify({ok:true,error:''});
 
 func _read_raw(world_id: String) -> Dictionary:
 	if OS.has_feature("web"):
+		if hosted_enabled():
+			return _eval_json("window.domesCloudState.read(" + JSON.stringify(world_id) + ")")
 		var script: String = """(function(k) { try { return JSON.stringify({ok:true,primary:localStorage.getItem(k),backup:localStorage.getItem(k+'.bak')}); } catch(e) { return JSON.stringify({ok:false,error:'browser_storage_error: '+String(e)}); } })(%s)""" % JSON.stringify(_key(world_id))
 		return _eval_json(script)
 	var result: Dictionary = {"ok": true, "primary": null, "backup": null}

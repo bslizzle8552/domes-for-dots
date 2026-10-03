@@ -1,0 +1,104 @@
+{
+  "status": "PASS",
+  "url": "https://domes-world-creator-lab.bslizzle.chatgpt.site",
+  "site_created_for": "Synthetic World Creator Lab; no Rocky assets or Site used",
+  "project_id": "appgprj_6ac03f1be208819192671c81fc608353",
+  "source": {
+    "v1": "0997062c69041ce3d9c198354941ec038035c44b",
+    "v2": "e0d9fba5442cc249d223169560d911721e09e2b1",
+    "v3": "96a1c3c7e214ca6f7381da915cb3b7099cc3962e"
+  },
+  "deployments": {
+    "v1": {
+      "id": "appgdep_6ac047b1afe88191ab25065bd6cd4af2",
+      "project_id": "appgprj_6ac03f1be208819192671c81fc608353",
+      "version_id": "appgprj_6ac03f1be208819192671c81fc608353~appgver_b40c294bb1e88191931b408a2505647e",
+      "status": "succeeded",
+      "url": "https://domes-world-creator-lab.bslizzle.chatgpt.site",
+      "source": {
+        "project_id": "appgprj_6ac03f1be208819192671c81fc608353",
+        "checkout_path": "C:\\dev\\domes_for_dots\\artifacts\\world-site",
+        "commit_sha": "0997062c69041ce3d9c198354941ec038035c44b",
+        "archive": "C:/dev/domes_for_dots/artifacts/world-site-v1.tar"
+      }
+    },
+    "v2": {
+      "id": "appgdep_6ac0495e140081918f5ed56a8e271672",
+      "project_id": "appgprj_6ac03f1be208819192671c81fc608353",
+      "title": "Domes World Creator Lab",
+      "version_id": "appgprj_6ac03f1be208819192671c81fc608353~appgver_6a344fc7ff7c819191de5de8649c2943",
+      "type": "publish",
+      "status": "succeeded",
+      "url": "https://domes-world-creator-lab.bslizzle.chatgpt.site",
+      "has_mcp": false,
+      "screenshot_asset_pointer": null,
+      "provider_deployment_id": "site---6ac03f1be208819192671c81fc608353",
+      "failure_message": null,
+      "env_set_revision": 0,
+      "updated_at": "2026-10-03T00:16:37.703796+00:00"
+    },
+    "v3": {
+      "id": "appgdep_6ac04c24ba0c8191ae81effc790c2603",
+      "project_id": "appgprj_6ac03f1be208819192671c81fc608353",
+      "title": "Domes World Creator Lab",
+      "version_id": "appgprj_6ac03f1be208819192671c81fc608353~appgver_47ac6ac9007c8191b2d21ddb8a5ed01b",
+      "type": "publish",
+      "status": "succeeded",
+      "url": "https://domes-world-creator-lab.bslizzle.chatgpt.site",
+      "has_mcp": false,
+      "screenshot_asset_pointer": null,
+      "provider_deployment_id": "site---6ac03f1be208819192671c81fc608353",
+      "failure_message": null,
+      "env_set_revision": 0,
+      "updated_at": "2026-10-03T00:28:28.919028+00:00"
+    },
+    "rollback_to_v2": {
+      "id": "appgdep_6ac04da7293081918c32094c16158d08",
+      "project_id": "appgprj_6ac03f1be208819192671c81fc608353",
+      "title": "Domes World Creator Lab",
+      "version_id": "appgprj_6ac03f1be208819192671c81fc608353~appgver_6a344fc7ff7c819191de5de8649c2943",
+      "type": "publish",
+      "status": "succeeded",
+      "url": "https://domes-world-creator-lab.bslizzle.chatgpt.site",
+      "has_mcp": false,
+      "screenshot_asset_pointer": null,
+      "provider_deployment_id": "site---6ac03f1be208819192671c81fc608353",
+      "failure_message": null,
+      "env_set_revision": 0,
+      "updated_at": "2026-10-03T00:34:53.661960+00:00"
+    },
+    "restore_v3": {
+      "id": "appgdep_6ac04e162c908191acbccd18c16121a6",
+      "project_id": "appgprj_6ac03f1be208819192671c81fc608353",
+      "title": "Domes World Creator Lab",
+      "version_id": "appgprj_6ac03f1be208819192671c81fc608353~appgver_47ac6ac9007c8191b2d21ddb8a5ed01b",
+      "type": "publish",
+      "status": "succeeded",
+      "url": "https://domes-world-creator-lab.bslizzle.chatgpt.site",
+      "has_mcp": false,
+      "screenshot_asset_pointer": null,
+      "provider_deployment_id": "site---6ac03f1be208819192671c81fc608353",
+      "failure_message": null,
+      "env_set_revision": 0,
+      "updated_at": "2026-10-03T00:36:44.184542+00:00"
+    }
+  },
+  "access": {
+    "mode": "custom",
+    "role": "owner",
+    "allowed_user_count": 1,
+    "allowed_group_count": 0,
+    "external_visitor_count": 0,
+    "service_access_available": true,
+    "owner_signin_ui": "not_tested",
+    "anonymous_gating": "API and PCK denied"
+  },
+  "active_version": "appgprj_6ac03f1be208819192671c81fc608353~appgver_47ac6ac9007c8191b2d21ddb8a5ed01b",
+  "state": "D1, no local owner-host process required",
+  "limits": [
+    "Scoped service browser acceptance, not normal owner sign-in UI",
+    "Primitive same-origin data lane, unchanged bundled character/routine",
+    "No R2 use or generic private job API",
+    "Post-activation engine health does not automatically commit/rollback"
+  ]
+}

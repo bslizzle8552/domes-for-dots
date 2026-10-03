@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "ember_foundry_routine",
+  "cycle_seconds": 80,
+  "steps": [
+    {
+      "id": "activity_0_station_step",
+      "label": "Forge - tinker",
+      "activity_tag": "tinker",
+      "animation": "interact",
+      "duration_seconds": 20,
+      "station_id": "activity_0_station"
+    },
+    {
+      "id": "activity_1_station_step",
+      "label": "Assembly - work",
+      "activity_tag": "work",
+      "animation": "work",
+      "duration_seconds": 20,
+      "station_id": "activity_1_station"
+    },
+    {
+      "id": "activity_2_station_step",
+      "label": "Archive - inspect",
+      "activity_tag": "inspect",
+      "animation": "idle",
+      "duration_seconds": 20,
+      "station_id": "activity_2_station"
+    },
+    {
+      "id": "keepsake_station_step",
+      "label": "Ember original signal sculpture",
+      "activity_tag": "inspect",
+      "animation": "idle",
+      "duration_seconds": 20,
+      "station_id": "keepsake_station"
+    }
+  ],
+  "projects": [],
+  "metadata": {
+    "simulation_only": true,
+    "progress_policy": "No architecture is created by this routine."
+  }
+}

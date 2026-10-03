@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "ok": true,
+  "errors": [],
+  "checks": [
+    "schemas_and_digests",
+    "real_skin_and_weighted_geometry",
+    "semantic_clips_and_in_place_motion"
+  ],
+  "scope": "Generic envelope, identities, bounded files/digests and runtime manifest, followed by registered backend-specific specification/asset checks. Engine import, visual fit and browser playback require separate acceptance.",
+  "backend": "procedural_rigid_skin_v1",
+  "validator": "procedural_rigid_skin_v1",
+  "joint_count": 18,
+  "vertex_count": 480,
+  "clip_count": 12
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "package_kind": "domes_world",
+  "world_id": "lumen_observatory",
+  "compiler": "semantic_grid_v1",
+  "compiler_version": "1.0.0",
+  "runtime_manifest": "world.json",
+  "spec_path": "spec.json",
+  "intent_path": "intent.json",
+  "character_manifest": "character.json",
+  "files": {
+    "assets.json": "8af3f64c198ce6fdba8f70a494e554439a94ca4891668cdf52ffd0b0e561bfb2",
+    "brief.json": "2232e697ec3f1fb65f3db850f98ee28c2b92d31544759b0765ce8302890db308",
+    "character.json": "b9443fc0ca3db8dee11175cd8a2ead04b7140937312ee76b9bd358b243f46365",
+    "compile.json": "a612c8c7a7677cc53f36c7506e953a822c8b8eafe4c5783e31fc78037476a066",
+    "intent.json": "7df8f0c12b34e22fb010709138fff71d560db01c875466531d34aadb813fa43c",
+    "routine.json": "d2e111b7ea65ad39f4321bea5593c0690bfde95a6193ffddb13d0a01bb990849",
+    "spec.json": "868f575bf8a00735b046ee9121d335531219e4a55a3c7c2976e6c2bd1e95e268",
+    "world.json": "f7ca77fd67e50f406afd7ec660830f1d7514bcd9381cebfd9b9851ed0f21a608"
+  },
+  "documents": {
+    "assets": "assets.json",
+    "routine": "routine.json",
+    "brief": "brief.json",
+    "receipt": "compile.json"
+  },
+  "requirements": {
+    "character_id": "lumen_synthetic",
+    "display_name": "Lumen",
+    "radius": 0.29531,
+    "height": 1.49062,
+    "forward_axis": "-Z",
+    "movement": "ground_walk",
+    "actions": [
+      "garden",
+      "inspect",
+      "observe",
+      "read",
+      "tinker",
+      "work"
+    ],
+    "contact": "not_declared",
+    "reach": "unknown"
+  },
+  "provenance": {
+    "character_package_sha256": "55d839ad1822d712d7981337c7fc4049bf6bdc5b6c0da100715545f6bf1fcd28",
+    "intent_sha256": "4121526e620b646589eb52d540d2f841dfa82dadb5e89fa0a994315a68a67875",
+    "source": "Structured Dot and owner intent; original procedural assets"
+  },
+  "limitations": [
+    "Open pavilion grammar; no arbitrary buildings or enclosed door solver.",
+    "Activity poses are simulated; no IK, physical hand contact, seat fit or actual work is claimed.",
+    "Owner must_haves and unsupported wishes are retained prose, not automatically proven requirements.",
+    "Private is a deployment requirement, not access control implemented by world JSON.",
+    "Engine, browser, accessibility and hosting acceptance are separate from static compilation."
+  ],
+  "validation": {
+    "validator": "semantic_grid_validator_v1",
+    "report": "validation.json"
+  }
+}

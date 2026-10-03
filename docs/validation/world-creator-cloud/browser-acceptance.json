@@ -1,0 +1,116 @@
+{
+  "status": "PASS",
+  "url": "http://127.0.0.1:8097/",
+  "browser": "154.0.8037.97",
+  "checks": [
+    "exported page delivered",
+    "standalone Web uses browser storage adapter",
+    "ember_foundry: character has actual imported skeleton",
+    "ember_foundry: reaches activity_0_station",
+    "ember_foundry: real clip at activity_0_station",
+    "ember_foundry: reaches activity_1_station",
+    "ember_foundry: real clip at activity_1_station",
+    "ember_foundry: reaches activity_2_station",
+    "ember_foundry: real clip at activity_2_station",
+    "ember_foundry: reaches keepsake_station",
+    "ember_foundry: real clip at keepsake_station",
+    "ember_foundry: simulated routine reaches a real station",
+    "ember_foundry: sampled movement remains supported",
+    "ember_foundry: navigation never requires recovery teleport",
+    "ember_foundry: native integrations honestly unavailable",
+    "lumen_observatory: character has actual imported skeleton",
+    "lumen_observatory: reaches activity_0_station",
+    "lumen_observatory: real clip at activity_0_station",
+    "lumen_observatory: reaches activity_1_station",
+    "lumen_observatory: real clip at activity_1_station",
+    "lumen_observatory: reaches keepsake_station",
+    "lumen_observatory: real clip at keepsake_station",
+    "lumen_observatory: simulated routine reaches a real station",
+    "lumen_observatory: physical downhill return",
+    "lumen_observatory: interruption holds supported mid-ramp position",
+    "lumen_observatory: mid-ramp redirect returns to lower station",
+    "lumen_observatory: browser reload from transition returns to safe spawn",
+    "lumen_observatory: reload preserves durable timeline and pause",
+    "lumen_observatory: upper station reachable after reload",
+    "lumen_observatory: sampled movement remains supported",
+    "lumen_observatory: navigation never requires recovery teleport",
+    "lumen_observatory: native integrations honestly unavailable",
+    "verdant_courtyard: character has actual imported skeleton",
+    "verdant_courtyard: reaches activity_0_station",
+    "verdant_courtyard: real clip at activity_0_station",
+    "verdant_courtyard: reaches activity_1_station",
+    "verdant_courtyard: real clip at activity_1_station",
+    "verdant_courtyard: reaches activity_2_station",
+    "verdant_courtyard: real clip at activity_2_station",
+    "verdant_courtyard: reaches keepsake_station",
+    "verdant_courtyard: real clip at keepsake_station",
+    "verdant_courtyard: simulated routine reaches a real station",
+    "verdant_courtyard: sampled movement remains supported",
+    "verdant_courtyard: navigation never requires recovery teleport",
+    "verdant_courtyard: native integrations honestly unavailable",
+    "no browser or Godot runtime errors"
+  ],
+  "errors": [],
+  "measurements": [
+    {
+      "world_id": "ember_foundry",
+      "stations": 4,
+      "navigation_build_msec": 12,
+      "browser_support_samples": 181,
+      "startup_msec_first_world": 5267.449500000001,
+      "browser_animation_frame_cadence": {
+        "samples": 120,
+        "median_msec": 16.699999999999818,
+        "p95_msec": 17.299999999999272,
+        "max_msec": 33.400000000000546
+      },
+      "js_heap_bytes": 56948548,
+      "resource_bytes": 38710918
+    },
+    {
+      "world_id": "lumen_observatory",
+      "stations": 3,
+      "navigation_build_msec": 4,
+      "browser_support_samples": 342,
+      "startup_msec_first_world": null,
+      "browser_animation_frame_cadence": {
+        "samples": 120,
+        "median_msec": 16.69999999999709,
+        "p95_msec": 16.900000000001455,
+        "max_msec": 33.20000000000073
+      },
+      "js_heap_bytes": 15866294,
+      "resource_bytes": 38384290
+    },
+    {
+      "world_id": "verdant_courtyard",
+      "stations": 4,
+      "navigation_build_msec": 5,
+      "browser_support_samples": 159,
+      "startup_msec_first_world": null,
+      "browser_animation_frame_cadence": {
+        "samples": 120,
+        "median_msec": 16.69999999999891,
+        "p95_msec": 16.80000000000109,
+        "max_msec": 17.30000000000109
+      },
+      "js_heap_bytes": 14917106,
+      "resource_bytes": 38384290
+    }
+  ],
+  "limitations": [
+    "Desktop Chromium acceptance only",
+    "JavaScript heap observation does not measure total WebAssembly/GPU/process memory",
+    "Browser requestAnimationFrame cadence is observed presentation timing, not an engine profiler or device guarantee",
+    "Routine animations are SIMULATED; no native calls or real work performed",
+    "Reload intentionally uses safe spawn while retaining durable timeline and owner preferences"
+  ],
+  "artifact_binding": {
+    "cloud_run_id": 37080816856,
+    "source_commit": "2c26332ec202901359bdd12870cc7c7bcedfb37e",
+    "web_inventory_reference": "job-receipt.json#web_sha256",
+    "reference_world_manifests": "Downloaded validated cloud World Packages, not local fixture geometry",
+    "fresh_browser_context": true,
+    "hosting_scope": "Local loopback serving the downloaded exact cloud export; not a hosted-access-control test"
+  }
+}

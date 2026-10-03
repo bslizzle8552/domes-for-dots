@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "id": "verdant_courtyard",
+  "version": "0.1.0",
+  "title": "Fern's Verdant Courtyard",
+  "description": "An open garden, outdoor making and seed library surrounding a shared bend.",
+  "brief_path": "res://content/briefs/verdant_courtyard.json",
+  "character_path": "res://content/characters/fern_synthetic.json",
+  "routine_path": "res://content/routines/verdant_courtyard.json",
+  "asset_manifest_paths": [
+    "res://content/assets/verdant_courtyard.json"
+  ],
+  "environment": {
+    "background": "#293b35",
+    "ambient": "#e7e2d7",
+    "light_color": "#fff0d2",
+    "light_energy": 1.1
+  },
+  "camera": {
+    "position": [
+      20.666666666666668,
+      25,
+      30.666666666666668
+    ],
+    "target": [
+      2.6666666666666665,
+      0.0,
+      2.6666666666666665
+    ],
+    "size": 21.4
+  },
+  "navigation": {
+    "cell_size": 0.5,
+    "character_radius": 0.27562
+  },
+  "spawn": [
+    0,
+    0,
+    0
+  ],
+  "zones": [
+    {
+      "id": "zone_0",
+      "label": "Garden court",
+      "center": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        8.0,
+        8.0
+      ],
+      "color": "#9eac7b",
+      "level_id": "lower"
+    },
+    {
+      "id": "zone_1",
+      "label": "Painting pavilion",
+      "center": [
+        8.0,
+        0,
+        0
+      ],
+      "size": [
+        8.0,
+        8.0
+      ],
+      "color": "#c2b89a",
+      "level_id": "lower"
+    },
+    {
+      "id": "zone_2",
+      "label": "Seed library",
+      "center": [
+        0,
+        0,
+        8.0
+      ],
+      "size": [
+        8.0,
+        8.0
+      ],
+      "color": "#9eac7b",
+      "level_id": "lower"
+    }
+  ],
+  "levels": [
+    {
+      "id": "lower",
+      "elevation": 0
+    }
+  ],
+  "transitions": [],
+  "objects": [
+    {
+      "id": "activity_0",
+      "asset_id": "wc_planter",
+      "position": [
+        -2.1,
+        0,
+        -2.5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "activity_1",
+      "asset_id": "wc_workbench",
+      "position": [
+        5.9,
+        0,
+        -2.5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "activity_2",
+      "asset_id": "wc_shelf",
+      "position": [
+        -2.1,
+        0,
+        5.5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "keepsake",
+      "asset_id": "wc_sculpture",
+      "position": [
+        2.1,
+        0,
+        -2.5
+      ],
+      "rotation_y": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "stations": [
+    {
+      "id": "activity_0_station",
+      "label": "Garden court - garden",
+      "object_id": "activity_0",
+      "level_id": "lower",
+      "activity_tags": [
+        "garden"
+      ],
+      "approach": [
+        -2.1,
+        0,
+        -1.274
+      ],
+      "interaction": [
+        -2.1,
+        0,
+        -1.274
+      ],
+      "facing": 0,
+      "animation": "garden",
+      "fallback_animation": "idle",
+      "behavior": "",
+      "metadata": {
+        "template": "garden",
+        "interaction_scope": "navigate_face_and_animate",
+        "contact": "not_implemented",
+        "local_anchor": "front_approach"
+      }
+    },
+    {
+      "id": "activity_1_station",
+      "label": "Painting pavilion - tinker",
+      "object_id": "activity_1",
+      "level_id": "lower",
+      "activity_tags": [
+        "tinker"
+      ],
+      "approach": [
+        5.9,
+        0,
+        -1.274
+      ],
+      "interaction": [
+        5.9,
+        0,
+        -1.274
+      ],
+      "facing": 0,
+      "animation": "interact",
+      "fallback_animation": "idle",
+      "behavior": "",
+      "metadata": {
+        "template": "tinker",
+        "interaction_scope": "navigate_face_and_animate",
+        "contact": "not_implemented",
+        "local_anchor": "front_approach"
+      }
+    },
+    {
+      "id": "activity_2_station",
+      "label": "Seed library - read",
+      "object_id": "activity_2",
+      "level_id": "lower",
+      "activity_tags": [
+        "read"
+      ],
+      "approach": [
+        -2.1,
+        0,
+        6.551
+      ],
+      "interaction": [
+        -2.1,
+        0,
+        6.551
+      ],
+      "facing": 0,
+      "animation": "read",
+      "fallback_animation": "idle",
+      "behavior": "",
+      "metadata": {
+        "template": "read",
+        "interaction_scope": "navigate_face_and_animate",
+        "contact": "not_implemented",
+        "local_anchor": "front_approach"
+      }
+    },
+    {
+      "id": "keepsake_station",
+      "label": "Fern original signal sculpture",
+      "object_id": "keepsake",
+      "level_id": "lower",
+      "activity_tags": [
+        "inspect"
+      ],
+      "approach": [
+        2.1,
+        0,
+        -1.224
+      ],
+      "interaction": [
+        2.1,
+        0,
+        -1.224
+      ],
+      "facing": 0,
+      "animation": "idle",
+      "fallback_animation": "idle",
+      "behavior": "",
+      "metadata": {
+        "template": "inspect",
+        "interaction_scope": "navigate_face_and_animate",
+        "contact": "not_implemented",
+        "local_anchor": "front_approach"
+      }
+    }
+  ],
+  "metadata": {
+    "compiler": "semantic_grid_v1",
+    "compiler_version": "1.0.0",
+    "topology": "courtyard",
+    "structure_revision": 1,
+    "intent_sha256": "6565acf59628cdf3a45df67edf72586c240eeb65cfd660cd537a76dae3665f38",
+    "simulation_notice": "SIMULATED ROUTINE; animation is not real work.",
+    "object_provenance": [
+      {
+        "id": "activity_0",
+        "chosen_by": "dot",
+        "reason": "I want a dedicated place to garden."
+      },
+      {
+        "id": "activity_1",
+        "chosen_by": "dot",
+        "reason": "I want a dedicated place to tinker."
+      },
+      {
+        "id": "activity_2",
+        "chosen_by": "dot",
+        "reason": "I want a dedicated place to read."
+      },
+      {
+        "id": "keepsake",
+        "chosen_by": "dot",
+        "reason": "A stable personal marker that survives later expansions."
+      }
+    ]
+  }
+}

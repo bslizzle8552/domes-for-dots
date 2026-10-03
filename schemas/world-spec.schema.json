@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://domes-for-dots.example/schemas/world-spec.schema.json",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "compiler": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,39}$"
+    },
+    "compiler_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "world_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,39}$"
+    },
+    "intent_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "character_profile": {
+      "type": "object"
+    },
+    "topology": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "zones": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 1,
+      "maxItems": 100
+    },
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 1,
+      "maxItems": 100
+    },
+    "palette": {
+      "type": "object"
+    },
+    "owner_constraints": {
+      "type": "object"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "provenance": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "compiler",
+    "compiler_version",
+    "world_id",
+    "intent_sha256",
+    "character_profile",
+    "topology",
+    "zones",
+    "objects",
+    "palette",
+    "owner_constraints",
+    "title",
+    "description",
+    "provenance"
+  ],
+  "additionalProperties": false
+}

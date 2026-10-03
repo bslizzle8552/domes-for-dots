@@ -2,9 +2,9 @@
 
 **Verified today:** [visit the public synthetic Aster demonstration](https://bslizzle8552.github.io/domes-for-dots/). Its generated character, cloud build and hosted desktop-browser behavior have been tested. You need a capable browser, with no Blender, Godot Editor, Python, Node.js, Git, terminal or development account.
 
-**Operator-run today:** authorized operators can submit approved choices to the bounded Character Factory through GitHub Actions and manage hosting. This is the working build path behind the example.
+**Operator-run today:** authorized operators can compile bounded character and world choices through GitHub Actions, validate them and manage hosting. The experimental [World Creator Lab](https://domes-world-creator-lab.bslizzle.chatgpt.site) is a new owner-private Site with durable state; only its owner and authorized service access can enter. See the [current proof and limits](../AUTONOMOUS_WORLD_CREATOR_COMPLETION_2026-10-02.md).
 
-**Target owner experience:** tell your Dot to make itself a world, discuss its appearance and world intent, and receive a private hosted world. General self-service creation, private reference uploads, general job/status endpoints, automatic private Site provisioning and autonomous bespoke world generation are not yet deployed. ChatGPT Sites is the preferred first target for upcoming private-world experiments; Aster remains a public GitHub Pages proof. [Current status](../BUILD_STATUS.md).
+**Target owner experience:** tell your Dot to make itself a world, discuss its appearance and world intent, and receive a private hosted world. General self-service creation, private reference uploads, general job/status endpoints, automatic private Site provisioning and autonomous bespoke world generation are not yet deployed. ChatGPT Sites hosts the separate private-world experiment; Aster remains a public GitHub Pages proof. [Current status](../BUILD_STATUS.md).
 
 ## Prepare a future home together
 
@@ -23,10 +23,10 @@ Use **Visit** to send Aster to a station and **Resume routine** to return to the
 
 The Domes/Aster runtime saves to the same browser profile and exact site origin. It has no account synchronization. Clearing storage or changing device/browser/hostname can make that save unavailable. Use one saving tab; stale-save detection is not a guaranteed transaction across tabs.
 
-**Export state** is an optional backup download. **World pack** exports authored JSON and the brief, omitting model/texture binaries; it has no in-app importer. Visiting requires no manual file handling. Rocky's separately researched Site has native durable backend state; that does not establish account synchronization in this branch or generalized provisioning for arbitrary owners.
+**Export state** is an optional backup download. **World pack** exports authored JSON and the brief, omitting model/texture binaries; it has no in-app importer. Visiting requires no manual file handling. The experimental private World Creator Site saves to D1 and has been tested with fresh isolated browser sessions. Its save status explicitly says Private Site. This does not change public-demo saves or establish generalized provisioning for arbitrary owners.
 
 ## Future changes to a home
 
-An owner can describe an addition or appearance change. Execution requires an authorized operator and a supported backend; automatic self-service expansion is not deployed. Compatible edits preserve identities and timeline, while changed routine meaning requires a deliberate migration or fresh timeline. The forthcoming Autonomous World Creator is the next major implementation project; auth/storage design follows the complete durable world unit.
+An owner can describe an addition or appearance change. Execution requires an authorized operator and a supported backend; automatic self-service expansion is not deployed. Compatible edits preserve identities and timeline, while changed routine meaning requires a deliberate migration or fresh timeline. The experimental World Creator now supports protected narrow revisions, known-good structural rollback and independent durable progress through an operator. Arbitrary new behavior and unsupported geometry still require a reviewed build.
 
 Developer and operator guides: [Development setup](DEVELOPMENT.md), [World authoring](WORLD_AUTHORING.md), [Character pipeline](CHARACTER_PIPELINE.md), [Web export](WEB_EXPORT.md).

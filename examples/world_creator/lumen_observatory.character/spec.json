@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "character_id": "lumen_synthetic",
+  "display_name": "Lumen",
+  "backend": "procedural_rigid_skin_v1",
+  "appearance": {
+    "accessories": [
+      "chest_badge"
+    ],
+    "body": "segmented_robot",
+    "clothing": "vest",
+    "colors": {
+      "accent": "#e5c675",
+      "primary": "#606d98",
+      "secondary": "#3d465f",
+      "visor": "#152735"
+    },
+    "head_scale": 1.0,
+    "height_m": 1.5
+  },
+  "references": [
+    {
+      "id": "approved_robot_card",
+      "description": "Original flat front-view segmented teal robot concept with amber eyes and chest badge. A design reference, not a 3D reconstruction target.",
+      "source": "Original project fixture authored by Domes contributors; not Rocky imagery",
+      "license": "MIT",
+      "sha256": "848f1996d7adeabf6d5995304f86902da3c1b92ae639baa48f92d16e1c7dd682",
+      "media_type": "image/png",
+      "bytes": 1010
+    }
+  ],
+  "creative_intent": {
+    "self_image": "Independent synthetic Lumen character for lumen_observatory",
+    "personality_cues": [
+      "Curious and patient; this fixture demonstrates recording creative intent."
+    ],
+    "identifying_features": [
+      "Warm amber square eyes and a small chest badge."
+    ],
+    "activities": [
+      "work",
+      "read",
+      "build",
+      "inspect",
+      "garden",
+      "sleep",
+      "talk",
+      "phone"
+    ]
+  },
+  "decisions": {
+    "human_approved": true,
+    "veto_accessories": [
+      "antenna"
+    ],
+    "human_notes": "Independent synthetic fixture; approved original reusable reference card, no private identity.",
+    "implementation_scope": "Original segmented robot from explicit palette, proportions, clothing and accessory choices. Images are approved reference evidence; this backend does not infer geometry from pixels. Gestures have no automatic prop contact or arbitrary-rig retargeting.",
+    "unimplemented_intent": [
+      "Warm amber square eyes and a small chest badge.",
+      "Curious and patient; this fixture demonstrates recording creative intent."
+    ]
+  },
+  "input_sha256": "5123b923e9535dbf8af975e49771b6ef42c52eff5d537e09e2a265b2ad851d7c"
+}

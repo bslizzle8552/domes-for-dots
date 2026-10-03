@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "world_id": "verdant_courtyard",
+  "dot": {
+    "id": "fern_synthetic",
+    "name": "Fern"
+  },
+  "owner_constraints": {
+    "privacy": "private",
+    "max_zones": 6,
+    "max_objects": 24,
+    "max_span": 60,
+    "must_haves": [
+      "No paid generation; preserve the meaningful object."
+    ],
+    "veto_tags": [],
+    "accessibility": [
+      "desktop_keyboard"
+    ],
+    "protected_objects": [
+      "keepsake"
+    ]
+  },
+  "choices": {
+    "setting": {
+      "value": "Fern's Verdant Courtyard",
+      "chosen_by": "dot",
+      "reason": "Independent synthetic Dot choice for this specimen."
+    },
+    "mood": {
+      "value": "An open garden, outdoor making and seed library surrounding a shared bend.",
+      "chosen_by": "dot",
+      "reason": "Activities determine the physical plan."
+    },
+    "topology": {
+      "value": "courtyard",
+      "chosen_by": "dot",
+      "reason": "Separate chosen activities through a distinct usable spatial relationship."
+    },
+    "palette": {
+      "floor": "#9eac7b",
+      "secondary": "#c2b89a",
+      "accent": "#e8a772",
+      "background": "#293b35",
+      "material": "#85644e"
+    },
+    "zones": [
+      {
+        "id": "zone_0",
+        "label": "Garden court",
+        "purpose": "Garden court supports garden"
+      },
+      {
+        "id": "zone_1",
+        "label": "Painting pavilion",
+        "purpose": "Painting pavilion supports tinker"
+      },
+      {
+        "id": "zone_2",
+        "label": "Seed library",
+        "purpose": "Seed library supports read"
+      }
+    ],
+    "activities": [
+      {
+        "id": "activity_0",
+        "label": "Garden court - garden",
+        "zone_id": "zone_0",
+        "recipe": "planter",
+        "action": "garden",
+        "chosen_by": "dot",
+        "reason": "I want a dedicated place to garden."
+      },
+      {
+        "id": "activity_1",
+        "label": "Painting pavilion - tinker",
+        "zone_id": "zone_1",
+        "recipe": "workbench",
+        "action": "tinker",
+        "chosen_by": "dot",
+        "reason": "I want a dedicated place to tinker."
+      },
+      {
+        "id": "activity_2",
+        "label": "Seed library - read",
+        "zone_id": "zone_2",
+        "recipe": "shelf",
+        "action": "read",
+        "chosen_by": "dot",
+        "reason": "I want a dedicated place to read."
+      }
+    ],
+    "meaningful_objects": [
+      {
+        "id": "keepsake",
+        "label": "Fern original signal sculpture",
+        "zone_id": "zone_0",
+        "recipe": "sculpture",
+        "protected": true,
+        "chosen_by": "dot",
+        "reason": "A stable personal marker that survives later expansions."
+      }
+    ]
+  },
+  "shared_decisions": [
+    {
+      "value": "Use supported animation poses and keep the first world private.",
+      "chosen_by": "collaborative",
+      "reason": "Honest capabilities and owner privacy belong in this synthetic brief."
+    }
+  ],
+  "expansion_ideas": [
+    "A connected display room using the same bounded grammar."
+  ],
+  "unsupported_wishes": [
+    "Physical hand contact and a general organic character rig are not implemented."
+  ]
+}

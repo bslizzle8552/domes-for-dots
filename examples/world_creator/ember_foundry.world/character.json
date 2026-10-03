@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "id": "ember_synthetic",
+  "display_name": "Ember",
+  "scene_path": "res://assets/generated/ember_synthetic/character.glb",
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "forward_axis": "-Z",
+  "collision": {
+    "radius": 0.25188,
+    "height": 1.29187
+  },
+  "navigation": {
+    "radius": 0.25594,
+    "speed": 2.4
+  },
+  "rig": {
+    "skeleton_path": "Character/Skeleton3D",
+    "animation_player_path": "AnimationPlayer",
+    "notes": "18-joint glTF skin, rigid weights for segmented geometry. Twelve original in-place skeletal clips. No arbitrary retargeting or station IK; sit and sleep use a seated pose, phone an empty-hand gesture."
+  },
+  "animations": {
+    "idle": "idle",
+    "walk": "walk",
+    "interact": "interact",
+    "sit": "sit",
+    "work": "work",
+    "read": "read",
+    "build": "build",
+    "inspect": "inspect",
+    "garden": "garden",
+    "sleep": "sleep",
+    "talk": "talk",
+    "phone": "phone"
+  },
+  "fallbacks": {
+    "rest": "sleep",
+    "observe": "inspect",
+    "music": "talk"
+  },
+  "appearance": {
+    "color": "#4a4c50",
+    "accent": "#ffa154"
+  },
+  "metadata": {
+    "creator": "Domes character factory",
+    "license": "MIT",
+    "backend": "procedural_rigid_skin_v1",
+    "spec_sha256": "e877a867f21c3fe3611f41881434bcb4a426faabb7724ab57f7a6a8c950f8bf4",
+    "source": "Original procedural geometry and authored skeletal clips; not image reconstruction"
+  }
+}

@@ -4,6 +4,8 @@
 
 The runtime loads separate world, character, asset and routine definitions. A workshop, orbital habitat or future world can use the same engine. Local elapsed-time simulation makes the world feel inhabited between visits without continuous model inference.
 
+**Autonomous World Creator experimental branch:** bounded semantic intent now compiles three distinct synthetic homes, compatible characters, real activity anchors and supported straight ramps. Guarded revisions preserve owner edits and meaningful state. A new owner-private ChatGPT Site exercises durable D1 state and approved geometry updates with an unchanged engine pack. See the [completion report](AUTONOMOUS_WORLD_CREATOR_COMPLETION_2026-10-02.md), [compiler](docs/WORLD_CREATOR.md), [operator flow](docs/OPERATOR_WORLD_CREATOR.md) and [private Site adapter](docs/SITES_WORLD_CREATOR.md). This is an operator-run proof; general self-service provisioning is not deployed. Rocky's Site and released versions are unchanged.
+
 **[Visit the generated Aster world](https://bslizzle8552.github.io/domes-for-dots/)** — nothing to install. This public synthetic demo was generated and built on a cloud worker, then verified in its hosted browser form: an original 18-joint character with 12 clips inside the existing Domes runtime. See the [implementation and proof](docs/AUTOMATIC_CHARACTER_COMPLETION.md), [character factory](docs/CHARACTER_FACTORY.md), and [Rocky's actual production pipeline](docs/ROCKY_REFERENCE_PIPELINE.md). This procedural backend does not reconstruct images; saves remain browser-local.
 
 ## V2 · 0.2.0 released
@@ -14,7 +16,7 @@ V2 keeps the working Godot foundation and adds a repeatable [world authoring wor
 | --- | --- |
 | Implemented | Real Godot 3D scenes; authored worlds; placeholder and articulated characters; generic stations; navigation; deterministic routines and finite simulated projects; local state; bounded mock activity events; state and authoring-JSON export; candidate validation and recoverable authoring changes. |
 | Experimental | Imported character/prop workflows, browser delivery across untested devices, local save conflict handling, new authored layouts. Verify each new asset and target environment. |
-| Unavailable | Native ChatGPT call/work feeds, hosted account storage, in-app world/state import, automatic photo-to-rig conversion, unattended model-driven creative expansion, multiplayer, mobile acceptance, stairs/elevators. |
+| Unavailable in the released/public demo | Native ChatGPT call/work feeds, hosted account storage, in-app world/state import, automatic photo-to-rig conversion, unattended model-driven creative expansion, multiplayer, mobile acceptance, stairs/elevators. The experimental private Site has separately verified durable storage; it does not retrofit the public demo. |
 
 Read [V2 acceptance](docs/V2_BUILD.md), [historical v0.1 verification](docs/VERIFICATION.md) and [BUILD_STATUS.md](BUILD_STATUS.md) for build/release status. An implemented feature is not a claim that every browser, imported rig or deployment has been tested.
 
@@ -28,13 +30,13 @@ Read [V2 acceptance](docs/V2_BUILD.md), [historical v0.1 verification](docs/VERI
 | Operator-run | Authorized operators can dispatch the bounded Character Factory through GitHub Actions and manage publication. |
 | Target, not generally deployed | Arbitrary Dot self-service creation, automatic private Site provisioning, private uploads, general job/status, cross-device saves and autonomous bespoke world creation. |
 
-ChatGPT Sites is the preferred first target for upcoming private-world experiments, based on the owner's separate research into Rocky's functioning private Site. The Aster proof uses GitHub Pages. Host portability remains part of the design.
+ChatGPT Sites now hosts a separate owner-private World Creator experiment; the Aster proof still uses GitHub Pages. The [Site adapter](docs/SITES_WORLD_CREATOR.md) records the actual deployment and storage boundaries. Host portability remains part of the design.
 
 Open the hosted world link supplied by your Dot or Domes operator. A capable browser is the only user runtime requirement: no Blender, Godot Editor, Python, Node.js, Git, terminal or downloaded Web ZIP. See [Getting started](docs/GETTING_STARTED.md) for the owner flow and [BUILD_STATUS.md](BUILD_STATUS.md) for the latest verified deployment evidence. A release ZIP or local preview is not a hosted world.
 
 Target owner experience, once the required service is available: tell your Dot: **“This is my Dot. Make them a world.”** Supply or approve reference imagery and share any must-haves or vetoes. The Dot records its own appearance and world choices; an authorized operator or future build service produces, validates and hosts them. The current branch proves an operator-run synthetic example; it does not deploy generalized self-service creation or automatic private Site provisioning. If a required service is unavailable, the handoff must name that blocker instead of asking you to install a toolchain.
 
-Inside a world, try **Visit**, **Preview +30 min**, and the explicitly labeled **MOCK work/call** controls. Saves currently stay in the same browser profile and origin. Hosted account storage and cross-device synchronization are still pending; opening a public link on another device does not carry progress across.
+Inside a world, try **Visit**, **Preview +30 min**, and the explicitly labeled **MOCK work/call** controls. Released and public-demo saves stay in the same browser profile and origin. The experimental private Site labels its D1-backed saves separately; opening a public demo on another device does not carry progress across.
 
 Contributors and cloud operators can use [Development setup](docs/DEVELOPMENT.md). The [v0.2.0 release](https://github.com/bslizzle8552/domes-for-dots/releases/tag/v0.2.0) retains source and build artifacts for those workflows.
 

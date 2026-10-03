@@ -14,6 +14,9 @@ var speed := 2.4
 var stalled := 0.0
 var previous_position := Vector3.ZERO
 var facing_offset := 0.0
+var layered := false
+var navigation_surface: Node3D
+var recovery_count := 0
 
 func configure(data: Dictionary) -> void:
 	definition = data
@@ -92,6 +95,11 @@ func set_action(semantic: String, station_fallback: String = "interact") -> void
 				animation_player.play(fallback)
 
 func go_to(station: Dictionary, surface: Node3D) -> bool:
+	navigation_surface = surface
+	layered = not surface.transitions.is_empty()
+	floor_snap_length = 0.4
+	floor_max_angle = deg_to_rad(35.0)
+	floor_constant_speed = true
 	target_station = station
 	var approach := preload("res://scripts/asset_builder.gd").vector(station.approach)
 	var interaction := preload("res://scripts/asset_builder.gd").vector(station.interaction)
@@ -115,7 +123,7 @@ func _physics_process(delta: float) -> void:
 	if not moving:
 		velocity = Vector3.ZERO
 		return
-	while not path_points.is_empty() and Vector2(global_position.x,global_position.z).distance_to(Vector2(path_points[0].x,path_points[0].z)) < 0.09:
+	while not path_points.is_empty() and Vector2(global_position.x,global_position.z).distance_to(Vector2(path_points[0].x,path_points[0].z)) < 0.09 and (not layered or absf(global_position.y-path_points[0].y) < 0.4):
 		path_points.remove_at(0)
 	if path_points.is_empty():
 		moving = false
@@ -128,9 +136,23 @@ func _physics_process(delta: float) -> void:
 	offset.y = 0
 	var direction := offset.normalized()
 	rotation.y = lerp_angle(rotation.y, atan2(-direction.x,-direction.z), minf(1,delta*10))
+	var vertical := velocity.y - 9.8*delta if layered else 0.0
 	velocity = direction * minf(speed, offset.length() / delta)
+	velocity.y = vertical
 	move_and_slide()
-	global_position.y = 0
+	if not layered:
+		global_position.y = path_points[0].y
+	else:
+		var support: float = navigation_surface.support_height(global_position)
+		if not is_finite(support) or absf(global_position.y-support) > 0.4:
+			global_position = navigation_surface.safe_fallback(global_position)
+			velocity = Vector3.ZERO
+			moving = false
+			path_points.clear()
+			recovery_count += 1
+			set_action("idle")
+			unreachable.emit(target_station.id)
+			return
 	if global_position.distance_to(previous_position) < 0.005:
 		stalled += delta
 	else:

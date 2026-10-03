@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "lumen_observatory_routine",
+  "cycle_seconds": 60,
+  "steps": [
+    {
+      "id": "activity_0_station_step",
+      "label": "Quiet archive - read",
+      "activity_tag": "read",
+      "animation": "read",
+      "duration_seconds": 20,
+      "station_id": "activity_0_station"
+    },
+    {
+      "id": "activity_1_station_step",
+      "label": "Instrument deck - observe",
+      "activity_tag": "observe",
+      "animation": "observe",
+      "duration_seconds": 20,
+      "station_id": "activity_1_station"
+    },
+    {
+      "id": "keepsake_station_step",
+      "label": "Lumen original signal sculpture",
+      "activity_tag": "inspect",
+      "animation": "idle",
+      "duration_seconds": 20,
+      "station_id": "keepsake_station"
+    }
+  ],
+  "projects": [],
+  "metadata": {
+    "simulation_only": true,
+    "progress_policy": "No architecture is created by this routine."
+  }
+}

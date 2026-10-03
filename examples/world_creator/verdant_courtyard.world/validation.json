@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "ok": true,
+  "errors": [],
+  "checks": [
+    "bounded_local_files",
+    "complete_hashes",
+    "identity",
+    "strict_spec",
+    "exact_recompilation",
+    "functional_validation"
+  ],
+  "scope": "Static package/registered compiler acceptance only; browser and host evidence are separate.",
+  "world_id": "verdant_courtyard",
+  "compiler": "semantic_grid_v1",
+  "validator": "semantic_grid_validator_v1"
+}

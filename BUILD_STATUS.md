@@ -1,8 +1,16 @@
 # Domes for Dots — build status
 
+## Autonomous World Creator experiment · 2026-10-02
+
+Based on merged main `c4fb1e2743ede9750582750b3e531fc2e0549aa5`, including Character Factory PR #1. The earlier pre-merge notes below are historical. This feature is [draft PR #2](https://github.com/bslizzle8552/domes-for-dots/pull/2), not a new release.
+
+Implemented: semantic intent/spec/package compiler, three independent synthetic layouts and compatible characters, straight-ramp physics and navigation, protected narrow revisions and recovery, and a reusable owner-private Site adapter with D1 state and approved primitive JSON loading. [Cloud worker run](https://github.com/bslizzle8552/domes-for-dots/actions/runs/37080816856) succeeded. Final local shared Web runtime passed 47 browser checks; native suites passed 611 assertions. Hosted and consolidated evidence is recorded in the [completion report](AUTONOMOUS_WORLD_CREATOR_COMPLETION_2026-10-02.md).
+
+The new [private World Creator Lab](https://domes-world-creator-lab.bslizzle.chatgpt.site) is separate from Rocky and Aster. The owner installs nothing. Current boundaries: operator-mediated compilation/publication, bounded primitive layouts, straight ramps only, stationary simulated station animations without IK/contact guarantees, desktop Chromium acceptance, and no native ChatGPT work/call feed. General self-service provisioning and arbitrary live executable assets are unavailable.
+
 ## Post-V2 cloud character increment · 2026-10-02
 
-**Pre-merge cleanup:** generic package v2 + mandatory strict producer validation; accurate proof/operator/target wording; Sites preferred for the next private-world experiment while hosting stays portable. [Cleanup files and acceptance](docs/CHARACTER_FACTORY_CLEANUP.md). The Autonomous World Creator is next after merge; auth/storage is deferred. PR #1 remains draft.
+**Historical pre-merge cleanup:** generic package v2 + mandatory strict producer validation; accurate proof/operator/target wording; Sites preferred for a private-world experiment while hosting stays portable. [Cleanup files and acceptance](docs/CHARACTER_FACTORY_CLEANUP.md). PR #1 was subsequently merged; the experiment above supersedes this earlier pending status.
 
 The current development branch implements approved-reference/specification transport, a deterministic skinned GLB factory, validated isolated world installation and a real GitHub-hosted Godot export. [The dispatched cloud job passed](https://github.com/bslizzle8552/domes-for-dots/actions/runs/37071571343). See the [completion report](docs/AUTOMATIC_CHARACTER_COMPLETION.md), [cloud build receipt](docs/validation/factory-cloud-build.json), [Rocky investigation](docs/ROCKY_REFERENCE_PIPELINE.md), [capability inventory](docs/CAPABILITY_INVENTORY.md) and [dependency audit](docs/VIRTUAL_ONLY_AUDIT.md).
 
