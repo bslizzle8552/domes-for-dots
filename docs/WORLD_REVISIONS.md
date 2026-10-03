@@ -10,7 +10,7 @@ The implemented local adapter is an operator tool. It supplies an exclusive file
 from pathlib import Path
 from tools.world_revisions import prepare_revision, plan_revision, apply_revision
 
-root = Path("artifacts/world_creator/revisions-v3/working")
+root = Path("artifacts/world_creator/revisions-final/working")
 request = prepare_revision(
     root, "lumen_observatory",
     [{"op": "move_object", "id": "activity_0",
@@ -127,7 +127,7 @@ The existing bound of ten retained filesystem authoring transactions still appli
 .\.venv\Scripts\python.exe tools/world_revision_acceptance.py `
   --source artifacts/world_creator/stage `
   --world-id lumen_observatory `
-  --output artifacts/world_creator/revisions-v3
+  --output artifacts/world_creator/revisions-final
 ```
 
 Use a fresh output directory for a rerun. The source is read-only. The runner creates a synthetic owner-moved/pinned lamp and preserves existing protected compiler objects. It writes independent composed-repository snapshots at `base`, `furniture`, `addition`, and `structural`; each includes `schemas/`, `godot/`, `snapshot.json` and the exact authoring receipt when applicable. These can be exported or registered by a separate trusted Site adapter.

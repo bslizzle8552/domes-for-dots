@@ -83,6 +83,7 @@ def prepare(site: Path, web: Path, roots: list[Path], world_id: str) -> dict:
     html=html.replace('engine.startGame({','window.domesHostReady.then(() => engine.startGame({').replace('}).then(() => {\n\t\t\tsetStatusMode','})).then(() => {\n\t\t\tsetStatusMode')
     exported.update({'index.js':script.encode('utf-8'),'index.html':html.encode('utf-8'),'index.wasm.gz':compressed_engine})
     records, base = {}, None
+    validated_sources=[]
     data_dir=site/'public/world-data'
     pending_data={}
     for number, root in enumerate(roots, 1):
@@ -141,10 +142,14 @@ def prepare(site: Path, web: Path, roots: list[Path], world_id: str) -> dict:
             'routine_id':full['routine']['id'],'project_ids':[p['id'] for p in full['routine']['projects']],
             'title':full['world']['title'],'migration':'preserve_existing_ids_and_routine',
             'source_hash':source_hash}
+        validated_sources.append((root,source_hash))
     registry={'world_id':world_id,'default_revision':1,'revisions':records}
     # Only after every candidate/export check passes, update local packaging.
     # Content-addressed old bundles are deliberately retained for known-good
     # rollback; this adapter performs no cleanup or hosted activation.
+    for root,source_hash in validated_sources:
+        if content_hash(root/'godot/content')!=source_hash:
+            raise ValueError('Source content changed during Site preparation; revalidate the current revision')
     _safe_public_tree(site)
     data_dir.mkdir(parents=True, exist_ok=True)
     for name,raw in pending_data.items():

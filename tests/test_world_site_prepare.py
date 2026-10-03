@@ -171,6 +171,20 @@ class WorldSitePrepareTests(unittest.TestCase):
             self.prepare([self.root, candidate])
         self.assert_no_generated_output()
 
+    def test_content_change_after_validation_cannot_gain_a_valid_bundle_receipt(self):
+        original = siteprep.ContentValidator.validate
+        def change_after_validation(validator):
+            errors = original(validator)
+            path = self.root / "godot/content/worlds/cedar_atelier.json"
+            world = author.read_json(path)
+            world["unvalidated_field"] = "changed after schema validation"
+            author.write_json(path, world)
+            return errors
+        with mock.patch.object(siteprep.ContentValidator, "validate", autospec=True, side_effect=change_after_validation):
+            with self.assertRaisesRegex(ValueError, "Source content changed during Site preparation"):
+                self.prepare()
+        self.assert_no_generated_output()
+
 
 if __name__ == "__main__":
     unittest.main()
