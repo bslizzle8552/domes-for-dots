@@ -35,6 +35,7 @@ const distance = (a, b) => Math.hypot(...a.map((v, i) => v - b[i]));
     const start = performance.now();
     check('exported page delivered', (await page.goto(url)).status() === 200);
     await ready(worlds[0].id);
+    check('standalone Web uses browser storage adapter', (await snap()).save_status.startsWith('This browser'));
     const startup = performance.now() - start;
     for (const world of worlds) {
       if ((await snap()).world_id !== world.id) { await command('world', world.id); await ready(world.id); }
