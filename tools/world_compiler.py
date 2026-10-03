@@ -220,11 +220,14 @@ def validate_package_contents(folder, package, report):
     """Strict registered producer validation, separate from the generic envelope."""
     from validate_content import read_json
     from world_intent import intent_to_spec
+    safe_data(package["provenance"], "$.provenance")
     for name in package["files"]:
         if not name.endswith(".json"):
             raise ValueError("registered primitive compiler accepts JSON documents only")
     spec = read_json(folder/package["spec_path"])
     intent = read_json(folder/package["intent_path"])
+    if package["provenance"].get("intent_sha256") != hashlib.sha256(canonical(intent)).hexdigest():
+        raise ValueError("intent provenance hash disagrees with validated intent")
     character = read_json(folder/package["character_manifest"])
     if spec != intent_to_spec(intent, character):
         raise ValueError("world specification does not match its hashed creative intent and character profile")

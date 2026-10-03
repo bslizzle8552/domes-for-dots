@@ -264,6 +264,13 @@ class WorldPackageTests(unittest.TestCase):
         self.mutate("package.json", lambda x:x.update(compiler="unknown"))
         self.assertFalse(validate_package(self.folder)["ok"])
 
+    def test_package_provenance_cannot_carry_secret_or_fake_source_hash(self):
+        self.mutate("package.json", lambda x:x["provenance"].update(api_key="fixture-secret"))
+        self.assertFalse(validate_package(self.folder)["ok"])
+        self.mutate("package.json", lambda x:x["provenance"].pop("api_key"))
+        self.mutate("package.json", lambda x:x["provenance"].update(intent_sha256="0"*64))
+        self.assertFalse(validate_package(self.folder)["ok"])
+
     def test_digest_mismatch(self):
         self.mutate("world.json", lambda x:x.update(title="changed"), rehash=False)
         self.assertFalse(validate_package(self.folder)["ok"])
