@@ -79,3 +79,9 @@ python tools/world_package.py validate examples/world_creator/lumen_observatory.
 Use new output directories for new immutable packages. The generator reuses the independently authored public Character Factory reference card through the existing registered producer, with distinct synthetic identities, palettes, proportions and creative briefs. It does not copy Rocky's assets or identity. Examples are Ember's linear foundry, Lumen's elevated observatory and Fern's garden courtyard. They differ in topology, activities, geometry placement and character packages, not only colors.
 
 Package receipts prove static acceptance only. Consult current completion/validation reports for exact Godot, browser, host, state, revision and performance evidence. A successful export alone is not a successful private deployment.
+
+## Operator cloud execution
+
+`.github/workflows/world-creator.yml` runs the same three independent synthetic inputs on an ephemeral GitHub Actions worker. `tools/world_creator_worker.py` regenerates each Character Package from its approved spec, compiles each World Package, composes all three, imports them with pinned Godot 4.5.1, audits actual characters, runs each producer's registered motion contract, runs generated-world/multilevel physical acceptance, and exports one shared Web runtime. It reuses `setup_cloud_godot.py` and the checked engine runner from the existing Character Factory build infrastructure.
+
+The immutable job directory contains phase durations, source/engine/package/export SHA-256 hashes, independent validation results and engine logs. Failure preserves diagnostics and never claims publication. Web artifacts include licenses. The workflow does not publish, grant private access, or claim browser playback; those gates need separate evidence for the exported bytes. This operator-dispatched proof does not implement generalized self-service creation or authentication.

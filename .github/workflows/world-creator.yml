@@ -1,0 +1,61 @@
+name: Cloud world creator
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'tools/world_*.py'
+      - 'schemas/world*.json'
+      - 'schemas/semantic-grid-world-spec.schema.json'
+      - 'godot/**'
+      - 'examples/world_creator/**'
+      - '.github/workflows/world-creator.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  compile-three-worlds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - name: Install operator validation dependencies
+        run: python -m pip install -r requirements-dev.txt
+      - name: Validate existing and generated content contracts
+        run: |
+          python tools/validate_content.py
+          python -m unittest discover -s tests -v
+      - name: Prepare pinned ephemeral engine and matching templates
+        run: python tools/setup_cloud_godot.py
+      - name: Compile and test three independent synthetic worlds
+        run: >-
+          python tools/world_creator_worker.py
+          --job-dir artifacts/world-creator-job
+          --godot .tools/cloud-godot/Godot_v4.5.1-stable_linux.x86_64
+      - name: Preserve compiler packages, receipts and engine logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: world-creator-evidence
+          path: |
+            artifacts/world-creator-job/job.json
+            artifacts/world-creator-job/engine-audit.json
+            artifacts/world-creator-job/packages/
+            artifacts/world-creator-job/logs/
+            artifacts/world-creator-job/stage/world-composition.json
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Preserve complete ready-to-host browser runtime
+        uses: actions/upload-artifact@v4
+        with:
+          name: three-worlds-web
+          path: artifacts/world-creator-job/web/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
