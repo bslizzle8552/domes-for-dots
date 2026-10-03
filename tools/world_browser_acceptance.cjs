@@ -36,6 +36,7 @@ const distance = (a, b) => Math.hypot(...a.map((v, i) => v - b[i]));
     check('exported page delivered', (await page.goto(url)).status() === 200);
     await ready(worlds[0].id);
     check('standalone Web uses browser storage adapter', (await snap()).save_status.startsWith('This browser'));
+    check('standalone catalog retains every compiled world', JSON.stringify((await snap()).catalog_world_ids) === JSON.stringify(worlds.map(world => world.id)));
     const startup = performance.now() - start;
     for (const world of worlds) {
       if ((await snap()).world_id !== world.id) { await command('world', world.id); await ready(world.id); }

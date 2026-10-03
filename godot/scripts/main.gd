@@ -63,18 +63,22 @@ func _ready() -> void:
 		ui.notice_label.text = index.error
 		return
 	catalog = index.get("worlds",[])
-	ui.set_catalog(catalog)
 	if OS.has_feature("web"):
 		_setup_bridge()
+		var hosted_id: Variant = JavaScriptBridge.eval("window.domesHostedBundle?.world?.id || null", true)
+		if hosted_id is String:
+			# A private Site's state adapter authorizes one registered world.
+			# Scope both the visible selector and command lookup to that world.
+			var hosted_catalog: Array = []
+			for entry in catalog:
+				if entry.id == hosted_id:
+					hosted_catalog.append(entry)
+			catalog = hosted_catalog
+			if catalog.is_empty():
+				ui.notice_label.text = "Hosted world is not available in this runtime."
+	ui.set_catalog(catalog)
 	if not catalog.is_empty():
-		var startup_id: String = catalog[0].id
-		if OS.has_feature("web"):
-			var hosted_id: Variant = JavaScriptBridge.eval("window.domesHostedBundle?.world?.id || null", true)
-			if hosted_id is String:
-				for entry in catalog:
-					if entry.id == hosted_id:
-						startup_id = hosted_id
-		await load_world(startup_id)
+		await load_world(catalog[0].id)
 
 func load_world(id: String) -> bool:
 	if switching:
@@ -461,7 +465,10 @@ func receive_mock(event: Dictionary) -> Dictionary:
 	return last_event_result
 
 func snapshot() -> Dictionary:
-	return {"ready":ready_world,"object_count":world.get("objects",[]).size(),"structure_revision":world.get("metadata",{}).get("structure_revision",0),"recovery_count":motor.recovery_count if is_instance_valid(motor) else 0,"transition_id":str(surface.transition_at(motor.position).get("id","")) if is_instance_valid(surface) and is_instance_valid(motor) else "","navigation_build_msec":surface.build_msec if is_instance_valid(surface) else 0,"support_height":surface.support_height(motor.position) if is_instance_valid(surface) and is_instance_valid(motor) else 0,"world_id":world.get("id",""),"character_id":character.get("id",""),"position":[motor.position.x,motor.position.y,motor.position.z] if is_instance_valid(motor) else [],"station":current_station,"moving":motor.moving if is_instance_valid(motor) else false,"action":motor.action if is_instance_valid(motor) else "","source":displayed_source,"resident":resident,"simulation":simulation,"epoch":state.get("routine_epoch",0),"revision":state.get("revision",0),"preview_offset":preview_offset,"save_status":save_status,"notice":notice,"show_markers":show_markers,"autonomy_paused":state.get("preferences",{}).get("autonomy_paused",false),"controls":ui.control_bounds() if is_instance_valid(ui) else {},"viewport_size":[get_viewport().get_visible_rect().size.x,get_viewport().get_visible_rect().size.y],"connections":{"work":"unavailable","native_call":"unavailable"},"event_result":last_event_result,"visual":motor.visual_snapshot() if is_instance_valid(motor) else {}}
+	var catalog_world_ids: Array[String] = []
+	for entry in catalog:
+		catalog_world_ids.append(str(entry.id))
+	return {"ready":ready_world,"catalog_world_ids":catalog_world_ids,"object_count":world.get("objects",[]).size(),"structure_revision":world.get("metadata",{}).get("structure_revision",0),"recovery_count":motor.recovery_count if is_instance_valid(motor) else 0,"transition_id":str(surface.transition_at(motor.position).get("id","")) if is_instance_valid(surface) and is_instance_valid(motor) else "","navigation_build_msec":surface.build_msec if is_instance_valid(surface) else 0,"support_height":surface.support_height(motor.position) if is_instance_valid(surface) and is_instance_valid(motor) else 0,"world_id":world.get("id",""),"character_id":character.get("id",""),"position":[motor.position.x,motor.position.y,motor.position.z] if is_instance_valid(motor) else [],"station":current_station,"moving":motor.moving if is_instance_valid(motor) else false,"action":motor.action if is_instance_valid(motor) else "","source":displayed_source,"resident":resident,"simulation":simulation,"epoch":state.get("routine_epoch",0),"revision":state.get("revision",0),"preview_offset":preview_offset,"save_status":save_status,"notice":notice,"show_markers":show_markers,"autonomy_paused":state.get("preferences",{}).get("autonomy_paused",false),"controls":ui.control_bounds() if is_instance_valid(ui) else {},"viewport_size":[get_viewport().get_visible_rect().size.x,get_viewport().get_visible_rect().size.y],"connections":{"work":"unavailable","native_call":"unavailable"},"event_result":last_event_result,"visual":motor.visual_snapshot() if is_instance_valid(motor) else {}}
 
 func _setup_bridge() -> void:
 	bridge_callback = JavaScriptBridge.create_callback(_web_command)
